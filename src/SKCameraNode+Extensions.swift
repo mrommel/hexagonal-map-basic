@@ -8,6 +8,7 @@
 import SpriteKit
 
 extension SKCameraNode {
+    
     func updateScaleFor(userInterfaceIdiom: UIUserInterfaceIdiom, isLandscape: Bool) {
         switch userInterfaceIdiom {
             case .phone:

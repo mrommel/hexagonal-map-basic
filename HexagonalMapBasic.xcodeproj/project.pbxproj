@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1ADE279F1E48B8EC001F44FF /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE279E1E48B8EC001F44FF /* MenuViewController.swift */; };
+		1ADE27A21E48BAB3001F44FF /* UIViewController+Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE27A11E48BAB3001F44FF /* UIViewController+Storyboard.swift */; };
 		4D15C2891D442302007A5EE2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D15C2881D442302007A5EE2 /* AppDelegate.swift */; };
 		4D15C28B1D442302007A5EE2 /* LandingScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 4D15C28A1D442302007A5EE2 /* LandingScene.sks */; };
 		4D15C28F1D442302007A5EE2 /* LandingScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D15C28E1D442302007A5EE2 /* LandingScene.swift */; };
@@ -26,6 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1ADE279E1E48B8EC001F44FF /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuViewController.swift; path = ViewControllers/MenuViewController.swift; sourceTree = "<group>"; };
+		1ADE27A11E48BAB3001F44FF /* UIViewController+Storyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIViewController+Storyboard.swift"; path = "Extensions/UIViewController+Storyboard.swift"; sourceTree = "<group>"; };
 		22AA1275C9994E5D58C36935 /* Pods_HexagonalMapBasic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HexagonalMapBasic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		31793D30FF1A02BBCED07F71 /* Pods-HexagonalMapBasic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HexagonalMapBasic.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HexagonalMapBasic/Pods-HexagonalMapBasic.debug.xcconfig"; sourceTree = "<group>"; };
 		3C40715086CB38506213EF83 /* Pods-HexagonalMapBasic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HexagonalMapBasic.release.xcconfig"; path = "Pods/Target Support Files/Pods-HexagonalMapBasic/Pods-HexagonalMapBasic.release.xcconfig"; sourceTree = "<group>"; };
@@ -33,7 +37,7 @@
 		4D15C2881D442302007A5EE2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4D15C28A1D442302007A5EE2 /* LandingScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = LandingScene.sks; sourceTree = "<group>"; };
 		4D15C28E1D442302007A5EE2 /* LandingScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingScene.swift; sourceTree = "<group>"; };
-		4D15C2901D442302007A5EE2 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		4D15C2901D442302007A5EE2 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GameViewController.swift; path = ViewControllers/GameViewController.swift; sourceTree = "<group>"; };
 		4D15C2931D442302007A5EE2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4D15C2951D442302007A5EE2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4D15C2981D442302007A5EE2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -69,16 +73,25 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		1ADE279D1E488D05001F44FF /* presentation */ = {
+		1ADE279D1E488D05001F44FF /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				1ADE27A01E48BA91001F44FF /* Extensions */,
 				4D15C2881D442302007A5EE2 /* AppDelegate.swift */,
-				4DCE427F1D44298C003B7E3C /* viewcontroller */,
-				4DCE427E1D442972003B7E3C /* storyboard */,
-				4DCE42831D442A19003B7E3C /* scene */,
-				4D19AFA11D6319160027FEC1 /* node */,
+				4DCE427F1D44298C003B7E3C /* ViewControllers */,
+				4DCE427E1D442972003B7E3C /* Storyboards */,
+				4DCE42831D442A19003B7E3C /* Scenes */,
+				4D19AFA11D6319160027FEC1 /* Nodes */,
 			);
-			name = presentation;
+			name = Presentation;
+			sourceTree = "<group>";
+		};
+		1ADE27A01E48BA91001F44FF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1ADE27A11E48BAB3001F44FF /* UIViewController+Storyboard.swift */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 		1CFC6B4386390A5B2BD2A1A8 /* Frameworks */ = {
@@ -110,20 +123,20 @@
 		4D15C2871D442302007A5EE2 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				1ADE279D1E488D05001F44FF /* presentation */,
+				1ADE279D1E488D05001F44FF /* Presentation */,
 				4DCE42821D442A02003B7E3C /* Resources */,
 				4D15C29A1D442302007A5EE2 /* Info.plist */,
 			);
 			path = src;
 			sourceTree = "<group>";
 		};
-		4D19AFA11D6319160027FEC1 /* node */ = {
+		4D19AFA11D6319160027FEC1 /* Nodes */ = {
 			isa = PBXGroup;
 			children = (
 				4D19AFA21D6319370027FEC1 /* SKCameraNode+Extensions.swift */,
 				4D19AFA61D67B76E0027FEC1 /* SKTileMapNode+Extensions.swift */,
 			);
-			name = node;
+			name = Nodes;
 			sourceTree = "<group>";
 		};
 		4DA76F6E1D8378A4000C3571 /* sprites */ = {
@@ -137,21 +150,22 @@
 			name = sprites;
 			sourceTree = "<group>";
 		};
-		4DCE427E1D442972003B7E3C /* storyboard */ = {
+		4DCE427E1D442972003B7E3C /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
 				4D15C2971D442302007A5EE2 /* LaunchScreen.storyboard */,
 				4D15C2921D442302007A5EE2 /* Main.storyboard */,
 			);
-			name = storyboard;
+			name = Storyboards;
 			sourceTree = "<group>";
 		};
-		4DCE427F1D44298C003B7E3C /* viewcontroller */ = {
+		4DCE427F1D44298C003B7E3C /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				4D15C2901D442302007A5EE2 /* GameViewController.swift */,
+				1ADE279E1E48B8EC001F44FF /* MenuViewController.swift */,
 			);
-			name = viewcontroller;
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 		4DCE42821D442A02003B7E3C /* Resources */ = {
@@ -163,7 +177,7 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		4DCE42831D442A19003B7E3C /* scene */ = {
+		4DCE42831D442A19003B7E3C /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
 				4DD013411D7D6BE00023A42D /* TileMapScene+Extensions.swift */,
@@ -171,7 +185,7 @@
 				4D15C28E1D442302007A5EE2 /* LandingScene.swift */,
 				4D42C8921D69AD4900DCB851 /* GameSceneBase.swift */,
 			);
-			name = scene;
+			name = Scenes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -306,7 +320,9 @@
 				4D15C28F1D442302007A5EE2 /* LandingScene.swift in Sources */,
 				4D19AFA71D67B76E0027FEC1 /* SKTileMapNode+Extensions.swift in Sources */,
 				4D15C2911D442302007A5EE2 /* GameViewController.swift in Sources */,
+				1ADE27A21E48BAB3001F44FF /* UIViewController+Storyboard.swift in Sources */,
 				4DD013401D7D5FC00023A42D /* TileMapScene.swift in Sources */,
+				1ADE279F1E48B8EC001F44FF /* MenuViewController.swift in Sources */,
 				4D15C2891D442302007A5EE2 /* AppDelegate.swift in Sources */,
 				4DD013421D7D6BE00023A42D /* TileMapScene+Extensions.swift in Sources */,
 				4D42C8931D69AD4900DCB851 /* GameSceneBase.swift in Sources */,
@@ -323,6 +339,7 @@
 				4D15C2931D442302007A5EE2 /* Base */,
 			);
 			name = Main.storyboard;
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 		4D15C2971D442302007A5EE2 /* LaunchScreen.storyboard */ = {
@@ -331,6 +348,7 @@
 				4D15C2981D442302007A5EE2 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
