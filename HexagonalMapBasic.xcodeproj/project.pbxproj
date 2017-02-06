@@ -219,7 +219,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
 				LastUpgradeCheck = 0820;
-				ORGANIZATIONNAME = "MARK BROWNSWORD";
+				ORGANIZATIONNAME = MiRo;
 				TargetAttributes = {
 					4D15C2841D442302007A5EE2 = {
 						CreatedOnToolsVersion = 8.0;
