@@ -223,7 +223,7 @@
 				TargetAttributes = {
 					4D15C2841D442302007A5EE2 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = ZFLXAH6R6D;
+						DevelopmentTeam = CMUQ7NPWU8;
 						DevelopmentTeamName = "Mark BROWNSWORD (Personal Team)";
 						ProvisioningStyle = Automatic;
 					};
@@ -448,10 +448,11 @@
 			baseConfigurationReference = 31793D30FF1A02BBCED07F71 /* Pods-HexagonalMapBasic.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = CMUQ7NPWU8;
 				INFOPLIST_FILE = src/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.faraway.src;
+				PRODUCT_BUNDLE_IDENTIFIER = com.miro.hexagonal.game;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -462,10 +463,11 @@
 			baseConfigurationReference = 3C40715086CB38506213EF83 /* Pods-HexagonalMapBasic.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = CMUQ7NPWU8;
 				INFOPLIST_FILE = src/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.faraway.src;
+				PRODUCT_BUNDLE_IDENTIFIER = com.miro.hexagonal.game;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
