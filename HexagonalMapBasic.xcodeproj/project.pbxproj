@@ -22,9 +22,13 @@
 		4DA76F6D1D8374B7000C3571 /* Grid.sks in Resources */ = {isa = PBXBuildFile; fileRef = 4DA76F6C1D8374B7000C3571 /* Grid.sks */; };
 		4DD013401D7D5FC00023A42D /* TileMapScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD0133F1D7D5FC00023A42D /* TileMapScene.swift */; };
 		4DD013421D7D6BE00023A42D /* TileMapScene+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD013411D7D6BE00023A42D /* TileMapScene+Extensions.swift */; };
+		F510CBA54A1C0453AACE31AC /* Pods_HexagonalMapBasic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22AA1275C9994E5D58C36935 /* Pods_HexagonalMapBasic.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		22AA1275C9994E5D58C36935 /* Pods_HexagonalMapBasic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HexagonalMapBasic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		31793D30FF1A02BBCED07F71 /* Pods-HexagonalMapBasic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HexagonalMapBasic.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HexagonalMapBasic/Pods-HexagonalMapBasic.debug.xcconfig"; sourceTree = "<group>"; };
+		3C40715086CB38506213EF83 /* Pods-HexagonalMapBasic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HexagonalMapBasic.release.xcconfig"; path = "Pods/Target Support Files/Pods-HexagonalMapBasic/Pods-HexagonalMapBasic.release.xcconfig"; sourceTree = "<group>"; };
 		4D15C2851D442302007A5EE2 /* HexagonalMapBasic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HexagonalMapBasic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D15C2881D442302007A5EE2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4D15C28A1D442302007A5EE2 /* LandingScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = LandingScene.sks; sourceTree = "<group>"; };
@@ -49,17 +53,49 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F510CBA54A1C0453AACE31AC /* Pods_HexagonalMapBasic.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		16B26414B5B6C8CC063AFC16 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				31793D30FF1A02BBCED07F71 /* Pods-HexagonalMapBasic.debug.xcconfig */,
+				3C40715086CB38506213EF83 /* Pods-HexagonalMapBasic.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		1ADE279D1E488D05001F44FF /* presentation */ = {
+			isa = PBXGroup;
+			children = (
+				4D15C2881D442302007A5EE2 /* AppDelegate.swift */,
+				4DCE427F1D44298C003B7E3C /* viewcontroller */,
+				4DCE427E1D442972003B7E3C /* storyboard */,
+				4DCE42831D442A19003B7E3C /* scene */,
+				4D19AFA11D6319160027FEC1 /* node */,
+			);
+			name = presentation;
+			sourceTree = "<group>";
+		};
+		1CFC6B4386390A5B2BD2A1A8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				22AA1275C9994E5D58C36935 /* Pods_HexagonalMapBasic.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		4D15C27C1D442302007A5EE2 = {
 			isa = PBXGroup;
 			children = (
 				4D15C2871D442302007A5EE2 /* src */,
 				4D15C2861D442302007A5EE2 /* Products */,
+				16B26414B5B6C8CC063AFC16 /* Pods */,
+				1CFC6B4386390A5B2BD2A1A8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,88 +110,68 @@
 		4D15C2871D442302007A5EE2 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				4DCE42821D442A02003B7E3C /* assets */,
-				4DCE427F1D44298C003B7E3C /* controller */,
-				4D19AFA11D6319160027FEC1 /* extension */,
-				4DCE427D1D442956003B7E3C /* init */,
-				4DD0133E1D7D5F730023A42D /* protocol */,
-				4DCE42831D442A19003B7E3C /* scene */,
-				4DA76F6E1D8378A4000C3571 /* tile */,
-				4DCE427E1D442972003B7E3C /* view */,
+				1ADE279D1E488D05001F44FF /* presentation */,
+				4DCE42821D442A02003B7E3C /* Resources */,
+				4D15C29A1D442302007A5EE2 /* Info.plist */,
 			);
 			path = src;
 			sourceTree = "<group>";
 		};
-		4D19AFA11D6319160027FEC1 /* extension */ = {
+		4D19AFA11D6319160027FEC1 /* node */ = {
 			isa = PBXGroup;
 			children = (
 				4D19AFA21D6319370027FEC1 /* SKCameraNode+Extensions.swift */,
 				4D19AFA61D67B76E0027FEC1 /* SKTileMapNode+Extensions.swift */,
-				4DD013411D7D6BE00023A42D /* TileMapScene+Extensions.swift */,
 			);
-			name = extension;
+			name = node;
 			sourceTree = "<group>";
 		};
-		4DA76F6E1D8378A4000C3571 /* tile */ = {
+		4DA76F6E1D8378A4000C3571 /* sprites */ = {
 			isa = PBXGroup;
 			children = (
+				4D15C28A1D442302007A5EE2 /* LandingScene.sks */,
 				4D3429781D5B20B70013E757 /* Background.sks */,
 				4DA76F6C1D8374B7000C3571 /* Grid.sks */,
 				4D3B89441D78F96200BE2FC0 /* Selection.sks */,
 			);
-			name = tile;
+			name = sprites;
 			sourceTree = "<group>";
 		};
-		4DCE427D1D442956003B7E3C /* init */ = {
+		4DCE427E1D442972003B7E3C /* storyboard */ = {
 			isa = PBXGroup;
 			children = (
-				4D15C2881D442302007A5EE2 /* AppDelegate.swift */,
-				4D15C29A1D442302007A5EE2 /* Info.plist */,
-			);
-			name = init;
-			sourceTree = "<group>";
-		};
-		4DCE427E1D442972003B7E3C /* view */ = {
-			isa = PBXGroup;
-			children = (
-				4D15C28A1D442302007A5EE2 /* LandingScene.sks */,
 				4D15C2971D442302007A5EE2 /* LaunchScreen.storyboard */,
 				4D15C2921D442302007A5EE2 /* Main.storyboard */,
 			);
-			name = view;
+			name = storyboard;
 			sourceTree = "<group>";
 		};
-		4DCE427F1D44298C003B7E3C /* controller */ = {
+		4DCE427F1D44298C003B7E3C /* viewcontroller */ = {
 			isa = PBXGroup;
 			children = (
 				4D15C2901D442302007A5EE2 /* GameViewController.swift */,
 			);
-			name = controller;
+			name = viewcontroller;
 			sourceTree = "<group>";
 		};
-		4DCE42821D442A02003B7E3C /* assets */ = {
+		4DCE42821D442A02003B7E3C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4DA76F6E1D8378A4000C3571 /* sprites */,
 				4D15C2951D442302007A5EE2 /* Assets.xcassets */,
 			);
-			name = assets;
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		4DCE42831D442A19003B7E3C /* scene */ = {
 			isa = PBXGroup;
 			children = (
+				4DD013411D7D6BE00023A42D /* TileMapScene+Extensions.swift */,
+				4DD0133F1D7D5FC00023A42D /* TileMapScene.swift */,
 				4D15C28E1D442302007A5EE2 /* LandingScene.swift */,
 				4D42C8921D69AD4900DCB851 /* GameSceneBase.swift */,
 			);
 			name = scene;
-			sourceTree = "<group>";
-		};
-		4DD0133E1D7D5F730023A42D /* protocol */ = {
-			isa = PBXGroup;
-			children = (
-				4DD0133F1D7D5FC00023A42D /* TileMapScene.swift */,
-			);
-			name = protocol;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,9 +181,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4D15C2A81D442303007A5EE2 /* Build configuration list for PBXNativeTarget "HexagonalMapBasic" */;
 			buildPhases = (
+				6455808188C891D3A9F5230D /* [CP] Check Pods Manifest.lock */,
 				4D15C2811D442302007A5EE2 /* Sources */,
 				4D15C2821D442302007A5EE2 /* Frameworks */,
 				4D15C2831D442302007A5EE2 /* Resources */,
+				F3B556D8A17EA88C34B5C666 /* [CP] Embed Pods Frameworks */,
+				E8859BA9C35B069E1AFF322F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -230,6 +249,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6455808188C891D3A9F5230D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E8859BA9C35B069E1AFF322F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HexagonalMapBasic/Pods-HexagonalMapBasic-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F3B556D8A17EA88C34B5C666 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HexagonalMapBasic/Pods-HexagonalMapBasic-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4D15C2811D442302007A5EE2 /* Sources */ = {
@@ -360,6 +427,7 @@
 		};
 		4D15C2A91D442303007A5EE2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 31793D30FF1A02BBCED07F71 /* Pods-HexagonalMapBasic.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = src/Info.plist;
@@ -373,6 +441,7 @@
 		};
 		4D15C2AA1D442303007A5EE2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3C40715086CB38506213EF83 /* Pods-HexagonalMapBasic.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = src/Info.plist;
