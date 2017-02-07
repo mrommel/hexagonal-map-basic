@@ -180,8 +180,8 @@
 		4DCE42831D442A19003B7E3C /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				4DD013411D7D6BE00023A42D /* TileMapScene+Extensions.swift */,
 				4DD0133F1D7D5FC00023A42D /* TileMapScene.swift */,
+				4DD013411D7D6BE00023A42D /* TileMapScene+Extensions.swift */,
 				4D15C28E1D442302007A5EE2 /* LandingScene.swift */,
 				4D42C8921D69AD4900DCB851 /* GameSceneBase.swift */,
 			);

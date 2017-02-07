@@ -9,7 +9,7 @@ import UIKit
 import SpriteKit
 import GameplayKit
 
-class GameViewController: UIViewController {
+class GameViewController: UIViewController, TileMapSceneDelegate {
     
     private var sceneNode: TileMapScene!
     
@@ -28,10 +28,6 @@ class GameViewController: UIViewController {
         }
     }
     
-    override var prefersStatusBarHidden: Bool {
-        return true
-    }
-    
     
     // MARK: Function overrides
     
@@ -45,6 +41,10 @@ class GameViewController: UIViewController {
             // Get the SKScene from the loaded GKScene
             if let sceneNode = scene.rootNode as! TileMapScene? {
                 self.sceneNode = sceneNode
+                
+                if let landingScene = scene.rootNode as! LandingScene? {
+                    landingScene.sceneDelegate = self
+                }
                 
                 // Copy gameplay related content over to the scene
                 //self.sceneNode.entities = scene.entities
@@ -86,5 +86,9 @@ class GameViewController: UIViewController {
         
         // Set camera boundary constraints (on load and on device rotation)
         camera.updateConstraintsFor(backgroundLayer: self.sceneNode.backgroundLayer, boundaryRangeX: boundaryRangeX, boundaryRangeY: boundaryRangeY)
+    }
+    
+    func didCompleteRequest(result: String) {
+        NSLog(result)
     }
 }

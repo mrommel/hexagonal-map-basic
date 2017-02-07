@@ -7,7 +7,12 @@
 
 import SpriteKit
 
+protocol TileMapSceneDelegate {
+    func didCompleteRequest(result: String)
+}
+
 protocol TileMapScene {
+    
     var backgroundLayer: SKTileMapNode! { get set }
     var gridLayer: SKTileMapNode! { get set }
     var selectionLayer: SKTileMapNode! { get set }

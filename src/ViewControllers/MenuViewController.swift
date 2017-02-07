@@ -12,6 +12,11 @@ class MenuViewController: UITableViewController {
 
     let menuEntries = ["New Game", "Setup Game", "Load Game", "Options", "Credits"]
     
+    override func viewDidLoad() {
+        self.title = "Game"
+        self.tableView.tableFooterView = UIView()
+    }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -21,7 +26,7 @@ class MenuViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Section \(section)"
+        return nil // "Section \(section)"
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
