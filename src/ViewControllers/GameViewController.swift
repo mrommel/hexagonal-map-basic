@@ -8,6 +8,7 @@
 import UIKit
 import SpriteKit
 import GameplayKit
+import SCLAlertView
 
 class GameViewController: UIViewController {
     
@@ -45,6 +46,7 @@ class GameViewController: UIViewController {
                 if let landingScene = scene.rootNode as! LandingScene? {
                     landingScene.onFocusChanged = { focus in
                         NSLog("new focus: \(focus)")
+                        _ = SCLAlertView().showInfo("title", subTitle: "message")
                     }
                 }
                 
