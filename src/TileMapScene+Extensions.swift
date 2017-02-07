@@ -76,6 +76,9 @@ extension TileMapScene {
         
         // Add selection tile to map at specified column and row
         self.selectionLayer.setTileGroup(self.selectionTile, andTileDefinition: self.selectionTileDefinition, forColumn: newColumn, row: newRow)
+        
+        self.onFocusChanged?(CGPoint(x: newColumn, y: newRow))
+        
         return targetLocation
     }
     

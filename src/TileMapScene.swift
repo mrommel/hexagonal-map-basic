@@ -7,10 +7,6 @@
 
 import SpriteKit
 
-protocol TileMapSceneDelegate {
-    func didCompleteRequest(result: String)
-}
-
 protocol TileMapScene {
     
     var backgroundLayer: SKTileMapNode! { get set }
@@ -26,4 +22,9 @@ protocol TileMapScene {
     var selectionTileDefinition: SKTileDefinition { get }
     
     func setSelectionTileAt(targetLocation: CGPoint) -> CGPoint?
+    
+    typealias FocusChangedBlock = (_ focus: CGPoint) -> Void
+    
+    var onFocusChanged: FocusChangedBlock? { get set }
+    //var onFocusChanged: ((_ focus: CGPoint)->())?
 }

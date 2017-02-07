@@ -10,6 +10,7 @@ import GameplayKit
 
 class LandingScene: GameSceneBase, TileMapScene {
     
+    var onFocusChanged: TileMapScene.FocusChangedBlock?
     
     // MARK: Public Properties
     
@@ -21,8 +22,6 @@ class LandingScene: GameSceneBase, TileMapScene {
     var selectionLayer: SKTileMapNode!
     
     var currentSelectionlocation: CGPoint?
-    
-    var sceneDelegate: TileMapSceneDelegate?
     
     var gameCamera: SKCameraNode! {
         return self.camera
@@ -140,10 +139,6 @@ class LandingScene: GameSceneBase, TileMapScene {
         // Show the selection tile at the current location
         // Update the currently selected location
         self.currentSelectionlocation = self.setSelectionTileAt(targetLocation: targetLocation)
-        
-        if self.sceneDelegate != nil {
-            self.sceneDelegate?.didCompleteRequest(result: "test")
-        }
     }
     
     func handleLongPressFrom(recognizer: UILongPressGestureRecognizer) {

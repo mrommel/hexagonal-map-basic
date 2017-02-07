@@ -9,7 +9,7 @@ import UIKit
 import SpriteKit
 import GameplayKit
 
-class GameViewController: UIViewController, TileMapSceneDelegate {
+class GameViewController: UIViewController {
     
     private var sceneNode: TileMapScene!
     
@@ -43,7 +43,9 @@ class GameViewController: UIViewController, TileMapSceneDelegate {
                 self.sceneNode = sceneNode
                 
                 if let landingScene = scene.rootNode as! LandingScene? {
-                    landingScene.sceneDelegate = self
+                    landingScene.onFocusChanged = { focus in
+                        NSLog("new focus: \(focus)")
+                    }
                 }
                 
                 // Copy gameplay related content over to the scene
@@ -86,9 +88,5 @@ class GameViewController: UIViewController, TileMapSceneDelegate {
         
         // Set camera boundary constraints (on load and on device rotation)
         camera.updateConstraintsFor(backgroundLayer: self.sceneNode.backgroundLayer, boundaryRangeX: boundaryRangeX, boundaryRangeY: boundaryRangeY)
-    }
-    
-    func didCompleteRequest(result: String) {
-        NSLog(result)
     }
 }
