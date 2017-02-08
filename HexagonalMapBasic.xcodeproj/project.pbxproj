@@ -139,7 +139,7 @@
 			name = Nodes;
 			sourceTree = "<group>";
 		};
-		4DA76F6E1D8378A4000C3571 /* sprites */ = {
+		4DA76F6E1D8378A4000C3571 /* Sprites */ = {
 			isa = PBXGroup;
 			children = (
 				4D15C28A1D442302007A5EE2 /* LandingScene.sks */,
@@ -147,7 +147,7 @@
 				4DA76F6C1D8374B7000C3571 /* Grid.sks */,
 				4D3B89441D78F96200BE2FC0 /* Selection.sks */,
 			);
-			name = sprites;
+			name = Sprites;
 			sourceTree = "<group>";
 		};
 		4DCE427E1D442972003B7E3C /* Storyboards */ = {
@@ -171,7 +171,7 @@
 		4DCE42821D442A02003B7E3C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				4DA76F6E1D8378A4000C3571 /* sprites */,
+				4DA76F6E1D8378A4000C3571 /* Sprites */,
 				4D15C2951D442302007A5EE2 /* Assets.xcassets */,
 			);
 			name = Resources;

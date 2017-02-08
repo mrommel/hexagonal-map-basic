@@ -26,5 +26,4 @@ protocol TileMapScene {
     typealias FocusChangedBlock = (_ focus: CGPoint) -> Void
     
     var onFocusChanged: FocusChangedBlock? { get set }
-    //var onFocusChanged: ((_ focus: CGPoint)->())?
 }
