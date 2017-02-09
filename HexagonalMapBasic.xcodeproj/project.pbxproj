@@ -7,27 +7,47 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A4B38901E4BBAD400FA7457 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4B388F1E4BBAD400FA7457 /* GameScene.swift */; };
+		1A4B38921E4BBC9100FA7457 /* Sprites.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A4B38911E4BBC9100FA7457 /* Sprites.xcassets */; };
+		1A4B38951E4C67EC00FA7457 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4B38941E4C67EC00FA7457 /* Grid.swift */; };
+		1A4B38971E4C688700FA7457 /* Terrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4B38961E4C688700FA7457 /* Terrain.swift */; };
+		1A4B389F1E4C7A5600FA7457 /* HexagonalMapBasicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4B389E1E4C7A5600FA7457 /* HexagonalMapBasicTests.swift */; };
+		1A4B38A71E4C7A7D00FA7457 /* GridTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4B38A61E4C7A7D00FA7457 /* GridTests.swift */; };
+		1A4B38A81E4C7B2C00FA7457 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4B38941E4C67EC00FA7457 /* Grid.swift */; };
+		1A4B38A91E4C7B4B00FA7457 /* Terrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4B38961E4C688700FA7457 /* Terrain.swift */; };
+		1A4B38AB1E4CAF9600FA7457 /* GridPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4B38AA1E4CAF9600FA7457 /* GridPoint.swift */; };
+		1A4B38AC1E4CAF9600FA7457 /* GridPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4B38AA1E4CAF9600FA7457 /* GridPoint.swift */; };
 		1ADE279F1E48B8EC001F44FF /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE279E1E48B8EC001F44FF /* MenuViewController.swift */; };
 		1ADE27A21E48BAB3001F44FF /* UIViewController+Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE27A11E48BAB3001F44FF /* UIViewController+Storyboard.swift */; };
 		4D15C2891D442302007A5EE2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D15C2881D442302007A5EE2 /* AppDelegate.swift */; };
-		4D15C28B1D442302007A5EE2 /* LandingScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 4D15C28A1D442302007A5EE2 /* LandingScene.sks */; };
-		4D15C28F1D442302007A5EE2 /* LandingScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D15C28E1D442302007A5EE2 /* LandingScene.swift */; };
 		4D15C2911D442302007A5EE2 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D15C2901D442302007A5EE2 /* GameViewController.swift */; };
 		4D15C2941D442302007A5EE2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D15C2921D442302007A5EE2 /* Main.storyboard */; };
 		4D15C2961D442302007A5EE2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D15C2951D442302007A5EE2 /* Assets.xcassets */; };
 		4D15C2991D442302007A5EE2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D15C2971D442302007A5EE2 /* LaunchScreen.storyboard */; };
-		4D19AFA31D6319380027FEC1 /* SKCameraNode+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D19AFA21D6319370027FEC1 /* SKCameraNode+Extensions.swift */; };
-		4D19AFA71D67B76E0027FEC1 /* SKTileMapNode+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D19AFA61D67B76E0027FEC1 /* SKTileMapNode+Extensions.swift */; };
-		4D34297A1D5B20B70013E757 /* Background.sks in Resources */ = {isa = PBXBuildFile; fileRef = 4D3429781D5B20B70013E757 /* Background.sks */; };
-		4D3B89451D78F96200BE2FC0 /* Selection.sks in Resources */ = {isa = PBXBuildFile; fileRef = 4D3B89441D78F96200BE2FC0 /* Selection.sks */; };
 		4D42C8931D69AD4900DCB851 /* GameSceneBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D42C8921D69AD4900DCB851 /* GameSceneBase.swift */; };
-		4DA76F6D1D8374B7000C3571 /* Grid.sks in Resources */ = {isa = PBXBuildFile; fileRef = 4DA76F6C1D8374B7000C3571 /* Grid.sks */; };
-		4DD013401D7D5FC00023A42D /* TileMapScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD0133F1D7D5FC00023A42D /* TileMapScene.swift */; };
-		4DD013421D7D6BE00023A42D /* TileMapScene+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD013411D7D6BE00023A42D /* TileMapScene+Extensions.swift */; };
 		F510CBA54A1C0453AACE31AC /* Pods_HexagonalMapBasic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22AA1275C9994E5D58C36935 /* Pods_HexagonalMapBasic.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		1A4B38A11E4C7A5600FA7457 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D15C27D1D442302007A5EE2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4D15C2841D442302007A5EE2;
+			remoteInfo = HexagonalMapBasic;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		1A4B388F1E4BBAD400FA7457 /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameScene.swift; path = Scenes/GameScene.swift; sourceTree = "<group>"; };
+		1A4B38911E4BBC9100FA7457 /* Sprites.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Sprites.xcassets; path = Resources/Sprites.xcassets; sourceTree = "<group>"; };
+		1A4B38941E4C67EC00FA7457 /* Grid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Grid.swift; path = Game/Grid.swift; sourceTree = "<group>"; };
+		1A4B38961E4C688700FA7457 /* Terrain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Terrain.swift; path = Game/Terrain.swift; sourceTree = "<group>"; };
+		1A4B389C1E4C7A5600FA7457 /* HexagonalMapBasicTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HexagonalMapBasicTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A4B389E1E4C7A5600FA7457 /* HexagonalMapBasicTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexagonalMapBasicTests.swift; sourceTree = "<group>"; };
+		1A4B38A01E4C7A5600FA7457 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1A4B38A61E4C7A7D00FA7457 /* GridTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridTests.swift; sourceTree = "<group>"; };
+		1A4B38AA1E4CAF9600FA7457 /* GridPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GridPoint.swift; path = Game/GridPoint.swift; sourceTree = "<group>"; };
 		1ADE279E1E48B8EC001F44FF /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuViewController.swift; path = ViewControllers/MenuViewController.swift; sourceTree = "<group>"; };
 		1ADE27A11E48BAB3001F44FF /* UIViewController+Storyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIViewController+Storyboard.swift"; path = "Extensions/UIViewController+Storyboard.swift"; sourceTree = "<group>"; };
 		22AA1275C9994E5D58C36935 /* Pods_HexagonalMapBasic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HexagonalMapBasic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -35,24 +55,22 @@
 		3C40715086CB38506213EF83 /* Pods-HexagonalMapBasic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HexagonalMapBasic.release.xcconfig"; path = "Pods/Target Support Files/Pods-HexagonalMapBasic/Pods-HexagonalMapBasic.release.xcconfig"; sourceTree = "<group>"; };
 		4D15C2851D442302007A5EE2 /* HexagonalMapBasic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HexagonalMapBasic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D15C2881D442302007A5EE2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4D15C28A1D442302007A5EE2 /* LandingScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = LandingScene.sks; sourceTree = "<group>"; };
-		4D15C28E1D442302007A5EE2 /* LandingScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingScene.swift; sourceTree = "<group>"; };
 		4D15C2901D442302007A5EE2 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GameViewController.swift; path = ViewControllers/GameViewController.swift; sourceTree = "<group>"; };
 		4D15C2931D442302007A5EE2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4D15C2951D442302007A5EE2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4D15C2981D442302007A5EE2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4D15C29A1D442302007A5EE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4D19AFA21D6319370027FEC1 /* SKCameraNode+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SKCameraNode+Extensions.swift"; sourceTree = "<group>"; };
-		4D19AFA61D67B76E0027FEC1 /* SKTileMapNode+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SKTileMapNode+Extensions.swift"; sourceTree = "<group>"; };
-		4D3429781D5B20B70013E757 /* Background.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Background.sks; sourceTree = "<group>"; };
-		4D3B89441D78F96200BE2FC0 /* Selection.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Selection.sks; sourceTree = "<group>"; };
 		4D42C8921D69AD4900DCB851 /* GameSceneBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSceneBase.swift; sourceTree = "<group>"; };
-		4DA76F6C1D8374B7000C3571 /* Grid.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Grid.sks; sourceTree = "<group>"; };
-		4DD0133F1D7D5FC00023A42D /* TileMapScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileMapScene.swift; sourceTree = "<group>"; };
-		4DD013411D7D6BE00023A42D /* TileMapScene+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TileMapScene+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		1A4B38991E4C7A5600FA7457 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4D15C2821D442302007A5EE2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -71,6 +89,26 @@
 				3C40715086CB38506213EF83 /* Pods-HexagonalMapBasic.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		1A4B38931E4C672A00FA7457 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				1A4B38941E4C67EC00FA7457 /* Grid.swift */,
+				1A4B38AA1E4CAF9600FA7457 /* GridPoint.swift */,
+				1A4B38961E4C688700FA7457 /* Terrain.swift */,
+			);
+			name = Game;
+			sourceTree = "<group>";
+		};
+		1A4B389D1E4C7A5600FA7457 /* HexagonalMapBasicTests */ = {
+			isa = PBXGroup;
+			children = (
+				1A4B389E1E4C7A5600FA7457 /* HexagonalMapBasicTests.swift */,
+				1A4B38A01E4C7A5600FA7457 /* Info.plist */,
+				1A4B38A61E4C7A7D00FA7457 /* GridTests.swift */,
+			);
+			path = HexagonalMapBasicTests;
 			sourceTree = "<group>";
 		};
 		1ADE279D1E488D05001F44FF /* Presentation */ = {
@@ -106,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				4D15C2871D442302007A5EE2 /* src */,
+				1A4B389D1E4C7A5600FA7457 /* HexagonalMapBasicTests */,
 				4D15C2861D442302007A5EE2 /* Products */,
 				16B26414B5B6C8CC063AFC16 /* Pods */,
 				1CFC6B4386390A5B2BD2A1A8 /* Frameworks */,
@@ -116,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				4D15C2851D442302007A5EE2 /* HexagonalMapBasic.app */,
+				1A4B389C1E4C7A5600FA7457 /* HexagonalMapBasicTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -123,6 +163,7 @@
 		4D15C2871D442302007A5EE2 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				1A4B38931E4C672A00FA7457 /* Game */,
 				1ADE279D1E488D05001F44FF /* Presentation */,
 				4DCE42821D442A02003B7E3C /* Resources */,
 				4D15C29A1D442302007A5EE2 /* Info.plist */,
@@ -133,8 +174,6 @@
 		4D19AFA11D6319160027FEC1 /* Nodes */ = {
 			isa = PBXGroup;
 			children = (
-				4D19AFA21D6319370027FEC1 /* SKCameraNode+Extensions.swift */,
-				4D19AFA61D67B76E0027FEC1 /* SKTileMapNode+Extensions.swift */,
 			);
 			name = Nodes;
 			sourceTree = "<group>";
@@ -142,10 +181,6 @@
 		4DA76F6E1D8378A4000C3571 /* Sprites */ = {
 			isa = PBXGroup;
 			children = (
-				4D15C28A1D442302007A5EE2 /* LandingScene.sks */,
-				4D3429781D5B20B70013E757 /* Background.sks */,
-				4DA76F6C1D8374B7000C3571 /* Grid.sks */,
-				4D3B89441D78F96200BE2FC0 /* Selection.sks */,
 			);
 			name = Sprites;
 			sourceTree = "<group>";
@@ -173,6 +208,7 @@
 			children = (
 				4DA76F6E1D8378A4000C3571 /* Sprites */,
 				4D15C2951D442302007A5EE2 /* Assets.xcassets */,
+				1A4B38911E4BBC9100FA7457 /* Sprites.xcassets */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -180,10 +216,8 @@
 		4DCE42831D442A19003B7E3C /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				4DD0133F1D7D5FC00023A42D /* TileMapScene.swift */,
-				4DD013411D7D6BE00023A42D /* TileMapScene+Extensions.swift */,
-				4D15C28E1D442302007A5EE2 /* LandingScene.swift */,
 				4D42C8921D69AD4900DCB851 /* GameSceneBase.swift */,
+				1A4B388F1E4BBAD400FA7457 /* GameScene.swift */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -191,6 +225,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		1A4B389B1E4C7A5600FA7457 /* HexagonalMapBasicTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1A4B38A31E4C7A5600FA7457 /* Build configuration list for PBXNativeTarget "HexagonalMapBasicTests" */;
+			buildPhases = (
+				1A4B38981E4C7A5600FA7457 /* Sources */,
+				1A4B38991E4C7A5600FA7457 /* Frameworks */,
+				1A4B389A1E4C7A5600FA7457 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1A4B38A21E4C7A5600FA7457 /* PBXTargetDependency */,
+			);
+			name = HexagonalMapBasicTests;
+			productName = HexagonalMapBasicTests;
+			productReference = 1A4B389C1E4C7A5600FA7457 /* HexagonalMapBasicTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		4D15C2841D442302007A5EE2 /* HexagonalMapBasic */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4D15C2A81D442303007A5EE2 /* Build configuration list for PBXNativeTarget "HexagonalMapBasic" */;
@@ -217,10 +269,16 @@
 		4D15C27D1D442302007A5EE2 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0800;
+				LastSwiftUpdateCheck = 0820;
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = MiRo;
 				TargetAttributes = {
+					1A4B389B1E4C7A5600FA7457 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = CMUQ7NPWU8;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 4D15C2841D442302007A5EE2;
+					};
 					4D15C2841D442302007A5EE2 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = CMUQ7NPWU8;
@@ -243,21 +301,26 @@
 			projectRoot = "";
 			targets = (
 				4D15C2841D442302007A5EE2 /* HexagonalMapBasic */,
+				1A4B389B1E4C7A5600FA7457 /* HexagonalMapBasicTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		1A4B389A1E4C7A5600FA7457 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4D15C2831D442302007A5EE2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				4D15C2941D442302007A5EE2 /* Main.storyboard in Resources */,
-				4D15C28B1D442302007A5EE2 /* LandingScene.sks in Resources */,
-				4D34297A1D5B20B70013E757 /* Background.sks in Resources */,
-				4D3B89451D78F96200BE2FC0 /* Selection.sks in Resources */,
 				4D15C2961D442302007A5EE2 /* Assets.xcassets in Resources */,
-				4DA76F6D1D8374B7000C3571 /* Grid.sks in Resources */,
+				1A4B38921E4BBC9100FA7457 /* Sprites.xcassets in Resources */,
 				4D15C2991D442302007A5EE2 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -313,24 +376,43 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		1A4B38981E4C7A5600FA7457 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A4B389F1E4C7A5600FA7457 /* HexagonalMapBasicTests.swift in Sources */,
+				1A4B38A91E4C7B4B00FA7457 /* Terrain.swift in Sources */,
+				1A4B38AC1E4CAF9600FA7457 /* GridPoint.swift in Sources */,
+				1A4B38A71E4C7A7D00FA7457 /* GridTests.swift in Sources */,
+				1A4B38A81E4C7B2C00FA7457 /* Grid.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4D15C2811D442302007A5EE2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D15C28F1D442302007A5EE2 /* LandingScene.swift in Sources */,
-				4D19AFA71D67B76E0027FEC1 /* SKTileMapNode+Extensions.swift in Sources */,
+				1A4B38AB1E4CAF9600FA7457 /* GridPoint.swift in Sources */,
+				1A4B38971E4C688700FA7457 /* Terrain.swift in Sources */,
 				4D15C2911D442302007A5EE2 /* GameViewController.swift in Sources */,
 				1ADE27A21E48BAB3001F44FF /* UIViewController+Storyboard.swift in Sources */,
-				4DD013401D7D5FC00023A42D /* TileMapScene.swift in Sources */,
+				1A4B38901E4BBAD400FA7457 /* GameScene.swift in Sources */,
 				1ADE279F1E48B8EC001F44FF /* MenuViewController.swift in Sources */,
 				4D15C2891D442302007A5EE2 /* AppDelegate.swift in Sources */,
-				4DD013421D7D6BE00023A42D /* TileMapScene+Extensions.swift in Sources */,
 				4D42C8931D69AD4900DCB851 /* GameSceneBase.swift in Sources */,
-				4D19AFA31D6319380027FEC1 /* SKCameraNode+Extensions.swift in Sources */,
+				1A4B38951E4C67EC00FA7457 /* Grid.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1A4B38A21E4C7A5600FA7457 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4D15C2841D442302007A5EE2 /* HexagonalMapBasic */;
+			targetProxy = 1A4B38A11E4C7A5600FA7457 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		4D15C2921D442302007A5EE2 /* Main.storyboard */ = {
@@ -354,6 +436,36 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		1A4B38A41E4C7A5600FA7457 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = CMUQ7NPWU8;
+				INFOPLIST_FILE = HexagonalMapBasicTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = MiRo.HexagonalMapBasicTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HexagonalMapBasic.app/HexagonalMapBasic";
+			};
+			name = Debug;
+		};
+		1A4B38A51E4C7A5600FA7457 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = CMUQ7NPWU8;
+				INFOPLIST_FILE = HexagonalMapBasicTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = MiRo.HexagonalMapBasicTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HexagonalMapBasic.app/HexagonalMapBasic";
+			};
+			name = Release;
+		};
 		4D15C2A61D442303007A5EE2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -480,6 +592,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1A4B38A31E4C7A5600FA7457 /* Build configuration list for PBXNativeTarget "HexagonalMapBasicTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1A4B38A41E4C7A5600FA7457 /* Debug */,
+				1A4B38A51E4C7A5600FA7457 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		4D15C2801D442302007A5EE2 /* Build configuration list for PBXProject "HexagonalMapBasic" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
