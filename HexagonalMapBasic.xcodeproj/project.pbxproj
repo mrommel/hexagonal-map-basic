@@ -11,7 +11,6 @@
 		1A4B38921E4BBC9100FA7457 /* Sprites.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A4B38911E4BBC9100FA7457 /* Sprites.xcassets */; };
 		1A4B38951E4C67EC00FA7457 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4B38941E4C67EC00FA7457 /* Grid.swift */; };
 		1A4B38971E4C688700FA7457 /* Terrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4B38961E4C688700FA7457 /* Terrain.swift */; };
-		1A4B389F1E4C7A5600FA7457 /* HexagonalMapBasicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4B389E1E4C7A5600FA7457 /* HexagonalMapBasicTests.swift */; };
 		1A4B38A71E4C7A7D00FA7457 /* GridTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4B38A61E4C7A7D00FA7457 /* GridTests.swift */; };
 		1A4B38A81E4C7B2C00FA7457 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4B38941E4C67EC00FA7457 /* Grid.swift */; };
 		1A4B38A91E4C7B4B00FA7457 /* Terrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4B38961E4C688700FA7457 /* Terrain.swift */; };
@@ -19,6 +18,11 @@
 		1A4B38AC1E4CAF9600FA7457 /* GridPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4B38AA1E4CAF9600FA7457 /* GridPoint.swift */; };
 		1AA7B3751E4DC99200104C91 /* GridPointDirectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA7B3741E4DC99200104C91 /* GridPointDirectionTests.swift */; };
 		1AA7B3771E4DEB9200104C91 /* GridPointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA7B3761E4DEB9200104C91 /* GridPointTests.swift */; };
+		1AA7B37A1E4DF69900104C91 /* PathfinderDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA7B3791E4DF69900104C91 /* PathfinderDataSource.swift */; };
+		1AA7B37C1E4DF6D500104C91 /* AStarPathfinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA7B37B1E4DF6D500104C91 /* AStarPathfinder.swift */; };
+		1AA7B37E1E4DFF7000104C91 /* AStarPathfinderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA7B37D1E4DFF7000104C91 /* AStarPathfinderTests.swift */; };
+		1AA7B37F1E4E00B800104C91 /* AStarPathfinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA7B37B1E4DF6D500104C91 /* AStarPathfinder.swift */; };
+		1AA7B3801E4E00BB00104C91 /* PathfinderDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA7B3791E4DF69900104C91 /* PathfinderDataSource.swift */; };
 		1AB7EBD41E4D091A00594922 /* teaser.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AB7EBD31E4D091A00594922 /* teaser.png */; };
 		1AB7EBD61E4D0CD400594922 /* button.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AB7EBD51E4D0CD400594922 /* button.png */; };
 		1AB7EBD81E4DB82900594922 /* GridPointDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB7EBD71E4DB82900594922 /* GridPointDirection.swift */; };
@@ -49,12 +53,14 @@
 		1A4B38941E4C67EC00FA7457 /* Grid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Grid.swift; path = Game/Grid.swift; sourceTree = "<group>"; };
 		1A4B38961E4C688700FA7457 /* Terrain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Terrain.swift; path = Game/Terrain.swift; sourceTree = "<group>"; };
 		1A4B389C1E4C7A5600FA7457 /* HexagonalMapBasicTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HexagonalMapBasicTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1A4B389E1E4C7A5600FA7457 /* HexagonalMapBasicTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexagonalMapBasicTests.swift; sourceTree = "<group>"; };
 		1A4B38A01E4C7A5600FA7457 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1A4B38A61E4C7A7D00FA7457 /* GridTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridTests.swift; sourceTree = "<group>"; };
 		1A4B38AA1E4CAF9600FA7457 /* GridPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GridPoint.swift; path = Game/GridPoint.swift; sourceTree = "<group>"; };
 		1AA7B3741E4DC99200104C91 /* GridPointDirectionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridPointDirectionTests.swift; sourceTree = "<group>"; };
 		1AA7B3761E4DEB9200104C91 /* GridPointTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridPointTests.swift; sourceTree = "<group>"; };
+		1AA7B3791E4DF69900104C91 /* PathfinderDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PathfinderDataSource.swift; path = Game/PathFinding/PathfinderDataSource.swift; sourceTree = "<group>"; };
+		1AA7B37B1E4DF6D500104C91 /* AStarPathfinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AStarPathfinder.swift; path = Game/PathFinding/AStarPathfinder.swift; sourceTree = "<group>"; };
+		1AA7B37D1E4DFF7000104C91 /* AStarPathfinderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AStarPathfinderTests.swift; sourceTree = "<group>"; };
 		1AB7EBD31E4D091A00594922 /* teaser.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = teaser.png; sourceTree = "<group>"; };
 		1AB7EBD51E4D0CD400594922 /* button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button.png; sourceTree = "<group>"; };
 		1AB7EBD71E4DB82900594922 /* GridPointDirection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GridPointDirection.swift; path = Game/GridPointDirection.swift; sourceTree = "<group>"; };
@@ -103,6 +109,7 @@
 		1A4B38931E4C672A00FA7457 /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				1AA7B3781E4DF66800104C91 /* PathFinding */,
 				1A4B38941E4C67EC00FA7457 /* Grid.swift */,
 				1A4B38AA1E4CAF9600FA7457 /* GridPoint.swift */,
 				1AB7EBD71E4DB82900594922 /* GridPointDirection.swift */,
@@ -114,13 +121,22 @@
 		1A4B389D1E4C7A5600FA7457 /* HexagonalMapBasicTests */ = {
 			isa = PBXGroup;
 			children = (
-				1A4B389E1E4C7A5600FA7457 /* HexagonalMapBasicTests.swift */,
 				1A4B38A01E4C7A5600FA7457 /* Info.plist */,
 				1A4B38A61E4C7A7D00FA7457 /* GridTests.swift */,
 				1AA7B3761E4DEB9200104C91 /* GridPointTests.swift */,
 				1AA7B3741E4DC99200104C91 /* GridPointDirectionTests.swift */,
+				1AA7B37D1E4DFF7000104C91 /* AStarPathfinderTests.swift */,
 			);
 			path = HexagonalMapBasicTests;
+			sourceTree = "<group>";
+		};
+		1AA7B3781E4DF66800104C91 /* PathFinding */ = {
+			isa = PBXGroup;
+			children = (
+				1AA7B3791E4DF69900104C91 /* PathfinderDataSource.swift */,
+				1AA7B37B1E4DF6D500104C91 /* AStarPathfinder.swift */,
+			);
+			name = PathFinding;
 			sourceTree = "<group>";
 		};
 		1ADE279D1E488D05001F44FF /* Presentation */ = {
@@ -395,14 +411,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A4B389F1E4C7A5600FA7457 /* HexagonalMapBasicTests.swift in Sources */,
+				1AA7B37E1E4DFF7000104C91 /* AStarPathfinderTests.swift in Sources */,
 				1A4B38A91E4C7B4B00FA7457 /* Terrain.swift in Sources */,
 				1AA7B3771E4DEB9200104C91 /* GridPointTests.swift in Sources */,
+				1AA7B37F1E4E00B800104C91 /* AStarPathfinder.swift in Sources */,
 				1AB7EBD91E4DB82900594922 /* GridPointDirection.swift in Sources */,
 				1A4B38AC1E4CAF9600FA7457 /* GridPoint.swift in Sources */,
 				1AA7B3751E4DC99200104C91 /* GridPointDirectionTests.swift in Sources */,
 				1A4B38A71E4C7A7D00FA7457 /* GridTests.swift in Sources */,
 				1A4B38A81E4C7B2C00FA7457 /* Grid.swift in Sources */,
+				1AA7B3801E4E00BB00104C91 /* PathfinderDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,7 +436,9 @@
 				1A4B38901E4BBAD400FA7457 /* GameScene.swift in Sources */,
 				1ADE279F1E48B8EC001F44FF /* MenuViewController.swift in Sources */,
 				4D15C2891D442302007A5EE2 /* AppDelegate.swift in Sources */,
+				1AA7B37C1E4DF6D500104C91 /* AStarPathfinder.swift in Sources */,
 				1A4B38951E4C67EC00FA7457 /* Grid.swift in Sources */,
+				1AA7B37A1E4DF69900104C91 /* PathfinderDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

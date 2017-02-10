@@ -44,6 +44,10 @@ public class Grid {
         }
     }
     
+    func has(gridPoint: GridPoint) -> Bool {
+        return gridPoint.x >= 0 && gridPoint.x < self.width && gridPoint.y >= 0 && gridPoint.y < self.height
+    }
+    
     /*!
      * maps point from the screen coordinate system to grid
      */

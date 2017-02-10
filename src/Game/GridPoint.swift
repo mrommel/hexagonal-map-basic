@@ -49,21 +49,21 @@ extension GridPoint {
     
     func neighbor(in direction: GridPointDirection) -> GridPoint {
         switch direction {
-        case .northEast: // #
+        case .northEast: 
             if even(number: self.x) {
                 return GridPoint(x: self.x + 1, y: self.y - 1)
             } else {
                 return GridPoint(x: self.x + 1, y: self.y)
             }
-        case .southEast: // #
+        case .southEast:
             if even(number: self.x) {
                 return GridPoint(x: self.x + 1, y: self.y)
             } else {
                 return GridPoint(x: self.x + 1, y: self.y + 1)
             }
-        case .south: // #
+        case .south:
             return GridPoint(x: self.x, y: self.y + 1)
-        case .southWest:// #
+        case .southWest:
             if even(number: self.x) {
                 return GridPoint(x: self.x - 1, y: self.y)
             } else {
@@ -75,12 +75,23 @@ extension GridPoint {
             } else {
                 return GridPoint(x: self.x - 1, y: self.y)
             }
-        case .north: // #
+        case .north:
             return GridPoint(x: self.x, y: self.y - 1)
         }
     }
     
-    //func isInside(bounds: )
+    func neighbors() -> [GridPoint] {
+        var neighboring = [GridPoint]()
+        
+        neighboring.append(self.neighbor(in: .northEast))
+        neighboring.append(self.neighbor(in: .southEast))
+        neighboring.append(self.neighbor(in: .south))
+        neighboring.append(self.neighbor(in: .southWest))
+        neighboring.append(self.neighbor(in: .northWest))
+        neighboring.append(self.neighbor(in: .north))
+        
+        return neighboring
+    }
     
 }
 
