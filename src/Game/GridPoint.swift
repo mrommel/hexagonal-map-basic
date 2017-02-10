@@ -49,34 +49,34 @@ extension GridPoint {
     
     func neighbor(in direction: GridPointDirection) -> GridPoint {
         switch direction {
-        case .northEast:
+        case .northEast: // #
             if even(number: self.x) {
-                return GridPoint(x: self.x, y: self.y - 1)
-            } else {
                 return GridPoint(x: self.x + 1, y: self.y - 1)
+            } else {
+                return GridPoint(x: self.x + 1, y: self.y)
             }
-        case .east:
-            return GridPoint(x: self.x + 1, y: self.y)
-        case .southEast:
+        case .southEast: // #
             if even(number: self.x) {
-                return GridPoint(x: self.x, y: self.y + 1)
+                return GridPoint(x: self.x + 1, y: self.y)
             } else {
                 return GridPoint(x: self.x + 1, y: self.y + 1)
             }
-        case .southWest:
+        case .south: // #
+            return GridPoint(x: self.x, y: self.y + 1)
+        case .southWest:// #
             if even(number: self.x) {
-                return GridPoint(x: self.x - 1, y: self.y + 1)
+                return GridPoint(x: self.x - 1, y: self.y)
             } else {
-                return GridPoint(x: self.x, y: self.y + 1)
+                return GridPoint(x: self.x - 1, y: self.y + 1)
             }
-        case .west:
-            return GridPoint(x: self.x - 1, y: self.y)
         case .northWest:
             if even(number: self.x) {
                 return GridPoint(x: self.x - 1, y: self.y - 1)
             } else {
-                return GridPoint(x: self.x, y: self.y - 1)
+                return GridPoint(x: self.x - 1, y: self.y)
             }
+        case .north: // #
+            return GridPoint(x: self.x, y: self.y - 1)
         }
     }
     

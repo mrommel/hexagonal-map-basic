@@ -16,8 +16,8 @@ public class Grid {
     var width: Int
     var height: Int
     
-    let kHexagonWidth: Double = 140.0
-    let kHexagonHeight: Double = 120.0
+    static let kHexagonWidth: Double = 72.0
+    static let kHexagonHeight: Double = 62.0 // height = sqrt(3)/2 * width
     
     required public init?(width: Int, height: Int) {
         
@@ -49,44 +49,44 @@ public class Grid {
      */
     func gridPoint(from screenPoint: CGPoint) -> GridPoint {
 
-        let deltaWidth = (kHexagonWidth * 3 / 4) / 2
-        var ergx: Int = 0
-        var moved = false
+        let deltaWidth = Grid.kHexagonHeight / 2 //
+        var ergy: Int = 0
+        var offseted = false
         
         // ry -= 10;
-        let inputX = Double(screenPoint.x)
-        let inputY = Double(screenPoint.y) - 10
+        let inputX = Double(screenPoint.x + 1)
+        let inputY = Double(screenPoint.y + 1)
         
         // rough rastering
-        var ergy: Int = Int(inputY / kHexagonHeight)
-        if (ergy % 2 == 1)
+        let ergx: Int = Int(inputX / (Grid.kHexagonWidth * 3 / 4))
+        if (even(number: ergx))
         {
-            moved = false
-            ergx = Int(inputX / (kHexagonWidth * 3 / 4))
+            offseted = false
+            ergy = Int(inputY / Grid.kHexagonHeight)
         }
         else
         {
-            moved = true
-            ergx = Int((inputX - deltaWidth) / (kHexagonWidth * 3 / 4))
+            offseted = true
+            ergy = Int((inputY - deltaWidth) / Grid.kHexagonHeight)
         }
         
         // fix errors
-        var crossPoint: Double //X
-        if moved {
-            crossPoint = Double(ergx) * (kHexagonWidth * 3 / 4) + deltaWidth
+        /*var crossPoint: Double //X
+        if offseted {
+            crossPoint = Double(ergx) * (Grid.kHexagonWidth * 3 / 4) + deltaWidth
         } else {
-            crossPoint = Double(ergx) * (kHexagonWidth * 3 / 4)
+            crossPoint = Double(ergx) * (Grid.kHexagonWidth * 3 / 4)
         }
         
         // error I
         //#warning the error is here
-        var tmp = -(22.0 / 8.0) * (inputY - Double(ergy) * kHexagonHeight) + crossPoint
+        var tmp = -(22.0 / 8.0) * (inputY - Double(ergy) * Grid.kHexagonHeight) + crossPoint
         
-        if (((inputX - deltaWidth) < tmp) && (moved))
+        if (((inputX - deltaWidth) < tmp) && (offseted))
         {
             ergy -= 1
         }
-        if (((inputX - deltaWidth) < tmp) && (!moved))
+        if (((inputX - deltaWidth) < tmp) && (!offseted))
         {
             ergx -= 1
             ergy -= 1
@@ -94,16 +94,16 @@ public class Grid {
         
         // error II
         //#warning and here
-        tmp = (22.0 / 8.0) * (inputY - Double(ergy) * kHexagonHeight) + crossPoint
-        if (((inputX - deltaWidth) > tmp) && (moved))
+        tmp = (22.0 / 8.0) * (inputY - Double(ergy) * Grid.kHexagonHeight) + crossPoint
+        if (((inputX - deltaWidth) > tmp) && (offseted))
         {
             ergy -= 1
             ergx += 1
         }
-        if (((inputX - deltaWidth) > tmp) && (!moved))
+        if (((inputX - deltaWidth) > tmp) && (!offseted))
         {
             ergy -= 1
-        }
+        }*/
         
         // make it real
         return GridPoint(x: ergx, y: ergy)
@@ -111,7 +111,8 @@ public class Grid {
     
     func screenPoint(from gridPoint: GridPoint) -> CGPoint {
         
-        return CGPoint(x: Double(gridPoint.x) * kHexagonWidth * 3 / 4, y: Double(gridPoint.y) * kHexagonHeight + (even(number: Int(gridPoint.x)) ? 0 : kHexagonHeight / 2))
+        return CGPoint(x: Double(gridPoint.x) * Grid.kHexagonWidth * 3 / 4,
+                       y: Double(gridPoint.y) * Grid.kHexagonHeight + (even(number: Int(gridPoint.x)) ? 0 : Grid.kHexagonHeight / 2))
     }
     
 }

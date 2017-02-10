@@ -47,19 +47,17 @@ class GridTests: XCTestCase {
     func testScreenPoint() {
         
         let screenPoint = self.classUnderTest?.screenPoint(from: GridPoint(x: 2, y: 2))
-        
-        XCTAssertEqual(screenPoint, CGPoint(x: 72, y: 84), "screen point does not match")
+        XCTAssertEqual(screenPoint, CGPoint(x: 108, y: 124), "screen point does not match")
     }
     
     func testGridPoint() {
         
-        let gridPoint = self.classUnderTest?.gridPoint(from: CGPoint(x: 72, y: 84))
-        
+        let gridPoint = self.classUnderTest?.gridPoint(from: CGPoint(x: 108, y: 124))
         XCTAssertEqual(gridPoint, GridPoint(x: 2, y: 2), "grid point does not match")
         
         
         let gridPoint1 = self.classUnderTest?.gridPoint(from: CGPoint(x: 0, y: 0))
-        
-        XCTAssertEqual(gridPoint1, GridPoint(x: 2, y: 2), "grid point does not match")
+        XCTAssertEqual(gridPoint1, GridPoint(x: 0, y: 0), "grid point does not match")
     }
+
 }

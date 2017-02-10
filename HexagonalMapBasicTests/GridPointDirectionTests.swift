@@ -23,11 +23,11 @@ class GridPointDirectionTests: XCTestCase {
     func testOpposite() {
 
         XCTAssertEqual(GridPointDirection.northEast.opposite(), GridPointDirection.southWest, "opposite does not match")
-        XCTAssertEqual(GridPointDirection.east.opposite(), GridPointDirection.west, "opposite does not match")
         XCTAssertEqual(GridPointDirection.southEast.opposite(), GridPointDirection.northWest, "opposite does not match")
+        XCTAssertEqual(GridPointDirection.south.opposite(), GridPointDirection.north, "opposite does not match")
         XCTAssertEqual(GridPointDirection.southWest.opposite(), GridPointDirection.northEast, "opposite does not match")
-        XCTAssertEqual(GridPointDirection.west.opposite(), GridPointDirection.east, "opposite does not match")
         XCTAssertEqual(GridPointDirection.northWest.opposite(), GridPointDirection.southEast, "opposite does not match")
+        XCTAssertEqual(GridPointDirection.north.opposite(), GridPointDirection.south, "opposite does not match")
     }
     
 }

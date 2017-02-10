@@ -11,26 +11,26 @@ import Foundation
 enum GridPointDirection {
     
     case northEast
-    case east
     case southEast
+    case south
     case southWest
-    case west
     case northWest
+    case north
  
     func opposite() -> GridPointDirection {
         switch self {
         case .northEast:
             return .southWest
-        case .east:
-            return .west
         case .southEast:
             return .northWest
+        case .south:
+            return .north
         case .southWest:
             return .northEast
-        case .west:
-            return .east
         case .northWest:
             return .southEast
+        case .north:
+            return .south
         }
     }
     
@@ -38,16 +38,16 @@ enum GridPointDirection {
         switch self {
         case .northEast:
             return "northEast"
-        case .east:
-            return "east"
         case .southEast:
             return "southEast"
+        case .south:
+            return "south"
         case .southWest:
             return "southWest"
-        case .west:
-            return "west"
         case .northWest:
             return "northWest"
+        case .north:
+            return "north"
         }
     }
 }
