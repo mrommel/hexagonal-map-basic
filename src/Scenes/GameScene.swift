@@ -25,33 +25,13 @@ func / (point: CGPoint, scalar: CGPoint) -> CGPoint {
     return CGPoint(x: point.x / scalar.x, y: point.y / scalar.y)
 }
 
-enum Tile: Int {
-    
-    case Ocean
-    case Grass
-    
-    var description:String {
-        switch self {
-        case .Ocean:
-            return "Ocean"
-        case .Grass:
-            return "Grass"
-        }
-    }
-    
-    var image:String {
-        switch self {
-        case .Ocean:
-            return "ocean"
-        case .Grass:
-            return "grass"
-        }
-    }
-}
+typealias FocusChangedBlock = (_ focus: GridPoint?) -> Void
 
 class GameScene: SKScene {
     
     var grid: Grid?
+    var onFocusChanged: FocusChangedBlock?
+    var onTileSelected: FocusChangedBlock?
     
     //1
     required init?(coder aDecoder: NSCoder) {
@@ -60,14 +40,16 @@ class GameScene: SKScene {
     
     //2
     let view2D: SKSpriteNode
+    let layer2DHighlight: SKNode
     
     //3
-    let tileSize = (width:32, height:32)
+    let tileSize = (width:64, height:64)
     
     //4
     override init(size: CGSize) {
         
         view2D = SKSpriteNode()
+        layer2DHighlight = SKNode()
         
         super.init(size: size)
         self.anchorPoint = CGPoint(x:0.5, y:0.5)
@@ -82,6 +64,9 @@ class GameScene: SKScene {
         view2D.xScale = deviceScale
         view2D.yScale = deviceScale
         addChild(view2D)
+        
+        layer2DHighlight.zPosition = 999
+        view2D.addChild(layer2DHighlight)
         
         placeAllTiles2D()
     }
@@ -106,7 +91,7 @@ class GameScene: SKScene {
         }
     }
     
-    func placeTile2D(image:String, withPosition:CGPoint) {
+    func placeTile2D(image: String, withPosition: CGPoint) {
         
         let tileSprite = SKSpriteNode(imageNamed: image)
         
@@ -115,14 +100,20 @@ class GameScene: SKScene {
         tileSprite.anchorPoint = CGPoint(x:0, y:0)
         
         view2D.addChild(tileSprite)
+    }
+    
+    func moveFocus(to gridpoint: GridPoint) {
+        //clear previous focus
+        layer2DHighlight.removeAllChildren()
         
+        let focusTile = SKSpriteNode(imageNamed: "Selection")
+        focusTile.position = (self.grid?.screenPoint(from: gridpoint))!
+        focusTile.anchorPoint = CGPoint(x: 0, y: 0)
+        
+        layer2DHighlight.addChild(focusTile)
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
-        //////////////////////////////////////////////////////////
-        // Original code that we still need
-        //////////////////////////////////////////////////////////
         
         let touch = touches.first
         let touchLocation = touch?.location(in: self.view2D)
@@ -130,6 +121,14 @@ class GameScene: SKScene {
         let gridPoint = grid?.gridPoint(from: touchLocation!)
         
         NSLog("touch \(gridPoint)")
+        
+        // update the rendering
+        self.moveFocus(to: gridPoint!)
+        
+        // notify parent 
+        if let focusChanged = self.onFocusChanged {
+            focusChanged(gridPoint)
+        }
     }
     
     override func update(_ currentTime: CFTimeInterval) {

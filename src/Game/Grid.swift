@@ -16,8 +16,8 @@ public class Grid {
     var width: Int
     var height: Int
     
-    let kHexagonWidth: Double = 48.0
-    let kHexagonHeight: Double = 42.0
+    let kHexagonWidth: Double = 140.0
+    let kHexagonHeight: Double = 120.0
     
     required public init?(width: Int, height: Int) {
         
@@ -44,19 +44,11 @@ public class Grid {
         }
     }
     
+    /*!
+     * maps point from the screen coordinate system to grid
+     */
     func gridPoint(from screenPoint: CGPoint) -> GridPoint {
-        
-        //  FI  FII
-        //+---+---+
-        //|  / \  |
-        //|/     \|
-        //+       +
-        //|       |
-        //+       +
-        //|\     /|
-        //|  \ /  |
-        //+---+---+
-        
+
         let deltaWidth = (kHexagonWidth * 3 / 4) / 2
         var ergx: Int = 0
         var moved = false

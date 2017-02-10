@@ -8,32 +8,16 @@
 
 import Foundation
 
-enum GridPointDirection {
-    
-    case northEast
-    case east
-    case southEast
-    case southWest
-    case west
-    case northWest
-    
-    func text() -> String {
-        switch self {
-        case .northEast:
-            return "northEast"
-        case .east:
-            return "east"
-        case .southEast:
-            return "southEast"
-        case .southWest:
-            return "southWest"
-        case .west:
-            return "west"
-        case .northWest:
-            return "northWest"
-        }
-    }
-}
+
+// +--+--+--+
+// | /    \ |
+// |/      \|
+// +        +
+// |        |
+// +        +
+// |\      /|
+// | \    / |
+// +--+--+--+
 
 // A GridPoint is a structure that represents a location in the grid.
 // This is Hashable, because it will be stored in a dictionary.
