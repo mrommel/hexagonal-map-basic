@@ -11,7 +11,12 @@ import Foundation
 enum TerrainType {
     case ocean
     case shore
+    
     case grass
+    case plains
+    case desert
+    case tundra
+    case snow
     
     var image: String {
         switch self {
@@ -21,6 +26,14 @@ enum TerrainType {
             return "Shore"
         case .grass:
             return "Grassland"
+        case .plains:
+            return "Plains"
+        case .desert:
+            return "Desert"
+        case .tundra:
+            return "Tundra"
+        case .snow:
+            return "Snow"
         }
     }
 }
