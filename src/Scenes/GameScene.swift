@@ -32,6 +32,7 @@ class GameScene: SKScene {
     var grid: Grid?
     var onFocusChanged: FocusChangedBlock?
     var onTileSelected: FocusChangedBlock?
+    var cam: SKCameraNode!
     
     //1
     required init?(coder aDecoder: NSCoder) {
@@ -58,7 +59,7 @@ class GameScene: SKScene {
     //5
     override func didMove(to view: SKView) {
         
-        let deviceScale = self.size.width/667
+        let deviceScale = self.size.width / 667
         
         view2D.position = CGPoint(x:-self.size.width*0.45, y:self.size.height*0.17)
         view2D.xScale = deviceScale
@@ -69,6 +70,16 @@ class GameScene: SKScene {
         view2D.addChild(layer2DHighlight)
         
         placeAllTiles2D()
+        
+        self.cam = SKCameraNode() //initialize and assign an instance of SKCameraNode to the cam variable.
+        self.cam.xScale = 1 // 0.25
+        self.cam.yScale = 1 // 0.25 //the scale sets the zoom level of the camera on the given position
+        
+        self.camera = cam //set the scene's camera to reference cam
+        self.addChild(cam) //make the cam a childElement of the scene itself.
+        
+        //position the camera on the gamescene.
+        self.cam.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
     }
     
     func placeAllTiles2D() {
@@ -113,10 +124,10 @@ class GameScene: SKScene {
         layer2DHighlight.addChild(focusTile)
     }
     
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        let touch = touches.first
-        let touchLocation = touch?.location(in: self.view2D)
+        //let touch = touches.first
+        /*let touchLocation = touch?.location(in: self.view2D)
         
         let gridPoint = grid?.gridPoint(from: touchLocation!)
         
@@ -128,6 +139,16 @@ class GameScene: SKScene {
         // notify parent 
         if let focusChanged = self.onFocusChanged {
             focusChanged(gridPoint)
+        }*/
+        
+        for touch in touches {
+            let location = touch.location(in: self.view2D)
+            let previousLocation = touch.previousLocation(in: self.view2D)
+            let deltaX = (location.x) - (previousLocation.x)
+            let deltaY = (location.y) - (previousLocation.y)
+            //NSLog("deltaX=\(deltaX), deltaY=\(deltaY)")
+            self.cam.position.x += deltaX
+            self.cam.position.y += deltaY
         }
     }
     
