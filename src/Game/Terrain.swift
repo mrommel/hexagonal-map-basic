@@ -9,9 +9,15 @@
 import Foundation
 
 enum TerrainType {
+    
+    // misc
+    case outside
+    
+    // water terrain
     case ocean
     case shore
     
+    // solid terrain
     case grass
     case plains
     case desert
@@ -20,6 +26,8 @@ enum TerrainType {
     
     var image: String {
         switch self {
+        case .outside:
+            return "Outside"
         case .ocean:
             return "Ocean"
         case .shore:
@@ -41,6 +49,7 @@ enum TerrainType {
 class Terrain: NSObject {
     
     static let `default` = Terrain(terrainType: .ocean)
+    static let outside = Terrain(terrainType: .outside)
     
     let terrainType: TerrainType
     

@@ -13,7 +13,11 @@ class MenuViewController: UIViewController {
     let menuEntries = ["New Game", "Setup Game", "Load Game", "Options", "Credits"]
     
     override func viewDidLoad() {
-        self.navigationController?.setNavigationBarHidden(true, animated: false)   
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -25,8 +29,7 @@ class MenuViewController: UIViewController {
     }
     
     @IBAction func startGame(sender: AnyObject) {
-        let gameViewController = GameViewController.instantiateFromStoryboard("Main")
-        
+        let gameViewController = GameViewController.instantiateFromStoryboard("Main")        
         self.navigationController?.pushViewController(gameViewController, animated: true)
     }
 

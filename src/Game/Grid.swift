@@ -40,7 +40,7 @@ public class Grid {
         if let terrain = self.terrains[position] {
             return terrain
         } else {
-            return Terrain.default
+            return Terrain.outside
         }
     }
     

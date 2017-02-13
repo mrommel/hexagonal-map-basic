@@ -36,7 +36,10 @@ class GameScene: SKScene {
     
     let view2D: SKSpriteNode
     let layer2DHighlight: SKNode
-    var cursor: SKSpriteNode
+    
+    // cursor handling
+    var cursorNode: SKSpriteNode
+    var cursorPoint: GridPoint?
     
     let tileSize = (width:64, height:64)
     
@@ -48,7 +51,8 @@ class GameScene: SKScene {
         
         self.view2D = SKSpriteNode()
         self.layer2DHighlight = SKNode()
-        self.cursor = SKSpriteNode(imageNamed: "Selection")
+        self.cursorNode = SKSpriteNode(imageNamed: "Selection")
+        self.cursorPoint = GridPoint(x: 0, y: 0)
         
         super.init(size: size)
         self.anchorPoint = CGPoint(x:0.5, y:0.5)
@@ -75,12 +79,12 @@ class GameScene: SKScene {
         self.camera = cam //set the scene's camera to reference cam
         self.addChild(cam) //make the cam a childElement of the scene itself.
         
-        //position the camera on the gamescene.
+        // position the camera on the gamescene.
         self.cam.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
         
         // cursor
-        self.cursor.anchorPoint = CGPoint(x: 0, y: 0)
-        self.layer2DHighlight.addChild(self.cursor)
+        self.cursorNode.anchorPoint = CGPoint(x: 0, y: 0)
+        self.layer2DHighlight.addChild(self.cursorNode)
     }
     
     func placeAllTiles2D() {
@@ -116,7 +120,7 @@ class GameScene: SKScene {
     
     func moveFocus(to gridpoint: GridPoint) {
 
-        self.cursor.position = (self.grid?.screenPoint(from: gridpoint))!
+        self.cursorNode.position = (self.grid?.screenPoint(from: gridpoint))!
     }
     
     // handling touches
@@ -127,14 +131,17 @@ class GameScene: SKScene {
         
         let gridPoint = self.grid?.gridPoint(from: touchLocation!)
         
-        NSLog("touch hex: \(gridPoint)")
+        //NSLog("touch hex: \(gridPoint)")
         
         // update the rendering
         self.moveFocus(to: gridPoint!)
         
         // notify parent
-        if let focusChanged = self.onFocusChanged {
-            focusChanged(gridPoint)
+        if self.cursorPoint != gridPoint {
+            if let focusChanged = self.onFocusChanged {
+                focusChanged(gridPoint)
+            }
+            self.cursorPoint = gridPoint
         }
     }
     
@@ -146,7 +153,7 @@ class GameScene: SKScene {
             let previousLocation = touch.previousLocation(in: self.view2D)
             let deltaX = (location.x) - (previousLocation.x)
             let deltaY = (location.y) - (previousLocation.y)
-            //NSLog("deltaX=\(deltaX), deltaY=\(deltaY)")
+
             self.cam.position.x -= deltaX * 0.5
             self.cam.position.y -= deltaY * 0.5
         }

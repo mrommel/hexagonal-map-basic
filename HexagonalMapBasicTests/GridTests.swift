@@ -34,6 +34,11 @@ class GridTests: XCTestCase {
             }
         }
     }
+    
+    func testOutside() {
+        let terrain = self.classUnderTest?.terrain(at: GridPoint(x: -1, y: -1))
+        XCTAssertEqual(terrain, Terrain.outside, "terrain does not match")
+    }
 
     func testTerrainTypePersisted() {
         

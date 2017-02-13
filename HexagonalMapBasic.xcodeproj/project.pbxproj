@@ -23,12 +23,18 @@
 		1AA7B37E1E4DFF7000104C91 /* AStarPathfinderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA7B37D1E4DFF7000104C91 /* AStarPathfinderTests.swift */; };
 		1AA7B37F1E4E00B800104C91 /* AStarPathfinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA7B37B1E4DF6D500104C91 /* AStarPathfinder.swift */; };
 		1AA7B3801E4E00BB00104C91 /* PathfinderDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA7B3791E4DF69900104C91 /* PathfinderDataSource.swift */; };
+		1AA7B3831E51BC3400104C91 /* GridGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA7B3821E51BC3400104C91 /* GridGenerator.swift */; };
+		1AA7B3851E51C2BC00104C91 /* Array2DTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA7B3841E51C2BC00104C91 /* Array2DTest.swift */; };
+		1AA7B3881E51C2F900104C91 /* Array2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA7B3871E51C2F900104C91 /* Array2D.swift */; };
+		1AA7B3891E51C2F900104C91 /* Array2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA7B3871E51C2F900104C91 /* Array2D.swift */; };
 		1AB7EBD41E4D091A00594922 /* teaser.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AB7EBD31E4D091A00594922 /* teaser.png */; };
 		1AB7EBD61E4D0CD400594922 /* button.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AB7EBD51E4D0CD400594922 /* button.png */; };
 		1AB7EBD81E4DB82900594922 /* GridPointDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB7EBD71E4DB82900594922 /* GridPointDirection.swift */; };
 		1AB7EBD91E4DB82900594922 /* GridPointDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB7EBD71E4DB82900594922 /* GridPointDirection.swift */; };
 		1ADE279F1E48B8EC001F44FF /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE279E1E48B8EC001F44FF /* MenuViewController.swift */; };
 		1ADE27A21E48BAB3001F44FF /* UIViewController+Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE27A11E48BAB3001F44FF /* UIViewController+Storyboard.swift */; };
+		1AEE6C4D1E51FFE600537D1D /* GridGeneratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEE6C4C1E51FFE600537D1D /* GridGeneratorTests.swift */; };
+		1AEE6C4E1E51FFEA00537D1D /* GridGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA7B3821E51BC3400104C91 /* GridGenerator.swift */; };
 		4D15C2891D442302007A5EE2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D15C2881D442302007A5EE2 /* AppDelegate.swift */; };
 		4D15C2911D442302007A5EE2 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D15C2901D442302007A5EE2 /* GameViewController.swift */; };
 		4D15C2941D442302007A5EE2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D15C2921D442302007A5EE2 /* Main.storyboard */; };
@@ -61,11 +67,15 @@
 		1AA7B3791E4DF69900104C91 /* PathfinderDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PathfinderDataSource.swift; path = Game/PathFinding/PathfinderDataSource.swift; sourceTree = "<group>"; };
 		1AA7B37B1E4DF6D500104C91 /* AStarPathfinder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AStarPathfinder.swift; path = Game/PathFinding/AStarPathfinder.swift; sourceTree = "<group>"; };
 		1AA7B37D1E4DFF7000104C91 /* AStarPathfinderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AStarPathfinderTests.swift; sourceTree = "<group>"; };
+		1AA7B3821E51BC3400104C91 /* GridGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GridGenerator.swift; path = Game/GridGenerator/GridGenerator.swift; sourceTree = "<group>"; };
+		1AA7B3841E51C2BC00104C91 /* Array2DTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array2DTest.swift; sourceTree = "<group>"; };
+		1AA7B3871E51C2F900104C91 /* Array2D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Array2D.swift; path = Game/Utils/Array2D.swift; sourceTree = "<group>"; };
 		1AB7EBD31E4D091A00594922 /* teaser.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = teaser.png; path = Resources/teaser.png; sourceTree = "<group>"; };
 		1AB7EBD51E4D0CD400594922 /* button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button.png; path = Resources/button.png; sourceTree = "<group>"; };
 		1AB7EBD71E4DB82900594922 /* GridPointDirection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GridPointDirection.swift; path = Game/GridPointDirection.swift; sourceTree = "<group>"; };
 		1ADE279E1E48B8EC001F44FF /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuViewController.swift; path = ViewControllers/MenuViewController.swift; sourceTree = "<group>"; };
 		1ADE27A11E48BAB3001F44FF /* UIViewController+Storyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIViewController+Storyboard.swift"; path = "Extensions/UIViewController+Storyboard.swift"; sourceTree = "<group>"; };
+		1AEE6C4C1E51FFE600537D1D /* GridGeneratorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridGeneratorTests.swift; sourceTree = "<group>"; };
 		22AA1275C9994E5D58C36935 /* Pods_HexagonalMapBasic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HexagonalMapBasic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		31793D30FF1A02BBCED07F71 /* Pods-HexagonalMapBasic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HexagonalMapBasic.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HexagonalMapBasic/Pods-HexagonalMapBasic.debug.xcconfig"; sourceTree = "<group>"; };
 		3C40715086CB38506213EF83 /* Pods-HexagonalMapBasic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HexagonalMapBasic.release.xcconfig"; path = "Pods/Target Support Files/Pods-HexagonalMapBasic/Pods-HexagonalMapBasic.release.xcconfig"; sourceTree = "<group>"; };
@@ -109,6 +119,8 @@
 		1A4B38931E4C672A00FA7457 /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				1AA7B3861E51C2E500104C91 /* Utils */,
+				1AA7B3811E51BC0C00104C91 /* GridGenerator */,
 				1AA7B3781E4DF66800104C91 /* PathFinding */,
 				1A4B38941E4C67EC00FA7457 /* Grid.swift */,
 				1A4B38AA1E4CAF9600FA7457 /* GridPoint.swift */,
@@ -122,10 +134,12 @@
 			isa = PBXGroup;
 			children = (
 				1A4B38A01E4C7A5600FA7457 /* Info.plist */,
+				1AA7B3841E51C2BC00104C91 /* Array2DTest.swift */,
 				1A4B38A61E4C7A7D00FA7457 /* GridTests.swift */,
 				1AA7B3761E4DEB9200104C91 /* GridPointTests.swift */,
 				1AA7B3741E4DC99200104C91 /* GridPointDirectionTests.swift */,
 				1AA7B37D1E4DFF7000104C91 /* AStarPathfinderTests.swift */,
+				1AEE6C4C1E51FFE600537D1D /* GridGeneratorTests.swift */,
 			);
 			path = HexagonalMapBasicTests;
 			sourceTree = "<group>";
@@ -139,6 +153,22 @@
 			name = PathFinding;
 			sourceTree = "<group>";
 		};
+		1AA7B3811E51BC0C00104C91 /* GridGenerator */ = {
+			isa = PBXGroup;
+			children = (
+				1AA7B3821E51BC3400104C91 /* GridGenerator.swift */,
+			);
+			name = GridGenerator;
+			sourceTree = "<group>";
+		};
+		1AA7B3861E51C2E500104C91 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				1AA7B3871E51C2F900104C91 /* Array2D.swift */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
 		1ADE279D1E488D05001F44FF /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
@@ -147,7 +177,6 @@
 				4DCE427F1D44298C003B7E3C /* ViewControllers */,
 				4DCE427E1D442972003B7E3C /* Storyboards */,
 				4DCE42831D442A19003B7E3C /* Scenes */,
-				4D19AFA11D6319160027FEC1 /* Nodes */,
 			);
 			name = Presentation;
 			sourceTree = "<group>";
@@ -197,13 +226,6 @@
 				4D15C29A1D442302007A5EE2 /* Info.plist */,
 			);
 			path = src;
-			sourceTree = "<group>";
-		};
-		4D19AFA11D6319160027FEC1 /* Nodes */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Nodes;
 			sourceTree = "<group>";
 		};
 		4DA76F6E1D8378A4000C3571 /* Sprites */ = {
@@ -412,9 +434,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				1AA7B37E1E4DFF7000104C91 /* AStarPathfinderTests.swift in Sources */,
+				1AA7B3891E51C2F900104C91 /* Array2D.swift in Sources */,
+				1AEE6C4D1E51FFE600537D1D /* GridGeneratorTests.swift in Sources */,
 				1A4B38A91E4C7B4B00FA7457 /* Terrain.swift in Sources */,
 				1AA7B3771E4DEB9200104C91 /* GridPointTests.swift in Sources */,
 				1AA7B37F1E4E00B800104C91 /* AStarPathfinder.swift in Sources */,
+				1AA7B3851E51C2BC00104C91 /* Array2DTest.swift in Sources */,
+				1AEE6C4E1E51FFEA00537D1D /* GridGenerator.swift in Sources */,
 				1AB7EBD91E4DB82900594922 /* GridPointDirection.swift in Sources */,
 				1A4B38AC1E4CAF9600FA7457 /* GridPoint.swift in Sources */,
 				1AA7B3751E4DC99200104C91 /* GridPointDirectionTests.swift in Sources */,
@@ -431,11 +457,13 @@
 				1A4B38AB1E4CAF9600FA7457 /* GridPoint.swift in Sources */,
 				1A4B38971E4C688700FA7457 /* Terrain.swift in Sources */,
 				1AB7EBD81E4DB82900594922 /* GridPointDirection.swift in Sources */,
+				1AA7B3831E51BC3400104C91 /* GridGenerator.swift in Sources */,
 				4D15C2911D442302007A5EE2 /* GameViewController.swift in Sources */,
 				1ADE27A21E48BAB3001F44FF /* UIViewController+Storyboard.swift in Sources */,
 				1A4B38901E4BBAD400FA7457 /* GameScene.swift in Sources */,
 				1ADE279F1E48B8EC001F44FF /* MenuViewController.swift in Sources */,
 				4D15C2891D442302007A5EE2 /* AppDelegate.swift in Sources */,
+				1AA7B3881E51C2F900104C91 /* Array2D.swift in Sources */,
 				1AA7B37C1E4DF6D500104C91 /* AStarPathfinder.swift in Sources */,
 				1A4B38951E4C67EC00FA7457 /* Grid.swift in Sources */,
 				1AA7B37A1E4DF69900104C91 /* PathfinderDataSource.swift in Sources */,

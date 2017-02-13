@@ -33,6 +33,10 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         
         let scene = GameScene(size: view.bounds.size)
+        scene.onFocusChanged = { focus in
+            SCLAlertView().showInfo("Important info", subTitle: "You are great")
+        }
+        
         let skView = view as! SKView
         skView.showsFPS = true
         skView.showsNodeCount = true
