@@ -34,42 +34,39 @@ class GameScene: SKScene {
     var onTileSelected: FocusChangedBlock?
     var cam: SKCameraNode!
     
-    //1
+    let view2D: SKSpriteNode
+    let layer2DHighlight: SKNode
+    var cursor: SKSpriteNode
+    
+    let tileSize = (width:64, height:64)
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    //2
-    let view2D: SKSpriteNode
-    let layer2DHighlight: SKNode
-    
-    //3
-    let tileSize = (width:64, height:64)
-    
-    //4
     override init(size: CGSize) {
         
-        view2D = SKSpriteNode()
-        layer2DHighlight = SKNode()
+        self.view2D = SKSpriteNode()
+        self.layer2DHighlight = SKNode()
+        self.cursor = SKSpriteNode(imageNamed: "Selection")
         
         super.init(size: size)
         self.anchorPoint = CGPoint(x:0.5, y:0.5)
     }
-    
-    //5
+
     override func didMove(to view: SKView) {
         
         let deviceScale = self.size.width / 667
         
-        view2D.position = CGPoint(x:-self.size.width*0.45, y:self.size.height*0.17)
-        view2D.xScale = deviceScale
-        view2D.yScale = deviceScale
-        addChild(view2D)
+        self.view2D.position = CGPoint(x:-self.size.width*0.45, y:self.size.height*0.17)
+        self.view2D.xScale = deviceScale
+        self.view2D.yScale = deviceScale
+        self.addChild(view2D)
         
-        layer2DHighlight.zPosition = 999
-        view2D.addChild(layer2DHighlight)
+        self.layer2DHighlight.zPosition = 999
+        self.view2D.addChild(self.layer2DHighlight)
         
-        placeAllTiles2D()
+        self.placeAllTiles2D()
         
         self.cam = SKCameraNode() //initialize and assign an instance of SKCameraNode to the cam variable.
         self.cam.xScale = 1 // 0.25
@@ -80,6 +77,10 @@ class GameScene: SKScene {
         
         //position the camera on the gamescene.
         self.cam.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
+        
+        // cursor
+        self.cursor.anchorPoint = CGPoint(x: 0, y: 0)
+        self.layer2DHighlight.addChild(self.cursor)
     }
     
     func placeAllTiles2D() {
@@ -110,36 +111,35 @@ class GameScene: SKScene {
         
         tileSprite.anchorPoint = CGPoint(x:0, y:0)
         
-        view2D.addChild(tileSprite)
+        self.view2D.addChild(tileSprite)
     }
     
     func moveFocus(to gridpoint: GridPoint) {
-        //clear previous focus
-        layer2DHighlight.removeAllChildren()
-        
-        let focusTile = SKSpriteNode(imageNamed: "Selection")
-        focusTile.position = (self.grid?.screenPoint(from: gridpoint))!
-        focusTile.anchorPoint = CGPoint(x: 0, y: 0)
-        
-        layer2DHighlight.addChild(focusTile)
+
+        self.cursor.position = (self.grid?.screenPoint(from: gridpoint))!
     }
     
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+    // handling touches
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        //let touch = touches.first
-        /*let touchLocation = touch?.location(in: self.view2D)
+        let touch = touches.first
+        let touchLocation = touch?.location(in: self.view2D)
         
-        let gridPoint = grid?.gridPoint(from: touchLocation!)
+        let gridPoint = self.grid?.gridPoint(from: touchLocation!)
         
-        NSLog("touch \(gridPoint)")
+        NSLog("touch hex: \(gridPoint)")
         
         // update the rendering
         self.moveFocus(to: gridPoint!)
         
-        // notify parent 
+        // notify parent
         if let focusChanged = self.onFocusChanged {
             focusChanged(gridPoint)
-        }*/
+        }
+    }
+    
+    // moving the map around
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         for touch in touches {
             let location = touch.location(in: self.view2D)
@@ -147,8 +147,8 @@ class GameScene: SKScene {
             let deltaX = (location.x) - (previousLocation.x)
             let deltaY = (location.y) - (previousLocation.y)
             //NSLog("deltaX=\(deltaX), deltaY=\(deltaY)")
-            self.cam.position.x += deltaX
-            self.cam.position.y += deltaY
+            self.cam.position.x -= deltaX * 0.5
+            self.cam.position.y -= deltaY * 0.5
         }
     }
     
