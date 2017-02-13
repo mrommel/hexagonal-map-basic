@@ -35,6 +35,8 @@
 		1ADE27A21E48BAB3001F44FF /* UIViewController+Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE27A11E48BAB3001F44FF /* UIViewController+Storyboard.swift */; };
 		1AEE6C4D1E51FFE600537D1D /* GridGeneratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEE6C4C1E51FFE600537D1D /* GridGeneratorTests.swift */; };
 		1AEE6C4E1E51FFEA00537D1D /* GridGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA7B3821E51BC3400104C91 /* GridGenerator.swift */; };
+		1AEE6C501E520EF800537D1D /* PerlinGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEE6C4F1E520EF800537D1D /* PerlinGenerator.swift */; };
+		1AEE6C511E520EF800537D1D /* PerlinGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEE6C4F1E520EF800537D1D /* PerlinGenerator.swift */; };
 		4D15C2891D442302007A5EE2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D15C2881D442302007A5EE2 /* AppDelegate.swift */; };
 		4D15C2911D442302007A5EE2 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D15C2901D442302007A5EE2 /* GameViewController.swift */; };
 		4D15C2941D442302007A5EE2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D15C2921D442302007A5EE2 /* Main.storyboard */; };
@@ -76,6 +78,7 @@
 		1ADE279E1E48B8EC001F44FF /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuViewController.swift; path = ViewControllers/MenuViewController.swift; sourceTree = "<group>"; };
 		1ADE27A11E48BAB3001F44FF /* UIViewController+Storyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIViewController+Storyboard.swift"; path = "Extensions/UIViewController+Storyboard.swift"; sourceTree = "<group>"; };
 		1AEE6C4C1E51FFE600537D1D /* GridGeneratorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridGeneratorTests.swift; sourceTree = "<group>"; };
+		1AEE6C4F1E520EF800537D1D /* PerlinGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PerlinGenerator.swift; path = Game/Utils/PerlinGenerator.swift; sourceTree = "<group>"; };
 		22AA1275C9994E5D58C36935 /* Pods_HexagonalMapBasic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HexagonalMapBasic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		31793D30FF1A02BBCED07F71 /* Pods-HexagonalMapBasic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HexagonalMapBasic.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HexagonalMapBasic/Pods-HexagonalMapBasic.debug.xcconfig"; sourceTree = "<group>"; };
 		3C40715086CB38506213EF83 /* Pods-HexagonalMapBasic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HexagonalMapBasic.release.xcconfig"; path = "Pods/Target Support Files/Pods-HexagonalMapBasic/Pods-HexagonalMapBasic.release.xcconfig"; sourceTree = "<group>"; };
@@ -165,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				1AA7B3871E51C2F900104C91 /* Array2D.swift */,
+				1AEE6C4F1E520EF800537D1D /* PerlinGenerator.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -445,6 +449,7 @@
 				1A4B38AC1E4CAF9600FA7457 /* GridPoint.swift in Sources */,
 				1AA7B3751E4DC99200104C91 /* GridPointDirectionTests.swift in Sources */,
 				1A4B38A71E4C7A7D00FA7457 /* GridTests.swift in Sources */,
+				1AEE6C511E520EF800537D1D /* PerlinGenerator.swift in Sources */,
 				1A4B38A81E4C7B2C00FA7457 /* Grid.swift in Sources */,
 				1AA7B3801E4E00BB00104C91 /* PathfinderDataSource.swift in Sources */,
 			);
@@ -463,6 +468,7 @@
 				1A4B38901E4BBAD400FA7457 /* GameScene.swift in Sources */,
 				1ADE279F1E48B8EC001F44FF /* MenuViewController.swift in Sources */,
 				4D15C2891D442302007A5EE2 /* AppDelegate.swift in Sources */,
+				1AEE6C501E520EF800537D1D /* PerlinGenerator.swift in Sources */,
 				1AA7B3881E51C2F900104C91 /* Array2D.swift in Sources */,
 				1AA7B37C1E4DF6D500104C91 /* AStarPathfinder.swift in Sources */,
 				1A4B38951E4C67EC00FA7457 /* Grid.swift in Sources */,

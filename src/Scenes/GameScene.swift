@@ -62,7 +62,7 @@ class GameScene: SKScene {
         
         let deviceScale = self.size.width / 667
         
-        self.view2D.position = CGPoint(x:-self.size.width*0.45, y:self.size.height*0.17)
+        self.view2D.position = CGPoint(x:-self.size.width*0.5, y:-self.size.height*0.2)
         self.view2D.xScale = deviceScale
         self.view2D.yScale = deviceScale
         self.addChild(view2D)
@@ -137,12 +137,12 @@ class GameScene: SKScene {
         self.moveFocus(to: gridPoint!)
         
         // notify parent
-        if self.cursorPoint != gridPoint {
+        if self.cursorPoint == gridPoint {
             if let focusChanged = self.onFocusChanged {
                 focusChanged(gridPoint)
             }
-            self.cursorPoint = gridPoint
         }
+        self.cursorPoint = gridPoint
     }
     
     // moving the map around

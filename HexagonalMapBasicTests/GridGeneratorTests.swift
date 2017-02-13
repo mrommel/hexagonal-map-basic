@@ -35,4 +35,11 @@ class GridGeneratorTests: XCTestCase {
         XCTAssertEqual(grid?.terrain(at: GridPoint(x: 1, y: 1)).terrainType, TerrainType.snow, "terrain does not match")
     }
     
+    func testHeightMap() {
+        
+        let gridGenerator = GridGenerator(width: 20, height: 20)
+        let elevationMap = gridGenerator?.elevation()
+        
+        
+    }
 }

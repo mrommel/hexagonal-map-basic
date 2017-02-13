@@ -43,10 +43,13 @@ class GameViewController: UIViewController {
         skView.ignoresSiblingOrder = true
         scene.scaleMode = .resizeFill
         
-        scene.grid = Grid(width: 5, height: 5)
+        /*scene.grid = Grid(width: 5, height: 5)
         scene.grid?.add(terrain: Terrain(terrainType: TerrainType.grass), at: GridPoint(x: 2, y: 1))
         scene.grid?.add(terrain: Terrain(terrainType: TerrainType.shore), at: GridPoint(x: 2, y: 2))
-        scene.grid?.add(terrain: Terrain(terrainType: TerrainType.shore), at: GridPoint(x: 3, y: 1))
+        scene.grid?.add(terrain: Terrain(terrainType: TerrainType.shore), at: GridPoint(x: 3, y: 1))*/
+        let generator = GridGenerator(width: 10, height: 10)
+        generator?.fillFromElevation()
+        scene.grid = generator?.generate()
         
         skView.presentScene(scene)
     }
