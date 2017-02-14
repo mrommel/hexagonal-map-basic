@@ -12,7 +12,7 @@ import CoreGraphics
 
 public class Grid {
     
-    var terrains: [GridPoint: Terrain] = [:]
+    var tiles: Array2D<Tile>
     var width: Int
     var height: Int
     
@@ -21,24 +21,38 @@ public class Grid {
     
     required public init?(width: Int, height: Int) {
         
+        self.tiles = Array2D<Tile>(columns: width, rows: height)
         self.width = width
         self.height = height
         
         for x in 0..<width {
             for y in 0..<height {
-                self.add(terrain: Terrain.default, at: GridPoint(x: x, y: y))
+                self.tiles[x, y] = Tile(withTerrain: Terrain.ocean)
             }
         }
     }
     
-    func add(terrain: Terrain, at position: GridPoint) {
-        self.terrains[position] = terrain
+    func set(terrain: Terrain, at position: GridPoint) {
+        
+        // check bounds
+        guard self.has(gridPoint: position) else {
+            return
+        }
+        
+        let tile = self.tiles[position]
+        tile?.terrain = terrain
     }
     
     func terrain(at position: GridPoint) -> Terrain {
+        
+        // check bounds
+        guard self.has(gridPoint: position) else {
+            return Terrain.outside
+        }
+        
         // If we have a terrain, return it
-        if let terrain = self.terrains[position] {
-            return terrain
+        if let tile = self.tiles[position] {
+            return tile.terrain!
         } else {
             return Terrain.outside
         }

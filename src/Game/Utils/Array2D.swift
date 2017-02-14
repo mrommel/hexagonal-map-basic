@@ -8,10 +8,10 @@
 
 import Foundation
 
-class Array2D<T: Equatable>: Equatable {
+class Array2D <T: Equatable>: Equatable {
     
-    private let columns: Int
-    private let rows: Int
+    fileprivate let columns: Int
+    fileprivate let rows: Int
     fileprivate var array: Array<T?>
     
     init(columns: Int, rows: Int) {
@@ -53,4 +53,19 @@ func ==<T>(lhs: Array2D<T>, rhs: Array2D<T>) -> Bool {
     }
     
     return true
+}
+
+// MARK: grid method
+
+extension Array2D {
+    
+    subscript(gridPoint: GridPoint) -> T? {
+        get {
+            return array[(gridPoint.y * columns) + gridPoint.x]
+        }
+        set(newValue) {
+            array[(gridPoint.y * columns) + gridPoint.x] = newValue
+        }
+    }
+    
 }

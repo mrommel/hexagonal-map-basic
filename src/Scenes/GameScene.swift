@@ -102,7 +102,7 @@ class GameScene: SKScene {
                 
                 let terrain = self.grid?.terrain(at: gridPoint)
                 
-                placeTile2D(image: (terrain?.terrainType.image)!, withPosition: point!)
+                placeTile2D(image: (terrain?.image)!, withPosition: point!)
             }
         }
     }

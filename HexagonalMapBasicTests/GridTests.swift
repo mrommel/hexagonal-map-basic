@@ -30,7 +30,7 @@ class GridTests: XCTestCase {
         for x in 0..<5 {
             for y in 0..<5 {
                 let terrain = self.classUnderTest?.terrain(at: GridPoint(x: x, y: y))
-                XCTAssertEqual(terrain, Terrain.default, "terrain does not match")
+                XCTAssertEqual(terrain, Terrain.ocean, "terrain does not match")
             }
         }
     }
@@ -42,11 +42,11 @@ class GridTests: XCTestCase {
 
     func testTerrainTypePersisted() {
         
-        let terrain0 = Terrain(terrainType: .grass)
-        self.classUnderTest?.add(terrain: terrain0, at: GridPoint(x: 2, y: 2))
+        let terrain0 = Terrain.grass
+        self.classUnderTest?.set(terrain: terrain0, at: GridPoint(x: 2, y: 2))
         
         let terrain1 = self.classUnderTest?.terrain(at: GridPoint(x: 2, y: 2))
-        XCTAssertEqual(terrain1?.terrainType, terrain0.terrainType, "terrain types does not match")
+        XCTAssertEqual(terrain1, terrain0, "terrain types does not match")
     }
     
     func testScreenPoint() {

@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum TerrainType {
+enum Terrain {
     
     // misc
     case outside
@@ -23,6 +23,10 @@ enum TerrainType {
     case desert
     case tundra
     case snow
+    
+    // map generation
+    case water
+    case ground
     
     var image: String {
         switch self {
@@ -42,18 +46,8 @@ enum TerrainType {
             return "Tundra"
         case .snow:
             return "Snow"
+        default:
+            return "---"
         }
-    }
-}
-
-class Terrain: NSObject {
-    
-    static let `default` = Terrain(terrainType: .ocean)
-    static let outside = Terrain(terrainType: .outside)
-    
-    let terrainType: TerrainType
-    
-    required init(terrainType: TerrainType) {
-        self.terrainType = terrainType
     }
 }

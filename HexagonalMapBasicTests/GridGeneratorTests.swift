@@ -23,16 +23,16 @@ class GridGeneratorTests: XCTestCase {
     func testFillTerrain() {
         
         let gridGenerator = GridGenerator(width: 2, height: 2)
-        let terrain = Terrain(terrainType: .snow)
+        let terrain = Terrain.snow
         
         gridGenerator?.fill(with: terrain)
         
         let grid = gridGenerator?.generate()
         
-        XCTAssertEqual(grid?.terrain(at: GridPoint(x: 0, y: 0)).terrainType, TerrainType.snow, "terrain does not match")
-        XCTAssertEqual(grid?.terrain(at: GridPoint(x: 0, y: 1)).terrainType, TerrainType.snow, "terrain does not match")
-        XCTAssertEqual(grid?.terrain(at: GridPoint(x: 1, y: 0)).terrainType, TerrainType.snow, "terrain does not match")
-        XCTAssertEqual(grid?.terrain(at: GridPoint(x: 1, y: 1)).terrainType, TerrainType.snow, "terrain does not match")
+        XCTAssertEqual(grid?.terrain(at: GridPoint(x: 0, y: 0)), Terrain.snow, "terrain does not match")
+        XCTAssertEqual(grid?.terrain(at: GridPoint(x: 0, y: 1)), Terrain.snow, "terrain does not match")
+        XCTAssertEqual(grid?.terrain(at: GridPoint(x: 1, y: 0)), Terrain.snow, "terrain does not match")
+        XCTAssertEqual(grid?.terrain(at: GridPoint(x: 1, y: 1)), Terrain.snow, "terrain does not match")
     }
     
     func testHeightMap() {

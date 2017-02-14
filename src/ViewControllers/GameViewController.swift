@@ -48,7 +48,7 @@ class GameViewController: UIViewController {
         scene.grid?.add(terrain: Terrain(terrainType: TerrainType.shore), at: GridPoint(x: 2, y: 2))
         scene.grid?.add(terrain: Terrain(terrainType: TerrainType.shore), at: GridPoint(x: 3, y: 1))*/
         let generator = GridGenerator(width: 10, height: 10)
-        generator?.fillFromElevation()
+        generator?.fillFromElevation(withWaterPercentage: 0.5)
         scene.grid = generator?.generate()
         
         skView.presentScene(scene)

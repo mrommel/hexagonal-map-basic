@@ -53,13 +53,13 @@ class GridGenerator {
     }
     
     // from http://www.redblobgames.com/maps/terrain-from-noise/
-    func biome(e: Float, m: Float) -> TerrainType {
+    func biome(e: Float, level: Float) -> Terrain {
         
-        if e < 0.51 {
-            return TerrainType.ocean
+        if e < level {
+            return Terrain.water
         }
         
-        return TerrainType.grass
+        return Terrain.ground
         
         /*if e < 0.1 return OCEAN
         if e < 0.12 return BEACH
@@ -98,16 +98,56 @@ class GridGenerator {
         }
     }
     
-    func fillFromElevation() {
+    func fillFromElevation(withWaterPercentage waterPercentage: Float) {
         
-        let elevation = self.elevation()
+        let elevationMap = self.elevation()
+        
+        let waterLevel = self.findWaterLevel(in: elevationMap, forWaterPercentage: waterPercentage)
         
         for x in 0..<width {
             for y in 0..<height {
-                let terrainType = self.biome(e: elevation[x, y]!, m: 0.0)
-                self.terrain[x, y] = Terrain(terrainType: terrainType)
+                let terrainType = self.biome(e: elevationMap[x, y]!, level: waterLevel)
+                
+                if terrainType == Terrain.water {
+                    self.terrain[x, y] = Terrain.ocean
+                } else {
+                    self.terrain[x, y] = Terrain.grass
+                }
             }
         }
+    }
+    
+    func waterPercentage(in elevationMap: Array2D<Float>, at waterLevel: Float) -> Float {
+        
+        var waterNum: Float = 0
+        var groundNum: Float = 0
+        
+        for x in 0..<width {
+            for y in 0..<height {
+                let terrainType = self.biome(e: elevationMap[x, y]!, level: waterLevel)
+                
+                if terrainType == Terrain.water {
+                    waterNum += 1.0
+                } else {
+                    groundNum += 1.0
+                }
+            }
+        }
+        
+        return Float(waterNum / (waterNum + groundNum))
+    }
+    
+    func findWaterLevel(in elevationMap: Array2D<Float>, forWaterPercentage: Float) -> Float {
+        
+        var waterLevel: Float = 0.05
+        var waterPercentage: Float = self.waterPercentage(in: elevationMap, at: waterLevel)
+        
+        while waterPercentage < forWaterPercentage {
+            waterLevel += 0.05
+            waterPercentage = self.waterPercentage(in: elevationMap, at: waterLevel)
+        }
+        
+        return waterLevel
     }
     
     func generate() -> Grid? {
@@ -118,7 +158,7 @@ class GridGenerator {
             for y in 0..<height {
                 let gridPoint = GridPoint(x: x, y: y)
                 let terrainVal = self.terrain[x, y]
-                grid?.add(terrain: terrainVal!, at: gridPoint)
+                grid?.set(terrain: terrainVal!, at: gridPoint)
             }
         }
         
