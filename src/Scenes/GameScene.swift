@@ -34,7 +34,7 @@ class GameScene: SKScene {
     var onTileSelected: FocusChangedBlock?
     var cam: SKCameraNode!
     
-    let view2D: SKSpriteNode
+    let terrainView: SKSpriteNode
     let layer2DHighlight: SKNode
     
     // cursor handling
@@ -49,7 +49,7 @@ class GameScene: SKScene {
     
     override init(size: CGSize) {
         
-        self.view2D = SKSpriteNode()
+        self.terrainView = SKSpriteNode()
         self.layer2DHighlight = SKNode()
         self.cursorNode = SKSpriteNode(imageNamed: "Selection")
         self.cursorPoint = GridPoint(x: 0, y: 0)
@@ -62,13 +62,13 @@ class GameScene: SKScene {
         
         let deviceScale = self.size.width / 667
         
-        self.view2D.position = CGPoint(x:-self.size.width*0.5, y:-self.size.height*0.2)
-        self.view2D.xScale = deviceScale
-        self.view2D.yScale = deviceScale
-        self.addChild(view2D)
+        self.terrainView.position = CGPoint(x:-self.size.width*0.5, y:-self.size.height*0.2)
+        self.terrainView.xScale = deviceScale
+        self.terrainView.yScale = deviceScale
+        self.addChild(terrainView)
         
         self.layer2DHighlight.zPosition = 999
-        self.view2D.addChild(self.layer2DHighlight)
+        self.terrainView.addChild(self.layer2DHighlight)
         
         self.placeAllTiles2D()
         
@@ -97,25 +97,33 @@ class GameScene: SKScene {
             for y in 0..<height {
                 
                 let gridPoint = GridPoint(x: x, y: y)
-                
                 let point = self.grid?.screenPoint(from: gridPoint)
+                let tile = self.grid?.tile(at: gridPoint)
                 
-                let terrain = self.grid?.terrain(at: gridPoint)
-                
-                placeTile2D(image: (terrain?.image)!, withPosition: point!)
+                place(tile: tile!, withPosition: point!)
             }
         }
     }
     
-    func placeTile2D(image: String, withPosition: CGPoint) {
+    func place(tile: Tile, withPosition: CGPoint) {
         
-        let tileSprite = SKSpriteNode(imageNamed: image)
+        let terrain = tile.terrain
         
+        let tileSprite = SKSpriteNode(imageNamed: (terrain?.image)!)
         tileSprite.position = withPosition
-        
         tileSprite.anchorPoint = CGPoint(x:0, y:0)
+        tileSprite.zPosition = 20
         
-        self.view2D.addChild(tileSprite)
+        self.terrainView.addChild(tileSprite)
+        
+        for feature in tile.features {
+            let featureSprite = SKSpriteNode(imageNamed: feature.image)
+            featureSprite.position = withPosition
+            featureSprite.anchorPoint = CGPoint(x:0, y:0)
+            featureSprite.zPosition = 30
+            
+            self.terrainView.addChild(featureSprite)
+        }
     }
     
     func moveFocus(to gridpoint: GridPoint) {
@@ -127,7 +135,7 @@ class GameScene: SKScene {
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         let touch = touches.first
-        let touchLocation = touch?.location(in: self.view2D)
+        let touchLocation = touch?.location(in: self.terrainView)
         
         let gridPoint = self.grid?.gridPoint(from: touchLocation!)
         
@@ -149,8 +157,8 @@ class GameScene: SKScene {
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         for touch in touches {
-            let location = touch.location(in: self.view2D)
-            let previousLocation = touch.previousLocation(in: self.view2D)
+            let location = touch.location(in: self.terrainView)
+            let previousLocation = touch.previousLocation(in: self.terrainView)
             let deltaX = (location.x) - (previousLocation.x)
             let deltaY = (location.y) - (previousLocation.y)
 

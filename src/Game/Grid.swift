@@ -32,6 +32,27 @@ public class Grid {
         }
     }
     
+    func tile(at position: GridPoint) -> Tile {
+        
+        // check bounds
+        guard self.has(gridPoint: position) else {
+            return Tile(withTerrain: Terrain.outside)
+        }
+        
+        return self.tiles[position]!
+    }
+    
+    func add(feature: Feature, at position: GridPoint) {
+        
+        // check bounds
+        guard self.has(gridPoint: position) else {
+            return
+        }
+        
+        let tile = self.tiles[position]
+        tile?.features.append(feature)
+    }
+    
     func set(terrain: Terrain, at position: GridPoint) {
         
         // check bounds
