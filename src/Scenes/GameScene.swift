@@ -124,6 +124,14 @@ class GameScene: SKScene {
             
             self.terrainView.addChild(featureSprite)
         }
+        
+        // grid
+        let gridSprite = SKSpriteNode(imageNamed: "Grid")
+        gridSprite.position = withPosition
+        gridSprite.anchorPoint = CGPoint(x:0, y:0)
+        gridSprite.zPosition = 100
+        
+        self.terrainView.addChild(gridSprite)
     }
     
     func moveFocus(to gridpoint: GridPoint) {

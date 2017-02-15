@@ -43,21 +43,29 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="teaser.png" translatesAutoresizingMaskIntoConstraints="NO" id="n6r-ac-SAP">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="319.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="237.5"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fIL-6E-G9p">
-                                        <rect key="frame" x="0.0" y="339.5" width="375" height="94.5"/>
+                                        <rect key="frame" x="0.0" y="257.5" width="375" height="70"/>
                                         <state key="normal" image="button.png"/>
                                         <connections>
                                             <action selector="startGameWithSender:" destination="rlR-h4-wRc" eventType="touchUpInside" id="Plj-HJ-kYC"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bHy-4x-Bid">
-                                        <rect key="frame" x="0.0" y="454" width="375" height="94.5"/>
+                                        <rect key="frame" x="0.0" y="347.5" width="375" height="70"/>
                                         <state key="normal" image="button.png"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PhS-Ro-Ibk">
-                                        <rect key="frame" x="0.0" y="568.5" width="375" height="98.5"/>
+                                        <rect key="frame" x="0.0" y="437.5" width="375" height="70.5"/>
+                                        <state key="normal" image="button.png"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pd2-Ja-CbT">
+                                        <rect key="frame" x="0.0" y="528" width="375" height="70"/>
+                                        <state key="normal" image="button.png"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bil-s2-LqY">
+                                        <rect key="frame" x="0.0" y="618" width="375" height="49"/>
                                         <state key="normal" image="button.png"/>
                                     </button>
                                 </subviews>
