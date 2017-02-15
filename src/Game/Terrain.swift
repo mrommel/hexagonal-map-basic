@@ -8,30 +8,30 @@
 
 import Foundation
 
-enum Terrain {
+enum Terrain: String {
     
     // misc
-    case outside
+    case outside = "out"
     
     // water terrain
-    case ocean
-    case shore
+    case ocean = "oc"
+    case shore = "sh"
     
     // solid terrain
-    case grass
-    case plains
-    case desert
-    case tundra
-    case snow
+    case grass = "gs"
+    case plains = "pl"
+    case desert = "ds"
+    case tundra = "td"
+    case snow = "sn"
     
     // map generation
-    case water
-    case ground
+    case water = "wt"
+    case ground = "gr"
     
     // tile matching
-    case matchesAny
-    case matchesGround
-    case matchesWater
+    case matchesAny = "*"
+    case matchesGround = "-"
+    case matchesWater = "~"
     
     var image: String {
         switch self {
@@ -55,63 +55,144 @@ enum Terrain {
             return "---"
         }
     }
+    
+    var isWater: Bool {
+        switch self {
+        case .ocean:
+            return true
+        case .shore:
+            return true
+        default:
+            return false
+        }
+
+    }
+    
+    var isGround: Bool {
+        switch self {
+        case .grass:
+            return true
+        case .plains:
+            return true
+        case .desert:
+            return true
+        case .tundra:
+            return true
+        case .snow:
+            return true
+        default:
+            return false
+        }
+        
+    }
 }
 
 class TerrainTransitionManager {
     
     class TerrainTransitionRule {
         
-        let tileRule: Terrain
-        let remoteRule: Terrain
-        let directionRule: GridPointDirection
+        let tileRule: Terrain?
+        
+        let remoteNE: Terrain?
+        let remoteSE: Terrain?
+        let remoteS: Terrain?
+        let remoteSW: Terrain?
+        let remoteNW: Terrain?
+        let remoteN: Terrain?
+        
         let image: String
         
-        required init(tileRule: Terrain, remoteRule: Terrain, directionRule: GridPointDirection, image: String) {
+        required init(tileRule: Terrain?, remoteRule: String, image: String) {
             
             self.tileRule = tileRule
-            self.remoteRule = remoteRule
-            self.directionRule = directionRule
+            
+            let patterns = remoteRule.characters.split{$0 == ","}.map(String.init)
+            
+            remoteNE = Terrain(rawValue: patterns[0])
+            remoteSE = Terrain(rawValue: patterns[1])
+            remoteS = Terrain(rawValue: patterns[2])
+            remoteSW = Terrain(rawValue: patterns[3])
+            remoteNW = Terrain(rawValue: patterns[4])
+            remoteN = Terrain(rawValue: patterns[5])
+            
             self.image = image
         }
         
-        func matches(forCenter tileTerrain: Terrain, remote: Terrain, in direction: GridPointDirection) -> Bool {
+        static func matches(terrainRule: Terrain, andTerrain terrain: Terrain) -> Int {
+
+            if terrainRule == terrain {
+                return 3
+            }
             
-            var isTerrain = false
-            var isRemote = false
-            var isDirection = false
+            if terrainRule == .matchesGround && terrain.isGround {
+                return 2
+            }
+            
+            if terrainRule == .matchesWater && terrain.isWater {
+                return 2
+            }
+            
+            if terrainRule == .matchesAny {
+                return 1
+            }
+            
+            return 0
+        }
+        
+        func matches(forCenter tileTerrain: Terrain, remoteNE: Terrain, remoteSE: Terrain, remoteS: Terrain, remoteSW: Terrain, remoteNW: Terrain, remoteN: Terrain) -> Int {
+            
+            var score: Int = 0
             
             // tile matching
-            if self.tileRule == .matchesWater && (tileTerrain == .ocean || tileTerrain == .shore) {
-                isTerrain = true
-            }
-            
-            if self.tileRule == .matchesGround && (tileTerrain != .ocean && tileTerrain != .shore) {
-                isTerrain = true
-            }
-            
-            if self.tileRule == tileTerrain {
-                isTerrain = true
+            if TerrainTransitionRule.matches(terrainRule: self.tileRule!, andTerrain: tileTerrain) == 0 {
+                return 0
             }
             
             // remote matching
-            if self.remoteRule == .matchesWater && (remote == .ocean || remote == .shore) {
-                isRemote = true
+            var tmpScore = 0
+            tmpScore = TerrainTransitionRule.matches(terrainRule: self.remoteNE!, andTerrain: remoteNE)
+            if tmpScore == 0 {
+                return 0
+            } else {
+                score += tmpScore
             }
             
-            if self.remoteRule == .matchesGround && (remote != .ocean && remote != .shore) {
-                isRemote = true
+            tmpScore = TerrainTransitionRule.matches(terrainRule: self.remoteSE!, andTerrain: remoteSE)
+            if tmpScore == 0 {
+                return 0
+            } else {
+                score += tmpScore
             }
             
-            if self.remoteRule == remote {
-                isRemote = true
+            tmpScore = TerrainTransitionRule.matches(terrainRule: self.remoteS!, andTerrain: remoteS)
+            if tmpScore == 0 {
+                return 0
+            } else {
+                score += tmpScore
             }
             
-            // direction matching
-            if self.directionRule == direction {
-                isDirection = true
+            tmpScore = TerrainTransitionRule.matches(terrainRule: self.remoteSW!, andTerrain: remoteSW)
+            if tmpScore == 0 {
+                return 0
+            } else {
+                score += tmpScore
             }
             
-            return isTerrain && isRemote && isDirection
+            tmpScore = TerrainTransitionRule.matches(terrainRule: self.remoteNW!, andTerrain: remoteNW)
+            if tmpScore == 0 {
+                return 0
+            } else {
+                score += tmpScore
+            }
+            
+            tmpScore = TerrainTransitionRule.matches(terrainRule: self.remoteN!, andTerrain: remoteN)
+            if tmpScore == 0 {
+                return 0
+            } else {
+                score += tmpScore
+            }
+            
+            return score
         }
     }
     
@@ -120,21 +201,36 @@ class TerrainTransitionManager {
     required init() {
         self.transitions = []
         
-        self.transitions.append(TerrainTransitionRule(tileRule: .matchesGround, remoteRule: .matchesWater, directionRule: .northEast, image: "Ocean-se"))
-        self.transitions.append(TerrainTransitionRule(tileRule: .matchesGround, remoteRule: .matchesWater, directionRule: .southEast, image: "Ocean-ne"))
-        self.transitions.append(TerrainTransitionRule(tileRule: .matchesGround, remoteRule: .matchesWater, directionRule: .south, image: "Ocean-n"))
-        self.transitions.append(TerrainTransitionRule(tileRule: .matchesGround, remoteRule: .matchesWater, directionRule: .southWest, image: "Ocean-nw"))
-        self.transitions.append(TerrainTransitionRule(tileRule: .matchesGround, remoteRule: .matchesWater, directionRule: .northWest, image: "Ocean-sw"))
-        self.transitions.append(TerrainTransitionRule(tileRule: .matchesGround, remoteRule: .matchesWater, directionRule: .north, image: "Ocean-s"))
+        // beach
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "-,~,*,*,*,~", image: "Beach-se"))
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "~,-,~,*,*,*", image: "Beach-ne"))
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "*,~,-,~,*,*", image: "Beach-n"))
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "*,*,~,-,~,*", image: "Beach-nw"))
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "*,*,*,~,-,~", image: "Beach-sw"))
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "~,*,*,*,~,-", image: "Beach-s"))
+
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "-,-,~,*,*,~", image: "Beach-ne-se"))
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "~,-,-,~,*,*", image: "Beach-n-ne"))
         
     }
     
-    func bestTransition(forCenter tileTerrain: Terrain, remote: Terrain, in direction: GridPointDirection) -> String? {
+    func bestTransition(forCenter tileTerrain: Terrain, remoteNE: Terrain, remoteSE: Terrain, remoteS: Terrain, remoteSW: Terrain, remoteNW: Terrain, remoteN: Terrain) -> String? {
+        
+        var bestRule: TerrainTransitionRule? = nil
+        var bestScore: Int = 0
         
         for transitionRule in self.transitions {
-            if transitionRule.matches(forCenter: tileTerrain, remote: remote, in: direction) {
-                return transitionRule.image
+            
+            let currentScore = transitionRule.matches(forCenter: tileTerrain, remoteNE: remoteNE, remoteSE: remoteSE, remoteS: remoteS, remoteSW: remoteSW, remoteNW: remoteNW,remoteN: remoteN)
+            
+            if currentScore > bestScore {
+                bestScore = currentScore
+                bestRule = transitionRule
             }
+        }
+        
+        if bestRule != nil {
+            return bestRule?.image
         }
         
         return nil

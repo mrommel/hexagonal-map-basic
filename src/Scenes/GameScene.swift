@@ -129,24 +129,35 @@ class GameScene: SKScene {
         self.terrainView.addChild(tileSprite)
         
         // terrain transitions
-        for direction in GridPointDirection.all {
+        let neighborNE = gridPoint.neighbor(in: .northEast)
+        let remoteNE = self.grid?.tile(at: neighborNE).terrain!
+        
+        let neighborSE = gridPoint.neighbor(in: .southEast)
+        let remoteSE = self.grid?.tile(at: neighborSE).terrain!
+        
+        let neighborS = gridPoint.neighbor(in: .south)
+        let remoteS = self.grid?.tile(at: neighborS).terrain!
+        
+        let neighborSW = gridPoint.neighbor(in: .southWest)
+        let remoteSW = self.grid?.tile(at: neighborSW).terrain!
+        
+        let neighborNW = gridPoint.neighbor(in: .northWest)
+        let remoteNW = self.grid?.tile(at: neighborNW).terrain!
+        
+        let neighborN = gridPoint.neighbor(in: .north)
+        let remoteN = self.grid?.tile(at: neighborN).terrain!
+        
+        if let transitionImage = self.terrainTransitionManager.bestTransition(forCenter: terrain!, remoteNE: remoteNE!, remoteSE: remoteSE!, remoteS: remoteS!, remoteSW: remoteSW!, remoteNW: remoteNW!, remoteN: remoteN!) {
+            print("transitionImage=\(transitionImage)")
             
-            let remote = gridPoint.neighbor(in: direction)
-            if (self.grid?.has(gridPoint: remote))! {
-                let remoteTerrain = self.grid?.tile(at: remote).terrain!
-                
-                if let transitionImage = self.terrainTransitionManager.bestTransition(forCenter: terrain!, remote: remoteTerrain!, in: direction) {
-                    print("transitionImage=\(transitionImage)")
-                    
-                    let featureSprite = SKSpriteNode(imageNamed: transitionImage)
-                    featureSprite.position = position
-                    featureSprite.anchorPoint = CGPoint(x:0, y:0)
-                    featureSprite.zPosition = 20
-                    
-                    self.terrainView.addChild(featureSprite)
-                }
-            }
+            let featureSprite = SKSpriteNode(imageNamed: transitionImage)
+            featureSprite.position = position
+            featureSprite.anchorPoint = CGPoint(x:0, y:0)
+            featureSprite.zPosition = 20
+            
+            self.terrainView.addChild(featureSprite)
         }
+        
         
         // grid
         self.terrainView.addChild(GridSpriteNode(withPosition: position))
