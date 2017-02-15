@@ -10,6 +10,8 @@ import Foundation
 
 enum GridPointDirection {
     
+    static let all: [GridPointDirection]  = [.northEast, .southEast, .south, .southWest, .northWest, .north]
+    
     case northEast
     case southEast
     case south

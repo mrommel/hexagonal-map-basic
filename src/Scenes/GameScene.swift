@@ -34,6 +34,8 @@ class GameScene: SKScene {
     var onTileSelected: FocusChangedBlock?
     var cam: SKCameraNode!
     
+    let terrainTransitionManager: TerrainTransitionManager
+    
     let terrainView: SKSpriteNode
     let layer2DHighlight: SKNode
     
@@ -53,6 +55,7 @@ class GameScene: SKScene {
         self.layer2DHighlight = SKNode()
         self.cursorNode = SKSpriteNode(imageNamed: "Selection")
         self.cursorPoint = GridPoint(x: 0, y: 0)
+        self.terrainTransitionManager = TerrainTransitionManager()
         
         super.init(size: size)
         self.anchorPoint = CGPoint(x:0.5, y:0.5)
@@ -100,38 +103,64 @@ class GameScene: SKScene {
                 let point = self.grid?.screenPoint(from: gridPoint)
                 let tile = self.grid?.tile(at: gridPoint)
                 
-                place(tile: tile!, withPosition: point!)
+                place(tile: tile!, gridPoint: gridPoint, withPosition: point!)
             }
         }
     }
     
-    func place(tile: Tile, withPosition: CGPoint) {
+    // render tile
+    // 
+    // zlevel
+    // 60 units
+    // 50 features
+    // 40 focus/cursor
+    // 30 grid
+    // 20 terrain transition
+    // 10 terrain
+    //
+    func place(tile: Tile, gridPoint: GridPoint, withPosition position: CGPoint) {
         
         let terrain = tile.terrain
         
         let tileSprite = SKSpriteNode(imageNamed: (terrain?.image)!)
-        tileSprite.position = withPosition
+        tileSprite.position = position
         tileSprite.anchorPoint = CGPoint(x:0, y:0)
-        tileSprite.zPosition = 20
-        
+        tileSprite.zPosition = 10
         self.terrainView.addChild(tileSprite)
         
-        for feature in tile.features {
-            let featureSprite = SKSpriteNode(imageNamed: feature.image)
-            featureSprite.position = withPosition
-            featureSprite.anchorPoint = CGPoint(x:0, y:0)
-            featureSprite.zPosition = 30
+        // terrain transitions
+        for direction in GridPointDirection.all {
             
-            self.terrainView.addChild(featureSprite)
+            let remote = gridPoint.neighbor(in: direction)
+            if (self.grid?.has(gridPoint: remote))! {
+                let remoteTerrain = self.grid?.tile(at: remote).terrain!
+                
+                if let transitionImage = self.terrainTransitionManager.bestTransition(forCenter: terrain!, remote: remoteTerrain!, in: direction) {
+                    print("transitionImage=\(transitionImage)")
+                    
+                    let featureSprite = SKSpriteNode(imageNamed: transitionImage)
+                    featureSprite.position = position
+                    featureSprite.anchorPoint = CGPoint(x:0, y:0)
+                    featureSprite.zPosition = 20
+                    
+                    self.terrainView.addChild(featureSprite)
+                }
+            }
         }
         
         // grid
-        let gridSprite = SKSpriteNode(imageNamed: "Grid")
-        gridSprite.position = withPosition
-        gridSprite.anchorPoint = CGPoint(x:0, y:0)
-        gridSprite.zPosition = 100
+        self.terrainView.addChild(GridSpriteNode(withPosition: position))
         
-        self.terrainView.addChild(gridSprite)
+        // features
+        for feature in tile.features {
+            let featureSprite = SKSpriteNode(imageNamed: feature.image)
+            featureSprite.position = position
+            featureSprite.anchorPoint = CGPoint(x:0, y:0)
+            featureSprite.zPosition = 50
+            
+            self.terrainView.addChild(featureSprite)
+        }
+
     }
     
     func moveFocus(to gridpoint: GridPoint) {
