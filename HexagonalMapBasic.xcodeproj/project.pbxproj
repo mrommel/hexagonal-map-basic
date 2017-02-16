@@ -10,6 +10,7 @@
 		1A355B291E5345A3006469B3 /* Features.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A355B281E5345A3006469B3 /* Features.xcassets */; };
 		1A355B2B1E535BD7006469B3 /* Tiles.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A355B2A1E535BD7006469B3 /* Tiles.xcassets */; };
 		1A355B2D1E546B00006469B3 /* GridSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A355B2C1E546B00006469B3 /* GridSpriteNode.swift */; };
+		1A355B301E55DBD7006469B3 /* TerrainTransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A355B2F1E55DBD7006469B3 /* TerrainTransitionManager.swift */; };
 		1A4B38901E4BBAD400FA7457 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4B388F1E4BBAD400FA7457 /* GameScene.swift */; };
 		1A4B38921E4BBC9100FA7457 /* Terrain.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A4B38911E4BBC9100FA7457 /* Terrain.xcassets */; };
 		1A4B38951E4C67EC00FA7457 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4B38941E4C67EC00FA7457 /* Grid.swift */; };
@@ -66,6 +67,7 @@
 		1A355B281E5345A3006469B3 /* Features.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Features.xcassets; path = Resources/Features.xcassets; sourceTree = "<group>"; };
 		1A355B2A1E535BD7006469B3 /* Tiles.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Tiles.xcassets; path = Resources/Tiles.xcassets; sourceTree = "<group>"; };
 		1A355B2C1E546B00006469B3 /* GridSpriteNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GridSpriteNode.swift; path = Scenes/GridSpriteNode.swift; sourceTree = "<group>"; };
+		1A355B2F1E55DBD7006469B3 /* TerrainTransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TerrainTransitionManager.swift; path = Game/Templating/TerrainTransitionManager.swift; sourceTree = "<group>"; };
 		1A4B388F1E4BBAD400FA7457 /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameScene.swift; path = Scenes/GameScene.swift; sourceTree = "<group>"; };
 		1A4B38911E4BBC9100FA7457 /* Terrain.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Terrain.xcassets; path = Resources/Terrain.xcassets; sourceTree = "<group>"; };
 		1A4B38941E4C67EC00FA7457 /* Grid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Grid.swift; path = Game/Grid.swift; sourceTree = "<group>"; };
@@ -131,9 +133,18 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		1A355B2E1E55DBAC006469B3 /* Templating */ = {
+			isa = PBXGroup;
+			children = (
+				1A355B2F1E55DBD7006469B3 /* TerrainTransitionManager.swift */,
+			);
+			name = Templating;
+			sourceTree = "<group>";
+		};
 		1A4B38931E4C672A00FA7457 /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				1A355B2E1E55DBAC006469B3 /* Templating */,
 				1AA7B3861E51C2E500104C91 /* Utils */,
 				1AA7B3811E51BC0C00104C91 /* GridGenerator */,
 				1AA7B3781E4DF66800104C91 /* PathFinding */,
@@ -484,6 +495,7 @@
 				1A4B38971E4C688700FA7457 /* Terrain.swift in Sources */,
 				1AB7EBD81E4DB82900594922 /* GridPointDirection.swift in Sources */,
 				1AEE6C561E531BBF00537D1D /* Tile.swift in Sources */,
+				1A355B301E55DBD7006469B3 /* TerrainTransitionManager.swift in Sources */,
 				1AA7B3831E51BC3400104C91 /* GridGenerator.swift in Sources */,
 				4D15C2911D442302007A5EE2 /* GameViewController.swift in Sources */,
 				1ADE27A21E48BAB3001F44FF /* UIViewController+Storyboard.swift in Sources */,
