@@ -4,13 +4,10 @@ A demonstration of using the SpriteKit TilemapNode with an Hexagonal Map
 #### Prerequisites
 [Xcode 8](https://developer.apple.com)
 
-#### Extract the art assets using the Sketchtool command line app
-Original artwork in Sketch (based on [Kenney's Hexagon Pack](http://kenney.nl/assets/hexagon-pack))
+#### Asset processing
 
-[Sketch](http://www.sketchapp.com) and
-[Sketchtool](http://www.sketchapp.com/tool/)
+convert semi-dry-n-ne.png -resize 72x62 semi-dry-n-ne.png
 
-From Project root execute command in Terminal
+convert beach-n-ne-se-s.png beach-ne-se-s-sw.png -combine beach-n-ne-se-s-sw.png
 
-    $ sketchtool export slices "art/Tiles.sketch" --output="art/output"
 

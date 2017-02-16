@@ -101,8 +101,9 @@ class TerrainTransitionManager {
         let remoteN: Terrain?
         
         let image: String
+        let zLevel: Int
         
-        required init(tileRule: Terrain?, remoteRule: String, image: String) {
+        required init(tileRule: Terrain?, remoteRule: String, image: String, zLevel: Int) {
             
             self.tileRule = tileRule
             
@@ -116,6 +117,7 @@ class TerrainTransitionManager {
             remoteN = Terrain(rawValue: patterns[5])
             
             self.image = image
+            self.zLevel = zLevel
         }
         
         static func matches(terrainRule: Terrain, andTerrain terrain: Terrain) -> Int {
@@ -196,48 +198,72 @@ class TerrainTransitionManager {
         self.transitions = []
         
         // beach
-        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "-,~,*,*,*,~", image: "Beach-se"))
-        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "~,-,~,*,*,*", image: "Beach-ne"))
-        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "*,~,-,~,*,*", image: "Beach-n"))
-        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "*,*,~,-,~,*", image: "Beach-nw"))
-        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "*,*,*,~,-,~", image: "Beach-sw"))
-        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "~,*,*,*,~,-", image: "Beach-s"))
+        // 1 edge
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "-,~,*,*,*,~", image: "Beach-se", zLevel: 21))
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "~,-,~,*,*,*", image: "Beach-ne", zLevel: 21))
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "*,~,-,~,*,*", image: "Beach-n", zLevel: 21))
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "*,*,~,-,~,*", image: "Beach-nw", zLevel: 21))
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "*,*,*,~,-,~", image: "Beach-sw", zLevel: 21))
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "~,*,*,*,~,-", image: "Beach-s", zLevel: 21))
 
-        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "-,-,~,*,*,~", image: "Beach-ne-se"))
-        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "~,-,-,~,*,*", image: "Beach-n-ne"))
-        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "*,~,-,-,~,*", image: "Beach-nw-n"))
-        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "*,*,~,-,-,~", image: "Beach-sw-nw"))
-        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "~,*,*,~,-,-", image: "Beach-s-sw"))
-        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "-,~,*,*,~,-", image: "Beach-se-s"))
+        // 2 edges
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "-,-,~,*,*,~", image: "Beach-ne-se", zLevel: 21))
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "~,-,-,~,*,*", image: "Beach-n-ne", zLevel: 21))
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "*,~,-,-,~,*", image: "Beach-nw-n", zLevel: 21))
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "*,*,~,-,-,~", image: "Beach-sw-nw", zLevel: 21))
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "~,*,*,~,-,-", image: "Beach-s-sw", zLevel: 21))
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "-,~,*,*,~,-", image: "Beach-se-s", zLevel: 21))
         
-        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "-,-,-,~,*,~", image: "Beach-n-ne-se"))
-        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "~,-,-,-,~,*", image: "Beach-nw-n-ne"))
-        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "*,~,-,-,-,~", image: "Beach-sw-nw-n"))
-        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "~,*,~,-,-,-", image: "Beach-s-sw-nw"))
-        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "-,~,*,~,-,-", image: "Beach-se-s-sw"))
-        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "-,-,~,*,~,-", image: "Beach-ne-se-s"))
+        // 3 edges
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "-,-,-,~,*,~", image: "Beach-n-ne-se", zLevel: 21))
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "~,-,-,-,~,*", image: "Beach-nw-n-ne", zLevel: 21))
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "*,~,-,-,-,~", image: "Beach-sw-nw-n", zLevel: 21))
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "~,*,~,-,-,-", image: "Beach-s-sw-nw", zLevel: 21))
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "-,~,*,~,-,-", image: "Beach-se-s-sw", zLevel: 21))
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "-,-,~,*,~,-", image: "Beach-ne-se-s", zLevel: 21))
+        
+        // 4 edges
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "-,-,-,~,~,-", image: "Beach-n-ne-se-s", zLevel: 21))
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "-,-,-,-,~,~", image: "Beach-nw-n-ne-se", zLevel: 21))
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "~,-,-,-,-,~", image: "Beach-sw-nw-n-ne", zLevel: 21))
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "~,~,-,-,-,-", image: "Beach-s-sw-nw-n", zLevel: 21))
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "-,~,~,-,-,-", image: "Beach-se-s-sw-nw", zLevel: 21))
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "-,-,~,~,-,-", image: "Beach-ne-se-s-sw", zLevel: 21))
+        
+        // 5 edges
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "-,-,-,~,-,-", image: "Beach-n-ne-se-s-sw", zLevel: 21))
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "-,-,-,-,~,-", image: "Beach-nw-n-ne-se-s", zLevel: 21))
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "-,-,-,-,-,~", image: "Beach-sw-nw-n-ne-se", zLevel: 21))
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "~,-,-,-,-,-", image: "Beach-s-sw-nw-n-ne", zLevel: 21))
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "-,~,-,-,-,-", image: "Beach-se-s-sw-nw-n", zLevel: 21))
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "-,-,~,-,-,-", image: "Beach-ne-se-s-sw-nw", zLevel: 21))
+        
+        // all 6 edges
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "-,-,-,-,-,-", image: "Beach-n-ne-se-s-sw-nw", zLevel: 21))
+        
+        // grass
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "gs,*,*,*,*,*", image: "Grassland-se", zLevel: 22))
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "*,gs,*,*,*,*", image: "Grassland-ne", zLevel: 22))
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "*,*,gs,*,*,*", image: "Grassland-n", zLevel: 22))
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "*,*,*,gs,*,*", image: "Grassland-nw", zLevel: 22))
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "*,*,*,*,gs,*", image: "Grassland-sw", zLevel: 22))
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "*,*,*,*,*,gs", image: "Grassland-s", zLevel: 22))
         
     }
     
-    func bestTransition(forCenter tileTerrain: Terrain, remoteNE: Terrain, remoteSE: Terrain, remoteS: Terrain, remoteSW: Terrain, remoteNW: Terrain, remoteN: Terrain) -> String? {
+    func bestTransitions(forCenter tileTerrain: Terrain, remoteNE: Terrain, remoteSE: Terrain, remoteS: Terrain, remoteSW: Terrain, remoteNW: Terrain, remoteN: Terrain) -> [TerrainTransitionRule]? {
         
-        var bestRule: TerrainTransitionRule? = nil
-        var bestScore: Int = 0
+        var transitionImages: [TerrainTransitionRule]? = []
         
         for transitionRule in self.transitions {
             
             let currentScore = transitionRule.matches(forCenter: tileTerrain, remoteNE: remoteNE, remoteSE: remoteSE, remoteS: remoteS, remoteSW: remoteSW, remoteNW: remoteNW,remoteN: remoteN)
             
-            if currentScore > bestScore {
-                bestScore = currentScore
-                bestRule = transitionRule
+            if currentScore > 0 {
+                transitionImages?.append(transitionRule)
             }
         }
         
-        if bestRule != nil && bestScore > 0 {
-            return bestRule?.image
-        }
-        
-        return nil
+        return transitionImages
     }
 }

@@ -115,7 +115,7 @@ class GameScene: SKScene {
     // 50 features
     // 40 focus/cursor
     // 30 grid
-    // 20 terrain transition
+    // 20 terrain transitions
     // 10 terrain
     //
     func place(tile: Tile, gridPoint: GridPoint, withPosition position: CGPoint) {
@@ -147,15 +147,18 @@ class GameScene: SKScene {
         let neighborN = gridPoint.neighbor(in: .north)
         let remoteN = self.grid?.tile(at: neighborN).terrain!
         
-        if let transitionImage = self.terrainTransitionManager.bestTransition(forCenter: terrain!, remoteNE: remoteNE!, remoteSE: remoteSE!, remoteS: remoteS!, remoteSW: remoteSW!, remoteNW: remoteNW!, remoteN: remoteN!) {
-            print("transitionImage=\(transitionImage)")
+        if let transitions = self.terrainTransitionManager.bestTransitions(forCenter: terrain!, remoteNE: remoteNE!, remoteSE: remoteSE!, remoteS: remoteS!, remoteSW: remoteSW!, remoteNW: remoteNW!, remoteN: remoteN!) {
             
-            let featureSprite = SKSpriteNode(imageNamed: transitionImage)
-            featureSprite.position = position
-            featureSprite.anchorPoint = CGPoint(x:0, y:0)
-            featureSprite.zPosition = 20
+            for transition in transitions {
+                print("transitionImage=\(transition)")
             
-            self.terrainView.addChild(featureSprite)
+                let transitionSprite = SKSpriteNode(imageNamed: transition.image)
+                transitionSprite.position = position
+                transitionSprite.anchorPoint = CGPoint(x:0, y:0)
+                transitionSprite.zPosition = CGFloat(transition.zLevel)
+            
+                self.terrainView.addChild(transitionSprite)
+            }
         }
         
         
