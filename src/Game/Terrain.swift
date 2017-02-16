@@ -210,6 +210,13 @@ class TerrainTransitionManager {
         self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "~,*,*,~,-,-", image: "Beach-s-sw"))
         self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "-,~,*,*,~,-", image: "Beach-se-s"))
         
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "-,-,-,~,*,~", image: "Beach-n-ne-se"))
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "~,-,-,-,~,*", image: "Beach-nw-n-ne"))
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "*,~,-,-,-,~", image: "Beach-sw-nw-n"))
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "~,*,~,-,-,-", image: "Beach-s-sw-nw"))
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "-,~,*,~,-,-", image: "Beach-se-s-sw"))
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "-,-,~,*,~,-", image: "Beach-ne-se-s"))
+        
     }
     
     func bestTransition(forCenter tileTerrain: Terrain, remoteNE: Terrain, remoteSE: Terrain, remoteS: Terrain, remoteSW: Terrain, remoteNW: Terrain, remoteN: Terrain) -> String? {
