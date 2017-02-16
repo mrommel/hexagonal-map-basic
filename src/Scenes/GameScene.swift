@@ -28,7 +28,7 @@ func / (point: CGPoint, scalar: CGPoint) -> CGPoint {
 typealias FocusChangedBlock = (_ focus: GridPoint?) -> Void
 
 class GameScene: SKScene {
-    
+
     var grid: Grid?
     var onFocusChanged: FocusChangedBlock?
     var onTileSelected: FocusChangedBlock?
@@ -127,6 +127,15 @@ class GameScene: SKScene {
         tileSprite.anchorPoint = CGPoint(x:0, y:0)
         tileSprite.zPosition = 10
         self.terrainView.addChild(tileSprite)
+        
+        if terrain! == .ocean {
+            
+            let textureAtlas = SKTextureAtlas(named: "waves")
+            let frames = ["waves-concave-A01-l", "waves-concave-A02-l", "waves-concave-A03-l", "waves-concave-A04-l", "waves-concave-A05-l", "waves-concave-A06-l"].map { textureAtlas.textureNamed($0) }
+            let animate = SKAction.animate(with: frames, timePerFrame: 0.2)
+            let forever = SKAction.repeatForever(animate)
+            tileSprite.run(forever)
+        }
         
         // terrain transitions
         let neighborNE = gridPoint.neighbor(in: .northEast)
