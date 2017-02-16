@@ -151,47 +151,41 @@ class TerrainTransitionManager {
             // remote matching
             var tmpScore = 0
             tmpScore = TerrainTransitionRule.matches(terrainRule: self.remoteNE!, andTerrain: remoteNE)
-            if tmpScore == 0 {
+            guard tmpScore > 0 else {
                 return 0
-            } else {
-                score += tmpScore
             }
+            score += tmpScore
             
             tmpScore = TerrainTransitionRule.matches(terrainRule: self.remoteSE!, andTerrain: remoteSE)
-            if tmpScore == 0 {
+            guard tmpScore > 0 else {
                 return 0
-            } else {
-                score += tmpScore
             }
+            score += tmpScore
             
             tmpScore = TerrainTransitionRule.matches(terrainRule: self.remoteS!, andTerrain: remoteS)
-            if tmpScore == 0 {
+            guard tmpScore > 0 else {
                 return 0
-            } else {
-                score += tmpScore
             }
+            score += tmpScore
             
             tmpScore = TerrainTransitionRule.matches(terrainRule: self.remoteSW!, andTerrain: remoteSW)
-            if tmpScore == 0 {
+            guard tmpScore > 0 else {
                 return 0
-            } else {
-                score += tmpScore
             }
+            score += tmpScore
             
             tmpScore = TerrainTransitionRule.matches(terrainRule: self.remoteNW!, andTerrain: remoteNW)
-            if tmpScore == 0 {
+            guard tmpScore > 0 else {
                 return 0
-            } else {
-                score += tmpScore
             }
+            score += tmpScore
             
             tmpScore = TerrainTransitionRule.matches(terrainRule: self.remoteN!, andTerrain: remoteN)
-            if tmpScore == 0 {
+            guard tmpScore > 0 else {
                 return 0
-            } else {
-                score += tmpScore
             }
-            
+            score += tmpScore
+    
             return score
         }
     }
@@ -211,6 +205,10 @@ class TerrainTransitionManager {
 
         self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "-,-,~,*,*,~", image: "Beach-ne-se"))
         self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "~,-,-,~,*,*", image: "Beach-n-ne"))
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "*,~,-,-,~,*", image: "Beach-nw-n"))
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "*,*,~,-,-,~", image: "Beach-sw-nw"))
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "~,*,*,~,-,-", image: "Beach-s-sw"))
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "-,~,*,*,~,-", image: "Beach-se-s"))
         
     }
     
@@ -229,7 +227,7 @@ class TerrainTransitionManager {
             }
         }
         
-        if bestRule != nil {
+        if bestRule != nil && bestScore > 0 {
             return bestRule?.image
         }
         
