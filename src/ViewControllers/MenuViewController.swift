@@ -20,9 +20,9 @@ class MenuViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        self.navigationController?.setNavigationBarHidden(false, animated: false)
-    }
+    //override func viewDidDisappear(_ animated: Bool) {
+    //    self.navigationController?.setNavigationBarHidden(false, animated: false)
+    //}
     
     override var shouldAutorotate: Bool {
         return true
