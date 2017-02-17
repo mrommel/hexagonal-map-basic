@@ -58,6 +58,8 @@ enum Terrain: String {
     
     var isWater: Bool {
         switch self {
+        case .outside:
+            return true
         case .ocean:
             return true
         case .shore:
@@ -65,7 +67,6 @@ enum Terrain: String {
         default:
             return false
         }
-
     }
     
     var isGround: Bool {
@@ -83,6 +84,5 @@ enum Terrain: String {
         default:
             return false
         }
-        
     }
 }

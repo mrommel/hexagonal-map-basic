@@ -122,51 +122,23 @@ class GameScene: SKScene {
         
         let terrain = tile.terrain
         
-        let tileSprite = SKSpriteNode(imageNamed: (terrain?.image)!)
-        tileSprite.position = position
-        tileSprite.anchorPoint = CGPoint(x:0, y:0)
-        tileSprite.zPosition = 10
-        self.terrainView.addChild(tileSprite)
-        
-        if terrain! == .ocean {
-            
-            let textureAtlas = SKTextureAtlas(named: "waves")
-            let frames = ["waves-concave-A01-l", "waves-concave-A02-l", "waves-concave-A03-l", "waves-concave-A04-l", "waves-concave-A05-l", "waves-concave-A06-l"].map { textureAtlas.textureNamed($0) }
-            let animate = SKAction.animate(with: frames, timePerFrame: 0.2)
-            let forever = SKAction.repeatForever(animate)
-            tileSprite.run(forever)
-        }
+        // terrain sprite
+        self.terrainView.addChild(TerrainSpriteNode(withPosition: position, andTerrain: terrain!))
         
         // terrain transitions
-        let neighborNE = gridPoint.neighbor(in: .northEast)
-        let remoteNE = self.grid?.tile(at: neighborNE).terrain!
+        let remoteNE = self.grid?.tile(at: gridPoint.neighbor(in: .northEast)).terrain!
+        let remoteSE = self.grid?.tile(at: gridPoint.neighbor(in: .southEast)).terrain!
+        let remoteS = self.grid?.tile(at: gridPoint.neighbor(in: .south)).terrain!
+        let remoteSW = self.grid?.tile(at: gridPoint.neighbor(in: .southWest)).terrain!
+        let remoteNW = self.grid?.tile(at: gridPoint.neighbor(in: .northWest)).terrain!
+        let remoteN = self.grid?.tile(at: gridPoint.neighbor(in: .north)).terrain!
+        let remotePattern = "\((remoteNE?.rawValue)!),\((remoteSE?.rawValue)!),\((remoteS?.rawValue)!),\((remoteSW?.rawValue)!),\((remoteNW?.rawValue)!),\((remoteN?.rawValue)!)"
         
-        let neighborSE = gridPoint.neighbor(in: .southEast)
-        let remoteSE = self.grid?.tile(at: neighborSE).terrain!
-        
-        let neighborS = gridPoint.neighbor(in: .south)
-        let remoteS = self.grid?.tile(at: neighborS).terrain!
-        
-        let neighborSW = gridPoint.neighbor(in: .southWest)
-        let remoteSW = self.grid?.tile(at: neighborSW).terrain!
-        
-        let neighborNW = gridPoint.neighbor(in: .northWest)
-        let remoteNW = self.grid?.tile(at: neighborNW).terrain!
-        
-        let neighborN = gridPoint.neighbor(in: .north)
-        let remoteN = self.grid?.tile(at: neighborN).terrain!
-        
-        if let transitions = self.terrainTransitionManager.bestTransitions(forCenter: terrain!, remoteNE: remoteNE!, remoteSE: remoteSE!, remoteS: remoteS!, remoteSW: remoteSW!, remoteNW: remoteNW!, remoteN: remoteN!) {
+        if let transitions = self.terrainTransitionManager.bestTransitions(forCenter: terrain!, remotePattern: remotePattern) {
             
             for transition in transitions {
-                print("transitionImage=\(transition)")
             
-                let transitionSprite = SKSpriteNode(imageNamed: transition.image)
-                transitionSprite.position = position
-                transitionSprite.anchorPoint = CGPoint(x:0, y:0)
-                transitionSprite.zPosition = CGFloat(transition.zLevel)
-            
-                self.terrainView.addChild(transitionSprite)
+                self.terrainView.addChild(TransitionSpriteNode(withPosition: position, andTransition: transition))
             }
         }
         
@@ -176,12 +148,8 @@ class GameScene: SKScene {
         
         // features
         for feature in tile.features {
-            let featureSprite = SKSpriteNode(imageNamed: feature.image)
-            featureSprite.position = position
-            featureSprite.anchorPoint = CGPoint(x:0, y:0)
-            featureSprite.zPosition = 50
             
-            self.terrainView.addChild(featureSprite)
+            self.terrainView.addChild(FeatureSpriteNode(withPosition: position, andFeature: feature))
         }
 
     }

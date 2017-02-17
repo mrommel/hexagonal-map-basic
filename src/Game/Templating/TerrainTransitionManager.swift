@@ -177,6 +177,20 @@ class TerrainTransitionManager {
         
     }
     
+    func bestTransitions(forCenter tileTerrain: Terrain, remotePattern: String) -> [TerrainTransitionRule]? {
+        
+        let patterns = remotePattern.characters.split{$0 == ","}.map(String.init)
+        
+        let remNE = Terrain(rawValue: patterns[0])
+        let remSE = Terrain(rawValue: patterns[1])
+        let remS = Terrain(rawValue: patterns[2])
+        let remSW = Terrain(rawValue: patterns[3])
+        let remNW = Terrain(rawValue: patterns[4])
+        let remN = Terrain(rawValue: patterns[5])
+        
+        return self.bestTransitions(forCenter: tileTerrain, remoteNE: remNE!, remoteSE: remSE!, remoteS: remS!, remoteSW: remSW!, remoteNW: remNW!, remoteN: remN!)
+    }
+    
     func bestTransitions(forCenter tileTerrain: Terrain, remoteNE: Terrain, remoteSE: Terrain, remoteS: Terrain, remoteSW: Terrain, remoteNW: Terrain, remoteN: Terrain) -> [TerrainTransitionRule]? {
         
         var transitionImages: [TerrainTransitionRule]? = []
