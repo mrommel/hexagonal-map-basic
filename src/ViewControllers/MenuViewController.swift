@@ -20,17 +20,13 @@ class MenuViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
-    //override func viewDidDisappear(_ animated: Bool) {
-    //    self.navigationController?.setNavigationBarHidden(false, animated: false)
-    //}
-    
     override var shouldAutorotate: Bool {
         return true
     }
     
     @IBAction func startGame(sender: AnyObject) {
-        let gameViewController = GameViewController.instantiateFromStoryboard("Main")        
-        self.navigationController?.pushViewController(gameViewController, animated: true)
+        let mapViewController = MapViewController.instantiateFromStoryboard("Main")
+        self.navigationController?.pushViewController(mapViewController, animated: true)
     }
 
 }

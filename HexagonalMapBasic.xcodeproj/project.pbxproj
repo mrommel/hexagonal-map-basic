@@ -35,6 +35,8 @@
 		1AA7B3851E51C2BC00104C91 /* Array2DTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA7B3841E51C2BC00104C91 /* Array2DTest.swift */; };
 		1AA7B3881E51C2F900104C91 /* Array2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA7B3871E51C2F900104C91 /* Array2D.swift */; };
 		1AA7B3891E51C2F900104C91 /* Array2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA7B3871E51C2F900104C91 /* Array2D.swift */; };
+		1AA8466E1E5AFEF300D3A947 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA8466D1E5AFEF300D3A947 /* MapViewController.swift */; };
+		1AA846701E5B016E00D3A947 /* Map.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AA8466F1E5B016E00D3A947 /* Map.xcassets */; };
 		1AB7EBD41E4D091A00594922 /* teaser.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AB7EBD31E4D091A00594922 /* teaser.png */; };
 		1AB7EBD61E4D0CD400594922 /* button.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AB7EBD51E4D0CD400594922 /* button.png */; };
 		1AB7EBD81E4DB82900594922 /* GridPointDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB7EBD71E4DB82900594922 /* GridPointDirection.swift */; };
@@ -92,6 +94,8 @@
 		1AA7B3821E51BC3400104C91 /* GridGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GridGenerator.swift; path = Game/GridGenerator/GridGenerator.swift; sourceTree = "<group>"; };
 		1AA7B3841E51C2BC00104C91 /* Array2DTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array2DTest.swift; sourceTree = "<group>"; };
 		1AA7B3871E51C2F900104C91 /* Array2D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Array2D.swift; path = Game/Utils/Array2D.swift; sourceTree = "<group>"; };
+		1AA8466D1E5AFEF300D3A947 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = ViewControllers/MapViewController.swift; sourceTree = "<group>"; };
+		1AA8466F1E5B016E00D3A947 /* Map.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Map.xcassets; path = Resources/Map.xcassets; sourceTree = "<group>"; };
 		1AB7EBD31E4D091A00594922 /* teaser.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = teaser.png; path = Resources/teaser.png; sourceTree = "<group>"; };
 		1AB7EBD51E4D0CD400594922 /* button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button.png; path = Resources/button.png; sourceTree = "<group>"; };
 		1AB7EBD71E4DB82900594922 /* GridPointDirection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GridPointDirection.swift; path = Game/GridPointDirection.swift; sourceTree = "<group>"; };
@@ -285,6 +289,7 @@
 			isa = PBXGroup;
 			children = (
 				1ADE279E1E48B8EC001F44FF /* MenuViewController.swift */,
+				1AA8466D1E5AFEF300D3A947 /* MapViewController.swift */,
 				4D15C2901D442302007A5EE2 /* GameViewController.swift */,
 			);
 			name = ViewControllers;
@@ -301,6 +306,7 @@
 				1A355B281E5345A3006469B3 /* Features.xcassets */,
 				1A355B2A1E535BD7006469B3 /* Tiles.xcassets */,
 				1A355B311E55E3D7006469B3 /* Animations.xcassets */,
+				1AA8466F1E5B016E00D3A947 /* Map.xcassets */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -417,6 +423,7 @@
 				1AB7EBD61E4D0CD400594922 /* button.png in Resources */,
 				4D15C2961D442302007A5EE2 /* Assets.xcassets in Resources */,
 				1A355B321E55E3D7006469B3 /* Animations.xcassets in Resources */,
+				1AA846701E5B016E00D3A947 /* Map.xcassets in Resources */,
 				1A355B2B1E535BD7006469B3 /* Tiles.xcassets in Resources */,
 				1A4B38921E4BBC9100FA7457 /* Terrain.xcassets in Resources */,
 				4D15C2991D442302007A5EE2 /* LaunchScreen.storyboard in Resources */,
@@ -515,6 +522,7 @@
 				1ADE27A21E48BAB3001F44FF /* UIViewController+Storyboard.swift in Sources */,
 				1A4B38901E4BBAD400FA7457 /* GameScene.swift in Sources */,
 				1ADE279F1E48B8EC001F44FF /* MenuViewController.swift in Sources */,
+				1AA8466E1E5AFEF300D3A947 /* MapViewController.swift in Sources */,
 				4D15C2891D442302007A5EE2 /* AppDelegate.swift in Sources */,
 				1AEE6C501E520EF800537D1D /* PerlinGenerator.swift in Sources */,
 				1A355B341E55E860006469B3 /* TerrainSpriteNode.swift in Sources */,
