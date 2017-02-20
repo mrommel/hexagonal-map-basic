@@ -48,20 +48,14 @@ class MapViewController: UIViewController, UIScrollViewDelegate {
             for mapDict in maps {
                 let dict = mapDict as! NSDictionary
                 
-                //let title = dict["X"] as! String
+                //let title = dict["Title"] as! String
                 let x = self.kImageWidth * (dict["X"] as! CGFloat)
                 let y = self.kImageWidth * (dict["Y"] as! CGFloat)
                 let number = dict["Number"] as! NSNumber
-                /*let x = self.kImageWidth * (dict["x"] as! NSNumber) as! CGFloat
-                let y = self.kImageWidth * (dict["y"] as! NSNumber) as! CGFloat
-                let number = (dict["number"] as! NSNumber).intValue*/
                 
                 self.addButtonAt(x: x, y: y, andNumber: number.intValue)
             }
         }
-        
-        
-        //self.addButtonAt(x: 70, y: 30, andNumber: 2)
     }
     
     func addBackgroundImage(withName imageString: String, atPosition position: Int) {
