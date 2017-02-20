@@ -11,16 +11,6 @@ import GameplayKit
 import SCLAlertView
 import CircleMenu
 
-extension UIColor {
-    static func color(_ red: Int, green: Int, blue: Int, alpha: Float) -> UIColor {
-        return UIColor(
-            colorLiteralRed: Float(1.0) / Float(255.0) * Float(red),
-            green: Float(1.0) / Float(255.0) * Float(green),
-            blue: Float(1.0) / Float(255.0) * Float(blue),
-            alpha: alpha)
-    }
-}
-
 class GameViewController: UIViewController, CircleMenuDelegate {
     
     let menuItems: [(icon: String, color: UIColor)] = [
@@ -85,8 +75,12 @@ class GameViewController: UIViewController, CircleMenuDelegate {
         view.addSubview(button)
     }
 
-    // MARK: <CircleMenuDelegate>
-    
+}
+
+// MARK: <CircleMenuDelegate>
+
+extension GameViewController {
+
     func circleMenu(_ circleMenu: CircleMenu, willDisplay button: UIButton, atIndex: Int) {
         
         button.backgroundColor = menuItems[atIndex].color
@@ -100,6 +94,7 @@ class GameViewController: UIViewController, CircleMenuDelegate {
     }
     
     func circleMenu(_ circleMenu: CircleMenu, buttonDidSelected button: UIButton, atIndex: Int) {
+        
         print("button did selected: \(atIndex)")
         
         switch(atIndex) {

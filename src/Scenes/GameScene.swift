@@ -37,7 +37,7 @@ class GameScene: SKScene {
     let terrainTransitionManager: TerrainTransitionManager
     
     let terrainView: SKSpriteNode
-    let layer2DHighlight: SKNode
+    //let layer2DHighlight: SKNode
     
     // cursor handling
     var cursorNode: SKSpriteNode
@@ -52,9 +52,11 @@ class GameScene: SKScene {
     override init(size: CGSize) {
         
         self.terrainView = SKSpriteNode()
-        self.layer2DHighlight = SKNode()
+        //self.layer2DHighlight = SKNode()
         self.cursorNode = SKSpriteNode(imageNamed: "Selection")
+        self.cursorNode.zPosition = 40.0
         self.cursorPoint = GridPoint(x: 0, y: 0)
+        
         self.terrainTransitionManager = TerrainTransitionManager()
         
         super.init(size: size)
@@ -70,9 +72,6 @@ class GameScene: SKScene {
         self.terrainView.yScale = deviceScale
         self.addChild(terrainView)
         
-        self.layer2DHighlight.zPosition = 999
-        self.terrainView.addChild(self.layer2DHighlight)
-        
         self.placeAllTiles2D()
         
         self.cam = SKCameraNode() //initialize and assign an instance of SKCameraNode to the cam variable.
@@ -87,7 +86,7 @@ class GameScene: SKScene {
         
         // cursor
         self.cursorNode.anchorPoint = CGPoint(x: 0, y: 0)
-        self.layer2DHighlight.addChild(self.cursorNode)
+        self.terrainView.addChild(self.cursorNode)
     }
     
     func placeAllTiles2D() {

@@ -20,14 +20,15 @@ class TerrainSpriteNode: SKSpriteNode {
         self.anchorPoint = CGPoint(x: 0, y: 0)
         self.zPosition = TerrainSpriteNode.zLevel
         
-        if terrain == .ocean {
+        /*if terrain == .ocean {
             
             let textureAtlas = SKTextureAtlas(named: "waves")
             let frames = ["waves-concave-A01-l", "waves-concave-A02-l", "waves-concave-A03-l", "waves-concave-A04-l", "waves-concave-A05-l", "waves-concave-A06-l"].map { textureAtlas.textureNamed($0) }
             let animate = SKAction.animate(with: frames, timePerFrame: 0.2)
-            let forever = SKAction.repeatForever(animate)
-            self.run(forever)
-        }
+            //let forever = SKAction.repeatForever(animate)
+            //self.run(forever)
+            self.run(animate)
+        }*/
     }
     
     required init(coder aDecoder: NSCoder) {

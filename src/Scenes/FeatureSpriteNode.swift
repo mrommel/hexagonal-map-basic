@@ -18,7 +18,7 @@ class FeatureSpriteNode: SKSpriteNode {
         
         self.position = position
         self.anchorPoint = CGPoint(x: 0, y: 0)
-        self.zPosition = TerrainSpriteNode.zLevel
+        self.zPosition = FeatureSpriteNode.zLevel
         
         /*if terrain == .ocean {
             
