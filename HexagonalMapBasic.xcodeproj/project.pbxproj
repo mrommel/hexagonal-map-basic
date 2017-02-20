@@ -36,7 +36,10 @@
 		1AA7B3881E51C2F900104C91 /* Array2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA7B3871E51C2F900104C91 /* Array2D.swift */; };
 		1AA7B3891E51C2F900104C91 /* Array2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA7B3871E51C2F900104C91 /* Array2D.swift */; };
 		1AA8466E1E5AFEF300D3A947 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA8466D1E5AFEF300D3A947 /* MapViewController.swift */; };
-		1AA846701E5B016E00D3A947 /* Map.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AA8466F1E5B016E00D3A947 /* Map.xcassets */; };
+		1AA846701E5B016E00D3A947 /* MapTile.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AA8466F1E5B016E00D3A947 /* MapTile.xcassets */; };
+		1AA846731E5B1BD900D3A947 /* Map01.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1AA846721E5B1BD900D3A947 /* Map01.plist */; };
+		1AA846751E5B1BF100D3A947 /* Maps.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1AA846741E5B1BF100D3A947 /* Maps.plist */; };
+		1AA846771E5B1C9C00D3A947 /* Map02.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1AA846761E5B1C9C00D3A947 /* Map02.plist */; };
 		1AB7EBD41E4D091A00594922 /* teaser.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AB7EBD31E4D091A00594922 /* teaser.png */; };
 		1AB7EBD61E4D0CD400594922 /* button.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AB7EBD51E4D0CD400594922 /* button.png */; };
 		1AB7EBD81E4DB82900594922 /* GridPointDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB7EBD71E4DB82900594922 /* GridPointDirection.swift */; };
@@ -95,7 +98,10 @@
 		1AA7B3841E51C2BC00104C91 /* Array2DTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array2DTest.swift; sourceTree = "<group>"; };
 		1AA7B3871E51C2F900104C91 /* Array2D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Array2D.swift; path = Game/Utils/Array2D.swift; sourceTree = "<group>"; };
 		1AA8466D1E5AFEF300D3A947 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = ViewControllers/MapViewController.swift; sourceTree = "<group>"; };
-		1AA8466F1E5B016E00D3A947 /* Map.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Map.xcassets; path = Resources/Map.xcassets; sourceTree = "<group>"; };
+		1AA8466F1E5B016E00D3A947 /* MapTile.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = MapTile.xcassets; path = Resources/MapTile.xcassets; sourceTree = "<group>"; };
+		1AA846721E5B1BD900D3A947 /* Map01.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Map01.plist; path = Resources/Maps/Map01.plist; sourceTree = "<group>"; };
+		1AA846741E5B1BF100D3A947 /* Maps.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Maps.plist; path = Resources/Maps/Maps.plist; sourceTree = "<group>"; };
+		1AA846761E5B1C9C00D3A947 /* Map02.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Map02.plist; path = Resources/Maps/Map02.plist; sourceTree = "<group>"; };
 		1AB7EBD31E4D091A00594922 /* teaser.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = teaser.png; path = Resources/teaser.png; sourceTree = "<group>"; };
 		1AB7EBD51E4D0CD400594922 /* button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button.png; path = Resources/button.png; sourceTree = "<group>"; };
 		1AB7EBD71E4DB82900594922 /* GridPointDirection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GridPointDirection.swift; path = Game/GridPointDirection.swift; sourceTree = "<group>"; };
@@ -210,6 +216,16 @@
 			name = Utils;
 			sourceTree = "<group>";
 		};
+		1AA846711E5B1B5400D3A947 /* Maps */ = {
+			isa = PBXGroup;
+			children = (
+				1AA846741E5B1BF100D3A947 /* Maps.plist */,
+				1AA846721E5B1BD900D3A947 /* Map01.plist */,
+				1AA846761E5B1C9C00D3A947 /* Map02.plist */,
+			);
+			name = Maps;
+			sourceTree = "<group>";
+		};
 		1ADE279D1E488D05001F44FF /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
@@ -298,6 +314,7 @@
 		4DCE42821D442A02003B7E3C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1AA846711E5B1B5400D3A947 /* Maps */,
 				1AB7EBD31E4D091A00594922 /* teaser.png */,
 				1AB7EBD51E4D0CD400594922 /* button.png */,
 				4DA76F6E1D8378A4000C3571 /* Sprites */,
@@ -306,7 +323,7 @@
 				1A355B281E5345A3006469B3 /* Features.xcassets */,
 				1A355B2A1E535BD7006469B3 /* Tiles.xcassets */,
 				1A355B311E55E3D7006469B3 /* Animations.xcassets */,
-				1AA8466F1E5B016E00D3A947 /* Map.xcassets */,
+				1AA8466F1E5B016E00D3A947 /* MapTile.xcassets */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -419,12 +436,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AA846771E5B1C9C00D3A947 /* Map02.plist in Resources */,
 				4D15C2941D442302007A5EE2 /* Main.storyboard in Resources */,
+				1AA846751E5B1BF100D3A947 /* Maps.plist in Resources */,
 				1AB7EBD61E4D0CD400594922 /* button.png in Resources */,
 				4D15C2961D442302007A5EE2 /* Assets.xcassets in Resources */,
 				1A355B321E55E3D7006469B3 /* Animations.xcassets in Resources */,
-				1AA846701E5B016E00D3A947 /* Map.xcassets in Resources */,
+				1AA846701E5B016E00D3A947 /* MapTile.xcassets in Resources */,
 				1A355B2B1E535BD7006469B3 /* Tiles.xcassets in Resources */,
+				1AA846731E5B1BD900D3A947 /* Map01.plist in Resources */,
 				1A4B38921E4BBC9100FA7457 /* Terrain.xcassets in Resources */,
 				4D15C2991D442302007A5EE2 /* LaunchScreen.storyboard in Resources */,
 				1AB7EBD41E4D091A00594922 /* teaser.png in Resources */,

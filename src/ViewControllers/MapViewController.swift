@@ -12,7 +12,7 @@ class MapViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet weak var scrollView: UIScrollView!
     
-    let slideImages: NSArray = ["map01", "map02", "map03", "map04", "map05"]
+    let slideImages: NSArray = ["MapTile01", "MapTile02", "MapTile03", "MapTile04", "MapTile05"]
     var kImageWidth: CGFloat = 0
     var kImageHeight: CGFloat = 0
     let kPadding: CGFloat = 0
@@ -38,8 +38,30 @@ class MapViewController: UIViewController, UIScrollViewDelegate {
         self.scrollView.contentSize = CGSize(width: kImageWidth, height: kImageHeight * CGFloat(slideImages.count))
         //scrInfinite.scrollRectToVisible(CGRect(x: 0, y: 0, width: kImageWidth, height: kImageHeight), animated: false)
         
-        self.addButtonAt(x: 20, y: 20, andNumber: 1)
-        self.addButtonAt(x: 70, y: 30, andNumber: 2)
+        var mapsDict: NSDictionary?
+        if let path = Bundle.main.path(forResource: "Maps", ofType: "plist") {
+            mapsDict = NSDictionary(contentsOfFile: path)
+        }
+        if let mapsDict = mapsDict {
+            let maps = mapsDict["Maps"] as! NSArray
+            
+            for mapDict in maps {
+                let dict = mapDict as! NSDictionary
+                
+                //let title = dict["X"] as! String
+                let x = self.kImageWidth * (dict["X"] as! CGFloat)
+                let y = self.kImageWidth * (dict["Y"] as! CGFloat)
+                let number = dict["Number"] as! NSNumber
+                /*let x = self.kImageWidth * (dict["x"] as! NSNumber) as! CGFloat
+                let y = self.kImageWidth * (dict["y"] as! NSNumber) as! CGFloat
+                let number = (dict["number"] as! NSNumber).intValue*/
+                
+                self.addButtonAt(x: x, y: y, andNumber: number.intValue)
+            }
+        }
+        
+        
+        //self.addButtonAt(x: 70, y: 30, andNumber: 2)
     }
     
     func addBackgroundImage(withName imageString: String, atPosition position: Int) {
@@ -55,7 +77,7 @@ class MapViewController: UIViewController, UIScrollViewDelegate {
         
         let button = UIButton(type: UIButtonType.custom) as UIButton
         button.frame = CGRect(origin: CGPoint(x: x, y: y), size: CGSize(width: 40, height: 40))
-        button.setBackgroundImage(UIImage(named: "bubble"), for: .normal)
+        button.setBackgroundImage(UIImage(named: "Bubble"), for: .normal)
         button.setTitle("\(number)", for: UIControlState.normal)
         button.tag = number
         button.addTarget(self, action: #selector(openGame), for: .touchUpInside)
