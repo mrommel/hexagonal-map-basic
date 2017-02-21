@@ -40,6 +40,7 @@
 		1AA846731E5B1BD900D3A947 /* Map01.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1AA846721E5B1BD900D3A947 /* Map01.plist */; };
 		1AA846751E5B1BF100D3A947 /* Maps.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1AA846741E5B1BF100D3A947 /* Maps.plist */; };
 		1AA846771E5B1C9C00D3A947 /* Map02.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1AA846761E5B1C9C00D3A947 /* Map02.plist */; };
+		1AA8467A1E5C8A4900D3A947 /* Game01.json in Resources */ = {isa = PBXBuildFile; fileRef = 1AA846791E5C8A4900D3A947 /* Game01.json */; };
 		1AB7EBD41E4D091A00594922 /* teaser.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AB7EBD31E4D091A00594922 /* teaser.png */; };
 		1AB7EBD61E4D0CD400594922 /* button.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AB7EBD51E4D0CD400594922 /* button.png */; };
 		1AB7EBD81E4DB82900594922 /* GridPointDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB7EBD71E4DB82900594922 /* GridPointDirection.swift */; };
@@ -102,6 +103,7 @@
 		1AA846721E5B1BD900D3A947 /* Map01.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Map01.plist; path = Resources/Maps/Map01.plist; sourceTree = "<group>"; };
 		1AA846741E5B1BF100D3A947 /* Maps.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Maps.plist; path = Resources/Maps/Maps.plist; sourceTree = "<group>"; };
 		1AA846761E5B1C9C00D3A947 /* Map02.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Map02.plist; path = Resources/Maps/Map02.plist; sourceTree = "<group>"; };
+		1AA846791E5C8A4900D3A947 /* Game01.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = Game01.json; path = Resources/Games/Game01.json; sourceTree = "<group>"; };
 		1AB7EBD31E4D091A00594922 /* teaser.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = teaser.png; path = Resources/teaser.png; sourceTree = "<group>"; };
 		1AB7EBD51E4D0CD400594922 /* button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button.png; path = Resources/button.png; sourceTree = "<group>"; };
 		1AB7EBD71E4DB82900594922 /* GridPointDirection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GridPointDirection.swift; path = Game/GridPointDirection.swift; sourceTree = "<group>"; };
@@ -226,6 +228,14 @@
 			name = Maps;
 			sourceTree = "<group>";
 		};
+		1AA846781E5C8A1600D3A947 /* Games */ = {
+			isa = PBXGroup;
+			children = (
+				1AA846791E5C8A4900D3A947 /* Game01.json */,
+			);
+			name = Games;
+			sourceTree = "<group>";
+		};
 		1ADE279D1E488D05001F44FF /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
@@ -314,6 +324,7 @@
 		4DCE42821D442A02003B7E3C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1AA846781E5C8A1600D3A947 /* Games */,
 				1AA846711E5B1B5400D3A947 /* Maps */,
 				1AB7EBD31E4D091A00594922 /* teaser.png */,
 				1AB7EBD51E4D0CD400594922 /* button.png */,
@@ -443,6 +454,7 @@
 				4D15C2961D442302007A5EE2 /* Assets.xcassets in Resources */,
 				1A355B321E55E3D7006469B3 /* Animations.xcassets in Resources */,
 				1AA846701E5B016E00D3A947 /* MapTile.xcassets in Resources */,
+				1AA8467A1E5C8A4900D3A947 /* Game01.json in Resources */,
 				1A355B2B1E535BD7006469B3 /* Tiles.xcassets in Resources */,
 				1AA846731E5B1BD900D3A947 /* Map01.plist in Resources */,
 				1A4B38921E4BBC9100FA7457 /* Terrain.xcassets in Resources */,
