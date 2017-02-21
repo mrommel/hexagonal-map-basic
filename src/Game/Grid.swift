@@ -90,7 +90,7 @@ public class Grid {
 
         let deltaWidth = Grid.kHexagonHeight / 2 //
         var ergy: Int = 0
-        var offseted = false
+        //var offseted = false
         
         // ry -= 10;
         let inputX = Double(screenPoint.x + 1)
@@ -98,14 +98,11 @@ public class Grid {
         
         // rough rastering
         let ergx: Int = Int(inputX / (Grid.kHexagonWidth * 3 / 4))
-        if (even(number: ergx))
-        {
-            offseted = false
+        if (even(number: ergx)) {
+            // offseted = false
             ergy = Int(inputY / Grid.kHexagonHeight)
-        }
-        else
-        {
-            offseted = true
+        } else {
+            // offseted = true
             ergy = Int((inputY - deltaWidth) / Grid.kHexagonHeight)
         }
         

@@ -12,6 +12,8 @@
 			<key>Y</key>
 			<real>0.1</real>
 			<key>Title</key>
+			<string>Small Island</string>
+			<key>Map</key>
 			<string>Map01</string>
 		</dict>
 		<dict>
@@ -22,6 +24,8 @@
 			<key>Y</key>
 			<real>0.1</real>
 			<key>Title</key>
+			<string>First City</string>
+			<key>Map</key>
 			<string>Map02</string>
 		</dict>
 	</array>

@@ -32,7 +32,7 @@ class MapViewController: UIViewController, UIScrollViewDelegate {
     func setupScrollView() {
         
         for i in 0..<slideImages.count {
-            self.addBackgroundImage(withName: slideImages[i] as! String, atPosition: i)
+            self.addBackgroundTile(withName: slideImages[i] as! String, atPosition: i)
         }
 
         self.scrollView.contentSize = CGSize(width: kImageWidth, height: kImageHeight * CGFloat(slideImages.count))
@@ -58,7 +58,7 @@ class MapViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     
-    func addBackgroundImage(withName imageString: String, atPosition position: Int) {
+    func addBackgroundTile(withName imageString: String, atPosition position: Int) {
         
         let image = UIImage(named: imageString)!
         let imageView = UIImageView(image: image)
@@ -70,7 +70,7 @@ class MapViewController: UIViewController, UIScrollViewDelegate {
     func addButtonAt(x: CGFloat, y: CGFloat, andNumber number: Int) {
         
         let button = UIButton(type: UIButtonType.custom) as UIButton
-        button.frame = CGRect(origin: CGPoint(x: x, y: y), size: CGSize(width: 40, height: 40))
+        button.frame = CGRect(origin: CGPoint(x: x, y: y), size: CGSize(width: 50, height: 50))
         button.setBackgroundImage(UIImage(named: "Bubble"), for: .normal)
         button.setTitle("\(number)", for: UIControlState.normal)
         button.tag = number
