@@ -24,6 +24,7 @@
 		1A4B38A91E4C7B4B00FA7457 /* Terrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4B38961E4C688700FA7457 /* Terrain.swift */; };
 		1A4B38AB1E4CAF9600FA7457 /* GridPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4B38AA1E4CAF9600FA7457 /* GridPoint.swift */; };
 		1A4B38AC1E4CAF9600FA7457 /* GridPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4B38AA1E4CAF9600FA7457 /* GridPoint.swift */; };
+		1A57CA921E5D8E0400348FDD /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A57CA911E5D8E0400348FDD /* Game.swift */; };
 		1AA7B3751E4DC99200104C91 /* GridPointDirectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA7B3741E4DC99200104C91 /* GridPointDirectionTests.swift */; };
 		1AA7B3771E4DEB9200104C91 /* GridPointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA7B3761E4DEB9200104C91 /* GridPointTests.swift */; };
 		1AA7B37A1E4DF69900104C91 /* PathfinderDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA7B3791E4DF69900104C91 /* PathfinderDataSource.swift */; };
@@ -90,6 +91,7 @@
 		1A4B38A01E4C7A5600FA7457 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1A4B38A61E4C7A7D00FA7457 /* GridTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridTests.swift; sourceTree = "<group>"; };
 		1A4B38AA1E4CAF9600FA7457 /* GridPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GridPoint.swift; path = Game/GridPoint.swift; sourceTree = "<group>"; };
+		1A57CA911E5D8E0400348FDD /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Game.swift; path = Game/Game.swift; sourceTree = "<group>"; };
 		1AA7B3741E4DC99200104C91 /* GridPointDirectionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridPointDirectionTests.swift; sourceTree = "<group>"; };
 		1AA7B3761E4DEB9200104C91 /* GridPointTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridPointTests.swift; sourceTree = "<group>"; };
 		1AA7B3791E4DF69900104C91 /* PathfinderDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PathfinderDataSource.swift; path = Game/PathFinding/PathfinderDataSource.swift; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 				1A4B38961E4C688700FA7457 /* Terrain.swift */,
 				1AEE6C521E5316E300537D1D /* Feature.swift */,
 				1AEE6C551E531BBF00537D1D /* Tile.swift */,
+				1A57CA911E5D8E0400348FDD /* Game.swift */,
 			);
 			name = Game;
 			sourceTree = "<group>";
@@ -565,6 +568,7 @@
 				1AEE6C531E5316E300537D1D /* Feature.swift in Sources */,
 				1A4B38951E4C67EC00FA7457 /* Grid.swift in Sources */,
 				1AA7B37A1E4DF69900104C91 /* PathfinderDataSource.swift in Sources */,
+				1A57CA921E5D8E0400348FDD /* Game.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
