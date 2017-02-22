@@ -16,4 +16,26 @@ class Tile: NSObject {
     required init(withTerrain terrain: Terrain) {
         self.terrain = terrain
     }
+    
+    func has(feature: Feature) -> Bool {
+        return false
+    }
+    
+    var possibleImprovements: [TileImprovementType] {
+        
+        switch self.terrain! {
+        case .shore:
+            return [.fishing]
+        case .grass:
+            if self.has(feature: .forest) {
+                return [.lumbermill]
+            } else if self.has(feature: .hill) {
+                return [.pasture]
+            } else {
+                return [.farm, .pasture]
+            }
+        default:
+            return []
+        }
+    }
 }

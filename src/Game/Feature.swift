@@ -19,6 +19,8 @@ enum Feature {
     // solid terrain
     case forest
     case oasis
+    case hill
+    case mountain
     
     var image: String {
         switch self {
@@ -30,6 +32,10 @@ enum Feature {
             return "Forest"
         case .oasis:
             return "Oasis"
+        case .hill:
+            return "Hill"
+        case .mountain:
+            return "Mountain"
         }
     }
 }
