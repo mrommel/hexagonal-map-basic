@@ -30,7 +30,7 @@ class MapTests: XCTestCase {
         let canFound = map.canFoundCity(at: GridPoint(x: 2, y: 2))
         
         // Assertion
-        XCTAssertEqual(canFound, true, "city found should succeed on grass ")
+        XCTAssertEqual(canFound, true, "city found should succeed on grass")
     }
     
     func testCityFoundFailsOnOcean() {
