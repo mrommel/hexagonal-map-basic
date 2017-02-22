@@ -85,4 +85,20 @@ enum Terrain: String {
             return false
         }
     }
+    
+    /**
+    method that returns, if it is allowed to found a city here (for grass, plains, tundra) / false otherwise
+     */
+    var canFoundCity: Bool {
+        switch self {
+        case .grass:
+            return true
+        case .plains:
+            return true
+        case .tundra:
+            return true
+        default:
+            return false
+        }
+    }
 }

@@ -21,29 +21,90 @@ class MapItem {
     
     let point: GridPoint
     
-    required init(withPoint point: GridPoint) {
+    required init(at point: GridPoint) {
         self.point = point
     }
 }
 
 class City: MapItem {
     
+    var name: String
+    
+    required init(at point: GridPoint, of name: String) {
+        
+        self.name = name
+        
+        super.init(at: point)
+    }
+    
+    required init(at point: GridPoint) {
+        
+        self.name = ""
+        
+        super.init(at: point)
+    }
 }
 
 class Unit: MapItem {
     
 }
 
-class TileImprovement: MapItem {
+enum TileImprovementType {
     
+    case none
+    
+    case road
+    
+    case farm
+    case pasture
+    case plantation
+    case lumbermill
+    
+    case mine
+    case quarry
+    
+    var image: String {
+        switch self {
+        case .none:
+            return "---"
+            
+        case .road:
+            return "Road"
+            
+        case .farm:
+            return "Farm"
+        case .pasture:
+            return "Pasture"
+        case .plantation:
+            return "Plantation"
+        case .lumbermill:
+            return "Lumbermill"
+            
+        case .mine:
+            return "Mine"
+        case .quarry:
+            return "Quarry"
+        }
+    }
 }
 
-class Map {
+class TileImprovement: MapItem {
     
-    var grid: Grid? = nil
-    var cities: [City]? = []
-    var units: [Unit]? = []
-    var improvements: [TileImprovement]? = []
+    let type: TileImprovementType
+    
+    required init(at point: GridPoint, of type: TileImprovementType) {
+        
+        self.type = type
+        
+        super.init(at: point)
+    }
+    
+    required init(at point: GridPoint) {
+        
+        self.type = .none
+        
+        super.init(at: point)
+    }
 }
 
 class Game {
@@ -52,7 +113,7 @@ class Game {
     let text: String
     
     var map: Map? = nil
-    var condition: VictoryCondition? = nil
+    var conditions: [VictoryCondition]? = nil
     
     required init(withName name: String, andText text: String) {
         self.name = name
