@@ -99,6 +99,12 @@ extension Map {
         self.cities?.append(city)
         city.map = self
         
+        // remove forest
+        let hasForest = self.grid?.has(feature: Feature.forest, at: city.point)
+        if hasForest! {
+            self.grid?.remove(feature: Feature.forest, at: city.point)
+        }
+        
         return true
     }
 

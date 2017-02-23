@@ -42,17 +42,6 @@ public class Grid {
         return self.tiles[position]!
     }
     
-    func add(feature: Feature, at position: GridPoint) {
-        
-        // check bounds
-        guard self.has(gridPoint: position) else {
-            return
-        }
-        
-        let tile = self.tiles[position]
-        tile?.features.append(feature)
-    }
-    
     func set(terrain: Terrain, at position: GridPoint) {
         
         // check bounds
@@ -151,4 +140,49 @@ public class Grid {
                        y: Double(gridPoint.y) * Grid.kHexagonHeight + (even(number: Int(gridPoint.x)) ? 0 : Grid.kHexagonHeight / 2))
     }
     
+}
+
+// MARK: feature related methods
+
+extension Grid {
+    
+    func has(feature: Feature, at position: GridPoint) -> Bool {
+        
+        // check bounds
+        guard self.has(gridPoint: position) else {
+            return false
+        }
+        
+        let tile = self.tiles[position]
+        for featureAtTile in (tile?.features)! {
+            if featureAtTile == feature {
+                return true
+            }
+        }
+        
+        return false
+    }
+    
+    func add(feature: Feature, at position: GridPoint) {
+        
+        // check bounds
+        guard self.has(gridPoint: position) else {
+            return
+        }
+        
+        let tile = self.tiles[position]
+        tile?.features.append(feature)
+    }
+    
+    func remove(feature: Feature, at position: GridPoint) {
+        
+        // check bounds
+        guard self.has(gridPoint: position) else {
+            return
+        }
+        
+        let tile = self.tiles[position]
+        let featureIndex = tile?.features.index(of: feature)
+        tile?.features.remove(at: featureIndex!)
+    }
 }

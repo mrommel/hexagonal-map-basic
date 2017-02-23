@@ -11,11 +11,13 @@ import Foundation
 class City: MapItem {
     
     var name: String
+    var inhabitants: Int
     var map: Map? = nil
     
     required init(at point: GridPoint, of name: String) {
         
         self.name = name
+        self.inhabitants = 50
         
         super.init(at: point)
     }
@@ -23,7 +25,15 @@ class City: MapItem {
     required init(at point: GridPoint) {
         
         self.name = ""
+        self.inhabitants = 50
         
         super.init(at: point)
     }
+    
+    func terrain() -> Terrain {
+        
+        return (self.map?.grid?.terrain(at: self.point))!
+    }
+    
+    
 }
