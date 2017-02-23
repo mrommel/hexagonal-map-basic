@@ -11,6 +11,7 @@ import Foundation
 class City: MapItem {
     
     var name: String
+    var map: Map? = nil
     
     required init(at point: GridPoint, of name: String) {
         

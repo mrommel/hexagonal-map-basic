@@ -81,11 +81,34 @@ extension Map {
         return true
     }
 
+    /**
+        actually found a city here
+     
+        - parameter city: city to be found at city.point location
+     
+        - returns: true, if city was found, false otherwise
+     */
     func found(city: City) -> Bool {
-        return false
+        
+        // we need to check if we can found here
+        if !self.canFoundCity(at: city.point) {
+            return false
+        }
+        
+        // add the city here
+        self.cities?.append(city)
+        city.map = self
+        
+        return true
     }
 
     func foundCity(at point: GridPoint, named name: String) -> Bool {
+        
         return self.found(city: City(at: point, of: name))
+    }
+    
+    func foundCityAt(x: Int, y: Int, named name: String) -> Bool {
+        
+        return self.found(city: City(at: GridPoint(x: x, y: y), of: name))
     }
 }
