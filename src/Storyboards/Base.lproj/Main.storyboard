@@ -20,7 +20,24 @@
                     <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3se-qz-xqx" customClass="SKView">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q1k-7P-eTy">
+                                <rect key="frame" x="0.0" y="571" width="100" height="96"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="96" id="QvP-Ac-Vps"/>
+                                    <constraint firstAttribute="width" constant="100" id="yVX-NQ-gKT"/>
+                                </constraints>
+                                <state key="normal" image="button-left-bottom.png"/>
+                                <connections>
+                                    <action selector="openMenuWithSender:" destination="BV1-FR-VrT" eventType="touchUpInside" id="hCi-y2-sDG"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="Q1k-7P-eTy" secondAttribute="bottom" id="AkP-Ks-ngV"/>
+                            <constraint firstItem="Q1k-7P-eTy" firstAttribute="leading" secondItem="3se-qz-xqx" secondAttribute="leading" id="fnd-PY-XaJ"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
@@ -46,10 +63,23 @@
                                     <outlet property="delegate" destination="U0Q-L7-GqP" id="sMB-AI-dcM"/>
                                 </connections>
                             </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a0Q-Oq-pYl">
+                                <rect key="frame" x="0.0" y="570" width="100" height="96"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="5Q9-52-lFN"/>
+                                    <constraint firstAttribute="height" constant="96" id="NCk-5C-aTo"/>
+                                </constraints>
+                                <state key="normal" image="button-left-bottom.png"/>
+                                <connections>
+                                    <action selector="openMenuWithSender:" destination="U0Q-L7-GqP" eventType="touchUpInside" id="g6L-ZT-xmv"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="a0Q-Oq-pYl" firstAttribute="leading" secondItem="1Ov-mk-eid" secondAttribute="leading" id="0M2-ka-2SP"/>
                             <constraint firstItem="PHE-8O-3qK" firstAttribute="leading" secondItem="1Ov-mk-eid" secondAttribute="leading" id="Nbz-qn-5is"/>
+                            <constraint firstAttribute="bottom" secondItem="a0Q-Oq-pYl" secondAttribute="bottom" id="ZT9-ty-vNX"/>
                             <constraint firstItem="PHE-8O-3qK" firstAttribute="top" secondItem="1Ov-mk-eid" secondAttribute="top" id="e68-mc-uPy"/>
                             <constraint firstAttribute="trailing" secondItem="PHE-8O-3qK" secondAttribute="trailing" id="eaI-5h-7g0"/>
                             <constraint firstAttribute="bottom" secondItem="PHE-8O-3qK" secondAttribute="bottom" id="v3w-3i-qkR"/>
@@ -133,6 +163,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="button-left-bottom.png" width="185" height="184"/>
         <image name="button.png" width="241" height="89"/>
         <image name="teaser.png" width="405" height="301"/>
     </resources>

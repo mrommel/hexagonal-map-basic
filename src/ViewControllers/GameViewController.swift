@@ -11,7 +11,7 @@ import GameplayKit
 import SCLAlertView
 import CircleMenu
 
-class GameViewController: UIViewController, CircleMenuDelegate {
+class GameViewController: UIViewController {
     
     let menuItems: [(icon: String, color: UIColor)] = [
         ("Icon_download", UIColor(red:0.19, green:0.57, blue:1, alpha:1)),
@@ -62,48 +62,18 @@ class GameViewController: UIViewController, CircleMenuDelegate {
         scene.grid?.add(feature: Feature.forest, at: GridPoint(x: 2, y: 2))
         
         skView.presentScene(scene)
-        
-        let button = CircleMenu(
-            frame: CGRect(x: (self.view.frame.width - 50) / 2 , y: (self.view.frame.height - 60), width: 50, height: 50),
-            normalIcon: "Icon_home",
-            selectedIcon: "Icon_close",
-            buttonsCount: 8, // only 5 will be visible
-            duration: 0.7,
-            distance: 120)
-        button.delegate = self
-        button.layer.cornerRadius = button.frame.size.width / 2.0
-        view.addSubview(button)
     }
 
-}
-
-// MARK: <CircleMenuDelegate>
-
-extension GameViewController {
-
-    func circleMenu(_ circleMenu: CircleMenu, willDisplay button: UIButton, atIndex: Int) {
+    @IBAction func openMenu(sender: AnyObject) {
         
-        button.backgroundColor = menuItems[atIndex].color
-        button.setImage(UIImage(named: menuItems[atIndex].icon), for: .normal)
-        button.tintColor = UIColor.init(colorLiteralRed: 1.0, green: 1.0, blue: 1.0, alpha: 0.5) // make icon white with transparency
-        
-        // set highlighted image
-        let highlightedImage  = UIImage(named: menuItems[atIndex].icon)?.withRenderingMode(.alwaysTemplate)
-        button.setImage(highlightedImage, for: .highlighted)
-        
-    }
-    
-    func circleMenu(_ circleMenu: CircleMenu, buttonDidSelected button: UIButton, atIndex: Int) {
-        
-        print("button did selected: \(atIndex)")
-        
-        switch(atIndex) {
-        case 2: // exit
-            _ = self.navigationController?.popViewController(animated: true)
-            break
-        default:
-            // noop
-            break
+        let alertView = SCLAlertView()
+        alertView.addButton("Turn") {
+            print("Turn")
         }
+        alertView.addButton("Exit Game") {
+            print("Exit")
+            _ = self.navigationController?.popViewController(animated: true)
+        }
+        alertView.showSuccess("Menu", subTitle: "Select one of the options")
     }
 }

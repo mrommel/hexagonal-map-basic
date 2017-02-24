@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import SCLAlertView
 
 class MapViewController: UIViewController, UIScrollViewDelegate {
 
     @IBOutlet weak var scrollView: UIScrollView!
+
+    var alertViewResponder: SCLAlertViewResponder?
 
     let slideImages: NSArray = ["MapTile01", "MapTile02", "MapTile03", "MapTile04", "MapTile05"]
     var kImageWidth: CGFloat = 0
@@ -86,5 +89,27 @@ class MapViewController: UIViewController, UIScrollViewDelegate {
         let gameViewController = GameViewController.instantiateFromStoryboard("Main")
         //gameViewController.game = sender.tag!
         self.navigationController?.pushViewController(gameViewController, animated: true)
+    }
+
+    @IBAction func openMenu(sender: AnyObject) {
+
+        let appearance = SCLAlertView.SCLAppearance(
+        showCloseButton: false
+        )
+        let alertView = SCLAlertView(appearance: appearance)
+        alertView.addButton("Main Menu") {
+            print("Main Menu")
+            _ = self.navigationController?.popViewController(animated: true)
+        }
+        alertView.addButton("Cancel", target: self, selector: #selector(MapViewController.closeAlertView))
+
+        self.alertViewResponder = alertView.showSuccess("Menu", subTitle: "Select one of the options")
+    }
+
+    func closeAlertView() {
+
+        if let alertViewResponder = self.alertViewResponder {
+            alertViewResponder.close()
+        }
     }
 }
