@@ -58,6 +58,9 @@
 		1AB7EBD61E4D0CD400594922 /* button.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AB7EBD51E4D0CD400594922 /* button.png */; };
 		1AB7EBD81E4DB82900594922 /* GridPointDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB7EBD71E4DB82900594922 /* GridPointDirection.swift */; };
 		1AB7EBD91E4DB82900594922 /* GridPointDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB7EBD71E4DB82900594922 /* GridPointDirection.swift */; };
+		1ACCA0011E60577D00E539DD /* defeat.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ACC9FFF1E60577D00E539DD /* defeat.png */; };
+		1ACCA0021E60577D00E539DD /* victory.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ACCA0001E60577D00E539DD /* victory.png */; };
+		1ACCA0041E6057E700E539DD /* button-left-bottom.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ACCA0031E6057E700E539DD /* button-left-bottom.png */; };
 		1ADE279F1E48B8EC001F44FF /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE279E1E48B8EC001F44FF /* MenuViewController.swift */; };
 		1ADE27A21E48BAB3001F44FF /* UIViewController+Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE27A11E48BAB3001F44FF /* UIViewController+Storyboard.swift */; };
 		1AEE6C4D1E51FFE600537D1D /* GridGeneratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEE6C4C1E51FFE600537D1D /* GridGeneratorTests.swift */; };
@@ -127,6 +130,9 @@
 		1AB7EBD31E4D091A00594922 /* teaser.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = teaser.png; path = Resources/teaser.png; sourceTree = "<group>"; };
 		1AB7EBD51E4D0CD400594922 /* button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button.png; path = Resources/button.png; sourceTree = "<group>"; };
 		1AB7EBD71E4DB82900594922 /* GridPointDirection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GridPointDirection.swift; path = Game/GridPointDirection.swift; sourceTree = "<group>"; };
+		1ACC9FFF1E60577D00E539DD /* defeat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = defeat.png; sourceTree = "<group>"; };
+		1ACCA0001E60577D00E539DD /* victory.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = victory.png; sourceTree = "<group>"; };
+		1ACCA0031E6057E700E539DD /* button-left-bottom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-left-bottom.png"; sourceTree = "<group>"; };
 		1ADE279E1E48B8EC001F44FF /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuViewController.swift; path = ViewControllers/MenuViewController.swift; sourceTree = "<group>"; };
 		1ADE27A11E48BAB3001F44FF /* UIViewController+Storyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIViewController+Storyboard.swift"; path = "Extensions/UIViewController+Storyboard.swift"; sourceTree = "<group>"; };
 		1AEE6C4C1E51FFE600537D1D /* GridGeneratorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridGeneratorTests.swift; sourceTree = "<group>"; };
@@ -355,6 +361,9 @@
 				1AA846711E5B1B5400D3A947 /* Maps */,
 				1AB7EBD31E4D091A00594922 /* teaser.png */,
 				1AB7EBD51E4D0CD400594922 /* button.png */,
+				1ACC9FFF1E60577D00E539DD /* defeat.png */,
+				1ACCA0001E60577D00E539DD /* victory.png */,
+				1ACCA0031E6057E700E539DD /* button-left-bottom.png */,
 				4DA76F6E1D8378A4000C3571 /* Sprites */,
 				4D15C2951D442302007A5EE2 /* Assets.xcassets */,
 				1A4B38911E4BBC9100FA7457 /* Terrain.xcassets */,
@@ -477,16 +486,19 @@
 				1AA846771E5B1C9C00D3A947 /* Map02.plist in Resources */,
 				4D15C2941D442302007A5EE2 /* Main.storyboard in Resources */,
 				1AA846751E5B1BF100D3A947 /* Maps.plist in Resources */,
+				1ACCA0041E6057E700E539DD /* button-left-bottom.png in Resources */,
 				1AB7EBD61E4D0CD400594922 /* button.png in Resources */,
 				4D15C2961D442302007A5EE2 /* Assets.xcassets in Resources */,
 				1A355B321E55E3D7006469B3 /* Animations.xcassets in Resources */,
 				1AA846701E5B016E00D3A947 /* MapTile.xcassets in Resources */,
 				1AA8467A1E5C8A4900D3A947 /* Game01.json in Resources */,
+				1ACCA0011E60577D00E539DD /* defeat.png in Resources */,
 				1A355B2B1E535BD7006469B3 /* Tiles.xcassets in Resources */,
 				1AA846731E5B1BD900D3A947 /* Map01.plist in Resources */,
 				1A4B38921E4BBC9100FA7457 /* Terrain.xcassets in Resources */,
 				4D15C2991D442302007A5EE2 /* LaunchScreen.storyboard in Resources */,
 				1AB7EBD41E4D091A00594922 /* teaser.png in Resources */,
+				1ACCA0021E60577D00E539DD /* victory.png in Resources */,
 				1A355B291E5345A3006469B3 /* Features.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
