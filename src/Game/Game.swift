@@ -17,6 +17,13 @@ class VictoryCondition {
     }
 }
 
+class GameStatistics {
+    
+    // stats by player
+    var discoveredTiles: Int = 0
+    
+}
+
 class Game {
 
     let name: String
@@ -30,4 +37,19 @@ class Game {
         self.text = text
     }
 
+    func extractStatistics() -> GameStatistics {
+        
+        let stats = GameStatistics()
+        
+        for x in 0..<(self.map?.width)! {
+            for y in 0..<(self.map?.height)! {
+                
+                let tile = self.map?.grid?.tileAt(x: x, y: y)
+                
+                stats.discoveredTiles += (tile?.discoveredBy(player: .human))! ? 1 : 0
+            }
+        }
+        
+        return stats
+    }
 }

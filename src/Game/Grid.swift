@@ -42,6 +42,11 @@ public class Grid {
         return self.tiles[position]!
     }
     
+    func tileAt(x: Int, y: Int) -> Tile {
+        
+        return tile(at: GridPoint(x: x, y: y))
+    }
+    
     func set(terrain: Terrain, at position: GridPoint) {
         
         // check bounds

@@ -7,11 +7,13 @@
 //
 
 import Foundation
+import Buckets
 
 class Tile: NSObject {
     
     var terrain: Terrain? = Terrain.ocean
     var features: [Feature] = []
+    var discovered: BitArray = [false, false, false, false, false, false, false, false]
     
     required init(withTerrain terrain: Terrain) {
         self.terrain = terrain
@@ -37,5 +39,9 @@ class Tile: NSObject {
         default:
             return []
         }
+    }
+    
+    func discoveredBy(player: Player) -> Bool {
+        return false
     }
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18057D4B8B9BA877A95D95DB /* Pods_HexagonalMapBasicTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97D5E67FFF0289FA0AFF4DD4 /* Pods_HexagonalMapBasicTests.framework */; };
 		1A153D9D1E56E39300F11812 /* TransitionSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A153D9C1E56E39300F11812 /* TransitionSpriteNode.swift */; };
 		1A355B291E5345A3006469B3 /* Features.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A355B281E5345A3006469B3 /* Features.xcassets */; };
 		1A355B2B1E535BD7006469B3 /* Tiles.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A355B2A1E535BD7006469B3 /* Tiles.xcassets */; };
@@ -61,6 +62,9 @@
 		1ACCA0011E60577D00E539DD /* defeat.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ACC9FFF1E60577D00E539DD /* defeat.png */; };
 		1ACCA0021E60577D00E539DD /* victory.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ACCA0001E60577D00E539DD /* victory.png */; };
 		1ACCA0041E6057E700E539DD /* button-left-bottom.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ACCA0031E6057E700E539DD /* button-left-bottom.png */; };
+		1ACCA0061E60761D00E539DD /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACCA0051E60761D00E539DD /* Player.swift */; };
+		1ACCA0081E60792C00E539DD /* GameStatisticsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACCA0071E60792C00E539DD /* GameStatisticsTests.swift */; };
+		1ACCA0091E607E2100E539DD /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACCA0051E60761D00E539DD /* Player.swift */; };
 		1ADE279F1E48B8EC001F44FF /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE279E1E48B8EC001F44FF /* MenuViewController.swift */; };
 		1ADE27A21E48BAB3001F44FF /* UIViewController+Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE27A11E48BAB3001F44FF /* UIViewController+Storyboard.swift */; };
 		1AEE6C4D1E51FFE600537D1D /* GridGeneratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEE6C4C1E51FFE600537D1D /* GridGeneratorTests.swift */; };
@@ -133,6 +137,8 @@
 		1ACC9FFF1E60577D00E539DD /* defeat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = defeat.png; sourceTree = "<group>"; };
 		1ACCA0001E60577D00E539DD /* victory.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = victory.png; sourceTree = "<group>"; };
 		1ACCA0031E6057E700E539DD /* button-left-bottom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-left-bottom.png"; sourceTree = "<group>"; };
+		1ACCA0051E60761D00E539DD /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Player.swift; path = Game/Player.swift; sourceTree = "<group>"; };
+		1ACCA0071E60792C00E539DD /* GameStatisticsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameStatisticsTests.swift; sourceTree = "<group>"; };
 		1ADE279E1E48B8EC001F44FF /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuViewController.swift; path = ViewControllers/MenuViewController.swift; sourceTree = "<group>"; };
 		1ADE27A11E48BAB3001F44FF /* UIViewController+Storyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIViewController+Storyboard.swift"; path = "Extensions/UIViewController+Storyboard.swift"; sourceTree = "<group>"; };
 		1AEE6C4C1E51FFE600537D1D /* GridGeneratorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridGeneratorTests.swift; sourceTree = "<group>"; };
@@ -149,6 +155,9 @@
 		4D15C2951D442302007A5EE2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = Resources/Assets.xcassets; sourceTree = "<group>"; };
 		4D15C2981D442302007A5EE2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4D15C29A1D442302007A5EE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		97D5E67FFF0289FA0AFF4DD4 /* Pods_HexagonalMapBasicTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HexagonalMapBasicTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B9651DA13EC029D1DECD0DAF /* Pods-HexagonalMapBasicTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HexagonalMapBasicTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HexagonalMapBasicTests/Pods-HexagonalMapBasicTests.debug.xcconfig"; sourceTree = "<group>"; };
+		C26567F9DA1B9E2AD60A702F /* Pods-HexagonalMapBasicTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HexagonalMapBasicTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HexagonalMapBasicTests/Pods-HexagonalMapBasicTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +165,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18057D4B8B9BA877A95D95DB /* Pods_HexagonalMapBasicTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,6 +185,8 @@
 			children = (
 				31793D30FF1A02BBCED07F71 /* Pods-HexagonalMapBasic.debug.xcconfig */,
 				3C40715086CB38506213EF83 /* Pods-HexagonalMapBasic.release.xcconfig */,
+				B9651DA13EC029D1DECD0DAF /* Pods-HexagonalMapBasicTests.debug.xcconfig */,
+				C26567F9DA1B9E2AD60A702F /* Pods-HexagonalMapBasicTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -206,6 +218,7 @@
 				1A57CA9B1E5DE65800348FDD /* City.swift */,
 				1A57CA9E1E5DE67800348FDD /* TileImprovement.swift */,
 				1A57CAA01E5DE83100348FDD /* MapItem.swift */,
+				1ACCA0051E60761D00E539DD /* Player.swift */,
 			);
 			name = Game;
 			sourceTree = "<group>";
@@ -221,6 +234,7 @@
 				1AA7B37D1E4DFF7000104C91 /* AStarPathfinderTests.swift */,
 				1AEE6C4C1E51FFE600537D1D /* GridGeneratorTests.swift */,
 				1A57CA951E5DB7F800348FDD /* MapTests.swift */,
+				1ACCA0071E60792C00E539DD /* GameStatisticsTests.swift */,
 			);
 			path = HexagonalMapBasicTests;
 			sourceTree = "<group>";
@@ -293,6 +307,7 @@
 			isa = PBXGroup;
 			children = (
 				22AA1275C9994E5D58C36935 /* Pods_HexagonalMapBasic.framework */,
+				97D5E67FFF0289FA0AFF4DD4 /* Pods_HexagonalMapBasicTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -394,9 +409,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1A4B38A31E4C7A5600FA7457 /* Build configuration list for PBXNativeTarget "HexagonalMapBasicTests" */;
 			buildPhases = (
+				482CC9EE4C20C53761F438FA /* [CP] Check Pods Manifest.lock */,
 				1A4B38981E4C7A5600FA7457 /* Sources */,
 				1A4B38991E4C7A5600FA7457 /* Frameworks */,
 				1A4B389A1E4C7A5600FA7457 /* Resources */,
+				886E665760E5825DF7B628B5 /* [CP] Embed Pods Frameworks */,
+				29DD64AED19705D1B16F62DC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -506,6 +524,36 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		29DD64AED19705D1B16F62DC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HexagonalMapBasicTests/Pods-HexagonalMapBasicTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		482CC9EE4C20C53761F438FA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		6455808188C891D3A9F5230D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -519,6 +567,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		886E665760E5825DF7B628B5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HexagonalMapBasicTests/Pods-HexagonalMapBasicTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E8859BA9C35B069E1AFF322F /* [CP] Copy Pods Resources */ = {
@@ -562,6 +625,7 @@
 				1AA7B37E1E4DFF7000104C91 /* AStarPathfinderTests.swift in Sources */,
 				1A57CA961E5DB7F800348FDD /* MapTests.swift in Sources */,
 				1A57CAA21E5DE86A00348FDD /* Unit.swift in Sources */,
+				1ACCA0081E60792C00E539DD /* GameStatisticsTests.swift in Sources */,
 				1AA7B3891E51C2F900104C91 /* Array2D.swift in Sources */,
 				1A57CAA51E5DE87200348FDD /* MapItem.swift in Sources */,
 				1AEE6C4D1E51FFE600537D1D /* GridGeneratorTests.swift in Sources */,
@@ -575,6 +639,7 @@
 				1AEE6C4E1E51FFEA00537D1D /* GridGenerator.swift in Sources */,
 				1AB7EBD91E4DB82900594922 /* GridPointDirection.swift in Sources */,
 				1A4B38AC1E4CAF9600FA7457 /* GridPoint.swift in Sources */,
+				1ACCA0091E607E2100E539DD /* Player.swift in Sources */,
 				1AA7B3751E4DC99200104C91 /* GridPointDirectionTests.swift in Sources */,
 				1A4B38A71E4C7A7D00FA7457 /* GridTests.swift in Sources */,
 				1A57CAA31E5DE86D00348FDD /* City.swift in Sources */,
@@ -600,6 +665,7 @@
 				4D15C2911D442302007A5EE2 /* GameViewController.swift in Sources */,
 				1A153D9D1E56E39300F11812 /* TransitionSpriteNode.swift in Sources */,
 				1ADE27A21E48BAB3001F44FF /* UIViewController+Storyboard.swift in Sources */,
+				1ACCA0061E60761D00E539DD /* Player.swift in Sources */,
 				1A4B38901E4BBAD400FA7457 /* GameScene.swift in Sources */,
 				1A57CA941E5DB42B00348FDD /* Map.swift in Sources */,
 				1A57CAA11E5DE83100348FDD /* MapItem.swift in Sources */,
@@ -654,7 +720,9 @@
 /* Begin XCBuildConfiguration section */
 		1A4B38A41E4C7A5600FA7457 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B9651DA13EC029D1DECD0DAF /* Pods-HexagonalMapBasicTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = CMUQ7NPWU8;
 				INFOPLIST_FILE = HexagonalMapBasicTests/Info.plist;
@@ -669,7 +737,9 @@
 		};
 		1A4B38A51E4C7A5600FA7457 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C26567F9DA1B9E2AD60A702F /* Pods-HexagonalMapBasicTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = CMUQ7NPWU8;
 				INFOPLIST_FILE = HexagonalMapBasicTests/Info.plist;

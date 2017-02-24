@@ -24,6 +24,14 @@ class Map {
 
         self.grid = Grid(width: width, height: height)
     }
+    
+    var width: Int {
+        return (self.grid?.width)!
+    }
+    
+    var height: Int {
+        return (self.grid?.height)!
+    }
 }
 
 // MARK: city related methods

@@ -9,7 +9,6 @@ import UIKit
 import SpriteKit
 import GameplayKit
 import SCLAlertView
-import CircleMenu
 
 class GameViewController: UIViewController {
     
