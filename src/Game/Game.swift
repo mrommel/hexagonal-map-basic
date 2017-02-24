@@ -17,6 +17,10 @@ class VictoryCondition {
     }
 }
 
+class PlayerStatistics {
+    
+}
+
 class GameStatistics {
     
     // stats by player

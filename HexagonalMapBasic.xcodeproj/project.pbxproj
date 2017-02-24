@@ -722,7 +722,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B9651DA13EC029D1DECD0DAF /* Pods-HexagonalMapBasicTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = CMUQ7NPWU8;
 				INFOPLIST_FILE = HexagonalMapBasicTests/Info.plist;
@@ -739,7 +739,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = C26567F9DA1B9E2AD60A702F /* Pods-HexagonalMapBasicTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = CMUQ7NPWU8;
 				INFOPLIST_FILE = HexagonalMapBasicTests/Info.plist;
@@ -755,6 +755,7 @@
 		4D15C2A61D442303007A5EE2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -805,6 +806,7 @@
 		4D15C2A71D442303007A5EE2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
