@@ -71,7 +71,7 @@ class GameViewController: UIViewController {
         }
         alertView.addButton("Exit Game") {
             print("Exit")
-            _ = self.navigationController?.popViewController(animated: true)
+            self.goBack(animated: true)
         }
         alertView.showSuccess("Menu", subTitle: "Select one of the options")
     }

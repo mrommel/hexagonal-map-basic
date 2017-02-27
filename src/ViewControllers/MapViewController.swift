@@ -99,7 +99,7 @@ class MapViewController: UIViewController, UIScrollViewDelegate {
         let alertView = SCLAlertView(appearance: appearance)
         alertView.addButton("Main Menu") {
             print("Main Menu")
-            _ = self.navigationController?.popViewController(animated: true)
+            self.goBack(animated: true)
         }
         alertView.addButton("Cancel", target: self, selector: #selector(MapViewController.closeAlertView))
 
