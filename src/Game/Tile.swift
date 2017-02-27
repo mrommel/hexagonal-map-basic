@@ -40,8 +40,17 @@ class Tile: NSObject {
             return []
         }
     }
+}
+
+// MARK: discovery handling
+
+extension Tile {
+
+    func discovered(by player: Player) -> Bool {
+        return self.discovered[player.rawValue]
+    }
     
-    func discoveredBy(player: Player) -> Bool {
-        return false
+    func discover(by player: Player) {
+        self.discovered[player.rawValue] = true
     }
 }

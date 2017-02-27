@@ -50,7 +50,7 @@ class Game {
                 
                 let tile = self.map?.grid?.tileAt(x: x, y: y)
                 
-                stats.discoveredTiles += (tile?.discoveredBy(player: .human))! ? 1 : 0
+                stats.discoveredTiles += (tile?.discovered(by: .human))! ? 1 : 0
             }
         }
         

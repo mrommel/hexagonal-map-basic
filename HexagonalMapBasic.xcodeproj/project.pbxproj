@@ -65,6 +65,7 @@
 		1ACCA0061E60761D00E539DD /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACCA0051E60761D00E539DD /* Player.swift */; };
 		1ACCA0081E60792C00E539DD /* GameStatisticsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACCA0071E60792C00E539DD /* GameStatisticsTests.swift */; };
 		1ACCA0091E607E2100E539DD /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACCA0051E60761D00E539DD /* Player.swift */; };
+		1ACCA00A1E60878700E539DD /* teaser.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AB7EBD31E4D091A00594922 /* teaser.png */; };
 		1ADE279F1E48B8EC001F44FF /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE279E1E48B8EC001F44FF /* MenuViewController.swift */; };
 		1ADE27A21E48BAB3001F44FF /* UIViewController+Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE27A11E48BAB3001F44FF /* UIViewController+Storyboard.swift */; };
 		1AEE6C4D1E51FFE600537D1D /* GridGeneratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEE6C4C1E51FFE600537D1D /* GridGeneratorTests.swift */; };
@@ -494,6 +495,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1ACCA00A1E60878700E539DD /* teaser.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

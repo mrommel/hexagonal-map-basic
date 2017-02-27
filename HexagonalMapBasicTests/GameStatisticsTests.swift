@@ -14,7 +14,10 @@ class GameStatisticsTests: XCTestCase {
         
         // Preconditions
         let game = Game(withName: "test", andText: "test")
-        game.map = Map(width: 5, height: 5)        
+        game.map = Map(width: 5, height: 5)
+        game.map?.discover(at: GridPoint(x: 1, y: 1), by: Player.human)
+        game.map?.discover(at: GridPoint(x: 2, y: 1), by: Player.human)
+        game.map?.discover(at: GridPoint(x: 1, y: 2), by: Player.human)
         
         // Stimulus
         let gameStatistics = game.extractStatistics()

@@ -11,15 +11,15 @@ import Foundation
 /**
  in total 8 players
  */
-enum Player {
+enum Player: Int {
     
-    case human
-    case artificial0
-    case artificial1
-    case artificial2
-    case artificial3
-    case artificial4
-    case artificial5
-    case artificial6
+    case human = 0
+    case artificial0 = 1
+    case artificial1 = 2
+    case artificial2 = 3
+    case artificial3 = 4
+    case artificial4 = 5
+    case artificial5 = 6
+    case artificial6 = 7
     
 }

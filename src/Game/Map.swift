@@ -34,6 +34,17 @@ class Map {
     }
 }
 
+
+// MARK: sight related methods
+
+extension Map {
+    
+    func discover(at point: GridPoint, by player: Player) {
+        self.grid?.tile(at: point).discover(by: player)
+    }
+}
+
+
 // MARK: city related methods
 
 extension Map {
