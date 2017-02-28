@@ -27,7 +27,7 @@ public class Grid {
         
         for x in 0..<width {
             for y in 0..<height {
-                self.tiles[x, y] = Tile(withTerrain: Terrain.ocean)
+                self.tiles[x, y] = Tile(at: GridPoint(x: x, y: y), withTerrain: Terrain.ocean)
             }
         }
     }
@@ -36,7 +36,7 @@ public class Grid {
         
         // check bounds
         guard self.has(gridPoint: position) else {
-            return Tile(withTerrain: Terrain.outside)
+            return Tile(at: position, withTerrain: Terrain.outside)
         }
         
         return self.tiles[position]!

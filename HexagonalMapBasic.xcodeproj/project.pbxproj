@@ -67,6 +67,7 @@
 		1ACCA0091E607E2100E539DD /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACCA0051E60761D00E539DD /* Player.swift */; };
 		1ACCA00A1E60878700E539DD /* teaser.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AB7EBD31E4D091A00594922 /* teaser.png */; };
 		1ACCA00C1E6432EB00E539DD /* UIViewController+NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACCA00B1E6432EB00E539DD /* UIViewController+NavigationController.swift */; };
+		1ACCA00E1E64AD7500E539DD /* TileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACCA00D1E64AD7500E539DD /* TileTests.swift */; };
 		1ADE279F1E48B8EC001F44FF /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE279E1E48B8EC001F44FF /* MenuViewController.swift */; };
 		1ADE27A21E48BAB3001F44FF /* UIViewController+Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE27A11E48BAB3001F44FF /* UIViewController+Storyboard.swift */; };
 		1AEE6C4D1E51FFE600537D1D /* GridGeneratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEE6C4C1E51FFE600537D1D /* GridGeneratorTests.swift */; };
@@ -142,6 +143,7 @@
 		1ACCA0051E60761D00E539DD /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Player.swift; path = Game/Player.swift; sourceTree = "<group>"; };
 		1ACCA0071E60792C00E539DD /* GameStatisticsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameStatisticsTests.swift; sourceTree = "<group>"; };
 		1ACCA00B1E6432EB00E539DD /* UIViewController+NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIViewController+NavigationController.swift"; path = "Extensions/UIViewController+NavigationController.swift"; sourceTree = "<group>"; };
+		1ACCA00D1E64AD7500E539DD /* TileTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileTests.swift; sourceTree = "<group>"; };
 		1ADE279E1E48B8EC001F44FF /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuViewController.swift; path = ViewControllers/MenuViewController.swift; sourceTree = "<group>"; };
 		1ADE27A11E48BAB3001F44FF /* UIViewController+Storyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIViewController+Storyboard.swift"; path = "Extensions/UIViewController+Storyboard.swift"; sourceTree = "<group>"; };
 		1AEE6C4C1E51FFE600537D1D /* GridGeneratorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridGeneratorTests.swift; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 				1AEE6C4C1E51FFE600537D1D /* GridGeneratorTests.swift */,
 				1A57CA951E5DB7F800348FDD /* MapTests.swift */,
 				1ACCA0071E60792C00E539DD /* GameStatisticsTests.swift */,
+				1ACCA00D1E64AD7500E539DD /* TileTests.swift */,
 			);
 			path = HexagonalMapBasicTests;
 			sourceTree = "<group>";
@@ -633,6 +636,7 @@
 				1ACCA0081E60792C00E539DD /* GameStatisticsTests.swift in Sources */,
 				1AA7B3891E51C2F900104C91 /* Array2D.swift in Sources */,
 				1A57CAA51E5DE87200348FDD /* MapItem.swift in Sources */,
+				1ACCA00E1E64AD7500E539DD /* TileTests.swift in Sources */,
 				1AEE6C4D1E51FFE600537D1D /* GridGeneratorTests.swift in Sources */,
 				1A4B38A91E4C7B4B00FA7457 /* Terrain.swift in Sources */,
 				1AEE6C541E5316E300537D1D /* Feature.swift in Sources */,
