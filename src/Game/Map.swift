@@ -39,7 +39,7 @@ class Map {
 
 extension Map {
     
-    func discover(at point: GridPoint, by player: Player) {
+    func discover(at point: GridPoint, by player: PlayerType) {
         self.grid?.tile(at: point).discover(by: player)
     }
 }

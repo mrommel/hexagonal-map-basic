@@ -11,7 +11,7 @@ import Foundation
 /**
  in total 8 players
  */
-enum Player: Int {
+enum PlayerType: Int {
     
     case human = 0
     case artificial0 = 1
@@ -21,5 +21,9 @@ enum Player: Int {
     case artificial4 = 5
     case artificial5 = 6
     case artificial6 = 7
+    
+}
+
+class Player {
     
 }

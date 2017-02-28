@@ -207,6 +207,7 @@
 		1A4B38931E4C672A00FA7457 /* Game */ = {
 			isa = PBXGroup;
 			children = (
+				1AE645FF1E65A9EE0063F3CB /* AI */,
 				1A355B2E1E55DBAC006469B3 /* Templating */,
 				1AA7B3861E51C2E500104C91 /* Utils */,
 				1AA7B3811E51BC0C00104C91 /* GridGenerator */,
@@ -308,6 +309,13 @@
 				1ACCA00B1E6432EB00E539DD /* UIViewController+NavigationController.swift */,
 			);
 			name = Extensions;
+			sourceTree = "<group>";
+		};
+		1AE645FF1E65A9EE0063F3CB /* AI */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = AI;
 			sourceTree = "<group>";
 		};
 		1CFC6B4386390A5B2BD2A1A8 /* Frameworks */ = {

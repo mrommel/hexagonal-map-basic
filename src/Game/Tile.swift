@@ -175,11 +175,11 @@ extension Tile {
 
 extension Tile {
 
-    func discovered(by player: Player) -> Bool {
+    func discovered(by player: PlayerType) -> Bool {
         return self.discovered[player.rawValue]
     }
     
-    func discover(by player: Player) {
+    func discover(by player: PlayerType) {
         self.discovered[player.rawValue] = true
     }
 }
