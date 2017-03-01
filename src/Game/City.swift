@@ -8,6 +8,17 @@
 
 import Foundation
 
+enum CityError: Error, Equatable {
+    case MapNotSet
+}
+
+func ==(lhs: CityError, rhs: CityError) -> Bool {
+    switch (lhs, rhs) {
+    case (.MapNotSet, .MapNotSet):
+        return true
+    }
+}
+
 class City: MapItem {
     
     var name: String
@@ -30,10 +41,30 @@ class City: MapItem {
         super.init(at: point)
     }
     
-    func terrain() -> Terrain {
+    func terrain() throws -> Terrain {
+        
+        guard self.map != nil else {
+            throw CityError.MapNotSet
+        }
         
         return (self.map?.grid?.terrain(at: self.point))!
     }
     
+    func isCoastal() throws -> Bool {
+        
+        guard self.map != nil else {
+            throw CityError.MapNotSet
+        }
+        
+        return (self.map?.grid?.isCoastal(at: self.point))!
+    }
     
+    func isAdjacentToRiver() throws -> Bool {
+        
+        guard self.map != nil else {
+            throw CityError.MapNotSet
+        }
+        
+        return (self.map?.grid?.tile(at: self.point).isRiver())!
+    }
 }

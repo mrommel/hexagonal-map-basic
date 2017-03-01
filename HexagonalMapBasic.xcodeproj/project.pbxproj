@@ -59,6 +59,7 @@
 		1AB7EBD61E4D0CD400594922 /* button.png in Resources */ = {isa = PBXBuildFile; fileRef = 1AB7EBD51E4D0CD400594922 /* button.png */; };
 		1AB7EBD81E4DB82900594922 /* GridPointDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB7EBD71E4DB82900594922 /* GridPointDirection.swift */; };
 		1AB7EBD91E4DB82900594922 /* GridPointDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB7EBD71E4DB82900594922 /* GridPointDirection.swift */; };
+		1AC97BA61E6713FA00441E41 /* CityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC97BA51E6713FA00441E41 /* CityTests.swift */; };
 		1ACCA0011E60577D00E539DD /* defeat.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ACC9FFF1E60577D00E539DD /* defeat.png */; };
 		1ACCA0021E60577D00E539DD /* victory.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ACCA0001E60577D00E539DD /* victory.png */; };
 		1ACCA0041E6057E700E539DD /* button-left-bottom.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ACCA0031E6057E700E539DD /* button-left-bottom.png */; };
@@ -138,6 +139,7 @@
 		1AB7EBD31E4D091A00594922 /* teaser.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = teaser.png; path = Resources/teaser.png; sourceTree = "<group>"; };
 		1AB7EBD51E4D0CD400594922 /* button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button.png; path = Resources/button.png; sourceTree = "<group>"; };
 		1AB7EBD71E4DB82900594922 /* GridPointDirection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GridPointDirection.swift; path = Game/GridPointDirection.swift; sourceTree = "<group>"; };
+		1AC97BA51E6713FA00441E41 /* CityTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityTests.swift; sourceTree = "<group>"; };
 		1ACC9FFF1E60577D00E539DD /* defeat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = defeat.png; sourceTree = "<group>"; };
 		1ACCA0001E60577D00E539DD /* victory.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = victory.png; sourceTree = "<group>"; };
 		1ACCA0031E6057E700E539DD /* button-left-bottom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-left-bottom.png"; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 				1A57CA951E5DB7F800348FDD /* MapTests.swift */,
 				1ACCA0071E60792C00E539DD /* GameStatisticsTests.swift */,
 				1ACCA00D1E64AD7500E539DD /* TileTests.swift */,
+				1AC97BA51E6713FA00441E41 /* CityTests.swift */,
 			);
 			path = HexagonalMapBasicTests;
 			sourceTree = "<group>";
@@ -355,7 +358,6 @@
 			children = (
 				1A4B38931E4C672A00FA7457 /* Game */,
 				1ADE279D1E488D05001F44FF /* Presentation */,
-				4DCE42821D442A02003B7E3C /* Resources */,
 				4D15C29A1D442302007A5EE2 /* Info.plist */,
 			);
 			path = src;
@@ -383,6 +385,7 @@
 				1ADE279E1E48B8EC001F44FF /* MenuViewController.swift */,
 				1AA8466D1E5AFEF300D3A947 /* MapViewController.swift */,
 				4D15C2901D442302007A5EE2 /* GameViewController.swift */,
+				4DCE42821D442A02003B7E3C /* Resources */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -662,6 +665,7 @@
 				1ACCA0091E607E2100E539DD /* Player.swift in Sources */,
 				1AA7B3751E4DC99200104C91 /* GridPointDirectionTests.swift in Sources */,
 				1A4B38A71E4C7A7D00FA7457 /* GridTests.swift in Sources */,
+				1AC97BA61E6713FA00441E41 /* CityTests.swift in Sources */,
 				1A57CAA31E5DE86D00348FDD /* City.swift in Sources */,
 				1AEE6C511E520EF800537D1D /* PerlinGenerator.swift in Sources */,
 				1A4B38A81E4C7B2C00FA7457 /* Grid.swift in Sources */,
