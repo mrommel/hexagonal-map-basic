@@ -42,6 +42,11 @@ extension Map {
     func discover(at point: GridPoint, by player: PlayerType) {
         self.grid?.tile(at: point).discover(by: player)
     }
+    
+    func discovered(at point: GridPoint, by player: PlayerType) -> Bool {
+        let discovered = self.grid?.tile(at: point).discovered(by: player)
+        return discovered!
+    }
 }
 
 

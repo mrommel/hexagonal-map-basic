@@ -70,6 +70,7 @@
 		1ACCA00E1E64AD7500E539DD /* TileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACCA00D1E64AD7500E539DD /* TileTests.swift */; };
 		1ADE279F1E48B8EC001F44FF /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE279E1E48B8EC001F44FF /* MenuViewController.swift */; };
 		1ADE27A21E48BAB3001F44FF /* UIViewController+Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE27A11E48BAB3001F44FF /* UIViewController+Storyboard.swift */; };
+		1AE646011E65E2C00063F3CB /* Area.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE646001E65E2C00063F3CB /* Area.swift */; };
 		1AEE6C4D1E51FFE600537D1D /* GridGeneratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEE6C4C1E51FFE600537D1D /* GridGeneratorTests.swift */; };
 		1AEE6C4E1E51FFEA00537D1D /* GridGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA7B3821E51BC3400104C91 /* GridGenerator.swift */; };
 		1AEE6C501E520EF800537D1D /* PerlinGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEE6C4F1E520EF800537D1D /* PerlinGenerator.swift */; };
@@ -146,6 +147,7 @@
 		1ACCA00D1E64AD7500E539DD /* TileTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TileTests.swift; sourceTree = "<group>"; };
 		1ADE279E1E48B8EC001F44FF /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuViewController.swift; path = ViewControllers/MenuViewController.swift; sourceTree = "<group>"; };
 		1ADE27A11E48BAB3001F44FF /* UIViewController+Storyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIViewController+Storyboard.swift"; path = "Extensions/UIViewController+Storyboard.swift"; sourceTree = "<group>"; };
+		1AE646001E65E2C00063F3CB /* Area.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Area.swift; path = Game/GridGenerator/Area.swift; sourceTree = "<group>"; };
 		1AEE6C4C1E51FFE600537D1D /* GridGeneratorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridGeneratorTests.swift; sourceTree = "<group>"; };
 		1AEE6C4F1E520EF800537D1D /* PerlinGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PerlinGenerator.swift; path = Game/Utils/PerlinGenerator.swift; sourceTree = "<group>"; };
 		1AEE6C521E5316E300537D1D /* Feature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Feature.swift; path = Game/Feature.swift; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 				1A57CA9E1E5DE67800348FDD /* TileImprovement.swift */,
 				1A57CAA01E5DE83100348FDD /* MapItem.swift */,
 				1ACCA0051E60761D00E539DD /* Player.swift */,
+				1AE646001E65E2C00063F3CB /* Area.swift */,
 			);
 			name = Game;
 			sourceTree = "<group>";
@@ -237,8 +240,8 @@
 				1A4B38A61E4C7A7D00FA7457 /* GridTests.swift */,
 				1AA7B3761E4DEB9200104C91 /* GridPointTests.swift */,
 				1AA7B3741E4DC99200104C91 /* GridPointDirectionTests.swift */,
-				1AA7B37D1E4DFF7000104C91 /* AStarPathfinderTests.swift */,
 				1AEE6C4C1E51FFE600537D1D /* GridGeneratorTests.swift */,
+				1AA7B37D1E4DFF7000104C91 /* AStarPathfinderTests.swift */,
 				1A57CA951E5DB7F800348FDD /* MapTests.swift */,
 				1ACCA0071E60792C00E539DD /* GameStatisticsTests.swift */,
 				1ACCA00D1E64AD7500E539DD /* TileTests.swift */,
@@ -694,6 +697,7 @@
 				1AEE6C501E520EF800537D1D /* PerlinGenerator.swift in Sources */,
 				1A355B341E55E860006469B3 /* TerrainSpriteNode.swift in Sources */,
 				1AA7B3881E51C2F900104C91 /* Array2D.swift in Sources */,
+				1AE646011E65E2C00063F3CB /* Area.swift in Sources */,
 				1AA7B37C1E4DF6D500104C91 /* AStarPathfinder.swift in Sources */,
 				1A355B361E55F04F006469B3 /* FeatureSpriteNode.swift in Sources */,
 				1A355B2D1E546B00006469B3 /* GridSpriteNode.swift in Sources */,

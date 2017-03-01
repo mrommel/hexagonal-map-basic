@@ -106,4 +106,58 @@ class GridTests: XCTestCase {
         XCTAssertEqual(hasHillBefore, true, "feature should have been added")
         XCTAssertEqual(hasHillAfter, false, "feature should have been removed")
     }
+    
+    func testIsCoastalReturnsTrue() {
+        
+        // Preconditions
+        let grid = Grid(width: 5, height: 5)
+        grid?.set(terrain: Terrain.ocean, at: GridPoint(x: 2, y: 2))
+        grid?.set(terrain: Terrain.grass, at: GridPoint(x: 2, y: 3))
+        
+        // Stimulus
+        let isCoastal = grid?.isCoastal(at: GridPoint(x: 2, y: 2))
+        
+        // Assertion
+        XCTAssertEqual(isCoastal, true, "is coastal should have been returned")
+    }
+    
+    func testIsCoastalReturnsTrueOnMapBorders() {
+        
+        // Preconditions
+        let grid = Grid(width: 5, height: 5)
+        grid?.set(terrain: Terrain.ocean, at: GridPoint(x: 0, y: 0))
+        grid?.set(terrain: Terrain.grass, at: GridPoint(x: 0, y: 1))
+        
+        // Stimulus
+        let isCoastal = grid?.isCoastal(at: GridPoint(x: 0, y: 0))
+        
+        // Assertion
+        XCTAssertEqual(isCoastal, true, "is coastal should have been returned")
+    }
+    
+    func testIsCoastalReturnsFalse() {
+        
+        // Preconditions
+        let grid = Grid(width: 5, height: 5)
+        grid?.set(terrain: Terrain.ocean, at: GridPoint(x: 2, y: 2))
+        
+        // Stimulus
+        let isCoastal = grid?.isCoastal(at: GridPoint(x: 2, y: 2))
+        
+        // Assertion
+        XCTAssertEqual(isCoastal, false, "is coastal should have been returned")
+    }
+    
+    func testIsCoastalReturnsFalseOnMapBorders() {
+        
+        // Preconditions
+        let grid = Grid(width: 5, height: 5)
+        grid?.set(terrain: Terrain.ocean, at: GridPoint(x: 0, y: 0))
+        
+        // Stimulus
+        let isCoastal = grid?.isCoastal(at: GridPoint(x: 0, y: 0))
+        
+        // Assertion
+        XCTAssertEqual(isCoastal, false, "is coastal should have been returned")
+    }
 }

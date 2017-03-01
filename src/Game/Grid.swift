@@ -77,6 +77,32 @@ public class Grid {
         return gridPoint.x >= 0 && gridPoint.x < self.width && gridPoint.y >= 0 && gridPoint.y < self.height
     }
     
+    func isWater(at position: GridPoint) -> Bool {
+        return self.terrain(at: position).isWater
+    }
+    
+    func isCoastal(at position: GridPoint) -> Bool {
+        let centerTerrain = self.terrain(at: position)
+        
+        if !centerTerrain.isWater {
+            return false
+        }
+        
+        for neighbor in position.neighbors() {
+            let neighborTerrain = self.terrain(at: neighbor)
+            
+            if neighborTerrain.isGround {
+                return true
+            }
+        }
+        
+        return false
+    }
+    
+    func isCoastalAt(x: Int, y: Int) -> Bool {
+        return self.isCoastal(at: GridPoint(x: x, y: y))
+    }
+    
     /*!
      * maps point from the screen coordinate system to grid
      */
