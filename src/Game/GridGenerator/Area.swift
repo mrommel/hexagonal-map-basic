@@ -8,7 +8,7 @@
 
 import Foundation
 
-class AreaBoundaries {
+class AreaBoundary {
     
     var topLeft: GridPoint
     var bottomRight: GridPoint
@@ -35,13 +35,13 @@ struct AreaStatistics {
 
 class Area {
     
-    let boundaries: AreaBoundaries
+    let boundary: AreaBoundary
     var statistics: AreaStatistics
     let map: Map?
     
-    required init(withBoundaries boundaries: AreaBoundaries, on map: Map) {
+    required init(withBoundaries boundary: AreaBoundary, on map: Map) {
         
-        self.boundaries = boundaries
+        self.boundary = boundary
         self.map = map
         self.statistics = AreaStatistics()
     }
@@ -51,8 +51,8 @@ class Area {
         // reset values
         self.statistics.coastTiles = 0
         
-        for x in self.boundaries.topLeft.x...boundaries.bottomRight.x {
-            for y in self.boundaries.topLeft.y...boundaries.bottomRight.y {
+        for x in self.boundary.topLeft.x...boundary.bottomRight.x {
+            for y in self.boundary.topLeft.y...boundary.bottomRight.y {
                 
                 guard let tile = self.map?.grid?.tileAt(x: x, y: y) else {
                     continue

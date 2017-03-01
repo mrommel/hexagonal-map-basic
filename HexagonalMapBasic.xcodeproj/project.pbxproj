@@ -60,6 +60,8 @@
 		1AB7EBD81E4DB82900594922 /* GridPointDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB7EBD71E4DB82900594922 /* GridPointDirection.swift */; };
 		1AB7EBD91E4DB82900594922 /* GridPointDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB7EBD71E4DB82900594922 /* GridPointDirection.swift */; };
 		1AC97BA61E6713FA00441E41 /* CityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC97BA51E6713FA00441E41 /* CityTests.swift */; };
+		1AC97BA81E674ECD00441E41 /* AreaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC97BA71E674ECD00441E41 /* AreaTests.swift */; };
+		1AC97BA91E67504E00441E41 /* Area.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AE646001E65E2C00063F3CB /* Area.swift */; };
 		1ACCA0011E60577D00E539DD /* defeat.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ACC9FFF1E60577D00E539DD /* defeat.png */; };
 		1ACCA0021E60577D00E539DD /* victory.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ACCA0001E60577D00E539DD /* victory.png */; };
 		1ACCA0041E6057E700E539DD /* button-left-bottom.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ACCA0031E6057E700E539DD /* button-left-bottom.png */; };
@@ -140,6 +142,7 @@
 		1AB7EBD51E4D0CD400594922 /* button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button.png; path = Resources/button.png; sourceTree = "<group>"; };
 		1AB7EBD71E4DB82900594922 /* GridPointDirection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GridPointDirection.swift; path = Game/GridPointDirection.swift; sourceTree = "<group>"; };
 		1AC97BA51E6713FA00441E41 /* CityTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CityTests.swift; sourceTree = "<group>"; };
+		1AC97BA71E674ECD00441E41 /* AreaTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AreaTests.swift; sourceTree = "<group>"; };
 		1ACC9FFF1E60577D00E539DD /* defeat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = defeat.png; sourceTree = "<group>"; };
 		1ACCA0001E60577D00E539DD /* victory.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = victory.png; sourceTree = "<group>"; };
 		1ACCA0031E6057E700E539DD /* button-left-bottom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-left-bottom.png"; sourceTree = "<group>"; };
@@ -248,6 +251,7 @@
 				1ACCA0071E60792C00E539DD /* GameStatisticsTests.swift */,
 				1ACCA00D1E64AD7500E539DD /* TileTests.swift */,
 				1AC97BA51E6713FA00441E41 /* CityTests.swift */,
+				1AC97BA71E674ECD00441E41 /* AreaTests.swift */,
 			);
 			path = HexagonalMapBasicTests;
 			sourceTree = "<group>";
@@ -653,6 +657,7 @@
 				1ACCA00E1E64AD7500E539DD /* TileTests.swift in Sources */,
 				1AEE6C4D1E51FFE600537D1D /* GridGeneratorTests.swift in Sources */,
 				1A4B38A91E4C7B4B00FA7457 /* Terrain.swift in Sources */,
+				1AC97BA91E67504E00441E41 /* Area.swift in Sources */,
 				1AEE6C541E5316E300537D1D /* Feature.swift in Sources */,
 				1AA7B3771E4DEB9200104C91 /* GridPointTests.swift in Sources */,
 				1AA7B37F1E4E00B800104C91 /* AStarPathfinder.swift in Sources */,
@@ -661,6 +666,7 @@
 				1A57CA981E5DBF9000348FDD /* Game.swift in Sources */,
 				1AEE6C4E1E51FFEA00537D1D /* GridGenerator.swift in Sources */,
 				1AB7EBD91E4DB82900594922 /* GridPointDirection.swift in Sources */,
+				1AC97BA81E674ECD00441E41 /* AreaTests.swift in Sources */,
 				1A4B38AC1E4CAF9600FA7457 /* GridPoint.swift in Sources */,
 				1ACCA0091E607E2100E539DD /* Player.swift in Sources */,
 				1AA7B3751E4DC99200104C91 /* GridPointDirectionTests.swift in Sources */,
