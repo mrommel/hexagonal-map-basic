@@ -44,6 +44,7 @@ class Tile: NSObject {
     var features: [Feature] = []
     var discovered: BitArray = [false, false, false, false, false, false, false, false]
     var road: Bool = false
+    var continent: Continent?
     
     var riverFlowNorth: FlowDirection = .none
     var riverFlowNorthEast: FlowDirection = .none
@@ -170,6 +171,7 @@ extension Tile {
         self.riverFlowNorth = flow
     }
 }
+
 
 // MARK: discovery handling
 

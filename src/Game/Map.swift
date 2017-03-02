@@ -232,6 +232,8 @@ extension Map {
                             continents.append(continent!)
                         }
                         
+                        map.set(continent: continent, at: GridPoint(x: x, y: y))
+                        
                         continent?.points?.append(GridPoint(x: x, y: y))
                     }
                 }
@@ -276,13 +278,25 @@ extension Map {
         }
     }
     
+    @discardableResult
     func findContinents() -> [Continent] {
         
         let continentFinder = ContinentFinder(width: self.width, height: self.height)
         
-        return continentFinder.execute(on: self)
+        self.continents = continentFinder.execute(on: self)
+        
+        return self.continents!
     }
     
+    func continent(at point: GridPoint) -> Continent? {
+        
+        return self.grid?.tile(at: point).continent
+    }
+    
+    func set(continent: Continent?, at point: GridPoint) {
+        
+        self.grid?.tile(at: point).continent = continent
+    }
 }
 
 
