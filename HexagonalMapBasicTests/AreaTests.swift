@@ -16,7 +16,7 @@ class AreaTests: XCTestCase {
         let map = Map(width: 5, height: 5)
         
         let areaBoundary = AreaBoundary(topLeft: GridPoint(x: 1, y: 1), bottomRight: GridPoint(x: 3, y: 3))
-        let area = Area(withBoundaries: areaBoundary, on: map)
+        let area = Area(withIdentifier: 1, andBoundaries: areaBoundary, on: map)
         
         // Stimulus
         area.update()
@@ -32,7 +32,7 @@ class AreaTests: XCTestCase {
         map.grid?.set(terrain: .grass, at: GridPoint(x: 0, y: 1))
         
         let areaBoundary = AreaBoundary(topLeft: GridPoint(x: 1, y: 1), bottomRight: GridPoint(x: 3, y: 3))
-        let area = Area(withBoundaries: areaBoundary, on: map)
+        let area = Area(withIdentifier: 1, andBoundaries: areaBoundary, on: map)
         
         // Stimulus
         area.update()
@@ -48,7 +48,7 @@ class AreaTests: XCTestCase {
         map.grid?.set(terrain: .grass, at: GridPoint(x: 2, y: 1))
         
         let areaBoundary = AreaBoundary(topLeft: GridPoint(x: 1, y: 1), bottomRight: GridPoint(x: 3, y: 3))
-        let area = Area(withBoundaries: areaBoundary, on: map)
+        let area = Area(withIdentifier: 1, andBoundaries: areaBoundary, on: map)
         
         // Stimulus
         area.update()

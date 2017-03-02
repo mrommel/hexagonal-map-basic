@@ -13,15 +13,13 @@ import Foundation
 // | /    \ |
 // |/      \|
 // +        +
-// |        |
-// +        +
 // |\      /|
 // | \    / |
 // +--+--+--+
 
 // A GridPoint is a structure that represents a location in the grid.
 // This is Hashable, because it will be stored in a dictionary.
-class GridPoint : Hashable {
+public class GridPoint : Hashable {
     
     var x: Int = 0;
     var y: Int = 0;
@@ -32,12 +30,11 @@ class GridPoint : Hashable {
     }
     
     // Returns a unique number that represents this location.
-    var hashValue: Int {
+    public var hashValue: Int {
         get {
             return x ^ (y << 32)
         }
     }
-    
 }
 
 func even(number: Int) -> Bool {
@@ -99,7 +96,7 @@ extension GridPoint {
 // to the requirements of the Equatable protocol, you need
 // to implement the == operation (which returns true if two objects
 // are the same, and false if they aren't)
-func ==(first : GridPoint, second : GridPoint) -> Bool {
+public func ==(first : GridPoint, second : GridPoint) -> Bool {
     return first.x == second.x && first.y == second.y
 }
 
@@ -107,6 +104,14 @@ extension GridPoint : CustomDebugStringConvertible {
     
     /// A textual representation of this instance, suitable for debugging.
     public var debugDescription: String {
+        return "GridPoint(\(self.x),\(self.y))"
+    }
+}
+
+extension GridPoint : CustomStringConvertible {
+    
+    /// A textual representation of this instance, suitable for debugging.
+    public var description: String {
         return "GridPoint(\(self.x),\(self.y))"
     }
 }

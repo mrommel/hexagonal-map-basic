@@ -81,3 +81,38 @@ class MapTests: XCTestCase {
         XCTAssertFalse(hasForest!, "forest should have been removed during settlement")
     }
 }
+
+
+// MARK: continent related tests
+
+extension MapTests {
+    
+    func testContinentGenerationNoContinents() {
+        
+        // Preconditions
+        let map = Map(width: 5, height: 5)
+        
+        // Stimulus
+        let continents = map.findContinents()
+        
+        // Assertion
+        XCTAssertEqual(continents.count, 0, "wrong number of continents found")
+    }
+    
+    func testContinentGenerationSmallContinents() {
+        
+        // Preconditions
+        let map = Map(width: 5, height: 5)
+        map.grid?.set(terrain: Terrain.grass, at: GridPoint(x: 1, y: 2))
+        map.grid?.set(terrain: Terrain.grass, at: GridPoint(x: 1, y: 3))
+        map.grid?.set(terrain: Terrain.grass, at: GridPoint(x: 3, y: 4))
+        map.grid?.set(terrain: Terrain.grass, at: GridPoint(x: 4, y: 1))
+        
+        // Stimulus
+        let continents = map.findContinents()
+        
+        // Assertion
+        XCTAssertEqual(continents.count, 3, "wrong number of continents found")
+    }
+    
+}

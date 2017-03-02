@@ -81,6 +81,10 @@ public class Grid {
         return self.terrain(at: position).isWater
     }
     
+    func isGround(at position: GridPoint) -> Bool {
+        return self.terrain(at: position).isGround
+    }
+    
     func isCoastal(at position: GridPoint) -> Bool {
         let centerTerrain = self.terrain(at: position)
         
