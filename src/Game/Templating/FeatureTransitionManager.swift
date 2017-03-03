@@ -139,28 +139,9 @@ class FeatureTransitionManager {
         self.transitions.append(FeatureTransitionRule(tileRule: .matchesNoHill, remoteRule: "*,*,*,*,*,h", image: "Hill-s", zLevel: 24))
         
         // 2 edges
-        /*self.transitions.append(FeatureTransitionRule(tileRule: .matchesWater, remoteRule: "-,-,~,*,*,~", image: "Beach-ne-se", zLevel: 21))
-        self.transitions.append(FeatureTransitionRule(tileRule: .matchesWater, remoteRule: "~,-,-,~,*,*", image: "Beach-n-ne", zLevel: 21))
-        self.transitions.append(FeatureTransitionRule(tileRule: .matchesWater, remoteRule: "*,~,-,-,~,*", image: "Beach-nw-n", zLevel: 21))
-        self.transitions.append(FeatureTransitionRule(tileRule: .matchesWater, remoteRule: "*,*,~,-,-,~", image: "Beach-sw-nw", zLevel: 21))
-        self.transitions.append(FeatureTransitionRule(tileRule: .matchesWater, remoteRule: "~,*,*,~,-,-", image: "Beach-s-sw", zLevel: 21))
-        self.transitions.append(FeatureTransitionRule(tileRule: .matchesWater, remoteRule: "-,~,*,*,~,-", image: "Beach-se-s", zLevel: 21))*/
-        
+        self.transitions.append(FeatureTransitionRule(tileRule: .matchesNoHill, remoteRule: "*,h,h,*,*,*", image: "Hill-n-ne", zLevel: 24))
+        self.transitions.append(FeatureTransitionRule(tileRule: .matchesNoHill, remoteRule: "*,*,*,*,h,h", image: "Hill-s-sw", zLevel: 24))
     }
-    
-    /*func bestTransitions(forCenter tileFeature: Feature, remotePattern: String) -> [FeatureTransitionRule]? {
-        
-        let patterns = remotePattern.characters.split{$0 == ","}.map(String.init)
-        
-        let remNE = Feature(rawValue: patterns[0])
-        let remSE = Feature(rawValue: patterns[1])
-        let remS = Feature(rawValue: patterns[2])
-        let remSW = Feature(rawValue: patterns[3])
-        let remNW = Feature(rawValue: patterns[4])
-        let remN = Feature(rawValue: patterns[5])
-        
-        return self.bestTransitions(forCenter: tileFeature, remotesNE: remNE!, remotesSE: remSE!, remoteS: remS!, remoteSW: remSW!, remoteNW: remNW!, remoteN: remN!)
-    }*/
     
     func bestTransitions(forCenter tileFeatures: [Feature], remotesNE: [Feature], remotesSE: [Feature], remotesS: [Feature], remotesSW: [Feature], remotesNW: [Feature], remotesN: [Feature]) -> [FeatureTransitionRule]? {
         
