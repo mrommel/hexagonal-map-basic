@@ -12,17 +12,6 @@ import SCLAlertView
 
 class GameViewController: UIViewController {
     
-    let menuItems: [(icon: String, color: UIColor)] = [
-        ("Icon_download", UIColor(red:0.19, green:0.57, blue:1, alpha:1)),
-        ("Icon_goal", UIColor(red:0.22, green:0.74, blue:0, alpha:1)),
-        ("Icon_close", UIColor(red:0.96, green:0.23, blue:0.21, alpha:1)),
-        ("Icon_settings", UIColor(red:0.51, green:0.15, blue:1, alpha:1)),
-        ("Icon_close", UIColor(red:1, green:0.39, blue:0, alpha:1)),
-        ("Icon_close", UIColor(red:1, green:0.39, blue:0, alpha:1)),
-        ("Icon_settings", UIColor(red:0.51, green:0.15, blue:1, alpha:1)),
-        ("Icon_sharing", UIColor(red:1, green:0.39, blue:0, alpha:1)),
-        ]
-    
     // MARK: Property Overrides
     
     override var shouldAutorotate: Bool {
@@ -59,6 +48,8 @@ class GameViewController: UIViewController {
         scene.grid = generator?.generate()
         
         scene.grid?.add(feature: Feature.forest, at: GridPoint(x: 2, y: 2))
+        scene.grid?.add(feature: Feature.hill, at: GridPoint(x: 3, y: 2))
+        scene.grid?.add(feature: Feature.hill, at: GridPoint(x: 2, y: 4))
         
         skView.presentScene(scene)
     }

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		18057D4B8B9BA877A95D95DB /* Pods_HexagonalMapBasicTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97D5E67FFF0289FA0AFF4DD4 /* Pods_HexagonalMapBasicTests.framework */; };
 		1A153D9D1E56E39300F11812 /* TransitionSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A153D9C1E56E39300F11812 /* TransitionSpriteNode.swift */; };
+		1A322EA11E68BD9E00008773 /* FeatureTransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A322EA01E68BD9D00008773 /* FeatureTransitionManager.swift */; };
 		1A355B291E5345A3006469B3 /* Features.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A355B281E5345A3006469B3 /* Features.xcassets */; };
 		1A355B2B1E535BD7006469B3 /* Tiles.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A355B2A1E535BD7006469B3 /* Tiles.xcassets */; };
 		1A355B2D1E546B00006469B3 /* GridSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A355B2C1E546B00006469B3 /* GridSpriteNode.swift */; };
@@ -102,6 +103,7 @@
 
 /* Begin PBXFileReference section */
 		1A153D9C1E56E39300F11812 /* TransitionSpriteNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TransitionSpriteNode.swift; path = Scenes/TransitionSpriteNode.swift; sourceTree = "<group>"; };
+		1A322EA01E68BD9D00008773 /* FeatureTransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeatureTransitionManager.swift; path = Game/Templating/FeatureTransitionManager.swift; sourceTree = "<group>"; };
 		1A355B281E5345A3006469B3 /* Features.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Features.xcassets; path = Resources/Features.xcassets; sourceTree = "<group>"; };
 		1A355B2A1E535BD7006469B3 /* Tiles.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Tiles.xcassets; path = Resources/Tiles.xcassets; sourceTree = "<group>"; };
 		1A355B2C1E546B00006469B3 /* GridSpriteNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GridSpriteNode.swift; path = Scenes/GridSpriteNode.swift; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				1A355B2F1E55DBD7006469B3 /* TerrainTransitionManager.swift */,
+				1A322EA01E68BD9D00008773 /* FeatureTransitionManager.swift */,
 			);
 			name = Templating;
 			sourceTree = "<group>";
@@ -695,6 +698,7 @@
 				1A57CA9C1E5DE65800348FDD /* City.swift in Sources */,
 				4D15C2911D442302007A5EE2 /* GameViewController.swift in Sources */,
 				1A153D9D1E56E39300F11812 /* TransitionSpriteNode.swift in Sources */,
+				1A322EA11E68BD9E00008773 /* FeatureTransitionManager.swift in Sources */,
 				1ADE27A21E48BAB3001F44FF /* UIViewController+Storyboard.swift in Sources */,
 				1ACCA0061E60761D00E539DD /* Player.swift in Sources */,
 				1A4B38901E4BBAD400FA7457 /* GameScene.swift in Sources */,

@@ -35,7 +35,8 @@ class GameScene: SKScene {
     var cam: SKCameraNode!
 
     let terrainTransitionManager: TerrainTransitionManager
-
+    let featureTransitionManager: FeatureTransitionManager
+ 
     let terrainView: SKSpriteNode
     //let layer2DHighlight: SKNode
 
@@ -58,6 +59,7 @@ class GameScene: SKScene {
         self.cursorPoint = GridPoint(x: 0, y: 0)
 
         self.terrainTransitionManager = TerrainTransitionManager()
+        self.featureTransitionManager = FeatureTransitionManager()
 
         super.init(size: size)
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
@@ -150,7 +152,23 @@ class GameScene: SKScene {
 
             self.terrainView.addChild(FeatureSpriteNode(withPosition: position, andFeature: feature))
         }
+        
+        // feature transitions
+        let featuresNE = self.grid?.tile(at: gridPoint.neighbor(in: .northEast)).features
+        let featuresSE = self.grid?.tile(at: gridPoint.neighbor(in: .southEast)).features
+        let featuresS = self.grid?.tile(at: gridPoint.neighbor(in: .south)).features
+        let featuresSW = self.grid?.tile(at: gridPoint.neighbor(in: .southWest)).features
+        let featuresNW = self.grid?.tile(at: gridPoint.neighbor(in: .northWest)).features
+        let featuresN = self.grid?.tile(at: gridPoint.neighbor(in: .north)).features
 
+        if let transitions = self.featureTransitionManager.bestTransitions(forCenter: tile.features, remotesNE: featuresNE!, remotesSE: featuresSE!, remotesS: featuresS!, remotesSW: featuresSW!, remotesNW: featuresNW!, remotesN: featuresN!) {
+            
+            for transition in transitions {
+                
+                print("feature transition: \(transition.image)")
+                self.terrainView.addChild(TransitionSpriteNode(withPosition: position, andTransition: transition))
+            }
+        }
     }
 
     func moveFocus(to gridpoint: GridPoint) {

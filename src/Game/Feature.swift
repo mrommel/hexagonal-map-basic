@@ -8,19 +8,23 @@
 
 import Foundation
 
-enum Feature {
+enum Feature: String {
     
     // misc
     case none
     
     // water terrain
-    case island
+    case island = "i"
     
     // solid terrain
-    case forest
-    case oasis
-    case hill
-    case mountain
+    case forest = "f"
+    case swamp = "s"
+    case hill = "h"
+    case mountain = "m"
+    
+    // tile matching
+    case matchesAny = "*"
+    case matchesNoHill = "nh"
     
     var image: String {
         switch self {
@@ -30,12 +34,12 @@ enum Feature {
             return "Island"
         case .forest:
             return "Forest"
-        case .oasis:
-            return "Oasis"
         case .hill:
             return "Hill"
         case .mountain:
             return "Mountain"
+        default:
+            return "---"
         }
     }
 }
