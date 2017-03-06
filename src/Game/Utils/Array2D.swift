@@ -69,3 +69,16 @@ extension Array2D {
     }
     
 }
+
+extension Array2D {
+    
+    func fill(with value: T) {
+        
+        for x in 0..<columns {
+            for y in 0..<rows {
+                self[x, y] = value
+            }
+        }
+    }
+    
+}

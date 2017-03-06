@@ -9,6 +9,15 @@
 import Foundation
 import SpriteKit
 
+enum ClimateZone: Int {
+    
+    case polar
+    case subpolar
+    case temperate
+    case subtropic
+    case tropic
+}
+
 class GridGenerator {
     
     let width: Int
@@ -87,6 +96,41 @@ class GridGenerator {
                 }
             }
         }
+    }
+    
+    func identifyClimateZones() -> Array2D<ClimateZone> {
+        
+        let zones = Array2D<ClimateZone>(columns: self.width, rows: self.height)
+        zones.fill(with: .temperate)
+        
+        // TODO: calculate climate zone based on height + distance to coast
+        for x in 0..<width {
+            for y in 0..<height {
+                
+                let latitude = fabs(Float(height / 2 - y)) / Float(height / 2)
+                
+                if latitude > 0.8 {
+                    zones[x, y] = .polar
+                } else if latitude > 0.6 {
+                    zones[x, y] = .subpolar
+                } else if latitude > 0.4 {
+                    zones[x, y] = .temperate
+                } else if latitude > 0.2 {
+                    zones[x, y] = .subtropic
+                } else {
+                    zones[x, y] = .tropic
+                }
+            }
+        }
+        
+        return zones
+    }
+    
+    func createClimateZones(with zone: ClimateZone) -> Array2D<ClimateZone> {
+        
+        let zones = Array2D<ClimateZone>(columns: self.width, rows: self.height)
+        zones.fill(with: zone)
+        return zones
     }
     
     func generate() -> Grid? {
