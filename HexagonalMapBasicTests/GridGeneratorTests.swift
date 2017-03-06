@@ -25,9 +25,9 @@ class GridGeneratorTests: XCTestCase {
         let gridGenerator = GridGenerator(width: 2, height: 2)
         let terrain = Terrain.snow
         
-        gridGenerator?.fill(with: terrain)
+        gridGenerator.fill(with: terrain)
         
-        let grid = gridGenerator?.generate()
+        let grid = gridGenerator.generate()
         
         XCTAssertEqual(grid?.terrain(at: GridPoint(x: 0, y: 0)), Terrain.snow, "terrain does not match")
         XCTAssertEqual(grid?.terrain(at: GridPoint(x: 0, y: 1)), Terrain.snow, "terrain does not match")
@@ -35,11 +35,23 @@ class GridGeneratorTests: XCTestCase {
         XCTAssertEqual(grid?.terrain(at: GridPoint(x: 1, y: 1)), Terrain.snow, "terrain does not match")
     }
     
-    func testHeightMap() {
+    func testFillFromElevationAtLeastHalfOcean() {
         
         let gridGenerator = GridGenerator(width: 20, height: 20)
-        let elevationMap = gridGenerator?.elevation()
+        gridGenerator.fillFromElevation(withWaterPercentage: 0.5)
         
+        let grid = gridGenerator.generate()
         
+        var oceanTiles = 0
+        
+        for x in 0..<20 {
+            for y in 0..<20 {
+                if (grid?.terrainAt(x: x, y: y).isWater)! {
+                    oceanTiles += 1
+                }
+            }
+        }
+        
+        XCTAssertGreaterThanOrEqual(oceanTiles, 200, "expected are more than 200 tiles occupied by ocen")
     }
 }

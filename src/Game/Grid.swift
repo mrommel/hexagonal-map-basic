@@ -73,8 +73,27 @@ public class Grid {
         }
     }
     
+    func terrainAt(x: Int, y: Int) -> Terrain {
+        
+        // check bounds
+        guard self.hasAt(x: x, y: y) else {
+            return Terrain.outside
+        }
+        
+        // If we have a terrain, return it
+        if let tile = self.tiles[x, y] {
+            return tile.terrain!
+        } else {
+            return Terrain.outside
+        }
+    }
+    
     func has(gridPoint: GridPoint) -> Bool {
         return gridPoint.x >= 0 && gridPoint.x < self.width && gridPoint.y >= 0 && gridPoint.y < self.height
+    }
+    
+    func hasAt(x: Int, y: Int) -> Bool {
+        return x >= 0 && x < self.width && y >= 0 && y < self.height
     }
     
     func isWater(at position: GridPoint) -> Bool {

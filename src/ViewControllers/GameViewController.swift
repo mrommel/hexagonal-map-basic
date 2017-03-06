@@ -44,8 +44,8 @@ class GameViewController: UIViewController {
         scene.scaleMode = .resizeFill
         
         let generator = GridGenerator(width: 20, height: 20)
-        generator?.fillFromElevation(withWaterPercentage: 0.5)
-        scene.grid = generator?.generate()
+        generator.fillFromElevation(withWaterPercentage: 0.4)
+        scene.grid = generator.generate()
         
         scene.grid?.add(feature: Feature.forest, at: GridPoint(x: 2, y: 2))
         scene.grid?.add(feature: Feature.hill, at: GridPoint(x: 3, y: 2))
