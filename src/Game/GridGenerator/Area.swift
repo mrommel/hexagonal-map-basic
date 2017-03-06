@@ -95,6 +95,17 @@ class Area: Sequence, Equatable {
     func size() -> Int {
         return (self.points?.count)!
     }
+    
+    func contains(points: [GridPoint]) -> Bool {
+        
+        for point in points {
+            if !self.contains(where: { $0.x == point.x && $0.y == point.y }) {
+                return false
+            }
+        }
+        
+        return true
+    }
 
     func update() {
         
@@ -120,7 +131,7 @@ class Area: Sequence, Equatable {
 }
 
 func ==(lhs: Area, rhs: Area) -> Bool {
-    return lhs.identifier == rhs.identifier
+    return lhs.identifier == rhs.identifier && lhs.size() == rhs.size() && lhs.contains(points: rhs.points!) && rhs.contains(points: lhs.points!)
 }
 
 class Continent: Area {
