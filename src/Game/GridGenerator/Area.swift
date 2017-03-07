@@ -34,8 +34,8 @@ class AreaBoundary {
 
     func size() -> Int {
         
-        let width = bottomRight.x - topLeft.x
-        let height = bottomRight.y - topLeft.y
+        let width = bottomRight.x - topLeft.x + 1
+        let height = bottomRight.y - topLeft.y + 1
         
         return width * height
     }

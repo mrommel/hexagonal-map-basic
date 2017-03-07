@@ -10,6 +10,18 @@ import XCTest
 
 class AreaTests: XCTestCase {
     
+    func testAreaBoundarySize() {
+        
+        // Preconditions
+        let areaBoundary = AreaBoundary(topLeft: GridPoint(x: 1, y: 1), bottomRight: GridPoint(x: 3, y: 3))
+        
+        // Stimulus
+        let size = areaBoundary.size()
+        
+        // Assertion
+        XCTAssertEqual(size, 9, "boundary size is not correct")
+    }
+    
     func testCoastalCountWithOutsideTerrain() {
         
         // Preconditions
