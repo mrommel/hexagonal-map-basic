@@ -89,6 +89,9 @@
 		1AEE6C541E5316E300537D1D /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEE6C521E5316E300537D1D /* Feature.swift */; };
 		1AEE6C561E531BBF00537D1D /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEE6C551E531BBF00537D1D /* Tile.swift */; };
 		1AEE6C571E531BBF00537D1D /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEE6C551E531BBF00537D1D /* Tile.swift */; };
+		1AFCD49B1E6DF0B600E77A76 /* Continent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFCD49A1E6DF0B600E77A76 /* Continent.swift */; };
+		1AFCD49C1E6DF0B600E77A76 /* Continent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFCD49A1E6DF0B600E77A76 /* Continent.swift */; };
+		1AFCD49E1E6DF46500E77A76 /* ContinentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFCD49D1E6DF46500E77A76 /* ContinentTests.swift */; };
 		4D15C2891D442302007A5EE2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D15C2881D442302007A5EE2 /* AppDelegate.swift */; };
 		4D15C2911D442302007A5EE2 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D15C2901D442302007A5EE2 /* GameViewController.swift */; };
 		4D15C2941D442302007A5EE2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D15C2921D442302007A5EE2 /* Main.storyboard */; };
@@ -169,6 +172,8 @@
 		1AEE6C4F1E520EF800537D1D /* PerlinGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PerlinGenerator.swift; path = Game/Utils/PerlinGenerator.swift; sourceTree = "<group>"; };
 		1AEE6C521E5316E300537D1D /* Feature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Feature.swift; path = Game/Feature.swift; sourceTree = "<group>"; };
 		1AEE6C551E531BBF00537D1D /* Tile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Tile.swift; path = Game/Tile.swift; sourceTree = "<group>"; };
+		1AFCD49A1E6DF0B600E77A76 /* Continent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Continent.swift; path = Game/Continent.swift; sourceTree = "<group>"; };
+		1AFCD49D1E6DF46500E77A76 /* ContinentTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContinentTests.swift; sourceTree = "<group>"; };
 		22AA1275C9994E5D58C36935 /* Pods_HexagonalMapBasic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HexagonalMapBasic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		31793D30FF1A02BBCED07F71 /* Pods-HexagonalMapBasic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HexagonalMapBasic.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HexagonalMapBasic/Pods-HexagonalMapBasic.debug.xcconfig"; sourceTree = "<group>"; };
 		3C40715086CB38506213EF83 /* Pods-HexagonalMapBasic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HexagonalMapBasic.release.xcconfig"; path = "Pods/Target Support Files/Pods-HexagonalMapBasic/Pods-HexagonalMapBasic.release.xcconfig"; sourceTree = "<group>"; };
@@ -246,6 +251,7 @@
 				1A57CAA01E5DE83100348FDD /* MapItem.swift */,
 				1ACCA0051E60761D00E539DD /* Player.swift */,
 				1AE646001E65E2C00063F3CB /* Area.swift */,
+				1AFCD49A1E6DF0B600E77A76 /* Continent.swift */,
 			);
 			name = Game;
 			sourceTree = "<group>";
@@ -267,6 +273,7 @@
 				1AC97BA71E674ECD00441E41 /* AreaTests.swift */,
 				1A96C7231E6D5E7E00795AF8 /* ContinentFinderTests.swift */,
 				1A96C7251E6D75BC00795AF8 /* TileImprovementTypeTests.swift */,
+				1AFCD49D1E6DF46500E77A76 /* ContinentTests.swift */,
 			);
 			path = HexagonalMapBasicTests;
 			sourceTree = "<group>";
@@ -672,6 +679,7 @@
 				1AA7B3891E51C2F900104C91 /* Array2D.swift in Sources */,
 				1A57CAA51E5DE87200348FDD /* MapItem.swift in Sources */,
 				1ACCA00E1E64AD7500E539DD /* TileTests.swift in Sources */,
+				1AFCD49E1E6DF46500E77A76 /* ContinentTests.swift in Sources */,
 				1A96C71F1E6D3B6600795AF8 /* HeightMap.swift in Sources */,
 				1AEE6C4D1E51FFE600537D1D /* GridGeneratorTests.swift in Sources */,
 				1A4B38A91E4C7B4B00FA7457 /* Terrain.swift in Sources */,
@@ -690,6 +698,7 @@
 				1ACCA0091E607E2100E539DD /* Player.swift in Sources */,
 				1A96C7261E6D75BC00795AF8 /* TileImprovementTypeTests.swift in Sources */,
 				1AA7B3751E4DC99200104C91 /* GridPointDirectionTests.swift in Sources */,
+				1AFCD49C1E6DF0B600E77A76 /* Continent.swift in Sources */,
 				1A4B38A71E4C7A7D00FA7457 /* GridTests.swift in Sources */,
 				1AC97BA61E6713FA00441E41 /* CityTests.swift in Sources */,
 				1A96C7221E6D5E3D00795AF8 /* ContinentFinder.swift in Sources */,
@@ -731,6 +740,7 @@
 				1A355B341E55E860006469B3 /* TerrainSpriteNode.swift in Sources */,
 				1AA7B3881E51C2F900104C91 /* Array2D.swift in Sources */,
 				1AE646011E65E2C00063F3CB /* Area.swift in Sources */,
+				1AFCD49B1E6DF0B600E77A76 /* Continent.swift in Sources */,
 				1AA7B37C1E4DF6D500104C91 /* AStarPathfinder.swift in Sources */,
 				1A355B361E55F04F006469B3 /* FeatureSpriteNode.swift in Sources */,
 				1A355B2D1E546B00006469B3 /* GridSpriteNode.swift in Sources */,

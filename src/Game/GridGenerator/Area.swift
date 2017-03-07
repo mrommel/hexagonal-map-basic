@@ -133,34 +133,3 @@ class Area: Sequence, Equatable {
 func ==(lhs: Area, rhs: Area) -> Bool {
     return lhs.identifier == rhs.identifier && lhs.size() == rhs.size() && lhs.contains(points: rhs.points!) && rhs.contains(points: lhs.points!)
 }
-
-class Continent: Area {
-    
-    let name: String
-    
-    public init(withIdentifier identifier: Int, andName name: String, andBoundaries boundary: AreaBoundary, on map: Map) {
-        self.name = name
-        super.init(withIdentifier: identifier, andBoundaries: boundary, on: map)
-    }
-    
-    public init(withIdentifier identifier: Int, andName name: String, andPoints points: [GridPoint]?, on map: Map) {
-        self.name = name
-        super.init(withIdentifier: identifier, andPoints: points, on: map)
-    }
-}
-
-extension Continent : CustomDebugStringConvertible {
-    
-    /// A textual representation of this instance, suitable for debugging.
-    public var debugDescription: String {
-        return "Continent(\(self.identifier),\(self.name))"
-    }
-}
-
-extension Continent : CustomStringConvertible {
-    
-    /// A textual representation of this instance, suitable for debugging.
-    public var description: String {
-        return "Continent(\(self.identifier),\(self.name))"
-    }
-}
