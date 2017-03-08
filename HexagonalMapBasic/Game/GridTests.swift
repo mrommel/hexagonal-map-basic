@@ -7,6 +7,7 @@
 //
 
 import XCTest
+@testable import HexagonalMapBasic
 
 class GridTests: XCTestCase {
     

@@ -42,7 +42,7 @@ class MapViewController: UIViewController, UIScrollViewDelegate {
         //scrInfinite.scrollRectToVisible(CGRect(x: 0, y: 0, width: kImageWidth, height: kImageHeight), animated: false)
 
         var mapsDict: NSDictionary?
-        if let path = Bundle.main.path(forResource: "Maps", ofType: "plist") {
+        if let path = Bundle.main.path(forResource: "Maps/Maps", ofType: "plist") {
             mapsDict = NSDictionary(contentsOfFile: path)
         }
 

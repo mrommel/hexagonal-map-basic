@@ -1,0 +1,13 @@
+# .slather.yml
+# slather coverage --html 
+
+input_format: profdata
+xcodeproj: 'HexagonalMapBasic.xcodeproj'
+scheme: 'HexagonalMapBasic'
+workspace: 'HexagonalMapBasic.xcworkspace'
+source_directory: 'src'
+output_directory: xml_report
+binary_basename: 'HexagonalMapBasic'
+ignore:
+  - "../**/*/Xcode*"
+  - Pods/*
