@@ -19,7 +19,7 @@ enum FlowDirection: String {
     case east = "e"
     
     // flow of river on ne edge
-    case northWest = "ne"
+    case northWest = "nw"
     case southEast = "se"
     
     // flow of river on se edge

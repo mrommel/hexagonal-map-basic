@@ -19,6 +19,37 @@ class RiverTransitionManager {
        \    / /
         +----+
      
+    1)  +----+
+       /   ==\\
+      /        \
+     +          +
+      \        /
+       \      /
+        +----+
+     
+     2) +----+
+       /   =/ \
+      /        \
+     +          +
+      \        /
+       \      /
+        +----+
+     
+     3) +----+
+       //==   \
+      /        \
+     +          +
+      \        /
+       \      /
+        +----+
+     
+     4) +----+
+       /\==   \
+      /        \
+     +          +
+      \        /
+       \      /
+        +----+
      */
     class RiverTransitionRule {
         
@@ -108,7 +139,49 @@ class RiverTransitionManager {
         return transitionRules
     }
     
-    // ...
+    func bestTransition(forCenter tileFlow: FlowDirection, remoteNE: FlowDirection, remoteSE: FlowDirection, remotesS: [FlowDirection], remotesSW: [FlowDirection], remotesNW: [FlowDirection], remotesN: [FlowDirection]) -> [RiverTransitionRule]? {
+        
+        var transitionRules: [RiverTransitionRule]? = []
+        
+        for remoteS in remotesS {
+            transitionRules?.append(contentsOf: self.bestTransition(forCenter: tileFlow, remoteNE: remoteNE, remoteSE: remoteSE, remoteS: remoteS, remotesSW: remotesSW, remotesNW: remotesNW, remotesN: remotesN)!)
+        }
+        
+        return transitionRules
+    }
+    
+    func bestTransition(forCenter tileFlow: FlowDirection, remoteNE: FlowDirection, remoteSE: FlowDirection, remoteS: FlowDirection, remotesSW: [FlowDirection], remotesNW: [FlowDirection], remotesN: [FlowDirection]) -> [RiverTransitionRule]? {
+        
+        var transitionRules: [RiverTransitionRule]? = []
+        
+        for remoteSW in remotesSW {
+            transitionRules?.append(contentsOf: self.bestTransition(forCenter: tileFlow, remoteNE: remoteNE, remoteSE: remoteSE, remoteS: remoteS, remoteSW: remoteSW, remotesNW: remotesNW, remotesN: remotesN)!)
+        }
+        
+        return transitionRules
+    }
+    
+    func bestTransition(forCenter tileFlow: FlowDirection, remoteNE: FlowDirection, remoteSE: FlowDirection, remoteS: FlowDirection, remoteSW: FlowDirection, remotesNW: [FlowDirection], remotesN: [FlowDirection]) -> [RiverTransitionRule]? {
+        
+        var transitionRules: [RiverTransitionRule]? = []
+        
+        for remoteNW in remotesNW {
+            transitionRules?.append(contentsOf: self.bestTransition(forCenter: tileFlow, remoteNE: remoteNE, remoteSE: remoteSE, remoteS: remoteS, remoteSW: remoteSW, remoteNW: remoteNW, remotesN: remotesN)!)
+        }
+        
+        return transitionRules
+    }
+    
+    func bestTransition(forCenter tileFlow: FlowDirection, remoteNE: FlowDirection, remoteSE: FlowDirection, remoteS: FlowDirection, remoteSW: FlowDirection, remoteNW: FlowDirection, remotesN: [FlowDirection]) -> [RiverTransitionRule]? {
+        
+        var transitionRules: [RiverTransitionRule]? = []
+        
+        for remoteN in remotesN {
+            transitionRules?.append(contentsOf: self.bestTransition(forCenter: tileFlow, remoteNE: remoteNE, remoteSE: remoteSE, remoteS: remoteS, remoteSW: remoteSW, remoteNW: remoteNW, remoteN: remoteN)!)
+        }
+        
+        return transitionRules
+    }
     
     func bestTransition(forCenter tileFlow: FlowDirection, remoteNE: FlowDirection, remoteSE: FlowDirection, remoteS: FlowDirection, remoteSW: FlowDirection, remoteNW: FlowDirection, remoteN: FlowDirection) -> [RiverTransitionRule]? {
         
