@@ -9,21 +9,22 @@
 import Foundation
 import Buckets
 
-enum FlowDirection {
+enum FlowDirection: String {
     
-    case none
+    case none = ""
+    case any = "*"
     
     // flow of river on north edge
-    case west
-    case east
+    case west = "w"
+    case east = "e"
     
     // flow of river on ne edge
-    case northWest
-    case southEast
+    case northWest = "ne"
+    case southEast = "se"
     
     // flow of river on se edge
-    case northEast
-    case southWest
+    case northEast = "ne"
+    case southWest = "sw"
 }
 
 enum FlowDirectionError: Error, Equatable {
