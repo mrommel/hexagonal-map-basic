@@ -105,6 +105,7 @@ public class Grid {
     }
     
     func isCoastal(at position: GridPoint) -> Bool {
+        
         let centerTerrain = self.terrain(at: position)
         
         if !centerTerrain.isWater {
@@ -124,6 +125,25 @@ public class Grid {
     
     func isCoastalAt(x: Int, y: Int) -> Bool {
         return self.isCoastal(at: GridPoint(x: x, y: y))
+    }
+    
+    func isNextToOcean(at position: GridPoint) -> Bool {
+        
+        let centerTerrain = self.terrain(at: position)
+        
+        if !centerTerrain.isGround {
+            return false
+        }
+        
+        for neighbor in position.neighbors() {
+            let neighborTerrain = self.terrain(at: neighbor)
+            
+            if neighborTerrain.isWater {
+                return true
+            }
+        }
+        
+        return false
     }
     
     /*!

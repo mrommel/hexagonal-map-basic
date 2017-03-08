@@ -50,13 +50,13 @@ class City: MapItem {
         return (self.map?.grid?.terrain(at: self.point))!
     }
     
-    func isCoastal() throws -> Bool {
+    func isNextToOcean() throws -> Bool {
         
         guard self.map != nil else {
             throw CityError.MapNotSet
         }
         
-        return (self.map?.grid?.isCoastal(at: self.point))!
+        return (self.map?.grid?.isNextToOcean(at: self.point))!
     }
     
     func isAdjacentToRiver() throws -> Bool {

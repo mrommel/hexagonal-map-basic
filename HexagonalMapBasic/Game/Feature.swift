@@ -28,8 +28,6 @@ enum Feature: String {
     
     var image: String {
         switch self {
-        case .none:
-            return "None"
         case .island:
             return "Island"
         case .forest:

@@ -53,4 +53,47 @@ class CityTests: XCTestCase {
         
         XCTFail("map should not be assigned")
     }
+    
+    func testIsNextToOceanWithMapAssigned() {
+        
+        // Preconditions
+        let map = Map(width: 5, height: 5)
+        let cityPosition = GridPoint(x: 2, y: 2)
+        map.grid?.set(terrain: .grass, at: cityPosition)
+        map.foundCity(at: cityPosition, named: "Berlin")
+        let city = map.city(at: cityPosition)
+        
+        // Stimulus
+        var isNextToOcean = false
+        do {
+            isNextToOcean = try (city?.isNextToOcean())!
+        } catch {
+            XCTFail("map not assigned")
+        }
+        
+        // Assertion
+        XCTAssertEqual(isNextToOcean, true, "terrain should be grass")
+    }
+    
+    func testIsNextToOceanWithNotAssigned() {
+        
+        // Preconditions
+        let map = Map(width: 5, height: 5)
+        let cityPosition = GridPoint(x: 2, y: 2)
+        map.grid?.set(terrain: .grass, at: cityPosition)
+        map.foundCity(at: cityPosition, named: "Berlin")
+        let city = map.city(at: cityPosition)
+        city?.map = nil
+        
+        // Stimulus
+        do {
+            let _ = try (city?.isNextToOcean())!
+        } catch {
+            // Assertion
+            XCTAssertEqual(error as! CityError, CityError.MapNotSet, "")
+            return
+        }
+        
+        XCTFail("map should not be assigned")
+    }
 }
