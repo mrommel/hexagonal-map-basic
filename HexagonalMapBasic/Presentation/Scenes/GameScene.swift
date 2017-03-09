@@ -143,7 +143,6 @@ class GameScene: SKScene {
             }
         }
 
-
         // grid
         self.terrainView.addChild(GridSpriteNode(withPosition: position))
 

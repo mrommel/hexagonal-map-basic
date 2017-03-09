@@ -15,8 +15,8 @@ class Array2D <T: Equatable>: Equatable {
     fileprivate var array: Array<T?>
     
     init(columns: Int, rows: Int) {
-        self.columns = columns;
-        self.rows = rows;
+        self.columns = columns
+        self.rows = rows
         
         array = Array<T?>(repeating: nil, count: rows * columns)
     }

@@ -173,7 +173,6 @@ extension Tile {
     }
 }
 
-
 // MARK: discovery handling
 
 extension Tile {

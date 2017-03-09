@@ -28,7 +28,7 @@ class TerrainTransitionManager {
             
             self.tileRule = tileRule
             
-            let patterns = remoteRule.characters.split{$0 == ","}.map(String.init)
+            let patterns = remoteRule.characters.split {$0 == ","}.map(String.init)
             
             remoteNE = Terrain(rawValue: patterns[0])
             remoteSE = Terrain(rawValue: patterns[1])
@@ -179,7 +179,7 @@ class TerrainTransitionManager {
     
     func bestTransitions(forCenter tileTerrain: Terrain, remotePattern: String) -> [TerrainTransitionRule]? {
         
-        let patterns = remotePattern.characters.split{$0 == ","}.map(String.init)
+        let patterns = remotePattern.characters.split {$0 == ","}.map(String.init)
         
         let remNE = Terrain(rawValue: patterns[0])
         let remSE = Terrain(rawValue: patterns[1])

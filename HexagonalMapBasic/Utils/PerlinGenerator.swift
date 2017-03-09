@@ -48,7 +48,7 @@ class PerlinGenerator {
     var persistence:Float
     var zoom:Float
     
-    init(){
+    init() {
         permut = []
         for _ in 0 ..< kPermutationSize {
             permut.append(Int(arc4random() & 0xff))
@@ -86,7 +86,7 @@ class PerlinGenerator {
             self.productOf(a: t0, b: t1)
     }
     
-    func spline(state:Float) -> Float{
+    func spline(state:Float) -> Float {
         let square = state * state
         let cubic = square * state
         return cubic * (6 * square - 15 * state + 10)
@@ -177,7 +177,7 @@ class PerlinGenerator {
         
         let result = self.interpolate(a: b0, b:b1, x:dx0)
         
-        return result;
+        return result
     }
     
     func perlinNoise(x:Float, y:Float, z:Float, t:Float) -> Float {

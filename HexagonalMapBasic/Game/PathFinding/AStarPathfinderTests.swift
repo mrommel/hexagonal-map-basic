@@ -29,7 +29,7 @@ class AStarPathfinderTests: XCTestCase {
             return walkableCoords
         }
         
-        func costToMoveFromTileCoord(fromTileCoord: GridPoint, toAdjacentTileCoord toTileCoord: GridPoint) -> Int{
+        func costToMoveFromTileCoord(fromTileCoord: GridPoint, toAdjacentTileCoord toTileCoord: GridPoint) -> Int {
             return 1
         }
     }

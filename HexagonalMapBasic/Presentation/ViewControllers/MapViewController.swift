@@ -30,7 +30,7 @@ class MapViewController: UIViewController, UIScrollViewDelegate {
         self.setupScrollView()
     }
 
-    //MARK: Set Infinite ScrollView
+    // MARK: Set Infinite ScrollView
 
     func setupScrollView() {
 

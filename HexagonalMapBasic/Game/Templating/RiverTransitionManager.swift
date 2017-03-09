@@ -68,7 +68,7 @@ class RiverTransitionManager {
             
             self.tileRule = FlowDirection(rawValue: tileRule)
             
-            let patterns = remoteRule.characters.split{$0 == ","}.map(String.init)
+            let patterns = remoteRule.characters.split {$0 == ","}.map(String.init)
             
             remoteNE = FlowDirection(rawValue: patterns[0])
             remoteSE = FlowDirection(rawValue: patterns[1])

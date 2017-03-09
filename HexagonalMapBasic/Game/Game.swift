@@ -33,8 +33,8 @@ class Game {
     let name: String
     let text: String
 
-    var map: Map? = nil
-    var conditions: [VictoryCondition]? = nil
+    var map: Map?
+    var conditions: [VictoryCondition]?
 
     required init(withName name: String, andText text: String) {
         self.name = name

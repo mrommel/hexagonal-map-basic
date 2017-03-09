@@ -9,7 +9,6 @@
 import Foundation
 import CoreGraphics
 
-
 public class Grid {
     
     var tiles: Array2D<Tile>

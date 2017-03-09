@@ -26,7 +26,6 @@ class GameViewController: UIViewController {
         }
     }
     
-    
     // MARK: Function overrides
     
     override func viewDidLoad() {

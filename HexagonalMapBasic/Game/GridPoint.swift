@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 // +--+--+--+
 // | /    \ |
 // |/      \|
@@ -21,8 +20,8 @@ import Foundation
 // This is Hashable, because it will be stored in a dictionary.
 public class GridPoint : Hashable {
     
-    var x: Int = 0;
-    var y: Int = 0;
+    var x: Int = 0
+    var y: Int = 0
     
     required public init(x: Int, y: Int) {
         self.x = x

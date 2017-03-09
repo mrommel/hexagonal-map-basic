@@ -28,7 +28,7 @@ class FeatureTransitionManager {
             
             self.tileRule = tileRule
             
-            let patterns = remoteRule.characters.split{$0 == ","}.map(String.init)
+            let patterns = remoteRule.characters.split {$0 == ","}.map(String.init)
             
             remoteNE = Feature(rawValue: patterns[0])
             remoteSE = Feature(rawValue: patterns[1])

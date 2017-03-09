@@ -16,7 +16,7 @@ import Buckets
  */
 class Map {
 
-    var grid: Grid? = nil
+    var grid: Grid?
     var cities: [City]? = []
     var units: [Unit]? = []
     var improvements: [TileImprovement]? = []
@@ -36,7 +36,6 @@ class Map {
     }
 }
 
-
 // MARK: sight related methods
 
 extension Map {
@@ -50,7 +49,6 @@ extension Map {
         return discovered!
     }
 }
-
 
 // MARK: city related methods
 
@@ -146,7 +144,6 @@ extension Map {
     }
 }
 
-
 // MARK: continent handling
 
 extension Map {
@@ -171,5 +168,3 @@ extension Map {
         self.grid?.tile(at: point).continent = continent
     }
 }
-
-

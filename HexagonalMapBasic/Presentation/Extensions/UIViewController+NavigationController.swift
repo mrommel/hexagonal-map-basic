@@ -11,7 +11,7 @@ import UIKit
 extension UIViewController {
     
     @discardableResult
-    func goBack(animated: Bool) -> UIViewController?  {
+    func goBack(animated: Bool) -> UIViewController? {
         return self.navigationController?.popViewController(animated: animated)
     }
     

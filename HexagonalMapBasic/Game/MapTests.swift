@@ -82,4 +82,3 @@ class MapTests: XCTestCase {
         XCTAssertFalse(hasForest!, "forest should have been removed during settlement")
     }
 }
-
