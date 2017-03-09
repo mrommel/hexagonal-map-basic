@@ -25,6 +25,12 @@ class GridGenerator {
     
     let terrain: Array2D<Terrain>
     
+    /**
+        creates a new grid generator for a map of `width`x`height` dimension
+ 
+        - Parameter width: width of the resulting map
+        - Parameter height: height of the resulting map
+     */
     required public init(width: Int, height: Int) {
         
         self.width = width

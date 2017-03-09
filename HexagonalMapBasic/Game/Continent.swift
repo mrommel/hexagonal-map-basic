@@ -39,6 +39,6 @@ extension Continent : CustomStringConvertible {
     }
 }
 
-func ==(lhs: Continent, rhs: Continent) -> Bool {
+func == (lhs: Continent, rhs: Continent) -> Bool {
     return lhs.identifier == rhs.identifier && lhs.name == rhs.name && lhs.size() == rhs.size() && lhs.contains(points: rhs.points!) && rhs.contains(points: lhs.points!)
 }

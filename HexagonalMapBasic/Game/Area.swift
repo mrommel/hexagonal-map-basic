@@ -8,12 +8,15 @@
 
 import Foundation
 
-class AreaBoundary {
+/**
+ class that holds a rectangle for `Area`
+ */
+public class AreaBoundary {
     
     var topLeft: GridPoint
     var bottomRight: GridPoint
     
-    required init(topLeft: GridPoint, bottomRight: GridPoint) {
+    public required init(topLeft: GridPoint, bottomRight: GridPoint) {
         
         self.topLeft = topLeft
         self.bottomRight = bottomRight
@@ -41,21 +44,21 @@ class AreaBoundary {
     }
 }
 
-struct AreaStatistics {
+public struct AreaStatistics {
     
     var coastTiles: Int = 0
 }
 
-class AreaIterator : IteratorProtocol {
+public class AreaIterator : IteratorProtocol {
     
     var iterationsCount = 0
     var points: [GridPoint]?
     
-    required init(points: [GridPoint]?) {
+    required public init(points: [GridPoint]?) {
         self.points = points
     }
     
-    func next() -> GridPoint? {
+    public func next() -> GridPoint? {
         guard iterationsCount < (self.points?.count)! else {
             return nil
         }
@@ -65,7 +68,12 @@ class AreaIterator : IteratorProtocol {
     }
 }
 
-class Area: Sequence, Equatable {
+/**
+    point based area on a map
+ 
+    can be constructed out of a list of points or a rectangle (`AreaBoundary`)
+ */
+public class Area: Sequence, Equatable {
     
     let identifier: Int
     var points: [GridPoint]?
@@ -73,11 +81,17 @@ class Area: Sequence, Equatable {
     let map: Map?
     
     /**
-     creates a new area
+        creates a new Area
      
-     - parameter identifier:    unique id to identify the area
-     - parameter boundary:      top+left / bottom+right point of the area
-     - parameter map:           the map where the area lives
+        - Parameter identifier:    unique id to identify the area
+        - Parameter boundary:      top+left / bottom+right point of the area
+        - Parameter map:           the map where the area lives
+     
+        ```
+        let map = ...
+        let boundary = AreaBoundary(topLeft: GridPoint(x: 0, y: 0), bottomRight: GridPoint(x: 1, y: 2))
+        let area = Area(withIdentifier: 2, andBoundaries: boundary, on: map)
+        ```
      */
     public init(withIdentifier identifier: Int, andBoundaries boundary: AreaBoundary, on map: Map) {
         
@@ -87,6 +101,18 @@ class Area: Sequence, Equatable {
         self.statistics = AreaStatistics()
     }
     
+    /**
+         creates a new Area
+         
+         - Parameter identifier:    unique id to identify the area
+         - Parameter boundary:      top+left / bottom+right point of the area
+         - Parameter map:           the map where the area lives
+     
+        ```
+        let map = ...
+        let area = Area(withIdentifier: 2, andBoundaries: [GridPoint(x: 1, y: 2)], on: map)
+        ```
+     */
     public init(withIdentifier identifier: Int, andPoints points: [GridPoint]?, on map: Map) {
         
         self.identifier = identifier
@@ -95,15 +121,15 @@ class Area: Sequence, Equatable {
         self.statistics = AreaStatistics()
     }
     
-    func makeIterator() -> AreaIterator {
+    public func makeIterator() -> AreaIterator {
         return AreaIterator(points: self.points)
     }
     
-    func size() -> Int {
+    public func size() -> Int {
         return (self.points?.count)!
     }
     
-    func contains(points: [GridPoint]) -> Bool {
+    public func contains(points: [GridPoint]) -> Bool {
         
         for point in points {
             if !self.contains(where: { $0.x == point.x && $0.y == point.y }) {
@@ -114,7 +140,7 @@ class Area: Sequence, Equatable {
         return true
     }
 
-    func update() {
+    public func update() {
         
         // reset values
         self.statistics.coastTiles = 0
@@ -137,6 +163,6 @@ class Area: Sequence, Equatable {
     }
 }
 
-func == (lhs: Area, rhs: Area) -> Bool {
+public func == (lhs: Area, rhs: Area) -> Bool {
     return lhs.identifier == rhs.identifier && lhs.size() == rhs.size() && lhs.contains(points: rhs.points!) && rhs.contains(points: lhs.points!)
 }

@@ -14,7 +14,7 @@ import Buckets
  
  is part of a game
  */
-class Map {
+public class Map {
 
     var grid: Grid?
     var cities: [City]? = []
@@ -22,7 +22,7 @@ class Map {
     var improvements: [TileImprovement]? = []
     var continents: [Continent]? = []
 
-    required init(width: Int, height: Int) {
+    public required init(width: Int, height: Int) {
 
         self.grid = Grid(width: width, height: height)
     }
