@@ -103,7 +103,10 @@ class RiverTransitionManager {
         
         // river
         // flowing in north (flowing east or west)
-        self.transitions.append(RiverTransitionRule(tileRule: "e", remoteRule: "h,*,*,*,*,*", image: "River-n-"))
+        self.transitions.append(RiverTransitionRule(tileRule: "e", remoteRule: "h,*,*,*,*,*", image: "River-n-n"))
+        self.transitions.append(RiverTransitionRule(tileRule: "e", remoteRule: "h,*,*,*,*,*", image: "River-n-ne"))
+        self.transitions.append(RiverTransitionRule(tileRule: "w", remoteRule: "h,*,*,*,*,*", image: "River-n-"))
+        self.transitions.append(RiverTransitionRule(tileRule: "w", remoteRule: "h,*,*,*,*,*", image: "River-n-"))
     }
     
     func bestTransitions(forCenter tileFlows: [FlowDirection], remotesNE: [FlowDirection], remotesSE: [FlowDirection], remotesS: [FlowDirection], remotesSW: [FlowDirection], remotesNW: [FlowDirection], remotesN: [FlowDirection]) -> [RiverTransitionRule]? {

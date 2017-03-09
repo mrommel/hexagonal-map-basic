@@ -12,7 +12,7 @@ enum CityError: Error, Equatable {
     case MapNotSet
 }
 
-func ==(lhs: CityError, rhs: CityError) -> Bool {
+func == (lhs: CityError, rhs: CityError) -> Bool {
     switch (lhs, rhs) {
     case (.MapNotSet, .MapNotSet):
         return true
@@ -23,7 +23,7 @@ class City: MapItem {
     
     var name: String
     var inhabitants: Int
-    var map: Map? = nil
+    var map: Map?
     
     required init(at point: GridPoint, of name: String) {
         

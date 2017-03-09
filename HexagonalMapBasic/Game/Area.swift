@@ -72,6 +72,13 @@ class Area: Sequence, Equatable {
     var statistics: AreaStatistics
     let map: Map?
     
+    /**
+     creates a new area
+     
+     - parameter identifier:    unique id to identify the area
+     - parameter boundary:      top+left / bottom+right point of the area
+     - parameter map:           the map where the area lives
+     */
     public init(withIdentifier identifier: Int, andBoundaries boundary: AreaBoundary, on map: Map) {
         
         self.identifier = identifier
@@ -130,6 +137,6 @@ class Area: Sequence, Equatable {
     }
 }
 
-func ==(lhs: Area, rhs: Area) -> Bool {
+func == (lhs: Area, rhs: Area) -> Bool {
     return lhs.identifier == rhs.identifier && lhs.size() == rhs.size() && lhs.contains(points: rhs.points!) && rhs.contains(points: lhs.points!)
 }

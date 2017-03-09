@@ -34,9 +34,9 @@ class GridGenerator {
     }
     
     // from http://www.redblobgames.com/maps/terrain-from-noise/
-    func biome(e: Float, level: Float) -> Terrain {
+    func biome(elevation: Float, level: Float) -> Terrain {
         
-        if e < level {
+        if elevation < level {
             return Terrain.water
         }
         
@@ -87,7 +87,7 @@ class GridGenerator {
         
         for x in 0..<width {
             for y in 0..<height {
-                let terrainType = self.biome(e: (heightMap[x, y]!), level: waterLevel)
+                let terrainType = self.biome(elevation: (heightMap[x, y]!), level: waterLevel)
                 
                 if terrainType == Terrain.water {
                     self.terrain[x, y] = Terrain.ocean

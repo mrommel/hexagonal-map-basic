@@ -26,9 +26,9 @@
 
 import Foundation
 
-let PERMUTATION_SIZE = 256
+let kPermutationSize = 256
 
-
+// swiftlint:disable variable_name
 class PerlinGenerator {
     
     static let gradient:[[Int8]] = [
@@ -50,7 +50,7 @@ class PerlinGenerator {
     
     init(){
         permut = []
-        for _ in 0 ..< PERMUTATION_SIZE {
+        for _ in 0 ..< kPermutationSize {
             permut.append(Int(arc4random() & 0xff))
         }
         octaves = 1
@@ -195,3 +195,4 @@ class PerlinGenerator {
         return noise
     }
 }
+// swiftlint:enable variable_name
