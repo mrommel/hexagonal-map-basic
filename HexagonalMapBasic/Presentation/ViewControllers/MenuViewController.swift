@@ -25,7 +25,14 @@ class MenuViewController: UIViewController {
     }
     
     @IBAction func startGame(sender: AnyObject) {
-        let mapViewController = MapViewController.instantiateFromStoryboard("Main")
+        
+        guard let mapViewController = MapViewController.instantiateFromStoryboard("Main") else {
+            let alert = UIAlertController(title: "Alert", message: "Message", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
+        
         self.navigationController?.pushViewController(mapViewController, animated: true)
     }
 

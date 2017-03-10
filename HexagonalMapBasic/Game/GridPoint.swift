@@ -8,31 +8,42 @@
 
 import Foundation
 
-// +--+--+--+
-// | /    \ |
-// |/      \|
-// +        +
-// |\      /|
-// | \    / |
-// +--+--+--+
-
-// A GridPoint is a structure that represents a location in the grid.
-// This is Hashable, because it will be stored in a dictionary.
+/**
+ A GridPoint is a structure that represents a location of a hexagon in the grid.
+ 
+ This should be Hashable, so it can be stored in a dictionary.
+ ```
+ +--+--+--+
+ | /    \ |
+ |/      \|
+ +        +
+ |\      /|
+ | \    / |
+ +--+--+--+
+ ```
+ */
 public class GridPoint : Hashable {
     
     var x: Int = 0
     var y: Int = 0
     
+    /**
+        builds a GridPoint using the `x` and `y` coordinates
+     
+        ```
+        let gridPoint = GridPoint(x: 1, y: 23)
+        ```
+     */
     required public init(x: Int, y: Int) {
         self.x = x
         self.y = y
     }
     
-    // Returns a unique number that represents this location.
+    /**
+        Returns a unique number that represents this location.
+     */
     public var hashValue: Int {
-        get {
-            return x ^ (y << 32)
-        }
+        return x ^ (y << 32)
     }
 }
 

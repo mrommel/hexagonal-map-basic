@@ -47,7 +47,9 @@ class CityTests: XCTestCase {
             let _ = try (city?.terrain())!
         } catch {
             // Assertion
+            // swiftlint:disable force_cast
             XCTAssertEqual(error as! CityError, CityError.MapNotSet, "")
+            // swiftlint:enable force_cast
             return
         }
         
@@ -90,7 +92,9 @@ class CityTests: XCTestCase {
             let _ = try (city?.isNextToOcean())!
         } catch {
             // Assertion
+            // swiftlint:disable force_cast
             XCTAssertEqual(error as! CityError, CityError.MapNotSet, "")
+            // swiftlint:enable force_cast
             return
         }
         

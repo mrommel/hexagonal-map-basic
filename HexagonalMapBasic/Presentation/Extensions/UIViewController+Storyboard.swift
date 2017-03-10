@@ -10,12 +10,16 @@ import UIKit
 
 extension UIViewController {
     
-    class func instantiateFromStoryboard (_ name: String) -> Self {
+    class func instantiateFromStoryboard (_ name: String) -> Self? {
         return instantiateFromStoryboard(name, type: self)
     }
     
-    fileprivate class func instantiateFromStoryboard<T> (_ name: String, type: T.Type) -> T {
-        return UIStoryboard(name: name, bundle: nil).instantiateViewController(withIdentifier: self.className()) as! T
+    fileprivate class func instantiateFromStoryboard<T> (_ name: String, type: T.Type) -> T? {
+        guard let viewController = UIStoryboard(name: name, bundle: nil).instantiateViewController(withIdentifier: self.className()) as? T else {
+            return nil
+        }
+        
+        return viewController
     }
 }
 

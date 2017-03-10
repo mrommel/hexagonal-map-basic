@@ -10,9 +10,17 @@ import Foundation
 import Buckets
 
 /**
- Map class that contains the actual grid, a list of cities, units and improvements
+    Map class that contains the actual grid, a list of cities, units and improvements
  
- is part of a game
+    is part of a game
+ 
+ 
+    it is the holder structure of
+    - a `Grid`
+    - a list of `City`s
+    - a list of `Unit`s
+    - a list of `TileImprovement`s
+    - a list of `Continent`s
  */
 public class Map {
 
@@ -22,6 +30,9 @@ public class Map {
     var improvements: [TileImprovement]? = []
     var continents: [Continent]? = []
 
+    /**
+        builds a `Map` with `width`x`height` dimension
+     */
     public required init(width: Int, height: Int) {
 
         self.grid = Grid(width: width, height: height)
