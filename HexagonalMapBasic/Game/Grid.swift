@@ -9,6 +9,12 @@
 import Foundation
 import CoreGraphics
 
+/**
+    Matrix of `Tile`s
+ 
+    This class provides functions to manipulate the tiles (add/remove features, set terrain, etc)
+    Used by `Map`to hold all the references to the `Tile`s
+ */
 public class Grid {
     
     var tiles: Array2D<Tile>
@@ -18,6 +24,16 @@ public class Grid {
     static let kHexagonWidth: Double = 72.0
     static let kHexagonHeight: Double = 62.0 // height = sqrt(3)/2 * width
     
+    /**
+        Create a Grid with `width`x`height`dimensions
+     
+        ```
+        let grid = Grid(width: 2, height: 3)
+        ```
+     
+        - Parameter width: width of the map
+        - Parameter height: height of the map
+     */
     required public init?(width: Int, height: Int) {
         
         self.tiles = Array2D<Tile>(columns: width, rows: height)
@@ -31,7 +47,14 @@ public class Grid {
         }
     }
     
-    func tile(at position: GridPoint) -> Tile {
+    /**
+        Getter for `Tile` at `position`
+     
+        - Parameter position: location in the grid to return the `Tile`
+        
+        - Returns: `Tile` at `position`
+     */
+    public func tile(at position: GridPoint) -> Tile {
         
         // check bounds
         guard self.has(gridPoint: position) else {

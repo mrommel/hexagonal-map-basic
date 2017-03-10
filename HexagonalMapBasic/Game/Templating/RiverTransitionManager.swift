@@ -10,88 +10,98 @@ import Foundation
 
 class RiverTransitionManager {
     
+    class RiverTransitionCondition {
+        
+        let isCenter: Bool // or
+        var direction: GridPointDirection = GridPointDirection.north // if not isCenter
+        
+        let flow: FlowDirection
+        
+        required init(forFlow flow: FlowDirection) {
+            
+            self.isCenter = true
+            self.flow = flow
+        }
+        
+        required init(forDirection direction: GridPointDirection, withFlow flow: FlowDirection) {
+            
+            self.isCenter = false
+            self.direction = direction
+            self.flow = flow
+        }
+        
+        func isIn(flows: [FlowDirection]) -> Bool {
+            
+            return flows.contains( where: { $0 == flow } )
+        }
+    }
+    
     /**
-        +----+
-       / ====\\
-      /       \\
-     +        + +
-      \      / /
-       \    / /
-        +----+
-     
-    1)  +----+
-       /   ==\\
-      /        \
-     +          +
-      \        /
-       \      /
-        +----+
-     
-     2) +----+
-       /   =/ \
-      /        \
-     +          +
-      \        /
-       \      /
-        +----+
-     
-     3) +----+
-       //==   \
-      /        \
-     +          +
-      \        /
-       \      /
-        +----+
-     
-     4) +----+
-       /\==   \
-      /        \
-     +          +
-      \        /
-       \      /
-        +----+
+        +--|--+
+       / ==|==\\
+      / \  |  /\\
+     +     o   > +
+      \ /  |  X /
+       \   | / /
+        +--|--+
      */
     class RiverTransitionRule {
         
-        let tileRule: FlowDirection?
-        
-        let remoteNE: FlowDirection?
-        let remoteSE: FlowDirection?
-        let remoteS: FlowDirection?
-        let remoteSW: FlowDirection?
-        let remoteNW: FlowDirection?
-        let remoteN: FlowDirection?
-        
+        let tileCondition: RiverTransitionCondition?
+        let remoteCondition: RiverTransitionCondition?
+
         let image: String //
         
-        required init(tileRule: String, remoteRule: String, image: String) {
+        /**
+            - Parameter tileRule: string representation of FlowDirection
+            - Parameter remoteCondition: e.g. "GridPointDirection,FlowDirection"
+         */
+        required init(tileRule: String, remoteCondition: String, image: String) {
             
-            self.tileRule = FlowDirection(rawValue: tileRule)
+            // current tile
+            let tileFlow = FlowDirection(rawValue: tileRule)
+            self.tileCondition = RiverTransitionCondition(forFlow: tileFlow!)
             
-            let patterns = remoteRule.characters.split {$0 == ","}.map(String.init)
-            
-            remoteNE = FlowDirection(rawValue: patterns[0])
-            remoteSE = FlowDirection(rawValue: patterns[1])
-            remoteS = FlowDirection(rawValue: patterns[2])
-            remoteSW = FlowDirection(rawValue: patterns[3])
-            remoteNW = FlowDirection(rawValue: patterns[4])
-            remoteN = FlowDirection(rawValue: patterns[5])
+            // remote (or even current tile but different flow)
+            let patterns = remoteCondition.characters.split {$0 == ","}.map(String.init)
+            if patterns[0] == "#" {
+                let secondTileFlow = FlowDirection(rawValue: patterns[1])
+                self.remoteCondition = RiverTransitionCondition(forFlow: secondTileFlow!)
+            } else {
+                let remoteDirection = GridPointDirection(rawValue: patterns[0])
+                let remoteFlow = FlowDirection(rawValue: patterns[1])
+                self.remoteCondition = RiverTransitionCondition(forDirection: remoteDirection!, withFlow: remoteFlow!)
+            }
             
             self.image = image
         }
         
-        func matches(forCenter tileFlow: FlowDirection, flowNE: FlowDirection, flowSE: FlowDirection, flowS: FlowDirection, flowSW: FlowDirection, flowNW: FlowDirection, flowN: FlowDirection) -> Bool {
+        func matches(forCenter tileFlows: [FlowDirection], flowsNE: [FlowDirection], flowsSE: [FlowDirection], flowsS: [FlowDirection], flowsSW: [FlowDirection], flowsNW: [FlowDirection], flowsN: [FlowDirection]) -> Bool {
             
-            var match = self.tileRule == tileFlow || self.tileRule == .any
+            // match tile condition
+            if !(self.tileCondition?.isIn(flows: tileFlows))! {
+                return false
+            }
             
-            match = match && (self.remoteNE == flowNE || self.remoteNE == .any)
-            match = match && (self.remoteSE == flowSE || self.remoteSE == .any)
-            match = match && (self.remoteS == flowS || self.remoteS == .any)
-            match = match && (self.remoteSW == flowSW || self.remoteSW == .any)
-            match = match && (self.remoteNW == flowNW || self.remoteNW == .any)
-            match = match && (self.remoteN == flowN || self.remoteN == .any)
-            
-            return match
+            if (self.remoteCondition?.isCenter)! {
+                // in this case we need to check if current tile also contains the remote (=current) condition
+                return (self.remoteCondition?.isIn(flows: tileFlows))!
+            } else {
+                switch (self.remoteCondition?.direction)! {
+                case .northEast:
+                    return (self.remoteCondition?.isIn(flows: flowsNE))!
+                case .southEast:
+                    return (self.remoteCondition?.isIn(flows: flowsSE))!
+                case .south:
+                    return (self.remoteCondition?.isIn(flows: flowsS))!
+                case .southWest:
+                    return (self.remoteCondition?.isIn(flows: flowsSW))!
+                case .northWest:
+                    return (self.remoteCondition?.isIn(flows: flowsNW))!
+                case .north:
+                    return (self.remoteCondition?.isIn(flows: flowsN))!
+                }
+            }
         }
 
     }
@@ -101,105 +111,77 @@ class RiverTransitionManager {
     required init() {
         self.transitions = []
         
-        // river
-        // flowing in north (flowing east or west)
-        self.transitions.append(RiverTransitionRule(tileRule: "e", remoteRule: "h,*,*,*,*,*", image: "River-n-n"))
-        self.transitions.append(RiverTransitionRule(tileRule: "e", remoteRule: "h,*,*,*,*,*", image: "River-n-ne"))
-        self.transitions.append(RiverTransitionRule(tileRule: "w", remoteRule: "h,*,*,*,*,*", image: "River-n-"))
-        self.transitions.append(RiverTransitionRule(tileRule: "w", remoteRule: "h,*,*,*,*,*", image: "River-n-"))
+        // River-1
+        self.transitions.append(RiverTransitionRule(tileRule: "e", remoteCondition: "#,nw", image: "River-1"))
+        self.transitions.append(RiverTransitionRule(tileRule: "w", remoteCondition: "#,nw", image: "River-1"))
+        self.transitions.append(RiverTransitionRule(tileRule: "e", remoteCondition: "#,se", image: "River-1"))
+        self.transitions.append(RiverTransitionRule(tileRule: "w", remoteCondition: "#,se", image: "River-1"))
+        
+        // River-2
+        self.transitions.append(RiverTransitionRule(tileRule: "e", remoteCondition: "nw,sw", image: "River-2"))
+        self.transitions.append(RiverTransitionRule(tileRule: "w", remoteCondition: "nw,sw", image: "River-2"))
+        self.transitions.append(RiverTransitionRule(tileRule: "e", remoteCondition: "nw,ne", image: "River-2"))
+        self.transitions.append(RiverTransitionRule(tileRule: "w", remoteCondition: "nw,ne", image: "River-2"))
+        
+        // River-3
+        self.transitions.append(RiverTransitionRule(tileRule: "e", remoteCondition: "nw,se", image: "River-3"))
+        self.transitions.append(RiverTransitionRule(tileRule: "w", remoteCondition: "nw,se", image: "River-3"))
+        self.transitions.append(RiverTransitionRule(tileRule: "e", remoteCondition: "nw,nw", image: "River-3"))
+        self.transitions.append(RiverTransitionRule(tileRule: "w", remoteCondition: "nw,nw", image: "River-3"))
+        
+        // River-4
+        self.transitions.append(RiverTransitionRule(tileRule: "e", remoteCondition: "n,sw", image: "River-4"))
+        self.transitions.append(RiverTransitionRule(tileRule: "w", remoteCondition: "n,sw", image: "River-4"))
+        self.transitions.append(RiverTransitionRule(tileRule: "e", remoteCondition: "n,ne", image: "River-4"))
+        self.transitions.append(RiverTransitionRule(tileRule: "w", remoteCondition: "n,ne", image: "River-4"))
+        
+        // River-5
+        self.transitions.append(RiverTransitionRule(tileRule: "nw", remoteCondition: "n,sw", image: "River-5"))
+        self.transitions.append(RiverTransitionRule(tileRule: "se", remoteCondition: "n,sw", image: "River-5"))
+        self.transitions.append(RiverTransitionRule(tileRule: "nw", remoteCondition: "n,ne", image: "River-5"))
+        self.transitions.append(RiverTransitionRule(tileRule: "se", remoteCondition: "n,ne", image: "River-5"))
+        
+        // River-6
+        self.transitions.append(RiverTransitionRule(tileRule: "nw", remoteCondition: "se,e", image: "River-6"))
+        self.transitions.append(RiverTransitionRule(tileRule: "se", remoteCondition: "se,e", image: "River-6"))
+        self.transitions.append(RiverTransitionRule(tileRule: "nw", remoteCondition: "se,w", image: "River-6"))
+        self.transitions.append(RiverTransitionRule(tileRule: "se", remoteCondition: "se,w", image: "River-6"))
+        
+        // River-7
+        self.transitions.append(RiverTransitionRule(tileRule: "nw", remoteCondition: "#,sw", image: "River-7"))
+        self.transitions.append(RiverTransitionRule(tileRule: "se", remoteCondition: "#,sw", image: "River-7"))
+        self.transitions.append(RiverTransitionRule(tileRule: "nw", remoteCondition: "#,ne", image: "River-7"))
+        self.transitions.append(RiverTransitionRule(tileRule: "se", remoteCondition: "#,ne", image: "River-7"))
+        
+        // River-8
+        self.transitions.append(RiverTransitionRule(tileRule: "sw", remoteCondition: "se,e", image: "River-8"))
+        self.transitions.append(RiverTransitionRule(tileRule: "ne", remoteCondition: "se,e", image: "River-8"))
+        self.transitions.append(RiverTransitionRule(tileRule: "sw", remoteCondition: "se,w", image: "River-8"))
+        self.transitions.append(RiverTransitionRule(tileRule: "ne", remoteCondition: "se,w", image: "River-8"))
+        
+        // River-9
+        self.transitions.append(RiverTransitionRule(tileRule: "sw", remoteCondition: "s,e", image: "River-9"))
+        self.transitions.append(RiverTransitionRule(tileRule: "ne", remoteCondition: "s,e", image: "River-9"))
+        self.transitions.append(RiverTransitionRule(tileRule: "sw", remoteCondition: "s,w", image: "River-9"))
+        self.transitions.append(RiverTransitionRule(tileRule: "ne", remoteCondition: "s,w", image: "River-9"))
+        
+        // River-10
+        self.transitions.append(RiverTransitionRule(tileRule: "sw", remoteCondition: "s,se", image: "River-10"))
+        self.transitions.append(RiverTransitionRule(tileRule: "ne", remoteCondition: "s,se", image: "River-10"))
+        self.transitions.append(RiverTransitionRule(tileRule: "sw", remoteCondition: "s,nw", image: "River-10"))
+        self.transitions.append(RiverTransitionRule(tileRule: "ne", remoteCondition: "s,nw", image: "River-10"))
     }
     
     func bestTransitions(forCenter tileFlows: [FlowDirection], remotesNE: [FlowDirection], remotesSE: [FlowDirection], remotesS: [FlowDirection], remotesSW: [FlowDirection], remotesNW: [FlowDirection], remotesN: [FlowDirection]) -> [RiverTransitionRule]? {
         
         var transitionRules: [RiverTransitionRule]? = []
         
-        for tileFlow in tileFlows {
-            transitionRules?.append(contentsOf: self.bestTransition(forCenter: tileFlow, remotesNE: remotesNE, remotesSE: remotesSE, remotesS: remotesS, remotesSW: remotesSW, remotesNW: remotesNW, remotesN: remotesN)!)
-        }
-        
-        return transitionRules
-    }
-    
-    func bestTransition(forCenter tileFlow: FlowDirection, remotesNE: [FlowDirection], remotesSE: [FlowDirection], remotesS: [FlowDirection], remotesSW: [FlowDirection], remotesNW: [FlowDirection], remotesN: [FlowDirection]) -> [RiverTransitionRule]? {
-        
-        var transitionRules: [RiverTransitionRule]? = []
-        
-        for remoteNE in remotesNE {
-            transitionRules?.append(contentsOf: self.bestTransition(forCenter: tileFlow, remoteNE: remoteNE, remotesSE: remotesSE, remotesS: remotesS, remotesSW: remotesSW, remotesNW: remotesNW, remotesN: remotesN)!)
-        }
-        
-        return transitionRules
-    }
-    
-    func bestTransition(forCenter tileFlow: FlowDirection, remoteNE: FlowDirection, remotesSE: [FlowDirection], remotesS: [FlowDirection], remotesSW: [FlowDirection], remotesNW: [FlowDirection], remotesN: [FlowDirection]) -> [RiverTransitionRule]? {
-        
-        var transitionRules: [RiverTransitionRule]? = []
-        
-        for remoteSE in remotesSE {
-            transitionRules?.append(contentsOf: self.bestTransition(forCenter: tileFlow, remoteNE: remoteNE, remoteSE: remoteSE, remotesS: remotesS, remotesSW: remotesSW, remotesNW: remotesNW, remotesN: remotesN)!)
-        }
-        
-        return transitionRules
-    }
-    
-    func bestTransition(forCenter tileFlow: FlowDirection, remoteNE: FlowDirection, remoteSE: FlowDirection, remotesS: [FlowDirection], remotesSW: [FlowDirection], remotesNW: [FlowDirection], remotesN: [FlowDirection]) -> [RiverTransitionRule]? {
-        
-        var transitionRules: [RiverTransitionRule]? = []
-        
-        for remoteS in remotesS {
-            transitionRules?.append(contentsOf: self.bestTransition(forCenter: tileFlow, remoteNE: remoteNE, remoteSE: remoteSE, remoteS: remoteS, remotesSW: remotesSW, remotesNW: remotesNW, remotesN: remotesN)!)
-        }
-        
-        return transitionRules
-    }
-    
-    func bestTransition(forCenter tileFlow: FlowDirection, remoteNE: FlowDirection, remoteSE: FlowDirection, remoteS: FlowDirection, remotesSW: [FlowDirection], remotesNW: [FlowDirection], remotesN: [FlowDirection]) -> [RiverTransitionRule]? {
-        
-        var transitionRules: [RiverTransitionRule]? = []
-        
-        for remoteSW in remotesSW {
-            transitionRules?.append(contentsOf: self.bestTransition(forCenter: tileFlow, remoteNE: remoteNE, remoteSE: remoteSE, remoteS: remoteS, remoteSW: remoteSW, remotesNW: remotesNW, remotesN: remotesN)!)
-        }
-        
-        return transitionRules
-    }
-    
-    func bestTransition(forCenter tileFlow: FlowDirection, remoteNE: FlowDirection, remoteSE: FlowDirection, remoteS: FlowDirection, remoteSW: FlowDirection, remotesNW: [FlowDirection], remotesN: [FlowDirection]) -> [RiverTransitionRule]? {
-        
-        var transitionRules: [RiverTransitionRule]? = []
-        
-        for remoteNW in remotesNW {
-            transitionRules?.append(contentsOf: self.bestTransition(forCenter: tileFlow, remoteNE: remoteNE, remoteSE: remoteSE, remoteS: remoteS, remoteSW: remoteSW, remoteNW: remoteNW, remotesN: remotesN)!)
-        }
-        
-        return transitionRules
-    }
-    
-    func bestTransition(forCenter tileFlow: FlowDirection, remoteNE: FlowDirection, remoteSE: FlowDirection, remoteS: FlowDirection, remoteSW: FlowDirection, remoteNW: FlowDirection, remotesN: [FlowDirection]) -> [RiverTransitionRule]? {
-        
-        var transitionRules: [RiverTransitionRule]? = []
-        
-        for remoteN in remotesN {
-            transitionRules?.append(contentsOf: self.bestTransition(forCenter: tileFlow, remoteNE: remoteNE, remoteSE: remoteSE, remoteS: remoteS, remoteSW: remoteSW, remoteNW: remoteNW, remoteN: remoteN)!)
-        }
-        
-        return transitionRules
-    }
-    
-    func bestTransition(forCenter tileFlow: FlowDirection, remoteNE: FlowDirection, remoteSE: FlowDirection, remoteS: FlowDirection, remoteSW: FlowDirection, remoteNW: FlowDirection, remoteN: FlowDirection) -> [RiverTransitionRule]? {
-        
-        var transitionRules: [RiverTransitionRule]? = []
-        
-        for transitionRule in self.transitions {
-                
-            let matches = transitionRule.matches(forCenter: tileFlow, flowNE: remoteNE, flowSE: remoteSE, flowS: remoteS, flowSW: remoteSW, flowNW: remoteNW, flowN: remoteN)
-            
-            if matches {
-                transitionRules?.append(transitionRule)
+        for transition in transitions {
+            if transition.matches(forCenter: tileFlows, flowsNE: remotesNE, flowsSE: remotesSE, flowsS: remotesS, flowsSW: remotesSW, flowsNW: remotesNW, flowsN: remotesN) {
+                transitionRules?.append(transition)
             }
         }
         
         return transitionRules
     }
-    
 }

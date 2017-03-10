@@ -31,14 +31,14 @@ enum FlowDirectionError: Error, Equatable {
     case Unsupported(flow: FlowDirection, in: GridPointDirection)
 }
 
-func ==(lhs: FlowDirectionError, rhs: FlowDirectionError) -> Bool {
+func == (lhs: FlowDirectionError, rhs: FlowDirectionError) -> Bool {
     switch (lhs, rhs) {
     case (.Unsupported(let leftFlow, let leftDir), .Unsupported(let rightFlow, let rightDir)):
         return leftFlow == rightFlow && leftDir == rightDir
     }
 }
 
-class Tile: NSObject {
+public class Tile: NSObject {
     
     let point: GridPoint
     var terrain: Terrain? = Terrain.ocean
@@ -51,7 +51,7 @@ class Tile: NSObject {
     var riverFlowNorthEast: FlowDirection = .none
     var riverFlowSouthEast: FlowDirection = .none
     
-    required init(at point:GridPoint, withTerrain terrain: Terrain) {
+    required public init(at point: GridPoint, withTerrain terrain: Terrain) {
         
         self.point = point
         self.terrain = terrain

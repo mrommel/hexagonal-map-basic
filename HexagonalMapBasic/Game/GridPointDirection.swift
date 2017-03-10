@@ -8,16 +8,16 @@
 
 import Foundation
 
-enum GridPointDirection {
+enum GridPointDirection: String {
     
     static let all: [GridPointDirection]  = [.northEast, .southEast, .south, .southWest, .northWest, .north]
     
-    case northEast
-    case southEast
-    case south
-    case southWest
-    case northWest
-    case north
+    case northEast = "ne"
+    case southEast = "se"
+    case south = "s"
+    case southWest = "sw"
+    case northWest = "nw"
+    case north = "n"
  
     func opposite() -> GridPointDirection {
         switch self {

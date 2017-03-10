@@ -88,3 +88,19 @@ class Array2DTest: XCTestCase {
         XCTAssertNotEqual(array1, array2, "Arrays are different with different values : Should not be equal")
     }
 }
+
+extension Array2DTest {
+    
+    func testSetValueWithPoint() {
+        
+        // Preconditions
+        let array = Array2D<Int>(columns: 3, rows: 3)
+        let pt = GridPoint(x: 1, y: 1)
+        
+        // Stimulus
+        array[pt] = 1
+        
+        // Assertion
+        XCTAssertEqual(array[pt], 1, "value not persisted")
+    }
+}

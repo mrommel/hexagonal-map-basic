@@ -39,7 +39,7 @@ class Array2D <T: Equatable>: Equatable {
     }
 }
 
-func ==<T>(lhs: Array2D<T>, rhs: Array2D<T>) -> Bool {
+func == <T>(lhs: Array2D<T>, rhs: Array2D<T>) -> Bool {
     if lhs.array.count != rhs.array.count {
         return false
     }

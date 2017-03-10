@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum Terrain: String {
+public enum Terrain: String {
     
     // misc
     case outside = "out"
