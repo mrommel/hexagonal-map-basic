@@ -27,6 +27,21 @@ class RiverTransitionManagerTests: XCTestCase {
         }
     }
     
+    func testOneInternalTransitions() {
+        
+        // Preconditions
+        let riverTransitionManager = RiverTransitionManager()
+        
+        // Stimulus
+        let transitions = riverTransitionManager.bestTransitions(forCenter: [.west, .northWest], remotesNE: [] /* never */, remotesSE: [], remotesS: [], remotesSW: [], remotesNW: [], remotesN: [])
+        
+        // Assertion
+        XCTAssertEqual(transitions?.count, 1, "there should be two internal transitions")
+        
+        let images = transitions?.map( { $0.image } )
+        XCTAssertTrue((images?.contains(where: { $0 == "River-1" }))!, "should contain River-1")
+    }
+    
     func testTwoInternalTransitions() {
         
         // Preconditions

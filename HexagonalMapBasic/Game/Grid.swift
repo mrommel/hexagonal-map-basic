@@ -282,3 +282,24 @@ extension Grid {
         tile?.features.remove(at: featureIndex!)
     }
 }
+
+// MARK: river related methods
+
+extension Grid {
+    
+    func flows(at position: GridPoint) -> [FlowDirection] {
+        
+        // check bounds
+        guard self.has(gridPoint: position) else {
+            return []
+        }
+        
+        let tile = self.tiles[position]
+        if let flows = tile?.flows {
+            return flows
+        }
+        
+        return []
+    }
+    
+}

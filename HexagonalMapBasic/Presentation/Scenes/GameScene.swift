@@ -36,6 +36,7 @@ class GameScene: SKScene {
 
     let terrainTransitionManager: TerrainTransitionManager
     let featureTransitionManager: FeatureTransitionManager
+    let riverTransitionManager: RiverTransitionManager
  
     let terrainView: SKSpriteNode
     //let layer2DHighlight: SKNode
@@ -60,6 +61,7 @@ class GameScene: SKScene {
 
         self.terrainTransitionManager = TerrainTransitionManager()
         self.featureTransitionManager = FeatureTransitionManager()
+        self.riverTransitionManager = RiverTransitionManager()
 
         super.init(size: size)
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
@@ -141,6 +143,31 @@ class GameScene: SKScene {
 
                 self.terrainView.addChild(TransitionSpriteNode(withPosition: position, andTransition: transition))
             }
+        }
+        
+        if gridPoint.x == 5 && gridPoint.y == 6 {
+            print("debug")
+        }
+        
+        // river transitions
+        let flows = self.grid?.flows(at: gridPoint)
+        let flowsNE = self.grid?.flows(at: gridPoint.neighbor(in: .northEast))
+        let flowsSE = self.grid?.flows(at: gridPoint.neighbor(in: .southEast))
+        let flowsS = self.grid?.flows(at: gridPoint.neighbor(in: .south))
+        let flowsSW = self.grid?.flows(at: gridPoint.neighbor(in: .southWest))
+        let flowsNW = self.grid?.flows(at: gridPoint.neighbor(in: .northWest))
+        let flowsN = self.grid?.flows(at: gridPoint.neighbor(in: .north))
+        
+        if (flows?.count)! > 0 {
+            print("some flows")
+        }
+        
+        if let transitions = self.riverTransitionManager.bestTransitions(forCenter: flows!, remotesNE: flowsNE!, remotesSE: flowsSE!, remotesS: flowsS!, remotesSW: flowsSW!, remotesNW: flowsNW!, remotesN: flowsN!) {
+        
+            for transition in transitions {
+                print("river transition: \(transition.image)")
+            }
+            
         }
 
         // grid

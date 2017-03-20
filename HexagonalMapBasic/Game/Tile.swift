@@ -155,7 +155,7 @@ extension Tile {
             throw FlowDirectionError.Unsupported(flow: flow, in: .northEast)
         }
         
-        self.riverFlowNorth = flow
+        self.riverFlowNorthEast = flow
     }
     
     // river in south east can flow to northeast or southwest direction
@@ -169,7 +169,27 @@ extension Tile {
             throw FlowDirectionError.Unsupported(flow: flow, in: .southEast)
         }
         
-        self.riverFlowNorth = flow
+        self.riverFlowSouthEast = flow
+    }
+    
+    var flows: [FlowDirection] {
+        get {
+            var result: [FlowDirection] = []
+            
+            if self.isRiverInNorth() {
+                result.append(self.riverFlowNorth)
+            }
+            
+            if self.isRiverInNorthEast() {
+                result.append(self.riverFlowNorthEast)
+            }
+            
+            if self.isRiverInSouthEast() {
+                result.append(self.riverFlowSouthEast)
+            }
+            
+            return result
+        }
     }
 }
 

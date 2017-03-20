@@ -50,6 +50,14 @@ class GameViewController: UIViewController {
         scene.grid?.add(feature: Feature.hill, at: GridPoint(x: 3, y: 2))
         scene.grid?.add(feature: Feature.hill, at: GridPoint(x: 2, y: 4))
         
+        do {
+            try scene.grid?.tileAt(x: 5, y: 6).setRiverFlowInNorth(flow: .west)
+            try scene.grid?.tileAt(x: 5, y: 6).setRiverFlowInNorthEast(flow: .northWest)
+            try scene.grid?.tileAt(x: 6, y: 6).setRiverFlowInNorth(flow: .west)
+        } catch {
+            print("error while setting river: \(error)")
+        }
+        
         skView.presentScene(scene)
     }
 
