@@ -173,23 +173,21 @@ extension Tile {
     }
     
     var flows: [FlowDirection] {
-        get {
-            var result: [FlowDirection] = []
-            
-            if self.isRiverInNorth() {
-                result.append(self.riverFlowNorth)
-            }
-            
-            if self.isRiverInNorthEast() {
-                result.append(self.riverFlowNorthEast)
-            }
-            
-            if self.isRiverInSouthEast() {
-                result.append(self.riverFlowSouthEast)
-            }
-            
-            return result
+        var result: [FlowDirection] = []
+        
+        if self.isRiverInNorth() {
+            result.append(self.riverFlowNorth)
         }
+        
+        if self.isRiverInNorthEast() {
+            result.append(self.riverFlowNorthEast)
+        }
+        
+        if self.isRiverInSouthEast() {
+            result.append(self.riverFlowSouthEast)
+        }
+        
+        return result
     }
 }
 

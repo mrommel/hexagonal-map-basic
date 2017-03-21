@@ -11,6 +11,7 @@ import SpriteKit
 class TransitionSpriteNode: SKSpriteNode {
     
     init(withPosition position: CGPoint, andTransition transition: TerrainTransitionManager.TerrainTransitionRule) {
+        
         let texture = SKTexture(imageNamed: transition.image)
         super.init(texture: texture, color: UIColor.clear, size: texture.size())
         
@@ -20,12 +21,23 @@ class TransitionSpriteNode: SKSpriteNode {
     }
     
     init(withPosition position: CGPoint, andTransition transition: FeatureTransitionManager.FeatureTransitionRule) {
+        
         let texture = SKTexture(imageNamed: transition.image)
         super.init(texture: texture, color: UIColor.clear, size: texture.size())
         
         self.position = position
         self.anchorPoint = CGPoint(x: 0, y: 0)
         self.zPosition = CGFloat(transition.zLevel)
+    }
+    
+    init(withPosition position: CGPoint, andTransition transition: RiverTransitionManager.RiverTransitionRule) {
+        
+        let texture = SKTexture(imageNamed: transition.image)
+        super.init(texture: texture, color: UIColor.clear, size: texture.size())
+        
+        self.position = position
+        self.anchorPoint = CGPoint(x: 0, y: 0)
+        self.zPosition = CGFloat(25)
     }
     
     required init(coder aDecoder: NSCoder) {

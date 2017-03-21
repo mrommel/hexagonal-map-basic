@@ -118,6 +118,7 @@ class GameScene: SKScene {
     // 50 features
     // 40 focus/cursor
     // 30 grid
+    // 25 river transistions
     // 20 terrain transitions
     // 10 terrain
     //
@@ -145,10 +146,6 @@ class GameScene: SKScene {
             }
         }
         
-        if gridPoint.x == 5 && gridPoint.y == 6 {
-            print("debug")
-        }
-        
         // river transitions
         let flows = self.grid?.flows(at: gridPoint)
         let flowsNE = self.grid?.flows(at: gridPoint.neighbor(in: .northEast))
@@ -158,14 +155,12 @@ class GameScene: SKScene {
         let flowsNW = self.grid?.flows(at: gridPoint.neighbor(in: .northWest))
         let flowsN = self.grid?.flows(at: gridPoint.neighbor(in: .north))
         
-        if (flows?.count)! > 0 {
-            print("some flows")
-        }
         
         if let transitions = self.riverTransitionManager.bestTransitions(forCenter: flows!, remotesNE: flowsNE!, remotesSE: flowsSE!, remotesS: flowsS!, remotesSW: flowsSW!, remotesNW: flowsNW!, remotesN: flowsN!) {
         
             for transition in transitions {
                 print("river transition: \(transition.image)")
+                self.terrainView.addChild(TransitionSpriteNode(withPosition: position, andTransition: transition))
             }
             
         }

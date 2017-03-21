@@ -109,4 +109,20 @@ class TileTests: XCTestCase {
             XCTFail("Wrong error")
         }
     }
+    
+    func testFlows() {
+        
+        // Preconditions
+        let tile = Tile(at: GridPoint(x: 0, y: 0), withTerrain: Terrain.grass)
+        try! tile.setRiverFlowInNorth(flow: .west)
+        try! tile.setRiverFlowInNorthEast(flow: .northWest)
+        
+        // Stimulus
+        let flows = tile.flows
+        
+        // Assertion
+        XCTAssertEqual(flows.count, 2, "wrong number of flows")
+        XCTAssertEqual(flows.contains(where: { $0 == .west }), true, "flows should contain .west")
+        XCTAssertEqual(flows.contains(where: { $0 == .northWest }), true, "flows should contain .northWest")
+    }
 }
