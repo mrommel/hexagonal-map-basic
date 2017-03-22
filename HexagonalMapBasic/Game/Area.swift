@@ -9,7 +9,14 @@
 import Foundation
 
 /**
- class that holds a rectangle for `Area`
+    class that holds a rectangle for `Area`
+ 
+    rectangle represented by top left point and bottom right point
+    ```
+    X-------o
+    |       |
+    o-------X
+    ```
  */
 public class AreaBoundary {
     
@@ -17,11 +24,11 @@ public class AreaBoundary {
     var bottomRight: GridPoint
     
     /**
-     builds a rectangular boundary for `Area`
+        builds a rectangular boundary for `Area`
      
-     ```
-     let boundary = AreaBoundary(topLeft: GridPoint(x: 0, y: 0), bottomRight: GridPoint(x: 2, y: 2))
-     ```
+        ```
+        let boundary = AreaBoundary(topLeft: GridPoint(x: 0, y: 0), bottomRight: GridPoint(x: 2, y: 2))
+        ```
      */
     public required init(topLeft: GridPoint, bottomRight: GridPoint) {
         
@@ -57,15 +64,15 @@ public struct AreaStatistics {
 }
 
 /**
- iterator for all `Area` points
+    iterator for all `Area` points
  
- this enables `Area`s to be interated like this
+    this enables `Area`s to be interated like this
  
- ```
- for point in area {
-    doSomething(point)
- }
- ```
+    ```
+    for point in area {
+        doSomething(point)
+    }
+    ```
  */
 public class AreaIterator : IteratorProtocol {
     
@@ -73,18 +80,18 @@ public class AreaIterator : IteratorProtocol {
     var points: [GridPoint]?
     
     /**
-     builds the iterator with `points`
+        builds the iterator with `points`
      
-     - Parameter points: all points of the area that are returned one-by-one
+        - Parameter points: all points of the area that are returned one-by-one
      */
     required public init(points: [GridPoint]?) {
         self.points = points
     }
     
     /**
-     moves the iterator to the next position (but before that, returns the current value)
+        moves the iterator to the next position (but before that, returns the current value)
      
-     - Returns: current point
+        - Returns: current point
      */
     public func next() -> GridPoint? {
         guard iterationsCount < (self.points?.count)! else {
@@ -130,7 +137,7 @@ public class Area: Sequence, Equatable {
     }
     
     /**
-         creates a new Area
+        creates a new Area
          
          - Parameter identifier:    unique id to identify the area
          - Parameter boundary:      top+left / bottom+right point of the area
@@ -150,30 +157,31 @@ public class Area: Sequence, Equatable {
     }
     
     /**
-     This makes the `Area` iteratable
+        This makes the `Area` iteratable
      
-     ```
-     for point in area {
-        doSomething(point)
-     }
-     ```
+        ```
+        for point in area {
+            doSomething(point)
+        }
+        ```
      */
     public func makeIterator() -> AreaIterator {
         return AreaIterator(points: self.points)
     }
     
     /**
-     amount of points in this `Area`
+        amount of points in this `Area`
      
-     - Returns: number of points in this `Area`
+        - Returns: number of points in this `Area`
      */
     public func size() -> Int {
         return (self.points?.count)!
     }
     
     /**
+        check if all points are inside the area
      
-     - Returns: true, if all `points` are inside the 
+        - Returns: true, if all `points` are inside the
      */
     public func contains(points: [GridPoint]) -> Bool {
         
@@ -209,6 +217,9 @@ public class Area: Sequence, Equatable {
     }
 }
 
+/**
+    two areas are identical when their identifiers, their size and all their points are identical
+ */
 public func == (lhs: Area, rhs: Area) -> Bool {
     return lhs.identifier == rhs.identifier && lhs.size() == rhs.size() && lhs.contains(points: rhs.points!) && rhs.contains(points: lhs.points!)
 }
