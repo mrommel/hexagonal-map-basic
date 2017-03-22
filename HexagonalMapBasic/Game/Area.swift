@@ -194,6 +194,9 @@ public class Area: Sequence, Equatable {
         return true
     }
 
+    /**
+        updates the area statistics
+     */
     public func update() {
         
         // reset values
