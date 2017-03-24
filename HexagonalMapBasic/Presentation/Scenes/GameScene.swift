@@ -54,7 +54,6 @@ class GameScene: SKScene {
     override init(size: CGSize) {
 
         self.terrainView = SKSpriteNode()
-        //self.layer2DHighlight = SKNode()
         self.cursorNode = SKSpriteNode(imageNamed: "Selection")
         self.cursorNode.zPosition = 40.0
         self.cursorPoint = GridPoint(x: 0, y: 0)
@@ -114,7 +113,8 @@ class GameScene: SKScene {
     // render tile
     //
     // zlevel
-    // 60 units
+    // 70 units
+    // 60 cities
     // 50 features
     // 40 focus/cursor
     // 30 grid
@@ -124,53 +124,32 @@ class GameScene: SKScene {
     //
     func place(tile: Tile, gridPoint: GridPoint, withPosition position: CGPoint) {
 
-        let terrain = tile.terrain
-
-        // terrain sprite
-        self.terrainView.addChild(TerrainSpriteNode(withPosition: position, andTerrain: terrain!))
-
-        // terrain transitions
-        let remoteNE = self.grid?.tile(at: gridPoint.neighbor(in: .northEast)).terrain!
-        let remoteSE = self.grid?.tile(at: gridPoint.neighbor(in: .southEast)).terrain!
-        let remoteS = self.grid?.tile(at: gridPoint.neighbor(in: .south)).terrain!
-        let remoteSW = self.grid?.tile(at: gridPoint.neighbor(in: .southWest)).terrain!
-        let remoteNW = self.grid?.tile(at: gridPoint.neighbor(in: .northWest)).terrain!
-        let remoteN = self.grid?.tile(at: gridPoint.neighbor(in: .north)).terrain!
-        let remotePattern = "\((remoteNE?.rawValue)!),\((remoteSE?.rawValue)!),\((remoteS?.rawValue)!),\((remoteSW?.rawValue)!),\((remoteNW?.rawValue)!),\((remoteN?.rawValue)!)"
-
-        if let transitions = self.terrainTransitionManager.bestTransitions(forCenter: terrain!, remotePattern: remotePattern) {
-
-            for transition in transitions {
-
-                self.terrainView.addChild(TransitionSpriteNode(withPosition: position, andTransition: transition))
-            }
-        }
+        // terrain
+        self.addTerrainSprites(tile: tile, gridPoint: gridPoint, at: position)
         
         // river transitions
-        let flows = self.grid?.flows(at: gridPoint)
-        let flowsNE = self.grid?.flows(at: gridPoint.neighbor(in: .northEast))
-        let flowsSE = self.grid?.flows(at: gridPoint.neighbor(in: .southEast))
-        let flowsS = self.grid?.flows(at: gridPoint.neighbor(in: .south))
-        let flowsSW = self.grid?.flows(at: gridPoint.neighbor(in: .southWest))
-        let flowsNW = self.grid?.flows(at: gridPoint.neighbor(in: .northWest))
-        let flowsN = self.grid?.flows(at: gridPoint.neighbor(in: .north))
-        
-        
-        if let transitions = self.riverTransitionManager.bestTransitions(forCenter: flows!, remotesNE: flowsNE!, remotesSE: flowsSE!, remotesS: flowsS!, remotesSW: flowsSW!, remotesNW: flowsNW!, remotesN: flowsN!) {
-        
-            for transition in transitions {
-                print("river transition: \(transition.image)")
-                self.terrainView.addChild(TransitionSpriteNode(withPosition: position, andTransition: transition))
-            }
-            
-        }
+        self.addRiverSprites(tile: tile, gridPoint: gridPoint, at: position)
 
         // grid
-        self.terrainView.addChild(GridSpriteNode(withPosition: position))
-
+        self.addGridSprite(at: position)
+        
         // features
+        self.addFeatureSprites(tile: tile, gridPoint: gridPoint, at: position)
+        
+        // cities
+        
+        // units
+    }
+    
+    func addGridSprite(at position: CGPoint) {
+        
+        self.terrainView.addChild(GridSpriteNode(withPosition: position))
+    }
+    
+    func addFeatureSprites(tile: Tile, gridPoint: GridPoint, at position: CGPoint) {
+        
+        // add feature pictures
         for feature in tile.features {
-
             self.terrainView.addChild(FeatureSpriteNode(withPosition: position, andFeature: feature))
         }
         
@@ -181,12 +160,52 @@ class GameScene: SKScene {
         let featuresSW = self.grid?.tile(at: gridPoint.neighbor(in: .southWest)).features
         let featuresNW = self.grid?.tile(at: gridPoint.neighbor(in: .northWest)).features
         let featuresN = self.grid?.tile(at: gridPoint.neighbor(in: .north)).features
-
+        
         if let transitions = self.featureTransitionManager.bestTransitions(forCenter: tile.features, remotesNE: featuresNE!, remotesSE: featuresSE!, remotesS: featuresS!, remotesSW: featuresSW!, remotesNW: featuresNW!, remotesN: featuresN!) {
             
             for transition in transitions {
+                self.terrainView.addChild(TransitionSpriteNode(withPosition: position, andTransition: transition))
+            }
+        }
+    }
+    
+    func addTerrainSprites(tile: Tile, gridPoint: GridPoint, at position: CGPoint) {
+        
+        let terrain = tile.terrain
+        
+        // terrain sprite
+        self.terrainView.addChild(TerrainSpriteNode(withPosition: position, andTerrain: terrain!))
+        
+        // terrain transitions
+        let remoteNE = self.grid?.tile(at: gridPoint.neighbor(in: .northEast)).terrain!
+        let remoteSE = self.grid?.tile(at: gridPoint.neighbor(in: .southEast)).terrain!
+        let remoteS = self.grid?.tile(at: gridPoint.neighbor(in: .south)).terrain!
+        let remoteSW = self.grid?.tile(at: gridPoint.neighbor(in: .southWest)).terrain!
+        let remoteNW = self.grid?.tile(at: gridPoint.neighbor(in: .northWest)).terrain!
+        let remoteN = self.grid?.tile(at: gridPoint.neighbor(in: .north)).terrain!
+        let remotePattern = "\((remoteNE?.rawValue)!),\((remoteSE?.rawValue)!),\((remoteS?.rawValue)!),\((remoteSW?.rawValue)!),\((remoteNW?.rawValue)!),\((remoteN?.rawValue)!)"
+        
+        if let transitions = self.terrainTransitionManager.bestTransitions(forCenter: terrain!, remotePattern: remotePattern) {
+            
+            for transition in transitions {
                 
-                print("feature transition: \(transition.image)")
+                self.terrainView.addChild(TransitionSpriteNode(withPosition: position, andTransition: transition))
+            }
+        }
+    }
+    
+    func addRiverSprites(tile: Tile, gridPoint: GridPoint, at position: CGPoint) {
+        
+        let flows = self.grid?.flows(at: gridPoint)
+        let flowsNE = self.grid?.flows(at: gridPoint.neighbor(in: .northEast))
+        let flowsSE = self.grid?.flows(at: gridPoint.neighbor(in: .southEast))
+        let flowsS = self.grid?.flows(at: gridPoint.neighbor(in: .south))
+        let flowsSW = self.grid?.flows(at: gridPoint.neighbor(in: .southWest))
+        let flowsNW = self.grid?.flows(at: gridPoint.neighbor(in: .northWest))
+        let flowsN = self.grid?.flows(at: gridPoint.neighbor(in: .north))
+        
+        if let transitions = self.riverTransitionManager.bestTransitions(forCenter: flows!, remotesNE: flowsNE!, remotesSE: flowsSE!, remotesS: flowsS!, remotesSW: flowsSW!, remotesNW: flowsNW!, remotesN: flowsN!) {
+            for transition in transitions {
                 self.terrainView.addChild(TransitionSpriteNode(withPosition: position, andTransition: transition))
             }
         }

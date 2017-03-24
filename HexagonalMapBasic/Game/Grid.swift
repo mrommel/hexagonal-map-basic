@@ -267,7 +267,7 @@ extension Grid {
         }
         
         let tile = self.tiles[position]
-        tile?.features.append(feature)
+        tile?.set(feature: feature)
     }
     
     func remove(feature: Feature, at position: GridPoint) {
@@ -278,8 +278,7 @@ extension Grid {
         }
         
         let tile = self.tiles[position]
-        let featureIndex = tile?.features.index(of: feature)
-        tile?.features.remove(at: featureIndex!)
+        tile?.remove(feature: feature)
     }
 }
 

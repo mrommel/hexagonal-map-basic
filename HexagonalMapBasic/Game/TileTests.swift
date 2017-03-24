@@ -11,6 +11,39 @@ import XCTest
 
 class TileTests: XCTestCase {
     
+    func testFeatureHasForest() {
+        
+        // Preconditions
+        let tile = Tile(at: GridPoint(x: 0, y: 0), withTerrain: Terrain.grass)
+        tile.set(feature: .forest)
+        
+        // Stimulus
+        let hasForest = tile.has(feature: .forest)
+        
+        // Assertion
+        XCTAssertEqual(hasForest, true, "tile should have forest")
+    }
+    
+    func testFeatureRemovedForest() {
+        
+        // Preconditions
+        let tile = Tile(at: GridPoint(x: 0, y: 0), withTerrain: Terrain.grass)
+        tile.set(feature: .forest)
+        tile.remove(feature: .forest)
+        
+        // Stimulus
+        let hasForest = tile.has(feature: .forest)
+        
+        // Assertion
+        XCTAssertEqual(hasForest, false, "tile should have removed forest")
+    }
+    
+}
+
+// MARK: river tests
+
+extension TileTests {
+
     func testRiverDefaultsToFalse() {
      
         // Preconditions

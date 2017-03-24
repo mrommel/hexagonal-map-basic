@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum Feature: String {
+public enum Feature: String {
     
     // misc
     case none

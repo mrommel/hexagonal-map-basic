@@ -57,26 +57,57 @@ public class Tile: NSObject {
         self.terrain = terrain
     }
     
-    func has(feature: Feature) -> Bool {
-        return false
-    }
-    
     var possibleImprovements: [TileImprovementType] {
         
-        switch self.terrain! {
-        case .shore:
-            return [.fishing]
-        case .grass:
-            if self.has(feature: .forest) {
-                return [.lumbermill]
-            } else if self.has(feature: .hill) {
-                return [.pasture]
-            } else {
-                return [.farm, .pasture]
+        if let terrain = self.terrain {
+            switch terrain {
+            case .shore:
+                return [.fishing]
+            case .grass:
+                if self.has(feature: .forest) {
+                    return [.lumbermill]
+                } else if self.has(feature: .hill) {
+                    return [.pasture]
+                } else {
+                    return [.farm, .pasture]
+                }
+            default:
+                return []
             }
-        default:
-            return []
         }
+        
+        return []
+    }
+}
+
+// MARK: feature handling
+
+extension Tile {
+    
+    public func set(feature: Feature) {
+
+        if !self.has(feature: feature) {
+            self.features.append(feature)
+        }
+    }
+    
+    public func remove(feature: Feature) {
+        
+        if self.has(feature: feature) {
+            let featureIndex = self.features.index(of: feature)
+            self.features.remove(at: featureIndex!)
+        }
+    }
+    
+    public func has(feature: Feature) -> Bool {
+        
+        for tileFeature in self.features {
+            if tileFeature == feature {
+                return true
+            }
+        }
+        
+        return false
     }
 }
 
