@@ -29,7 +29,7 @@ typealias FocusChangedBlock = (_ focus: GridPoint?) -> Void
 
 class GameScene: SKScene {
 
-    var grid: Grid?
+    var map: Map?
     var onFocusChanged: FocusChangedBlock?
     var onTileSelected: FocusChangedBlock?
     var cam: SKCameraNode!
@@ -94,16 +94,20 @@ class GameScene: SKScene {
 
     func placeAllTiles2D() {
 
-        let width: Int = (self.grid?.width)!
-        let height: Int = (self.grid?.height)!
+        guard let width: Int = self.map!.grid?.width else {
+            return
+        }
+        guard let height: Int = self.map!.grid?.height else {
+            return
+        }
 
         for x in 0..<width {
 
             for y in 0..<height {
 
                 let gridPoint = GridPoint(x: x, y: y)
-                let point = self.grid?.screenPoint(from: gridPoint)
-                let tile = self.grid?.tile(at: gridPoint)
+                let point = self.map?.grid?.screenPoint(from: gridPoint)
+                let tile = self.map?.grid?.tile(at: gridPoint)
 
                 place(tile: tile!, gridPoint: gridPoint, withPosition: point!)
             }
@@ -137,6 +141,9 @@ class GameScene: SKScene {
         self.addFeatureSprites(tile: tile, gridPoint: gridPoint, at: position)
         
         // cities
+        if let city = self.map?.city(at: gridPoint) {
+            self.terrainView.addChild(CitySpriteNode(withPosition: position))
+        }
         
         // units
     }
@@ -154,12 +161,12 @@ class GameScene: SKScene {
         }
         
         // feature transitions
-        let featuresNE = self.grid?.tile(at: gridPoint.neighbor(in: .northEast)).features
-        let featuresSE = self.grid?.tile(at: gridPoint.neighbor(in: .southEast)).features
-        let featuresS = self.grid?.tile(at: gridPoint.neighbor(in: .south)).features
-        let featuresSW = self.grid?.tile(at: gridPoint.neighbor(in: .southWest)).features
-        let featuresNW = self.grid?.tile(at: gridPoint.neighbor(in: .northWest)).features
-        let featuresN = self.grid?.tile(at: gridPoint.neighbor(in: .north)).features
+        let featuresNE = self.map?.grid?.tile(at: gridPoint.neighbor(in: .northEast)).features
+        let featuresSE = self.map?.grid?.tile(at: gridPoint.neighbor(in: .southEast)).features
+        let featuresS = self.map?.grid?.tile(at: gridPoint.neighbor(in: .south)).features
+        let featuresSW = self.map?.grid?.tile(at: gridPoint.neighbor(in: .southWest)).features
+        let featuresNW = self.map?.grid?.tile(at: gridPoint.neighbor(in: .northWest)).features
+        let featuresN = self.map?.grid?.tile(at: gridPoint.neighbor(in: .north)).features
         
         if let transitions = self.featureTransitionManager.bestTransitions(forCenter: tile.features, remotesNE: featuresNE!, remotesSE: featuresSE!, remotesS: featuresS!, remotesSW: featuresSW!, remotesNW: featuresNW!, remotesN: featuresN!) {
             
@@ -177,12 +184,12 @@ class GameScene: SKScene {
         self.terrainView.addChild(TerrainSpriteNode(withPosition: position, andTerrain: terrain!))
         
         // terrain transitions
-        let remoteNE = self.grid?.tile(at: gridPoint.neighbor(in: .northEast)).terrain!
-        let remoteSE = self.grid?.tile(at: gridPoint.neighbor(in: .southEast)).terrain!
-        let remoteS = self.grid?.tile(at: gridPoint.neighbor(in: .south)).terrain!
-        let remoteSW = self.grid?.tile(at: gridPoint.neighbor(in: .southWest)).terrain!
-        let remoteNW = self.grid?.tile(at: gridPoint.neighbor(in: .northWest)).terrain!
-        let remoteN = self.grid?.tile(at: gridPoint.neighbor(in: .north)).terrain!
+        let remoteNE = self.map?.grid?.tile(at: gridPoint.neighbor(in: .northEast)).terrain!
+        let remoteSE = self.map?.grid?.tile(at: gridPoint.neighbor(in: .southEast)).terrain!
+        let remoteS = self.map?.grid?.tile(at: gridPoint.neighbor(in: .south)).terrain!
+        let remoteSW = self.map?.grid?.tile(at: gridPoint.neighbor(in: .southWest)).terrain!
+        let remoteNW = self.map?.grid?.tile(at: gridPoint.neighbor(in: .northWest)).terrain!
+        let remoteN = self.map?.grid?.tile(at: gridPoint.neighbor(in: .north)).terrain!
         let remotePattern = "\((remoteNE?.rawValue)!),\((remoteSE?.rawValue)!),\((remoteS?.rawValue)!),\((remoteSW?.rawValue)!),\((remoteNW?.rawValue)!),\((remoteN?.rawValue)!)"
         
         if let transitions = self.terrainTransitionManager.bestTransitions(forCenter: terrain!, remotePattern: remotePattern) {
@@ -196,13 +203,13 @@ class GameScene: SKScene {
     
     func addRiverSprites(tile: Tile, gridPoint: GridPoint, at position: CGPoint) {
         
-        let flows = self.grid?.flows(at: gridPoint)
-        let flowsNE = self.grid?.flows(at: gridPoint.neighbor(in: .northEast))
-        let flowsSE = self.grid?.flows(at: gridPoint.neighbor(in: .southEast))
-        let flowsS = self.grid?.flows(at: gridPoint.neighbor(in: .south))
-        let flowsSW = self.grid?.flows(at: gridPoint.neighbor(in: .southWest))
-        let flowsNW = self.grid?.flows(at: gridPoint.neighbor(in: .northWest))
-        let flowsN = self.grid?.flows(at: gridPoint.neighbor(in: .north))
+        let flows = self.map?.grid?.flows(at: gridPoint)
+        let flowsNE = self.map?.grid?.flows(at: gridPoint.neighbor(in: .northEast))
+        let flowsSE = self.map?.grid?.flows(at: gridPoint.neighbor(in: .southEast))
+        let flowsS = self.map?.grid?.flows(at: gridPoint.neighbor(in: .south))
+        let flowsSW = self.map?.grid?.flows(at: gridPoint.neighbor(in: .southWest))
+        let flowsNW = self.map?.grid?.flows(at: gridPoint.neighbor(in: .northWest))
+        let flowsN = self.map?.grid?.flows(at: gridPoint.neighbor(in: .north))
         
         if let transitions = self.riverTransitionManager.bestTransitions(forCenter: flows!, remotesNE: flowsNE!, remotesSE: flowsSE!, remotesS: flowsS!, remotesSW: flowsSW!, remotesNW: flowsNW!, remotesN: flowsN!) {
             for transition in transitions {
@@ -213,7 +220,7 @@ class GameScene: SKScene {
 
     func moveFocus(to gridpoint: GridPoint) {
 
-        self.cursorNode.position = (self.grid?.screenPoint(from: gridpoint))!
+        self.cursorNode.position = (self.map?.grid?.screenPoint(from: gridpoint))!
     }
 
     // handling touches
@@ -222,7 +229,7 @@ class GameScene: SKScene {
         let touch = touches.first
         let touchLocation = touch?.location(in: self.terrainView)
 
-        let gridPoint = self.grid?.gridPoint(from: touchLocation!)
+        let gridPoint = self.map?.grid?.gridPoint(from: touchLocation!)
 
         //NSLog("touch hex: \(gridPoint)")
 

@@ -149,6 +149,7 @@ extension Map {
         return self.found(city: City(at: point, of: name))
     }
     
+    @discardableResult
     func foundCityAt(x: Int, y: Int, named name: String) -> Bool {
         
         return self.found(city: City(at: GridPoint(x: x, y: y), of: name))

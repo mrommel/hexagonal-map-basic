@@ -44,19 +44,26 @@ class GameViewController: UIViewController {
         
         let generator = GridGenerator(width: 20, height: 20)
         generator.fillFromElevation(withWaterPercentage: 0.4)
-        scene.grid = generator.generate()
         
-        scene.grid?.add(feature: Feature.forest, at: GridPoint(x: 2, y: 2))
-        scene.grid?.add(feature: Feature.hill, at: GridPoint(x: 3, y: 2))
-        scene.grid?.add(feature: Feature.hill, at: GridPoint(x: 2, y: 4))
+        let map = Map(width: 20, height: 20)
+        map.grid = generator.generate()
+        
+        map.grid?.add(feature: Feature.forest, at: GridPoint(x: 2, y: 2))
+        map.grid?.add(feature: Feature.hill, at: GridPoint(x: 3, y: 2))
+        map.grid?.add(feature: Feature.hill, at: GridPoint(x: 2, y: 4))
         
         do {
-            try scene.grid?.tileAt(x: 5, y: 6).setRiverFlowInNorth(flow: .west)
-            try scene.grid?.tileAt(x: 5, y: 6).setRiverFlowInNorthEast(flow: .northWest)
-            try scene.grid?.tileAt(x: 6, y: 6).setRiverFlowInNorth(flow: .west)
+            try map.grid?.tileAt(x: 5, y: 6).setRiverFlowInNorth(flow: .west)
+            try map.grid?.tileAt(x: 5, y: 6).setRiverFlowInNorthEast(flow: .northWest)
+            try map.grid?.tileAt(x: 5, y: 6).setRiverFlowInSouthEast(flow: .northEast)
+            try map.grid?.tileAt(x: 6, y: 6).setRiverFlowInNorth(flow: .west)
         } catch {
             print("error while setting river: \(error)")
         }
+        
+        map.foundCityAt(x: 6, y: 5, named: "Berlin")
+        
+        scene.map = map
         
         skView.presentScene(scene)
     }
