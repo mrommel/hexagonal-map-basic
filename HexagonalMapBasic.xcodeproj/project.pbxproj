@@ -22,8 +22,6 @@
 		1A27699A1E6F6811006122BC /* Terrain.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A27698C1E6F6811006122BC /* Terrain.xcassets */; };
 		1A27699B1E6F6811006122BC /* Tiles.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A27698D1E6F6811006122BC /* Tiles.xcassets */; };
 		1A27699C1E6F6811006122BC /* victory.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A27698E1E6F6811006122BC /* victory.png */; };
-		1A27699D1E6F69E2006122BC /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4D15C29A1D442302007A5EE2 /* Info.plist */; };
-		1A2769A01E6F6B81006122BC /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1A27699F1E6F6B81006122BC /* Info.plist */; };
 		1A322EA11E68BD9E00008773 /* FeatureTransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A322EA01E68BD9D00008773 /* FeatureTransitionManager.swift */; };
 		1A355B2D1E546B00006469B3 /* GridSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A355B2C1E546B00006469B3 /* GridSpriteNode.swift */; };
 		1A355B301E55DBD7006469B3 /* TerrainTransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A355B2F1E55DBD7006469B3 /* TerrainTransitionManager.swift */; };
@@ -478,7 +476,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = MiRo;
 				TargetAttributes = {
 					1A4B389B1E4C7A5600FA7457 = {
@@ -530,7 +528,6 @@
 				1A6603F01E6FD26E002C8FED /* Maps in Resources */,
 				1AFE3C321E719D90008AD2B7 /* Rivers.xcassets in Resources */,
 				4D15C2941D442302007A5EE2 /* Main.storyboard in Resources */,
-				1A2769A01E6F6B81006122BC /* Info.plist in Resources */,
 				1A2769901E6F6811006122BC /* Assets.xcassets in Resources */,
 				1A2769961E6F6811006122BC /* Icon_menu.png in Resources */,
 				1A27699B1E6F6811006122BC /* Tiles.xcassets in Resources */,
@@ -538,7 +535,6 @@
 				1A2769981E6F6811006122BC /* MapTile.xcassets in Resources */,
 				1A2769921E6F6811006122BC /* button.png in Resources */,
 				1A27699C1E6F6811006122BC /* victory.png in Resources */,
-				1A27699D1E6F69E2006122BC /* Info.plist in Resources */,
 				1A2769991E6F6811006122BC /* teaser.png in Resources */,
 				1A2769911E6F6811006122BC /* button-left-bottom.png in Resources */,
 				1A27698F1E6F6811006122BC /* Animations.xcassets in Resources */,

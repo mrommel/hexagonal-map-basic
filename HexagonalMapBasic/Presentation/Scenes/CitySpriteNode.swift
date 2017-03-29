@@ -12,7 +12,8 @@ class CitySpriteNode: SKSpriteNode {
     
     static let zLevel: CGFloat = 60.0
     
-    init(withPosition position: CGPoint) {
+    init(withPosition position: CGPoint, andCity city: City) {
+        
         let texture = SKTexture(imageNamed: "City")
         super.init(texture: texture, color: UIColor.clear, size: texture.size())
         
@@ -22,6 +23,7 @@ class CitySpriteNode: SKSpriteNode {
     }
     
     required init(coder aDecoder: NSCoder) {
+        
         fatalError("init(coder:) has not been implemented")
     }
 }

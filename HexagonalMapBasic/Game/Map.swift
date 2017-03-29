@@ -167,7 +167,11 @@ extension Map {
         
         self.continents = continentFinder.execute(on: self)
         
-        return self.continents!
+        if let continents = self.continents {
+            return continents
+        }
+        
+        return []
     }
     
     func continent(at point: GridPoint) -> Continent? {

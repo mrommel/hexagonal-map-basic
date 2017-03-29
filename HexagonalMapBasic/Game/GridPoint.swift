@@ -106,7 +106,7 @@ extension GridPoint {
 // to the requirements of the Equatable protocol, you need
 // to implement the == operation (which returns true if two objects
 // are the same, and false if they aren't)
-public func ==(first : GridPoint, second : GridPoint) -> Bool {
+public func == (first : GridPoint, second : GridPoint) -> Bool {
     return first.x == second.x && first.y == second.y
 }
 

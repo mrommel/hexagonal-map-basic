@@ -34,7 +34,7 @@ private class AStarPathStep: Hashable {
     }
 }
 
-private func ==(lhs: AStarPathStep, rhs: AStarPathStep) -> Bool {
+private func == (lhs: AStarPathStep, rhs: AStarPathStep) -> Bool {
     return lhs.position == rhs.position
 }
 

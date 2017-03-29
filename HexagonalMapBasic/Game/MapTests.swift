@@ -66,7 +66,7 @@ class MapTests: XCTestCase {
         XCTAssertEqual(canFound, false, "city found should fail due to city nearby")
     }
     
-    func testCityFoundSucceedsAndChopsForest() {
+    func testFoundCitySucceedsAndChopsForest() {
         
         // Preconditions
         let map = Map(width: 5, height: 5)
@@ -80,5 +80,20 @@ class MapTests: XCTestCase {
         XCTAssertEqual(wasFound, true, "city found should succeed")
         let hasForest = map.grid?.has(feature: Feature.forest, at: GridPoint(x: 2, y: 2))
         XCTAssertFalse(hasForest!, "forest should have been removed during settlement")
+    }
+    
+    func testFoundCityAtSucceeds() {
+        
+        // Preconditions
+        let map = Map(width: 5, height: 5)
+        map.grid?.set(terrain: Terrain.grass, at: GridPoint(x: 2, y: 2))
+        
+        // Stimulus
+        let wasFound = map.foundCity(at: GridPoint(x: 2, y: 2), named: "Berlin")
+        
+        // Assertion
+        XCTAssertEqual(wasFound, true, "city found should succeed")
+        let city = map.city(at: GridPoint(x: 2, y: 2))
+        XCTAssertNotNil(city, "city found should succeed")
     }
 }
