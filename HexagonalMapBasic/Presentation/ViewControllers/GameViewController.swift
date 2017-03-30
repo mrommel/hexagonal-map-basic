@@ -51,14 +51,11 @@ class GameViewController: UIViewController {
         skView.showsNodeCount = false
         skView.ignoresSiblingOrder = true
         scene.scaleMode = .resizeFill
-        
-        let generator = GridGenerator(width: 20, height: 20)
-        generator.fillFromElevation(withWaterPercentage: 0.4)
-        
+                
         self.map = Map(width: 20, height: 20)
-        self.map?.grid = generator.generate()
+        self.map?.generate(withWaterPercentage: 0.4)
         
-        self.map?.grid?.add(feature: Feature.forest, at: GridPoint(x: 2, y: 2))
+        /*self.map?.grid?.add(feature: Feature.forest, at: GridPoint(x: 2, y: 2))
         self.map?.grid?.add(feature: Feature.hill, at: GridPoint(x: 3, y: 2))
         self.map?.grid?.add(feature: Feature.hill, at: GridPoint(x: 2, y: 4))
         
@@ -71,7 +68,7 @@ class GameViewController: UIViewController {
             print("error while setting river: \(error)")
         }
         
-        self.map?.foundCityAt(x: 6, y: 5, named: "Berlin")
+        self.map?.foundCityAt(x: 6, y: 5, named: "Berlin")*/
         
         scene.map = self.map
         
