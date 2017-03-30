@@ -309,26 +309,24 @@ class GridGenerator {
                     if moistureMap[x, y]! > 0.5 {
                         switch terrainVal {
                         case .grass:
-                            // TODO forest
-                            
                             if self.zones[x, y]! == .subtropic {
-                                // TODO rain forest
+                                grid?.add(feature: Feature.rainforst, at: gridPoint)
+                            } else {
+                                grid?.add(feature: Feature.forest, at: gridPoint)
                             }
-                            
                             break
                         case .desert:
-                            // TODO oasis
+                            grid?.add(feature: Feature.oasis, at: gridPoint)
                             break
                         case .plains:
-                            // TODO forest
-                            
                             if self.zones[x, y]! == .subtropic {
-                                // TODO rain forest
+                                grid?.add(feature: Feature.rainforst, at: gridPoint)
+                            } else {
+                                grid?.add(feature: Feature.forest, at: gridPoint)
                             }
-                            
                             break
                         case .tundra:
-                            // TODO taiga
+                            grid?.add(feature: Feature.taiga, at: gridPoint)
                             break
                         default:
                             break
@@ -336,16 +334,15 @@ class GridGenerator {
                     }
                     
                     if heightMap[x, y]! > 0.7 {
-                        // TODO hill
+                        grid?.add(feature: Feature.hill, at: gridPoint)
                     } else if heightMap[x, y]! > 0.85 {
-                        // TODO mountain
+                        grid?.add(feature: Feature.mountain, at: gridPoint)
                     }
                 }
             }
         }
     }
 
-    
     // from http://www.redblobgames.com/maps/terrain-from-noise/
     func biome(elevation: Float, moisture: Float, climate: ClimateZone) -> Terrain {
         
@@ -353,43 +350,65 @@ class GridGenerator {
         case .polar:
             return .snow
         case .subpolar:
-            if elevation > 0.6 {
-                return .snow
-            }
-            
-            return .tundra
+            return self.biomeForSubpolar(elevation: elevation, moisture: moisture)
         case .temperate:
-            if elevation > 0.9 {
-                return .snow
-            }
-            
-            if moisture < 0.5 {
-                return .plains
-            } else {
-                return .grass
-            }
+            return self.biomeForTemperate(elevation: elevation, moisture: moisture)
         case .subtropic:
-            if elevation > 0.9 {
-                return .snow
-            }
-            
-            if moisture < 0.2 {
-                return .desert
-            } else if moisture < 0.6 {
-                return .plains
-            } else {
-                return .grass
-            }
+            return self.biomeForSubtropic(elevation: elevation, moisture: moisture)
         case .tropic:
-            if elevation > 0.9 {
-                return .snow
-            }
-            
-            if moisture < 0.5 {
-                return .desert
-            } else {
-                return .plains
-            }
+            return self.biomeForTropic(elevation: elevation, moisture: moisture)
         }
     }
+    
+    func biomeForSubpolar(elevation: Float, moisture: Float) -> Terrain {
+        
+        if elevation > 0.6 {
+            return .snow
+        }
+        
+        return .tundra
+    }
+    
+    func biomeForTemperate(elevation: Float, moisture: Float) -> Terrain {
+        
+        if elevation > 0.9 {
+            return .snow
+        }
+        
+        if moisture < 0.5 {
+            return .plains
+        } else {
+            return .grass
+        }
+    }
+    
+    func biomeForSubtropic(elevation: Float, moisture: Float) -> Terrain {
+        
+        if elevation > 0.9 {
+            return .snow
+        }
+        
+        if moisture < 0.2 {
+            return .desert
+        } else if moisture < 0.6 {
+            return .plains
+        } else {
+            return .grass
+        }
+    }
+    
+    func biomeForTropic(elevation: Float, moisture: Float) -> Terrain {
+        
+        if elevation > 0.9 {
+            return .snow
+        }
+        
+        if moisture < 0.5 {
+            return .desert
+        } else {
+            return .plains
+        }
+    }
+    
+    // MARK: 4th step methods - river
 }

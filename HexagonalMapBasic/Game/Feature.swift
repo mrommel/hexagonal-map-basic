@@ -18,9 +18,12 @@ public enum Feature: String {
     
     // solid terrain
     case forest = "f"
+    case taiga = "t"
+    case rainforst = "r"
     case swamp = "s"
     case hill = "h"
     case mountain = "m"
+    case oasis = "o"
     
     // tile matching
     case matchesAny = "*"
