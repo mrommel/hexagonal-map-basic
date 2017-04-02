@@ -307,6 +307,7 @@ class GridGenerator {
                     grid?.set(terrain: terrainVal, at: gridPoint)
                     
                     if moistureMap[x, y]! > 0.5 {
+                        
                         switch terrainVal {
                         case .grass:
                             if self.zones[x, y]! == .subtropic {
