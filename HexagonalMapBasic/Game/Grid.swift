@@ -299,5 +299,23 @@ extension Grid {
         
         return []
     }
-    
+
+    func add(river: River) {
+        
+        for riverPoint in river.points {
+            
+            // check bounds
+            guard self.has(gridPoint: riverPoint.point) else {
+                continue
+            }
+            
+            let tile = self.tiles[riverPoint.point]
+            do {
+                try tile?.setRiver(flow: riverPoint.flowDirection)
+            } catch {
+                print("something weird happend")
+            }
+        }
+        
+    }
 }

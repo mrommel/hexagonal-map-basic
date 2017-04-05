@@ -519,11 +519,14 @@ class GridGenerator {
         var result: [GridPointWithCorner] = []
         
         if lowestValue < Float.greatestFiniteMagnitude {
+
+            let targetTerrain = self.terrain[lowestGridPointWithCorner.point.x, lowestGridPointWithCorner.point.y]
             
-            let tmp = self.followRiver(at: lowestGridPointWithCorner, on: heightMap, depth: depth - 1)
-            
-            result.append(lowestGridPointWithCorner)
-            result.append(contentsOf: tmp)
+            if targetTerrain != .ocean {
+                result.append(lowestGridPointWithCorner)
+                let tmp = self.followRiver(at: lowestGridPointWithCorner, on: heightMap, depth: depth - 1)
+                result.append(contentsOf: tmp)
+            }
         }
         
         return result
@@ -531,6 +534,8 @@ class GridGenerator {
     
     func put(rivers: [River], onto grid: Grid?) {
      
-        // TODO add river to grid
+        for river in rivers {
+            grid?.add(river: river)
+        }
     }
 }

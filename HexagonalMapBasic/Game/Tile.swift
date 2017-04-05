@@ -144,6 +144,34 @@ extension Tile {
         }
     }
     
+    func setRiver(flow: FlowDirection) throws {
+        
+        switch flow {
+        case .northEast:
+            try self.setRiverFlowInSouthEast(flow: flow)
+            break
+        case .southWest:
+            try self.setRiverFlowInSouthEast(flow: flow)
+            break
+    
+        case .northWest:
+            try self.setRiverFlowInNorthEast(flow: flow)
+            break
+        case .southEast:
+            try self.setRiverFlowInNorthEast(flow: flow)
+            break
+            
+        case .east:
+            try self.setRiverFlowInNorth(flow: flow)
+            break
+        case .west:
+            try self.setRiverFlowInNorth(flow: flow)
+            break
+        default:
+            throw FlowDirectionError.Unsupported(flow: flow, in: .north)
+        }
+    }
+    
     func setRiver(flow: FlowDirection, in direction: GridPointDirection) throws {
         
         switch direction {
