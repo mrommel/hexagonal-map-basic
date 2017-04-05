@@ -232,8 +232,7 @@ public class Grid {
     
     func screenPoint(from gridPoint: GridPoint) -> CGPoint {
         
-        return CGPoint(x: Double(gridPoint.x) * Grid.kHexagonWidth * 3 / 4,
-                       y: Double(gridPoint.y) * Grid.kHexagonHeight + (even(number: Int(gridPoint.x)) ? 0 : Grid.kHexagonHeight / 2))
+        return gridPoint.screenPoint()
     }
     
 }

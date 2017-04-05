@@ -48,11 +48,13 @@ class GridGeneratorOptions {
 
     let climateZoneOption: ClimateZoneOption
     let waterPercentage: Float
+    let rivers: Int
     
-    required init(climateZoneOption: ClimateZoneOption, waterPercentage: Float) {
+    required init(climateZoneOption: ClimateZoneOption, waterPercentage: Float, rivers: Int) {
         
         self.climateZoneOption = climateZoneOption
         self.waterPercentage = waterPercentage
+        self.rivers = rivers
     }
 }
 
@@ -66,6 +68,7 @@ class GridGenerator {
     let terrain: Array2D<Terrain>
     let zones: Array2D<ClimateZone>
     let distanceToCoast: Array2D<Int>
+    var springLocations: [GridPoint]
     
     var completionHandler: CompletionHandler?
     
@@ -84,6 +87,7 @@ class GridGenerator {
         self.terrain = Array2D<Terrain>(columns: self.width, rows: self.height)
         self.distanceToCoast = Array2D<Int>(columns: self.width, rows: self.height)
         self.zones = Array2D<ClimateZone>(columns: self.width, rows: self.height)
+        self.springLocations = []
     }
     
     func generateGrid(with options: GridGeneratorOptions) -> Grid? {
@@ -148,7 +152,9 @@ class GridGenerator {
         }
         
         // 4th step: rivers
-        // self.placeRivers(options.rivers)
+        self.identifySpringLocations(on: heightMap)
+        let rivers = self.add(rivers: options.rivers, on: heightMap)
+        self.put(rivers: rivers, onto: grid)
         
         if let completionHandler = self.completionHandler {
             completionHandler(1.0)
@@ -412,4 +418,119 @@ class GridGenerator {
     }
     
     // MARK: 4th step methods - river
+    
+    func identifySpringLocations(on heightMap: HeightMap) {
+        
+        self.springLocations.removeAll()
+        
+        for x in 0..<width {
+            for y in 0..<height {
+                
+                if let height = heightMap[x, y] {
+                    if height > 0.9 {
+                        let gridPoint = GridPoint(x: x, y: y)
+                        self.springLocations.append(gridPoint)
+                    }
+                }
+            }
+        }
+    }
+    
+    func add(rivers numberOfRivers: Int, on heightMap: HeightMap) -> [River] {
+        
+        let number = min(numberOfRivers, self.springLocations.count)
+        
+        // get a random excerpt of springLocations
+        self.springLocations.shuffle()
+        let selectedSprings = self.springLocations.choose(number)
+        
+        var rivers: [River] = []
+        
+        for spring in selectedSprings {
+            
+            rivers.append(self.startRiver(at: spring, on: heightMap))
+        }
+        
+        return rivers
+    }
+    
+    func heightOf(corner: GridPointCorner, at gridPoint: GridPoint, on heightMap: HeightMap) -> Float {
+        
+        let adjacentPoints = gridPoint.adjacentPoints(of: corner)
+        var num: Float = 0.0
+        var height: Float = 0.0
+        
+        for adjacentPoint in adjacentPoints {
+            // check if adjacentPoint is on map
+            if adjacentPoint.x >= 0 && adjacentPoint.x < self.width && adjacentPoint.y >= 0 && adjacentPoint.y < self.height {
+                num += 1.0
+                if let heightValue = heightMap[adjacentPoint.x, adjacentPoint.y] {
+                    height += heightValue
+                }
+            }
+        }
+        
+        if num > 0 {
+            return height / num
+        } else {
+            return 0.0
+        }
+    }
+    
+    func startRiver(at gridPoint: GridPoint, on heightMap: HeightMap) -> River {
+        
+        // get random corner
+        let startCorner = randomGridPointCorner()
+        let startGridPointWithCorner = GridPointWithCorner(with: gridPoint, andCorner: startCorner)
+        
+        let points = self.followRiver(at: startGridPointWithCorner, on: heightMap, depth: 20)
+        
+        print("\(points)")
+        
+        let river = River(with: points)
+        
+        return river
+    }
+    
+    func followRiver(at gridPointWithCorner: GridPointWithCorner, on heightMap: HeightMap, depth: Int) -> [GridPointWithCorner] {
+        
+        // cut recursion
+        if depth <= 0 {
+            return []
+        }
+        
+        var lowestGridPointWithCorner: GridPointWithCorner = gridPointWithCorner
+        var lowestValue: Float = Float.greatestFiniteMagnitude
+        
+        for corner in gridPointWithCorner.adjacentCorners() {
+            
+            // skip points outside the map
+            if corner.point.x >= 0 && corner.point.x < self.width && corner.point.y >= 0 && corner.point.y < self.height {
+                
+                let heightOfCorner = self.heightOf(corner: corner.corner, at: corner.point, on: heightMap)
+                
+                if heightOfCorner < lowestValue {
+                    lowestValue = heightOfCorner
+                    lowestGridPointWithCorner = corner
+                }
+            }
+        }
+        
+        var result: [GridPointWithCorner] = []
+        
+        if lowestValue < Float.greatestFiniteMagnitude {
+            
+            let tmp = self.followRiver(at: lowestGridPointWithCorner, on: heightMap, depth: depth - 1)
+            
+            result.append(lowestGridPointWithCorner)
+            result.append(contentsOf: tmp)
+        }
+        
+        return result
+    }
+    
+    func put(rivers: [River], onto grid: Grid?) {
+     
+        // TODO add river to grid
+    }
 }

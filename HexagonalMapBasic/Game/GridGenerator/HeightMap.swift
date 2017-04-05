@@ -15,6 +15,7 @@ class HeightMap: Array2D<Float> {
         super.init(columns: width, rows: height)
         
         self.generate(withOctaves: 4, zoom: 80, andPersistence: 0.52)
+        self.normalize()
     }
     
     required init(width: Int, height: Int, octaves: Int, zoom: Float, andPersistence persistence: Float) {
@@ -22,6 +23,7 @@ class HeightMap: Array2D<Float> {
         super.init(columns: width, rows: height)
         
         self.generate(withOctaves: octaves, zoom: zoom, andPersistence: persistence)
+        self.normalize()
     }
     
     /**
@@ -86,5 +88,31 @@ class HeightMap: Array2D<Float> {
         }
         
         return waterLevel
+    }
+    
+    func normalize() {
+        
+        var maxValue: Float = Float.leastNormalMagnitude
+        var minValue: Float = Float.greatestFiniteMagnitude
+        
+        // find min / max
+        for x in 0..<self.columnCount() {
+            for y in 0..<self.rowCount() {
+                if let value = self[x, y] {
+                    maxValue = max(maxValue, value)
+                    minValue = min(minValue, value)
+                }
+            }
+        }
+        
+        // scale
+        // min:2 - max:4 => 3 = 0.5 
+        for x in 0..<self.columnCount() {
+            for y in 0..<self.rowCount() {
+                if let value = self[x, y] {
+                    self[x, y] = (value - minValue) / (maxValue - minValue)
+                }
+            }
+        }
     }
 }

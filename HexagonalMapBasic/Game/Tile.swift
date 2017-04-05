@@ -9,7 +9,7 @@
 import Foundation
 import Buckets
 
-enum FlowDirection: String {
+public enum FlowDirection: String {
     
     case none = ""
     case any = "*"

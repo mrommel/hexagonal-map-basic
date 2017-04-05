@@ -51,4 +51,5 @@ variable_name:
     - lhs
     - rhs
     - map
+    - to
 reporter: "xcode" # reporter type (xcode, json, csv, checkstyle, junit, html, emoji)

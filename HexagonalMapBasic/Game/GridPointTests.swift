@@ -40,4 +40,25 @@ class GridPointTests: XCTestCase {
         XCTAssertEqual(GridPoint(x: 2, y: 2).neighbor(in: .northWest), GridPoint(x: 1, y: 1), "neighbor does not match")
         XCTAssertEqual(GridPoint(x: 2, y: 2).neighbor(in: .north), GridPoint(x: 2, y: 1), "neighbor does not match")
     }
+    
+    func testDirection() {
+        
+        var pt = GridPoint(x: 2, y: 2)
+        
+        XCTAssertEqual(pt.direction(towards: pt.neighbor(in: .northEast)), .northEast, "wrong orientation")
+        XCTAssertEqual(pt.direction(towards: pt.neighbor(in: .southEast)), .southEast, "wrong orientation")
+        XCTAssertEqual(pt.direction(towards: pt.neighbor(in: .south)), .south, "wrong orientation")
+        XCTAssertEqual(pt.direction(towards: pt.neighbor(in: .southWest)), .southWest, "wrong orientation")
+        XCTAssertEqual(pt.direction(towards: pt.neighbor(in: .northWest)), .northWest, "wrong orientation")
+        XCTAssertEqual(pt.direction(towards: pt.neighbor(in: .north)), .north, "wrong orientation")
+        
+        pt = GridPoint(x: 1, y: 2)
+        
+        XCTAssertEqual(pt.direction(towards: pt.neighbor(in: .northEast)), .northEast, "wrong orientation")
+        XCTAssertEqual(pt.direction(towards: pt.neighbor(in: .southEast)), .southEast, "wrong orientation")
+        XCTAssertEqual(pt.direction(towards: pt.neighbor(in: .south)), .south, "wrong orientation")
+        XCTAssertEqual(pt.direction(towards: pt.neighbor(in: .southWest)), .southWest, "wrong orientation")
+        XCTAssertEqual(pt.direction(towards: pt.neighbor(in: .northWest)), .northWest, "wrong orientation")
+        XCTAssertEqual(pt.direction(towards: pt.neighbor(in: .north)), .north, "wrong orientation")
+    }
 }

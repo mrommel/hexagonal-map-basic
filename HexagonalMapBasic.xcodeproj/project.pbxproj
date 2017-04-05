@@ -53,6 +53,10 @@
 		1AA7B3851E51C2BC00104C91 /* Array2DTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA7B3841E51C2BC00104C91 /* Array2DTest.swift */; };
 		1AA7B3881E51C2F900104C91 /* Array2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA7B3871E51C2F900104C91 /* Array2D.swift */; };
 		1AA8466E1E5AFEF300D3A947 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA8466D1E5AFEF300D3A947 /* MapViewController.swift */; };
+		1AB663D71E9394BA005454D5 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB663D61E9394BA005454D5 /* ArrayExtension.swift */; };
+		1AB663D91E939796005454D5 /* GridPointCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB663D81E939796005454D5 /* GridPointCorner.swift */; };
+		1AB663DB1E939BD1005454D5 /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB663DA1E939BD1005454D5 /* Random.swift */; };
+		1AB663DD1E93CBFB005454D5 /* River.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB663DC1E93CBFB005454D5 /* River.swift */; };
 		1AB7EBD81E4DB82900594922 /* GridPointDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB7EBD71E4DB82900594922 /* GridPointDirection.swift */; };
 		1AC1BE9A1E8AA6500084EB0E /* CitySpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC1BE991E8AA6500084EB0E /* CitySpriteNode.swift */; };
 		1AC97BA61E6713FA00441E41 /* CityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC97BA51E6713FA00441E41 /* CityTests.swift */; };
@@ -141,6 +145,10 @@
 		1AA7B3841E51C2BC00104C91 /* Array2DTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Array2DTest.swift; path = ../HexagonalMapBasic/Utils/Array2DTest.swift; sourceTree = "<group>"; };
 		1AA7B3871E51C2F900104C91 /* Array2D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Array2D.swift; path = ../HexagonalMapBasic/Utils/Array2D.swift; sourceTree = "<group>"; };
 		1AA8466D1E5AFEF300D3A947 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = ../HexagonalMapBasic/Presentation/ViewControllers/MapViewController.swift; sourceTree = "<group>"; };
+		1AB663D61E9394BA005454D5 /* ArrayExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArrayExtension.swift; path = Utils/ArrayExtension.swift; sourceTree = "<group>"; };
+		1AB663D81E939796005454D5 /* GridPointCorner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GridPointCorner.swift; path = Game/GridPointCorner.swift; sourceTree = "<group>"; };
+		1AB663DA1E939BD1005454D5 /* Random.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Random.swift; path = Utils/Random.swift; sourceTree = "<group>"; };
+		1AB663DC1E93CBFB005454D5 /* River.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = River.swift; path = Game/River.swift; sourceTree = "<group>"; };
 		1AB7EBD71E4DB82900594922 /* GridPointDirection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GridPointDirection.swift; path = ../HexagonalMapBasic/Game/GridPointDirection.swift; sourceTree = "<group>"; };
 		1AC1BE991E8AA6500084EB0E /* CitySpriteNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CitySpriteNode.swift; path = Presentation/Scenes/CitySpriteNode.swift; sourceTree = "<group>"; };
 		1AC97BA51E6713FA00441E41 /* CityTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CityTests.swift; path = ../HexagonalMapBasic/Game/CityTests.swift; sourceTree = "<group>"; };
@@ -263,6 +271,7 @@
 				1A4B38A61E4C7A7D00FA7457 /* GridTests.swift */,
 				1A4B38AA1E4CAF9600FA7457 /* GridPoint.swift */,
 				1AA7B3761E4DEB9200104C91 /* GridPointTests.swift */,
+				1AB663D81E939796005454D5 /* GridPointCorner.swift */,
 				1AB7EBD71E4DB82900594922 /* GridPointDirection.swift */,
 				1AA7B3741E4DC99200104C91 /* GridPointDirectionTests.swift */,
 				1A4B38961E4C688700FA7457 /* Terrain.swift */,
@@ -286,6 +295,7 @@
 				1AC97BA71E674ECD00441E41 /* AreaTests.swift */,
 				1AFCD49A1E6DF0B600E77A76 /* Continent.swift */,
 				1AFCD49D1E6DF46500E77A76 /* ContinentTests.swift */,
+				1AB663DC1E93CBFB005454D5 /* River.swift */,
 			);
 			name = Game;
 			sourceTree = "<group>";
@@ -318,6 +328,8 @@
 				1AA7B3871E51C2F900104C91 /* Array2D.swift */,
 				1AA7B3841E51C2BC00104C91 /* Array2DTest.swift */,
 				1AEE6C4F1E520EF800537D1D /* PerlinGenerator.swift */,
+				1AB663D61E9394BA005454D5 /* ArrayExtension.swift */,
+				1AB663DA1E939BD1005454D5 /* Random.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -690,6 +702,7 @@
 				1AFE3C2F1E70394E008AD2B7 /* RiverTransitionManager.swift in Sources */,
 				1AB7EBD81E4DB82900594922 /* GridPointDirection.swift in Sources */,
 				1AEE6C561E531BBF00537D1D /* Tile.swift in Sources */,
+				1AB663D91E939796005454D5 /* GridPointCorner.swift in Sources */,
 				1A355B301E55DBD7006469B3 /* TerrainTransitionManager.swift in Sources */,
 				1AA7B3831E51BC3400104C91 /* GridGenerator.swift in Sources */,
 				1A57CA9C1E5DE65800348FDD /* City.swift in Sources */,
@@ -704,6 +717,7 @@
 				1ADE279F1E48B8EC001F44FF /* MenuViewController.swift in Sources */,
 				1A57CA9D1E5DE65B00348FDD /* Unit.swift in Sources */,
 				1AA8466E1E5AFEF300D3A947 /* MapViewController.swift in Sources */,
+				1AB663DD1E93CBFB005454D5 /* River.swift in Sources */,
 				4D15C2891D442302007A5EE2 /* AppDelegate.swift in Sources */,
 				1AEE6C501E520EF800537D1D /* PerlinGenerator.swift in Sources */,
 				1A355B341E55E860006469B3 /* TerrainSpriteNode.swift in Sources */,
@@ -713,12 +727,14 @@
 				1AA7B37C1E4DF6D500104C91 /* AStarPathfinder.swift in Sources */,
 				1A355B361E55F04F006469B3 /* FeatureSpriteNode.swift in Sources */,
 				1A355B2D1E546B00006469B3 /* GridSpriteNode.swift in Sources */,
+				1AB663DB1E939BD1005454D5 /* Random.swift in Sources */,
 				1AEE6C531E5316E300537D1D /* Feature.swift in Sources */,
 				1A4B38951E4C67EC00FA7457 /* Grid.swift in Sources */,
 				1AC1BE9A1E8AA6500084EB0E /* CitySpriteNode.swift in Sources */,
 				1AA7B37A1E4DF69900104C91 /* PathfinderDataSource.swift in Sources */,
 				1A96C71E1E6D3B6600795AF8 /* HeightMap.swift in Sources */,
 				1A57CA921E5D8E0400348FDD /* Game.swift in Sources */,
+				1AB663D71E9394BA005454D5 /* ArrayExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

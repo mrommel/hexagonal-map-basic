@@ -53,7 +53,7 @@ extension Map {
     
     func generate(withWaterPercentage waterPercentage: Float) {
         
-        let options = GridGeneratorOptions(climateZoneOption: .earth, waterPercentage: 0.4)
+        let options = GridGeneratorOptions(climateZoneOption: .earth, waterPercentage: 0.4, rivers: 5)
         
         let generator = GridGenerator(width: self.width, height: self.height)
         generator.completionHandler = { progress in print("progress: \(progress)%") }
