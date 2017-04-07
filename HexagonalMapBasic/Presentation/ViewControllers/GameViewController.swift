@@ -55,20 +55,7 @@ class GameViewController: UIViewController {
         self.map = Map(width: 50, height: 50)
         self.map?.generate(withWaterPercentage: 0.4)
         
-        /*self.map?.grid?.add(feature: Feature.forest, at: GridPoint(x: 2, y: 2))
-        self.map?.grid?.add(feature: Feature.hill, at: GridPoint(x: 3, y: 2))
-        self.map?.grid?.add(feature: Feature.hill, at: GridPoint(x: 2, y: 4))
-        
-        do {
-            try self.map?.grid?.tileAt(x: 5, y: 6).setRiverFlowInNorth(flow: .west)
-            try self.map?.grid?.tileAt(x: 5, y: 6).setRiverFlowInNorthEast(flow: .northWest)
-            try self.map?.grid?.tileAt(x: 5, y: 6).setRiverFlowInSouthEast(flow: .northEast)
-            try self.map?.grid?.tileAt(x: 6, y: 6).setRiverFlowInNorth(flow: .west)
-        } catch {
-            print("error while setting river: \(error)")
-        }
-        
-        self.map?.foundCityAt(x: 6, y: 5, named: "Berlin")*/
+        /*self.map?.foundCityAt(x: 6, y: 5, named: "Berlin")*/
         
         scene.map = self.map
         
