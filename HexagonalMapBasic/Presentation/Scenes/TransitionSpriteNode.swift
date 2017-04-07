@@ -37,7 +37,7 @@ class TransitionSpriteNode: SKSpriteNode {
         
         self.position = position
         self.anchorPoint = CGPoint(x: 0, y: 0)
-        self.zPosition = CGFloat(25)
+        self.zPosition = CGFloat(55)
     }
     
     required init(coder aDecoder: NSCoder) {

@@ -106,7 +106,11 @@ class GameScene: SKScene {
             for y in 0..<height {
 
                 let gridPoint = GridPoint(x: x, y: y)
-                let point = self.map?.grid?.screenPoint(from: gridPoint)
+                var point = self.map?.grid?.screenPoint(from: gridPoint)
+                
+                // skscene is up-side-down
+                point?.y = 1000 - (point?.y)!
+                
                 let tile = self.map?.grid?.tile(at: gridPoint)
 
                 place(tile: tile!, gridPoint: gridPoint, withPosition: point!)
@@ -119,10 +123,11 @@ class GameScene: SKScene {
     // zlevel
     // 70 units
     // 60 cities
+    // 55 river transistions
     // 50 features
     // 40 focus/cursor
     // 30 grid
-    // 25 river transistions
+    // # 25 river transistions
     // 20 terrain transitions
     // 10 terrain
     //
@@ -220,7 +225,9 @@ class GameScene: SKScene {
 
     func moveFocus(to gridpoint: GridPoint) {
 
-        self.cursorNode.position = (self.map?.grid?.screenPoint(from: gridpoint))!
+        var screenPoint = (self.map?.grid?.screenPoint(from: gridpoint))!
+        screenPoint.y = 1000 - screenPoint.y
+        self.cursorNode.position = screenPoint
     }
 
     // handling touches
@@ -229,7 +236,9 @@ class GameScene: SKScene {
         let touch = touches.first
         let touchLocation = touch?.location(in: self.terrainView)
 
-        let gridPoint = self.map?.grid?.gridPoint(from: touchLocation!)
+        var screenPoint = touchLocation!
+        screenPoint.y = 1000 - screenPoint.y
+        let gridPoint = self.map?.grid?.gridPoint(from: screenPoint)
 
         //NSLog("touch hex: \(gridPoint)")
 

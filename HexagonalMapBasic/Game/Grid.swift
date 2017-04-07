@@ -20,6 +20,7 @@ public class Grid {
     var tiles: Array2D<Tile>
     var width: Int
     var height: Int
+    var rivers: [River?]
     
     static let kHexagonWidth: Double = 72.0
     static let kHexagonHeight: Double = 62.0 // height = sqrt(3)/2 * width
@@ -39,6 +40,7 @@ public class Grid {
         self.tiles = Array2D<Tile>(columns: width, rows: height)
         self.width = width
         self.height = height
+        self.rivers = []
         
         for x in 0..<width {
             for y in 0..<height {
@@ -302,6 +304,8 @@ extension Grid {
 
     func add(river: River) {
         
+        self.rivers.append(river)
+        
         for riverPoint in river.points {
             
             // check bounds
@@ -310,6 +314,7 @@ extension Grid {
             }
             
             let tile = self.tiles[riverPoint.point]
+            tile?.set(river: river)
             do {
                 try tile?.setRiver(flow: riverPoint.flowDirection)
             } catch {

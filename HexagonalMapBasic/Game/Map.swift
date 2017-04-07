@@ -58,6 +58,8 @@ extension Map {
         let generator = GridGenerator(width: self.width, height: self.height)
         generator.completionHandler = { progress in print("progress: \(progress)%") }
         self.grid = generator.generateGrid(with: options)
+        
+        self.findContinents()
     }
 }
 

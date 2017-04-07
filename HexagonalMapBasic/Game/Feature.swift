@@ -19,7 +19,7 @@ public enum Feature: String {
     // solid terrain
     case forest = "f"
     case taiga = "t"
-    case rainforst = "r"
+    case rainforest = "r"
     case swamp = "s"
     case hill = "h"
     case mountain = "m"
@@ -39,7 +39,12 @@ public enum Feature: String {
             return "Hill"
         case .mountain:
             return "Mountain"
+        case .rainforest:
+            return "Rainforest"
+        case .taiga:
+            return "Taiga"
         default:
+            print("no image for feature: \(self)")
             return "---"
         }
     }

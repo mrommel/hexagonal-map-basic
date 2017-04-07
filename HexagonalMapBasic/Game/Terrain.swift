@@ -52,6 +52,7 @@ public enum Terrain: String {
         case .snow:
             return "Snow"
         default:
+            print("no image for terrain: \(self)")
             return "---"
         }
     }

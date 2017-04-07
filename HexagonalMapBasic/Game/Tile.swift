@@ -47,6 +47,8 @@ public class Tile: NSObject {
     var road: Bool = false
     var continent: Continent?
     
+    // river properties
+    var river: River?
     var riverFlowNorth: FlowDirection = .none
     var riverFlowNorthEast: FlowDirection = .none
     var riverFlowSouthEast: FlowDirection = .none
@@ -125,9 +127,14 @@ extension Tile {
  */
 extension Tile {
     
+    func set(river: River) {
+        
+        self.river = river
+    }
+    
     func isRiver() -> Bool {
         
-        return self.isRiverInNorth() || self.isRiverInNorthEast() || self.isRiverInSouthEast()
+        return self.river != nil && (self.isRiverInNorth() || self.isRiverInNorthEast() || self.isRiverInSouthEast())
     }
     
     func isRiverIn(direction: GridPointDirection) throws -> Bool {

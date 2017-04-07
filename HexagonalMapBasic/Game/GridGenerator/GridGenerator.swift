@@ -159,7 +159,7 @@ class GridGenerator {
         if let completionHandler = self.completionHandler {
             completionHandler(1.0)
         }
-        
+
         return grid
     }
     
@@ -317,7 +317,7 @@ class GridGenerator {
                         switch terrainVal {
                         case .grass:
                             if self.zones[x, y]! == .subtropic {
-                                grid?.add(feature: Feature.rainforst, at: gridPoint)
+                                grid?.add(feature: Feature.rainforest, at: gridPoint)
                             } else {
                                 grid?.add(feature: Feature.forest, at: gridPoint)
                             }
@@ -327,7 +327,7 @@ class GridGenerator {
                             break
                         case .plains:
                             if self.zones[x, y]! == .subtropic {
-                                grid?.add(feature: Feature.rainforst, at: gridPoint)
+                                grid?.add(feature: Feature.rainforest, at: gridPoint)
                             } else {
                                 grid?.add(feature: Feature.forest, at: gridPoint)
                             }
@@ -445,10 +445,14 @@ class GridGenerator {
         let selectedSprings = self.springLocations.choose(number)
         
         var rivers: [River] = []
+        var unusedRiverNames = riverNames
         
         for spring in selectedSprings {
             
-            rivers.append(self.startRiver(at: spring, on: heightMap))
+            let riverName = unusedRiverNames.chooseOne
+            rivers.append(self.startRiver(with: riverName, at: spring, on: heightMap))
+            let riverIndex = unusedRiverNames.index(where: { $0 == riverName })
+            unusedRiverNames.remove(at: riverIndex!)
         }
         
         return rivers
@@ -477,17 +481,15 @@ class GridGenerator {
         }
     }
     
-    func startRiver(at gridPoint: GridPoint, on heightMap: HeightMap) -> River {
+    func startRiver(with name: String, at gridPoint: GridPoint, on heightMap: HeightMap) -> River {
         
         // get random corner
         let startCorner = randomGridPointCorner()
         let startGridPointWithCorner = GridPointWithCorner(with: gridPoint, andCorner: startCorner)
         
-        let points = self.followRiver(at: startGridPointWithCorner, on: heightMap, depth: 20)
-        
-        print("\(points)")
-        
-        let river = River(with: points)
+        let points = self.followRiver(at: startGridPointWithCorner, on: heightMap, depth: 30)
+       
+        let river = River(with: name, and: points)
         
         return river
     }
@@ -523,6 +525,9 @@ class GridGenerator {
             let targetTerrain = self.terrain[lowestGridPointWithCorner.point.x, lowestGridPointWithCorner.point.y]
             
             if targetTerrain != .ocean {
+                
+                // TODO: river sometimes get stuck and end in lakes
+                
                 result.append(lowestGridPointWithCorner)
                 let tmp = self.followRiver(at: lowestGridPointWithCorner, on: heightMap, depth: depth - 1)
                 result.append(contentsOf: tmp)

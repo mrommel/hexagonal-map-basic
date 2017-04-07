@@ -125,55 +125,55 @@ class TerrainTransitionManager {
         
         // beach
         // 1 edge
-        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "-,~,*,*,*,~", image: "Beach-se", zLevel: 21))
-        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "~,-,~,*,*,*", image: "Beach-ne", zLevel: 21))
-        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "*,~,-,~,*,*", image: "Beach-n", zLevel: 21))
-        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "*,*,~,-,~,*", image: "Beach-nw", zLevel: 21))
-        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "*,*,*,~,-,~", image: "Beach-sw", zLevel: 21))
-        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "~,*,*,*,~,-", image: "Beach-s", zLevel: 21))
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "-,~,*,*,*,~", image: "Beach-ne", zLevel: 21))
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "~,-,~,*,*,*", image: "Beach-se", zLevel: 21))
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "*,~,-,~,*,*", image: "Beach-s", zLevel: 21))
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "*,*,~,-,~,*", image: "Beach-sw", zLevel: 21))
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "*,*,*,~,-,~", image: "Beach-nw", zLevel: 21))
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "~,*,*,*,~,-", image: "Beach-n", zLevel: 21))
         
         // 2 edges
         self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "-,-,~,*,*,~", image: "Beach-ne-se", zLevel: 21))
-        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "~,-,-,~,*,*", image: "Beach-n-ne", zLevel: 21))
-        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "*,~,-,-,~,*", image: "Beach-nw-n", zLevel: 21))
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "~,-,-,~,*,*", image: "Beach-se-s", zLevel: 21))
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "*,~,-,-,~,*", image: "Beach-s-sw", zLevel: 21))
         self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "*,*,~,-,-,~", image: "Beach-sw-nw", zLevel: 21))
-        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "~,*,*,~,-,-", image: "Beach-s-sw", zLevel: 21))
-        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "-,~,*,*,~,-", image: "Beach-se-s", zLevel: 21))
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "~,*,*,~,-,-", image: "Beach-nw-n", zLevel: 21))
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "-,~,*,*,~,-", image: "Beach-n-ne", zLevel: 21))
         
         // 3 edges
-        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "-,-,-,~,*,~", image: "Beach-n-ne-se", zLevel: 21))
-        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "~,-,-,-,~,*", image: "Beach-nw-n-ne", zLevel: 21))
-        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "*,~,-,-,-,~", image: "Beach-sw-nw-n", zLevel: 21))
-        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "~,*,~,-,-,-", image: "Beach-s-sw-nw", zLevel: 21))
-        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "-,~,*,~,-,-", image: "Beach-se-s-sw", zLevel: 21))
-        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "-,-,~,*,~,-", image: "Beach-ne-se-s", zLevel: 21))
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "-,-,-,~,*,~", image: "Beach-ne-se-s", zLevel: 21))
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "~,-,-,-,~,*", image: "Beach-se-s-sw", zLevel: 21))
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "*,~,-,-,-,~", image: "Beach-s-sw-nw", zLevel: 21))
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "~,*,~,-,-,-", image: "Beach-sw-nw-n", zLevel: 21))
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "-,~,*,~,-,-", image: "Beach-nw-n-ne", zLevel: 21))
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "-,-,~,*,~,-", image: "Beach-n-ne-se", zLevel: 21))
         
         // 4 edges
         self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "-,-,-,~,~,-", image: "Beach-n-ne-se-s", zLevel: 21))
-        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "-,-,-,-,~,~", image: "Beach-nw-n-ne-se", zLevel: 21))
-        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "~,-,-,-,-,~", image: "Beach-sw-nw-n-ne", zLevel: 21))
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "-,-,-,-,~,~", image: "Beach-ne-se-s-sw", zLevel: 21))
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "~,-,-,-,-,~", image: "Beach-se-s-sw-nw", zLevel: 21))
         self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "~,~,-,-,-,-", image: "Beach-s-sw-nw-n", zLevel: 21))
-        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "-,~,~,-,-,-", image: "Beach-se-s-sw-nw", zLevel: 21))
-        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "-,-,~,~,-,-", image: "Beach-ne-se-s-sw", zLevel: 21))
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "-,~,~,-,-,-", image: "Beach-sw-nw-n-ne", zLevel: 21))
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "-,-,~,~,-,-", image: "Beach-nw-n-ne-se", zLevel: 21))
         
         // 5 edges
-        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "-,-,-,~,-,-", image: "Beach-n-ne-se-s-sw", zLevel: 21))
-        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "-,-,-,-,~,-", image: "Beach-nw-n-ne-se-s", zLevel: 21))
-        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "-,-,-,-,-,~", image: "Beach-sw-nw-n-ne-se", zLevel: 21))
-        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "~,-,-,-,-,-", image: "Beach-s-sw-nw-n-ne", zLevel: 21))
-        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "-,~,-,-,-,-", image: "Beach-se-s-sw-nw-n", zLevel: 21))
-        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "-,-,~,-,-,-", image: "Beach-ne-se-s-sw-nw", zLevel: 21))
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "-,-,-,~,-,-", image: "Beach-nw-n-ne-se-s", zLevel: 21))
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "-,-,-,-,~,-", image: "Beach-n-ne-se-s-sw", zLevel: 21))
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "-,-,-,-,-,~", image: "Beach-ne-se-s-sw-nw", zLevel: 21))
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "~,-,-,-,-,-", image: "Beach-se-s-sw-nw-n", zLevel: 21))
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "-,~,-,-,-,-", image: "Beach-s-sw-nw-n-ne", zLevel: 21))
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "-,-,~,-,-,-", image: "Beach-sw-nw-n-ne-se", zLevel: 21))
         
         // all 6 edges
         self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "-,-,-,-,-,-", image: "Beach-n-ne-se-s-sw-nw", zLevel: 21))
         
         // grass
-        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "gs,*,*,*,*,*", image: "Grassland-se", zLevel: 22))
-        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "*,gs,*,*,*,*", image: "Grassland-ne", zLevel: 22))
-        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "*,*,gs,*,*,*", image: "Grassland-n", zLevel: 22))
-        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "*,*,*,gs,*,*", image: "Grassland-nw", zLevel: 22))
-        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "*,*,*,*,gs,*", image: "Grassland-sw", zLevel: 22))
-        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "*,*,*,*,*,gs", image: "Grassland-s", zLevel: 22))
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "gs,*,*,*,*,*", image: "Grassland-ne", zLevel: 22))
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "*,gs,*,*,*,*", image: "Grassland-se", zLevel: 22))
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "*,*,gs,*,*,*", image: "Grassland-s", zLevel: 22))
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "*,*,*,gs,*,*", image: "Grassland-sw", zLevel: 22))
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "*,*,*,*,gs,*", image: "Grassland-nw", zLevel: 22))
+        self.transitions.append(TerrainTransitionRule(tileRule: .matchesWater, remoteRule: "*,*,*,*,*,gs", image: "Grassland-n", zLevel: 22))
         
     }
     

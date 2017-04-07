@@ -10,6 +10,9 @@
 
 import Foundation
 
+// taken from here: https://en.wikipedia.org/wiki/List_of_rivers_by_length
+let riverNames = ["Amazon", "Nile", "Yangtze", "Mississippi", "Yenisei", "Huang He", "Ob", "Río de la Plata", "Congo", "Amur", "Lena", "Mekong", "Mackenzie", "Niger", "Murray", "Tocantins", "Volga", "Euphrates", "Madeira", "Purús", "Yukon", "Indus", "São Francisco", "Syr Darya", "Salween", "Saint Lawrence", "Rio Grande", "Lower Tunguska", "Brahmaputra", "Donau"]
+
 public class RiverPoint {
     
     let point: GridPoint
@@ -24,10 +27,12 @@ public class RiverPoint {
 
 public class River {
     
+    let name: String
     var points: [RiverPoint]
     
-    public init(with points: [GridPointWithCorner]) {
+    public init(with name: String, and points: [GridPointWithCorner]) {
         
+        self.name = name
         self.points = []
         self.translate(points: points)
     }
@@ -93,7 +98,6 @@ public class River {
             }
         } else {
             let dir = from.point.direction(towards: to.point)
-            print("dir: \(dir)")
             
             switch dir {
             case .northEast:
@@ -144,3 +148,4 @@ public class River {
         assert(false, "Condition from: \(from), to: \(to) not handled")
     }
 }
+

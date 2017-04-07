@@ -52,7 +52,7 @@ class GameViewController: UIViewController {
         skView.ignoresSiblingOrder = true
         scene.scaleMode = .resizeFill
                 
-        self.map = Map(width: 20, height: 20)
+        self.map = Map(width: 50, height: 50)
         self.map?.generate(withWaterPercentage: 0.4)
         
         /*self.map?.grid?.add(feature: Feature.forest, at: GridPoint(x: 2, y: 2))
@@ -80,7 +80,29 @@ class GameViewController: UIViewController {
     }
     
     func showInfoFor(tile: Tile) {
-        SCLAlertView().showInfo("Important info", subTitle: "tile")
+        
+        var tileTxt = "x: \(tile.point.x), y: \(tile.point.y), "
+        
+        let continent = tile.continent
+        if let continent = continent {
+            tileTxt += "continent: \(continent), "
+        }
+        
+        if tile.isRiver() {
+            tileTxt += "river: \(tile.river?.name ?? "???"), flow:["
+            if tile.isRiverInNorthEast() {
+                tileTxt += "ne,"
+            }
+            if tile.isRiverInNorth() {
+                tileTxt += "n,"
+            }
+            if tile.isRiverInSouthEast() {
+                tileTxt += "se,"
+            }
+            tileTxt += "], "
+        }
+        
+        SCLAlertView().showInfo("Important info", subTitle: tileTxt)
     }
 
     @IBAction func openMenu(sender: AnyObject) {
