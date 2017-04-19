@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1ABD0B251EA76B040065541C"
+               BlueprintIdentifier = "1ABD0BBE1EA7F2540065541C"
                BuildableName = "HexagonalMapBuilder.app"
                BlueprintName = "HexagonalMapBuilder"
-               ReferencedContainer = "container:HexagonalMapBuilder.xcodeproj">
+               ReferencedContainer = "container:HexagonalMapBasic.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,30 +32,30 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1ABD0B361EA76B040065541C"
+               BlueprintIdentifier = "1ABD0BCE1EA7F2540065541C"
                BuildableName = "HexagonalMapBuilderTests.xctest"
                BlueprintName = "HexagonalMapBuilderTests"
-               ReferencedContainer = "container:HexagonalMapBuilder.xcodeproj">
+               ReferencedContainer = "container:HexagonalMapBasic.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1ABD0B411EA76B040065541C"
+               BlueprintIdentifier = "1ABD0BD91EA7F2540065541C"
                BuildableName = "HexagonalMapBuilderUITests.xctest"
                BlueprintName = "HexagonalMapBuilderUITests"
-               ReferencedContainer = "container:HexagonalMapBuilder.xcodeproj">
+               ReferencedContainer = "container:HexagonalMapBasic.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1ABD0B251EA76B040065541C"
+            BlueprintIdentifier = "1ABD0BBE1EA7F2540065541C"
             BuildableName = "HexagonalMapBuilder.app"
             BlueprintName = "HexagonalMapBuilder"
-            ReferencedContainer = "container:HexagonalMapBuilder.xcodeproj">
+            ReferencedContainer = "container:HexagonalMapBasic.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -75,10 +75,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1ABD0B251EA76B040065541C"
+            BlueprintIdentifier = "1ABD0BBE1EA7F2540065541C"
             BuildableName = "HexagonalMapBuilder.app"
             BlueprintName = "HexagonalMapBuilder"
-            ReferencedContainer = "container:HexagonalMapBuilder.xcodeproj">
+            ReferencedContainer = "container:HexagonalMapBasic.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -94,10 +94,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "1ABD0B251EA76B040065541C"
+            BlueprintIdentifier = "1ABD0BBE1EA7F2540065541C"
             BuildableName = "HexagonalMapBuilder.app"
             BlueprintName = "HexagonalMapBuilder"
-            ReferencedContainer = "container:HexagonalMapBuilder.xcodeproj">
+            ReferencedContainer = "container:HexagonalMapBasic.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

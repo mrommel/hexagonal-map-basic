@@ -58,6 +58,12 @@
 		1AB663DB1E939BD1005454D5 /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB663DA1E939BD1005454D5 /* Random.swift */; };
 		1AB663DD1E93CBFB005454D5 /* River.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB663DC1E93CBFB005454D5 /* River.swift */; };
 		1AB7EBD81E4DB82900594922 /* GridPointDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB7EBD71E4DB82900594922 /* GridPointDirection.swift */; };
+		1ABD0BC21EA7F2540065541C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABD0BC11EA7F2540065541C /* AppDelegate.swift */; };
+		1ABD0BC41EA7F2540065541C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABD0BC31EA7F2540065541C /* ViewController.swift */; };
+		1ABD0BC61EA7F2540065541C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1ABD0BC51EA7F2540065541C /* Assets.xcassets */; };
+		1ABD0BC91EA7F2540065541C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ABD0BC71EA7F2540065541C /* Main.storyboard */; };
+		1ABD0BD41EA7F2540065541C /* HexagonalMapBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABD0BD31EA7F2540065541C /* HexagonalMapBuilderTests.swift */; };
+		1ABD0BDF1EA7F2550065541C /* HexagonalMapBuilderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABD0BDE1EA7F2550065541C /* HexagonalMapBuilderUITests.swift */; };
 		1AC1BE9A1E8AA6500084EB0E /* CitySpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC1BE991E8AA6500084EB0E /* CitySpriteNode.swift */; };
 		1AC97BA61E6713FA00441E41 /* CityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC97BA51E6713FA00441E41 /* CityTests.swift */; };
 		1AC97BA81E674ECD00441E41 /* AreaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC97BA71E674ECD00441E41 /* AreaTests.swift */; };
@@ -80,10 +86,13 @@
 		1AFE3C321E719D90008AD2B7 /* Rivers.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AFE3C311E719D90008AD2B7 /* Rivers.xcassets */; };
 		1AFE3C341E72AEAA008AD2B7 /* TerrainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFE3C331E72AEAA008AD2B7 /* TerrainTests.swift */; };
 		1AFE3C361E72B056008AD2B7 /* RiverTransitionManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFE3C351E72B056008AD2B7 /* RiverTransitionManagerTests.swift */; };
+		2BAAA6B9601A22EAC6554F11 /* Pods_HexagonalMap_HexagonalMapBuilder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 011DB6DE124AF6CF885AAB22 /* Pods_HexagonalMap_HexagonalMapBuilder.framework */; };
+		45F9C24F7443A89A1DCCEE0B /* Pods_HexagonalMap_HexagonalMapBasicTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B4609BDE024C57B32BBB4D2 /* Pods_HexagonalMap_HexagonalMapBasicTests.framework */; };
 		4D15C2891D442302007A5EE2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D15C2881D442302007A5EE2 /* AppDelegate.swift */; };
 		4D15C2911D442302007A5EE2 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D15C2901D442302007A5EE2 /* GameViewController.swift */; };
 		4D15C2941D442302007A5EE2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D15C2921D442302007A5EE2 /* Main.storyboard */; };
 		4D15C2991D442302007A5EE2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D15C2971D442302007A5EE2 /* LaunchScreen.storyboard */; };
+		A75232B6268D9DE3A9DC77F4 /* Pods_HexagonalMap_HexagonalMapBasic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93274E9C87ACE5214CD496FE /* Pods_HexagonalMap_HexagonalMapBasic.framework */; };
 		F510CBA54A1C0453AACE31AC /* Pods_HexagonalMapBasic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22AA1275C9994E5D58C36935 /* Pods_HexagonalMapBasic.framework */; };
 /* End PBXBuildFile section */
 
@@ -95,9 +104,26 @@
 			remoteGlobalIDString = 4D15C2841D442302007A5EE2;
 			remoteInfo = HexagonalMapBasic;
 		};
+		1ABD0BD01EA7F2540065541C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D15C27D1D442302007A5EE2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1ABD0BBE1EA7F2540065541C;
+			remoteInfo = HexagonalMapBuilder;
+		};
+		1ABD0BDB1EA7F2550065541C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D15C27D1D442302007A5EE2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1ABD0BBE1EA7F2540065541C;
+			remoteInfo = HexagonalMapBuilder;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		011DB6DE124AF6CF885AAB22 /* Pods_HexagonalMap_HexagonalMapBuilder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HexagonalMap_HexagonalMapBuilder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1338C25544932A6046EF3159 /* Pods-HexagonalMap-HexagonalMapBasicTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HexagonalMap-HexagonalMapBasicTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HexagonalMap-HexagonalMapBasicTests/Pods-HexagonalMap-HexagonalMapBasicTests.release.xcconfig"; sourceTree = "<group>"; };
+		16C990D981CAE769EF93F41A /* Pods-HexagonalMap-HexagonalMapBasic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HexagonalMap-HexagonalMapBasic.release.xcconfig"; path = "Pods/Target Support Files/Pods-HexagonalMap-HexagonalMapBasic/Pods-HexagonalMap-HexagonalMapBasic.release.xcconfig"; sourceTree = "<group>"; };
 		1A153D9C1E56E39300F11812 /* TransitionSpriteNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TransitionSpriteNode.swift; path = ../HexagonalMapBasic/Presentation/Scenes/TransitionSpriteNode.swift; sourceTree = "<group>"; };
 		1A2769811E6F6811006122BC /* Animations.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Animations.xcassets; path = HexagonalMapBasic/Resources/Animations.xcassets; sourceTree = SOURCE_ROOT; };
 		1A2769821E6F6811006122BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = HexagonalMapBasic/Resources/Assets.xcassets; sourceTree = SOURCE_ROOT; };
@@ -151,6 +177,18 @@
 		1AB663DC1E93CBFB005454D5 /* River.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = River.swift; path = Game/River.swift; sourceTree = "<group>"; };
 		1AB7EBD71E4DB82900594922 /* GridPointDirection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GridPointDirection.swift; path = ../HexagonalMapBasic/Game/GridPointDirection.swift; sourceTree = "<group>"; };
 		1ABD0BA41EA77ED50065541C /* HexagonalMap.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HexagonalMap.framework; path = "../../Library/Developer/Xcode/DerivedData/HexagonalMapBasic-fudfqntspjqtapctfkuhrhwgqtnu/Build/Products/Debug-iphonesimulator/HexagonalMap.framework"; sourceTree = "<group>"; };
+		1ABD0BBF1EA7F2540065541C /* HexagonalMapBuilder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HexagonalMapBuilder.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1ABD0BC11EA7F2540065541C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1ABD0BC31EA7F2540065541C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1ABD0BC51EA7F2540065541C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1ABD0BC81EA7F2540065541C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1ABD0BCA1EA7F2540065541C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1ABD0BCF1EA7F2540065541C /* HexagonalMapBuilderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HexagonalMapBuilderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1ABD0BD31EA7F2540065541C /* HexagonalMapBuilderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexagonalMapBuilderTests.swift; sourceTree = "<group>"; };
+		1ABD0BD51EA7F2540065541C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1ABD0BDA1EA7F2540065541C /* HexagonalMapBuilderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HexagonalMapBuilderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1ABD0BDE1EA7F2550065541C /* HexagonalMapBuilderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexagonalMapBuilderUITests.swift; sourceTree = "<group>"; };
+		1ABD0BE01EA7F2550065541C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1AC1BE991E8AA6500084EB0E /* CitySpriteNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CitySpriteNode.swift; path = Presentation/Scenes/CitySpriteNode.swift; sourceTree = "<group>"; };
 		1AC97BA51E6713FA00441E41 /* CityTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CityTests.swift; path = ../HexagonalMapBasic/Game/CityTests.swift; sourceTree = "<group>"; };
 		1AC97BA71E674ECD00441E41 /* AreaTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AreaTests.swift; path = ../HexagonalMapBasic/Game/AreaTests.swift; sourceTree = "<group>"; };
@@ -173,8 +211,10 @@
 		1AFE3C311E719D90008AD2B7 /* Rivers.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Rivers.xcassets; path = Resources/Rivers.xcassets; sourceTree = "<group>"; };
 		1AFE3C331E72AEAA008AD2B7 /* TerrainTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TerrainTests.swift; path = Game/TerrainTests.swift; sourceTree = "<group>"; };
 		1AFE3C351E72B056008AD2B7 /* RiverTransitionManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RiverTransitionManagerTests.swift; path = Game/Templating/RiverTransitionManagerTests.swift; sourceTree = "<group>"; };
+		1B4609BDE024C57B32BBB4D2 /* Pods_HexagonalMap_HexagonalMapBasicTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HexagonalMap_HexagonalMapBasicTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		22AA1275C9994E5D58C36935 /* Pods_HexagonalMapBasic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HexagonalMapBasic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		31793D30FF1A02BBCED07F71 /* Pods-HexagonalMapBasic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HexagonalMapBasic.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HexagonalMapBasic/Pods-HexagonalMapBasic.debug.xcconfig"; sourceTree = "<group>"; };
+		3A80068D961CBD2A69FD2543 /* Pods-HexagonalMap-HexagonalMapBuilder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HexagonalMap-HexagonalMapBuilder.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HexagonalMap-HexagonalMapBuilder/Pods-HexagonalMap-HexagonalMapBuilder.debug.xcconfig"; sourceTree = "<group>"; };
 		3C40715086CB38506213EF83 /* Pods-HexagonalMapBasic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HexagonalMapBasic.release.xcconfig"; path = "Pods/Target Support Files/Pods-HexagonalMapBasic/Pods-HexagonalMapBasic.release.xcconfig"; sourceTree = "<group>"; };
 		4D15C2851D442302007A5EE2 /* HexagonalMapBasic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HexagonalMapBasic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D15C2881D442302007A5EE2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../HexagonalMapBasic/AppDelegate.swift; sourceTree = "<group>"; };
@@ -182,9 +222,13 @@
 		4D15C2931D442302007A5EE2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4D15C2981D442302007A5EE2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4D15C29A1D442302007A5EE2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = "/Users/mrommel/Prog/hexagonal-map-basic/HexagonalMapBasic/Info.plist"; sourceTree = "<absolute>"; };
+		93274E9C87ACE5214CD496FE /* Pods_HexagonalMap_HexagonalMapBasic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HexagonalMap_HexagonalMapBasic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		97D5E67FFF0289FA0AFF4DD4 /* Pods_HexagonalMapBasicTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HexagonalMapBasicTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A6FA8C9CE3D500C266B28006 /* Pods-HexagonalMap-HexagonalMapBasicTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HexagonalMap-HexagonalMapBasicTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HexagonalMap-HexagonalMapBasicTests/Pods-HexagonalMap-HexagonalMapBasicTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B9651DA13EC029D1DECD0DAF /* Pods-HexagonalMapBasicTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HexagonalMapBasicTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HexagonalMapBasicTests/Pods-HexagonalMapBasicTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C26567F9DA1B9E2AD60A702F /* Pods-HexagonalMapBasicTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HexagonalMapBasicTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HexagonalMapBasicTests/Pods-HexagonalMapBasicTests.release.xcconfig"; sourceTree = "<group>"; };
+		D1BA03E9EADB10C51F61E275 /* Pods-HexagonalMap-HexagonalMapBuilder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HexagonalMap-HexagonalMapBuilder.release.xcconfig"; path = "Pods/Target Support Files/Pods-HexagonalMap-HexagonalMapBuilder/Pods-HexagonalMap-HexagonalMapBuilder.release.xcconfig"; sourceTree = "<group>"; };
+		F35C351E4051C44297D4B7AD /* Pods-HexagonalMap-HexagonalMapBasic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HexagonalMap-HexagonalMapBasic.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HexagonalMap-HexagonalMapBasic/Pods-HexagonalMap-HexagonalMapBasic.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +237,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				18057D4B8B9BA877A95D95DB /* Pods_HexagonalMapBasicTests.framework in Frameworks */,
+				45F9C24F7443A89A1DCCEE0B /* Pods_HexagonalMap_HexagonalMapBasicTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1ABD0BBC1EA7F2540065541C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2BAAA6B9601A22EAC6554F11 /* Pods_HexagonalMap_HexagonalMapBuilder.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1ABD0BCC1EA7F2540065541C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1ABD0BD71EA7F2540065541C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,6 +268,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F510CBA54A1C0453AACE31AC /* Pods_HexagonalMapBasic.framework in Frameworks */,
+				A75232B6268D9DE3A9DC77F4 /* Pods_HexagonalMap_HexagonalMapBasic.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,6 +282,12 @@
 				3C40715086CB38506213EF83 /* Pods-HexagonalMapBasic.release.xcconfig */,
 				B9651DA13EC029D1DECD0DAF /* Pods-HexagonalMapBasicTests.debug.xcconfig */,
 				C26567F9DA1B9E2AD60A702F /* Pods-HexagonalMapBasicTests.release.xcconfig */,
+				F35C351E4051C44297D4B7AD /* Pods-HexagonalMap-HexagonalMapBasic.debug.xcconfig */,
+				16C990D981CAE769EF93F41A /* Pods-HexagonalMap-HexagonalMapBasic.release.xcconfig */,
+				A6FA8C9CE3D500C266B28006 /* Pods-HexagonalMap-HexagonalMapBasicTests.debug.xcconfig */,
+				1338C25544932A6046EF3159 /* Pods-HexagonalMap-HexagonalMapBasicTests.release.xcconfig */,
+				3A80068D961CBD2A69FD2543 /* Pods-HexagonalMap-HexagonalMapBuilder.debug.xcconfig */,
+				D1BA03E9EADB10C51F61E275 /* Pods-HexagonalMap-HexagonalMapBuilder.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -335,6 +409,36 @@
 			name = Utils;
 			sourceTree = "<group>";
 		};
+		1ABD0BC01EA7F2540065541C /* HexagonalMapBuilder */ = {
+			isa = PBXGroup;
+			children = (
+				1ABD0BC11EA7F2540065541C /* AppDelegate.swift */,
+				1ABD0BC31EA7F2540065541C /* ViewController.swift */,
+				1ABD0BC51EA7F2540065541C /* Assets.xcassets */,
+				1ABD0BC71EA7F2540065541C /* Main.storyboard */,
+				1ABD0BCA1EA7F2540065541C /* Info.plist */,
+			);
+			path = HexagonalMapBuilder;
+			sourceTree = "<group>";
+		};
+		1ABD0BD21EA7F2540065541C /* HexagonalMapBuilderTests */ = {
+			isa = PBXGroup;
+			children = (
+				1ABD0BD31EA7F2540065541C /* HexagonalMapBuilderTests.swift */,
+				1ABD0BD51EA7F2540065541C /* Info.plist */,
+			);
+			path = HexagonalMapBuilderTests;
+			sourceTree = "<group>";
+		};
+		1ABD0BDD1EA7F2550065541C /* HexagonalMapBuilderUITests */ = {
+			isa = PBXGroup;
+			children = (
+				1ABD0BDE1EA7F2550065541C /* HexagonalMapBuilderUITests.swift */,
+				1ABD0BE01EA7F2550065541C /* Info.plist */,
+			);
+			path = HexagonalMapBuilderUITests;
+			sourceTree = "<group>";
+		};
 		1ADE279D1E488D05001F44FF /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
@@ -369,6 +473,9 @@
 				1ABD0BA41EA77ED50065541C /* HexagonalMap.framework */,
 				22AA1275C9994E5D58C36935 /* Pods_HexagonalMapBasic.framework */,
 				97D5E67FFF0289FA0AFF4DD4 /* Pods_HexagonalMapBasicTests.framework */,
+				93274E9C87ACE5214CD496FE /* Pods_HexagonalMap_HexagonalMapBasic.framework */,
+				1B4609BDE024C57B32BBB4D2 /* Pods_HexagonalMap_HexagonalMapBasicTests.framework */,
+				011DB6DE124AF6CF885AAB22 /* Pods_HexagonalMap_HexagonalMapBuilder.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -378,6 +485,9 @@
 			children = (
 				4D15C2871D442302007A5EE2 /* HexagonalMapBasic */,
 				1A27699E1E6F6A94006122BC /* HexagonalMapBasicTests */,
+				1ABD0BC01EA7F2540065541C /* HexagonalMapBuilder */,
+				1ABD0BD21EA7F2540065541C /* HexagonalMapBuilderTests */,
+				1ABD0BDD1EA7F2550065541C /* HexagonalMapBuilderUITests */,
 				4D15C2861D442302007A5EE2 /* Products */,
 				16B26414B5B6C8CC063AFC16 /* Pods */,
 				1CFC6B4386390A5B2BD2A1A8 /* Frameworks */,
@@ -389,6 +499,9 @@
 			children = (
 				4D15C2851D442302007A5EE2 /* HexagonalMapBasic.app */,
 				1A4B389C1E4C7A5600FA7457 /* HexagonalMapBasicTests.xctest */,
+				1ABD0BBF1EA7F2540065541C /* HexagonalMapBuilder.app */,
+				1ABD0BCF1EA7F2540065541C /* HexagonalMapBuilderTests.xctest */,
+				1ABD0BDA1EA7F2540065541C /* HexagonalMapBuilderUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -462,6 +575,62 @@
 			productReference = 1A4B389C1E4C7A5600FA7457 /* HexagonalMapBasicTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		1ABD0BBE1EA7F2540065541C /* HexagonalMapBuilder */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1ABD0BE71EA7F2550065541C /* Build configuration list for PBXNativeTarget "HexagonalMapBuilder" */;
+			buildPhases = (
+				980F90B083F5A6BE73E1E85C /* [CP] Check Pods Manifest.lock */,
+				1ABD0BBB1EA7F2540065541C /* Sources */,
+				1ABD0BBC1EA7F2540065541C /* Frameworks */,
+				1ABD0BBD1EA7F2540065541C /* Resources */,
+				690C88513AF58682C02AB35B /* [CP] Embed Pods Frameworks */,
+				3E93527544847B2F4530ADA3 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HexagonalMapBuilder;
+			productName = HexagonalMapBuilder;
+			productReference = 1ABD0BBF1EA7F2540065541C /* HexagonalMapBuilder.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1ABD0BCE1EA7F2540065541C /* HexagonalMapBuilderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1ABD0BE81EA7F2550065541C /* Build configuration list for PBXNativeTarget "HexagonalMapBuilderTests" */;
+			buildPhases = (
+				1ABD0BCB1EA7F2540065541C /* Sources */,
+				1ABD0BCC1EA7F2540065541C /* Frameworks */,
+				1ABD0BCD1EA7F2540065541C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1ABD0BD11EA7F2540065541C /* PBXTargetDependency */,
+			);
+			name = HexagonalMapBuilderTests;
+			productName = HexagonalMapBuilderTests;
+			productReference = 1ABD0BCF1EA7F2540065541C /* HexagonalMapBuilderTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		1ABD0BD91EA7F2540065541C /* HexagonalMapBuilderUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1ABD0BE91EA7F2550065541C /* Build configuration list for PBXNativeTarget "HexagonalMapBuilderUITests" */;
+			buildPhases = (
+				1ABD0BD61EA7F2540065541C /* Sources */,
+				1ABD0BD71EA7F2540065541C /* Frameworks */,
+				1ABD0BD81EA7F2540065541C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1ABD0BDC1EA7F2550065541C /* PBXTargetDependency */,
+			);
+			name = HexagonalMapBuilderUITests;
+			productName = HexagonalMapBuilderUITests;
+			productReference = 1ABD0BDA1EA7F2540065541C /* HexagonalMapBuilderUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		4D15C2841D442302007A5EE2 /* HexagonalMapBasic */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4D15C2A81D442303007A5EE2 /* Build configuration list for PBXNativeTarget "HexagonalMapBasic" */;
@@ -489,7 +658,7 @@
 		4D15C27D1D442302007A5EE2 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0820;
+				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = MiRo;
 				TargetAttributes = {
@@ -498,6 +667,23 @@
 						DevelopmentTeam = CMUQ7NPWU8;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 4D15C2841D442302007A5EE2;
+					};
+					1ABD0BBE1EA7F2540065541C = {
+						CreatedOnToolsVersion = 8.3.1;
+						DevelopmentTeam = CMUQ7NPWU8;
+						ProvisioningStyle = Automatic;
+					};
+					1ABD0BCE1EA7F2540065541C = {
+						CreatedOnToolsVersion = 8.3.1;
+						DevelopmentTeam = CMUQ7NPWU8;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 1ABD0BBE1EA7F2540065541C;
+					};
+					1ABD0BD91EA7F2540065541C = {
+						CreatedOnToolsVersion = 8.3.1;
+						DevelopmentTeam = CMUQ7NPWU8;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 1ABD0BBE1EA7F2540065541C;
 					};
 					4D15C2841D442302007A5EE2 = {
 						CreatedOnToolsVersion = 8.0;
@@ -522,12 +708,38 @@
 			targets = (
 				4D15C2841D442302007A5EE2 /* HexagonalMapBasic */,
 				1A4B389B1E4C7A5600FA7457 /* HexagonalMapBasicTests */,
+				1ABD0BBE1EA7F2540065541C /* HexagonalMapBuilder */,
+				1ABD0BCE1EA7F2540065541C /* HexagonalMapBuilderTests */,
+				1ABD0BD91EA7F2540065541C /* HexagonalMapBuilderUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		1A4B389A1E4C7A5600FA7457 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1ABD0BBD1EA7F2540065541C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1ABD0BC61EA7F2540065541C /* Assets.xcassets in Resources */,
+				1ABD0BC91EA7F2540065541C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1ABD0BCD1EA7F2540065541C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1ABD0BD81EA7F2540065541C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -586,7 +798,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HexagonalMapBasicTests/Pods-HexagonalMapBasicTests-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HexagonalMap-HexagonalMapBasicTests/Pods-HexagonalMap-HexagonalMapBasicTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3E93527544847B2F4530ADA3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HexagonalMap-HexagonalMapBuilder/Pods-HexagonalMap-HexagonalMapBuilder-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		482CC9EE4C20C53761F438FA /* [CP] Check Pods Manifest.lock */ = {
@@ -619,6 +846,21 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		690C88513AF58682C02AB35B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HexagonalMap-HexagonalMapBuilder/Pods-HexagonalMap-HexagonalMapBuilder-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		886E665760E5825DF7B628B5 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -631,7 +873,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HexagonalMapBasicTests/Pods-HexagonalMapBasicTests-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HexagonalMap-HexagonalMapBasicTests/Pods-HexagonalMap-HexagonalMapBasicTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		980F90B083F5A6BE73E1E85C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		E8859BA9C35B069E1AFF322F /* [CP] Copy Pods Resources */ = {
@@ -646,7 +903,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HexagonalMapBasic/Pods-HexagonalMapBasic-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HexagonalMap-HexagonalMapBasic/Pods-HexagonalMap-HexagonalMapBasic-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F3B556D8A17EA88C34B5C666 /* [CP] Embed Pods Frameworks */ = {
@@ -661,7 +918,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HexagonalMapBasic/Pods-HexagonalMapBasic-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HexagonalMap-HexagonalMapBasic/Pods-HexagonalMap-HexagonalMapBasic-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -689,6 +946,31 @@
 				1A4B38A71E4C7A7D00FA7457 /* GridTests.swift in Sources */,
 				1AFE3C341E72AEAA008AD2B7 /* TerrainTests.swift in Sources */,
 				1AC97BA61E6713FA00441E41 /* CityTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1ABD0BBB1EA7F2540065541C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1ABD0BC41EA7F2540065541C /* ViewController.swift in Sources */,
+				1ABD0BC21EA7F2540065541C /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1ABD0BCB1EA7F2540065541C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1ABD0BD41EA7F2540065541C /* HexagonalMapBuilderTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1ABD0BD61EA7F2540065541C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1ABD0BDF1EA7F2550065541C /* HexagonalMapBuilderUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -748,9 +1030,27 @@
 			target = 4D15C2841D442302007A5EE2 /* HexagonalMapBasic */;
 			targetProxy = 1A4B38A11E4C7A5600FA7457 /* PBXContainerItemProxy */;
 		};
+		1ABD0BD11EA7F2540065541C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1ABD0BBE1EA7F2540065541C /* HexagonalMapBuilder */;
+			targetProxy = 1ABD0BD01EA7F2540065541C /* PBXContainerItemProxy */;
+		};
+		1ABD0BDC1EA7F2550065541C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1ABD0BBE1EA7F2540065541C /* HexagonalMapBuilder */;
+			targetProxy = 1ABD0BDB1EA7F2550065541C /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		1ABD0BC71EA7F2540065541C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1ABD0BC81EA7F2540065541C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
 		4D15C2921D442302007A5EE2 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -774,7 +1074,7 @@
 /* Begin XCBuildConfiguration section */
 		1A4B38A41E4C7A5600FA7457 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B9651DA13EC029D1DECD0DAF /* Pods-HexagonalMapBasicTests.debug.xcconfig */;
+			baseConfigurationReference = A6FA8C9CE3D500C266B28006 /* Pods-HexagonalMap-HexagonalMapBasicTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -792,7 +1092,7 @@
 		};
 		1A4B38A51E4C7A5600FA7457 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C26567F9DA1B9E2AD60A702F /* Pods-HexagonalMapBasicTests.release.xcconfig */;
+			baseConfigurationReference = 1338C25544932A6046EF3159 /* Pods-HexagonalMap-HexagonalMapBasicTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -805,6 +1105,122 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HexagonalMapBasic.app/HexagonalMapBasic";
+			};
+			name = Release;
+		};
+		1ABD0BE11EA7F2550065541C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3A80068D961CBD2A69FD2543 /* Pods-HexagonalMap-HexagonalMapBuilder.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = CMUQ7NPWU8;
+				INFOPLIST_FILE = HexagonalMapBuilder/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = MiRo.HexagonalMapBuilder;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		1ABD0BE21EA7F2550065541C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D1BA03E9EADB10C51F61E275 /* Pods-HexagonalMap-HexagonalMapBuilder.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = CMUQ7NPWU8;
+				INFOPLIST_FILE = HexagonalMapBuilder/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = MiRo.HexagonalMapBuilder;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		1ABD0BE31EA7F2550065541C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = CMUQ7NPWU8;
+				INFOPLIST_FILE = HexagonalMapBuilderTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = MiRo.HexagonalMapBuilderTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HexagonalMapBuilder.app/Contents/MacOS/HexagonalMapBuilder";
+			};
+			name = Debug;
+		};
+		1ABD0BE41EA7F2550065541C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = CMUQ7NPWU8;
+				INFOPLIST_FILE = HexagonalMapBuilderTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = MiRo.HexagonalMapBuilderTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HexagonalMapBuilder.app/Contents/MacOS/HexagonalMapBuilder";
+			};
+			name = Release;
+		};
+		1ABD0BE51EA7F2550065541C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = CMUQ7NPWU8;
+				INFOPLIST_FILE = HexagonalMapBuilderUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = MiRo.HexagonalMapBuilderUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = HexagonalMapBuilder;
+			};
+			name = Debug;
+		};
+		1ABD0BE61EA7F2550065541C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = CMUQ7NPWU8;
+				INFOPLIST_FILE = HexagonalMapBuilderUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = MiRo.HexagonalMapBuilderUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = HexagonalMapBuilder;
 			};
 			name = Release;
 		};
@@ -905,7 +1321,7 @@
 		};
 		4D15C2A91D442303007A5EE2 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 31793D30FF1A02BBCED07F71 /* Pods-HexagonalMapBasic.debug.xcconfig */;
+			baseConfigurationReference = F35C351E4051C44297D4B7AD /* Pods-HexagonalMap-HexagonalMapBasic.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_CODE_COVERAGE = NO;
@@ -921,7 +1337,7 @@
 		};
 		4D15C2AA1D442303007A5EE2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3C40715086CB38506213EF83 /* Pods-HexagonalMapBasic.release.xcconfig */;
+			baseConfigurationReference = 16C990D981CAE769EF93F41A /* Pods-HexagonalMap-HexagonalMapBasic.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_CODE_COVERAGE = NO;
@@ -946,6 +1362,30 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		1ABD0BE71EA7F2550065541C /* Build configuration list for PBXNativeTarget "HexagonalMapBuilder" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1ABD0BE11EA7F2550065541C /* Debug */,
+				1ABD0BE21EA7F2550065541C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		1ABD0BE81EA7F2550065541C /* Build configuration list for PBXNativeTarget "HexagonalMapBuilderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1ABD0BE31EA7F2550065541C /* Debug */,
+				1ABD0BE41EA7F2550065541C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		1ABD0BE91EA7F2550065541C /* Build configuration list for PBXNativeTarget "HexagonalMapBuilderUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1ABD0BE51EA7F2550065541C /* Debug */,
+				1ABD0BE61EA7F2550065541C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 		4D15C2801D442302007A5EE2 /* Build configuration list for PBXProject "HexagonalMapBasic" */ = {
 			isa = XCConfigurationList;
