@@ -33,7 +33,7 @@ enum ClimateZone: Int {
     }
 }
 
-enum ClimateZoneOption {
+public enum ClimateZoneOption {
     
     case earth
     
@@ -44,15 +44,61 @@ enum ClimateZoneOption {
     case tropicOnly
 }
 
-class GridGeneratorOptions {
+public enum MapSize {
+    
+    case duel // 40x24
+    case tiny // 56x36
+    case small // 66x42
+    case standard // 80x52
+    case large // 104x64
+    case huge // 128x80
+    
+    var width: Int {
+        switch self {
+        case .duel:
+            return 40
+        case .tiny:
+            return 56
+        case .small:
+            return 66
+        case .standard:
+            return 80
+        case .large:
+            return 104
+        case .huge:
+            return 128
+        }
+    }
+    
+    var height: Int {
+        switch self {
+        case .duel:
+            return 24
+        case .tiny:
+            return 36
+        case .small:
+            return 42
+        case .standard:
+            return 52
+        case .large:
+            return 64
+        case .huge:
+            return 80
+        }
+    }
+}
 
+public class GridGeneratorOptions {
+
+    let mapSize: MapSize
     let climateZoneOption: ClimateZoneOption
     let waterPercentage: Float
     let rivers: Int
     
-    required init(climateZoneOption: ClimateZoneOption, waterPercentage: Float, rivers: Int) {
+    required public init(withSize size: MapSize, zone: ClimateZoneOption, waterPercentage: Float, rivers: Int) {
         
-        self.climateZoneOption = climateZoneOption
+        self.mapSize = size
+        self.climateZoneOption = zone
         self.waterPercentage = waterPercentage
         self.rivers = rivers
     }

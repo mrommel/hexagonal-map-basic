@@ -51,9 +51,10 @@ class GameViewController: UIViewController {
         skView.showsNodeCount = false
         skView.ignoresSiblingOrder = true
         scene.scaleMode = .resizeFill
+        
+        let options = GridGeneratorOptions(withSize: .small,zone: .earth, waterPercentage: 0.4, rivers: 5)
                 
-        self.map = Map(width: 50, height: 50)
-        self.map?.generate(withWaterPercentage: 0.4)
+        self.map = Map(withOptions: options)
         
         /*self.map?.foundCityAt(x: 6, y: 5, named: "Berlin")*/
         

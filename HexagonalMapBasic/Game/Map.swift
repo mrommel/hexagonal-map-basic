@@ -38,6 +38,12 @@ public class Map {
         self.grid = Grid(width: width, height: height)
     }
     
+    public required init(withOptions options: GridGeneratorOptions) {
+        
+        self.grid = Grid(width: options.mapSize.width, height: options.mapSize.height)
+        self.generate(withOptions: options)
+    }
+    
     var width: Int {
         return (self.grid?.width)!
     }
@@ -51,9 +57,7 @@ public class Map {
 
 extension Map {
     
-    func generate(withWaterPercentage waterPercentage: Float) {
-        
-        let options = GridGeneratorOptions(climateZoneOption: .earth, waterPercentage: 0.4, rivers: 5)
+    func generate(withOptions options: GridGeneratorOptions) {
         
         let generator = GridGenerator(width: self.width, height: self.height)
         generator.completionHandler = { progress in print("progress: \(progress)%") }
