@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import HexagonalMap
 
 class MenuViewController: UIViewController {
 
@@ -14,6 +15,8 @@ class MenuViewController: UIViewController {
     
     override func viewDidLoad() {
         
+        let motionKit = SwiftFrameworks()
+        motionKit.doSomething()
     }
     
     override func viewDidAppear(_ animated: Bool) {

@@ -150,6 +150,7 @@
 		1AB663DA1E939BD1005454D5 /* Random.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Random.swift; path = Utils/Random.swift; sourceTree = "<group>"; };
 		1AB663DC1E93CBFB005454D5 /* River.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = River.swift; path = Game/River.swift; sourceTree = "<group>"; };
 		1AB7EBD71E4DB82900594922 /* GridPointDirection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GridPointDirection.swift; path = ../HexagonalMapBasic/Game/GridPointDirection.swift; sourceTree = "<group>"; };
+		1ABD0BA41EA77ED50065541C /* HexagonalMap.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HexagonalMap.framework; path = "../../Library/Developer/Xcode/DerivedData/HexagonalMapBasic-fudfqntspjqtapctfkuhrhwgqtnu/Build/Products/Debug-iphonesimulator/HexagonalMap.framework"; sourceTree = "<group>"; };
 		1AC1BE991E8AA6500084EB0E /* CitySpriteNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CitySpriteNode.swift; path = Presentation/Scenes/CitySpriteNode.swift; sourceTree = "<group>"; };
 		1AC97BA51E6713FA00441E41 /* CityTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CityTests.swift; path = ../HexagonalMapBasic/Game/CityTests.swift; sourceTree = "<group>"; };
 		1AC97BA71E674ECD00441E41 /* AreaTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AreaTests.swift; path = ../HexagonalMapBasic/Game/AreaTests.swift; sourceTree = "<group>"; };
@@ -365,6 +366,7 @@
 		1CFC6B4386390A5B2BD2A1A8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1ABD0BA41EA77ED50065541C /* HexagonalMap.framework */,
 				22AA1275C9994E5D58C36935 /* Pods_HexagonalMapBasic.framework */,
 				97D5E67FFF0289FA0AFF4DD4 /* Pods_HexagonalMapBasicTests.framework */,
 			);
@@ -905,12 +907,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 31793D30FF1A02BBCED07F71 /* Pods-HexagonalMapBasic.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_CODE_COVERAGE = NO;
 				DEVELOPMENT_TEAM = CMUQ7NPWU8;
 				INFOPLIST_FILE = "$(SRCROOT)/HexagonalMapBasic/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.miro.hexagonal.game;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -922,12 +923,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3C40715086CB38506213EF83 /* Pods-HexagonalMapBasic.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_CODE_COVERAGE = NO;
 				DEVELOPMENT_TEAM = CMUQ7NPWU8;
 				INFOPLIST_FILE = "$(SRCROOT)/HexagonalMapBasic/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.miro.hexagonal.game;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -140,8 +140,6 @@ public class River {
                     return RiverPoint(with: to.point, and: .northEast)
                 }
                 break
-            default:
-                break
             }
         }
         
