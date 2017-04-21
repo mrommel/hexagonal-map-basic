@@ -1,6 +1,3 @@
-#project 'HexagonalMap'
-#workspace '../KFData'
-
 inhibit_all_warnings!
 use_frameworks!
 

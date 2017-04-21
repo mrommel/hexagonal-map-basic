@@ -8,6 +8,7 @@
 
 import Foundation
 import Buckets
+import HexagonalMap
 
 /**
     Map class that contains the actual grid, a list of cities, units and improvements
