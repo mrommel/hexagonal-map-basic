@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import HexagonalMap
 
 /** A single step on the computed path; used by the A* pathfinding algorithm */
 private class AStarPathStep: Hashable {

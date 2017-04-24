@@ -15,8 +15,8 @@ class MenuViewController: UIViewController {
     
     override func viewDidLoad() {
         
-        let motionKit = SwiftFrameworks()
-        motionKit.doSomething()
+        //let motionKit = SwiftFrameworks()
+        //motionKit.doSomething()
     }
     
     override func viewDidAppear(_ animated: Bool) {

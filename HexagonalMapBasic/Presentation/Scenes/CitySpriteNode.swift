@@ -7,6 +7,7 @@
 //
 
 import SpriteKit
+import HexagonalMap
 
 class CitySpriteNode: SKSpriteNode {
     

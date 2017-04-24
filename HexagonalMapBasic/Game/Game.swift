@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import HexagonalMap
 
 class VictoryCondition {
 
