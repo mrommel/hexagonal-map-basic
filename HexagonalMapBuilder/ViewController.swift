@@ -20,8 +20,8 @@ class ViewController: NSViewController {
         // Do any additional setup after loading the view.
         self.sceneView?.backgroundColor = .brown
         
-        let motionKit = SwiftFrameworks()
-        motionKit.doSomething()
+        //let motionKit = SwiftFrameworks()
+        //motionKit.doSomething()
         
     }
 

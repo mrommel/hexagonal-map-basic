@@ -14,9 +14,7 @@ class MenuViewController: UIViewController {
     let menuEntries = ["New Game", "Setup Game", "Load Game", "Options", "Credits"]
     
     override func viewDidLoad() {
-        
-        //let motionKit = SwiftFrameworks()
-        //motionKit.doSomething()
+
     }
     
     override func viewDidAppear(_ animated: Bool) {

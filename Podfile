@@ -9,7 +9,7 @@ abstract_target 'HexagonalMap' do
         
         pod 'SCLAlertView'
         pod 'Buckets', '~> 2.0'
-        pod 'HexagonalMap', :git => 'https://github.com/mrommel/hexagonal-map.git', :tag => '0.0.16'
+        pod 'HexagonalMap', :git => 'https://github.com/mrommel/hexagonal-map.git', :tag => '0.0.19'
     end
     
     target 'HexagonalMapBasicTests' do
@@ -23,7 +23,7 @@ abstract_target 'HexagonalMap' do
         
         platform :osx, '10.12'
         
-        pod 'HexagonalMap', :git => 'https://github.com/mrommel/hexagonal-map.git', :tag => '0.0.16'
+        pod 'HexagonalMap', :git => 'https://github.com/mrommel/hexagonal-map.git', :tag => '0.0.19'
     end
 end
 
