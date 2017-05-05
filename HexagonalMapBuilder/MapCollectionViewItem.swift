@@ -45,18 +45,16 @@ class MapCollectionViewItem: NSCollectionViewItem {
 
 
 /// Display Functions
-extension MapCollectionViewItem
-{
-    func refreshDisplay()
-    {
+extension MapCollectionViewItem {
+    
+    func refreshDisplay() {
         setColors()
-        if map != nil {
-            titleField.stringValue = "map title" // self.map.title
-            let aString = NSAttributedString(string: "map description") // note.content
-            contentField.attributedStringValue = aString
+        if let map = self.map {
+            titleField.stringValue = map.title
+            contentField.stringValue = map.teaser
         } else {
-            titleField.stringValue = ""
-            contentField.attributedStringValue = NSAttributedString(string: "")
+            titleField.stringValue = "title"
+            contentField.stringValue = "abc"
         }
     }
     

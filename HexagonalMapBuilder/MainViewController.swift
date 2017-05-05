@@ -47,8 +47,7 @@ class MainViewController: NSViewController {
 }
 
 ///Methods
-extension MainViewController
-{
+extension MainViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,24 +71,6 @@ extension MainViewController
         flowLayout.minimumLineSpacing = 10.0
         collectionView.collectionViewLayout = flowLayout
         view.wantsLayer = true
-        
-        // TODO should be done elsewhere
-        let mainController = MainController()
-        mainController.dataProvider = DataProvider()
-        
-        // DEBUG
-        
-        let map = Map(width: 10, height: 10)
-        mainController.dataProvider?.save(map: map, completionHandler: { error in
-            if let errorMsg = error {
-                print("saving map error: \(errorMsg)")
-            } else {
-                print("saving map success")
-            }
-        })
-        // DEBUG
-        
-        self.controller = mainController
     }
     
     func updateSelection(indexPaths: Set<IndexPath>) {
@@ -160,6 +141,7 @@ extension MainViewController: NSCollectionViewDataSource {
     
     func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
         guard let controller = controller else { return 0 }
+        
         return controller.numberOfMaps
     }
     
@@ -170,7 +152,7 @@ extension MainViewController: NSCollectionViewDataSource {
         if let item = item as? MapCollectionViewItem {
             if let data = controller?.map(index: indexPath.item) {
                 item.index = indexPath.item
-                item.delegate = self as? MapCollectionViewItemDelegate
+                item.delegate = self
                 item.map = data
             }
         }
@@ -180,19 +162,16 @@ extension MainViewController: NSCollectionViewDataSource {
 }
 
 
-
 extension MainViewController: NSCollectionViewDelegate {
     
     func collectionView(_ collectionView: NSCollectionView, didSelectItemsAt indexPaths: Set<IndexPath>) {
         updateSelection(indexPaths: indexPaths)
     }
     
-    
     func collectionView(_ collectionView: NSCollectionView, didDeselectItemsAt indexPaths: Set<IndexPath>) {
         updateSelection(indexPaths: indexPaths)
     }
 }
-
 
 
 extension MainViewController: MapCollectionViewItemDelegate {

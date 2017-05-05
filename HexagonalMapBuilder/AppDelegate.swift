@@ -13,9 +13,11 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
+    private var appCoordinator: AppCoordinator!
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // Insert code here to tear down your application
+        appCoordinator = AppCoordinator()
+        appCoordinator.start()
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
