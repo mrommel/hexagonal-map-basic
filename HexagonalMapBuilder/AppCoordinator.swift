@@ -37,14 +37,12 @@ class AppCoordinator {
     private var window:  NSWindow!
     var coordinators = [String: BaseCoordinator]()
     
-    func start()
-    {
+    func start() {
         setupMainViewControllerStack()
     }
     
     
-    private func setupMainViewControllerStack()
-    {
+    private func setupMainViewControllerStack() {
         
         let storyboard = NSStoryboard(name: "Main", bundle: nil)
         mainWindowController = storyboard.instantiateController(withIdentifier: "MainWindowController") as? NSWindowController
