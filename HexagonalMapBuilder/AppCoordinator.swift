@@ -71,17 +71,17 @@ extension AppCoordinator: MapMainControllerCoordinatorDelegate {
     
     func editMap(id: String) {
         print("AppCoordinator.editMap(\(id))")
-        /*guard let editCoordinator =  coordinators[id] as? EditCoordinator  else {
+        guard let editCoordinator = coordinators[id] as? MapEditCoordinator else {
             
-            let coordinator = EditCoordinator()
+            let coordinator = MapEditCoordinator()
             coordinator.delegate = self
             coordinator.edit(id: id)
             coordinator.key = id
             coordinators[id] = coordinator
             return
-        }*/
+        }
         
-        //editCoordinator.focus()
+        editCoordinator.focus()
     }
     
     func previewMap(id: String, position: NSPoint, timeBasedDisplay: Bool = false) {

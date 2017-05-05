@@ -27,6 +27,7 @@ class HoverView: NSView {
 
 /// Methods
 extension HoverView {
+    
     override func updateTrackingAreas() {
         super.updateTrackingAreas()
         ensureTrackingArea()
@@ -36,15 +37,13 @@ extension HoverView {
     }
     
     
-    func ensureTrackingArea()
-    {
+    func ensureTrackingArea() {
         guard trackingArea == nil else { return }
         trackingArea = NSTrackingArea(rect: NSZeroRect, options: [NSTrackingAreaOptions.inVisibleRect, NSTrackingAreaOptions.activeAlways, NSTrackingAreaOptions.mouseEnteredAndExited, NSTrackingAreaOptions.mouseMoved], owner: self, userInfo: nil)
     }
     
     
-    private func cycleTimer()
-    {
+    private func cycleTimer() {
         timer?.invalidate()
         timer = Timer.scheduledTimer(timeInterval: 0.5, target:self, selector: #selector(hover), userInfo: nil, repeats: false)
     }
@@ -55,8 +54,7 @@ extension HoverView {
     }
     
     
-    override func mouseMoved(with event: NSEvent)
-    {
+    override func mouseMoved(with event: NSEvent) {
         if timer != nil {
             cycleTimer()
         }
@@ -64,16 +62,14 @@ extension HoverView {
     }
     
     
-    override func mouseExited(with event: NSEvent)
-    {
+    override func mouseExited(with event: NSEvent) {
         timer?.invalidate()
         timer = nil
         hovering = false
     }
     
     
-    override func mouseDown(with event: NSEvent)
-    {
+    override func mouseDown(with event: NSEvent) {
         let count = event.clickCount
         if (count == 2) {
             delegate?.doubleClick(view: self)
@@ -83,8 +79,7 @@ extension HoverView {
     }
     
     
-    func hover()
-    {
+    func hover() {
         hovering = true
         if let position = mousePosition {
             delegate?.hover(view: self, position: position)

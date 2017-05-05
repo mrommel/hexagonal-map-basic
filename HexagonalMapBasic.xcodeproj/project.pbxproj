@@ -41,7 +41,7 @@
 		1AA7B37E1E4DFF7000104C91 /* AStarPathfinderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA7B37D1E4DFF7000104C91 /* AStarPathfinderTests.swift */; };
 		1AA8466E1E5AFEF300D3A947 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AA8466D1E5AFEF300D3A947 /* MapViewController.swift */; };
 		1ABD0BC21EA7F2540065541C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABD0BC11EA7F2540065541C /* AppDelegate.swift */; };
-		1ABD0BC41EA7F2540065541C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABD0BC31EA7F2540065541C /* ViewController.swift */; };
+		1ABD0BC41EA7F2540065541C /* MapEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABD0BC31EA7F2540065541C /* MapEditViewController.swift */; };
 		1ABD0BC91EA7F2540065541C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1ABD0BC71EA7F2540065541C /* Main.storyboard */; };
 		1ABD0BD41EA7F2540065541C /* HexagonalMapBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABD0BD31EA7F2540065541C /* HexagonalMapBuilderTests.swift */; };
 		1ABD0BDF1EA7F2550065541C /* HexagonalMapBuilderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABD0BDE1EA7F2550065541C /* HexagonalMapBuilderUITests.swift */; };
@@ -55,6 +55,9 @@
 		1AC3A2AF1EBC853600E80003 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC3A2AE1EBC853600E80003 /* DataProvider.swift */; };
 		1AC3A2B21EBCA0B000E80003 /* MapCollectionViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AC3A2B01EBCA0B000E80003 /* MapCollectionViewItem.xib */; };
 		1AC3A2B41EBCAC8D00E80003 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC3A2B31EBCAC8D00E80003 /* AppCoordinator.swift */; };
+		1AC3A2B71EBCBF0200E80003 /* MapEditCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC3A2B61EBCBF0200E80003 /* MapEditCoordinator.swift */; };
+		1AC3A2B91EBCBF9B00E80003 /* MapEditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC3A2B81EBCBF9B00E80003 /* MapEditController.swift */; };
+		1AC3A2BB1EBCBFE700E80003 /* EditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC3A2BA1EBCBFE700E80003 /* EditController.swift */; };
 		1ACCA0081E60792C00E539DD /* GameStatisticsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACCA0071E60792C00E539DD /* GameStatisticsTests.swift */; };
 		1ACCA00C1E6432EB00E539DD /* UIViewController+NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACCA00B1E6432EB00E539DD /* UIViewController+NavigationController.swift */; };
 		1ADE279F1E48B8EC001F44FF /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE279E1E48B8EC001F44FF /* MenuViewController.swift */; };
@@ -138,7 +141,7 @@
 		1ABD0BA41EA77ED50065541C /* HexagonalMap.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HexagonalMap.framework; path = "../../Library/Developer/Xcode/DerivedData/HexagonalMapBasic-fudfqntspjqtapctfkuhrhwgqtnu/Build/Products/Debug-iphonesimulator/HexagonalMap.framework"; sourceTree = "<group>"; };
 		1ABD0BBF1EA7F2540065541C /* HexagonalMapBuilder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HexagonalMapBuilder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1ABD0BC11EA7F2540065541C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1ABD0BC31EA7F2540065541C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1ABD0BC31EA7F2540065541C /* MapEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapEditViewController.swift; sourceTree = "<group>"; };
 		1ABD0BC81EA7F2540065541C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1ABD0BCA1EA7F2540065541C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1ABD0BCF1EA7F2540065541C /* HexagonalMapBuilderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HexagonalMapBuilderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -157,6 +160,9 @@
 		1AC3A2AE1EBC853600E80003 /* DataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataProvider.swift; path = Provider/DataProvider.swift; sourceTree = "<group>"; };
 		1AC3A2B11EBCA0B000E80003 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MapCollectionViewItem.xib; sourceTree = "<group>"; };
 		1AC3A2B31EBCAC8D00E80003 /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		1AC3A2B61EBCBF0200E80003 /* MapEditCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapEditCoordinator.swift; path = Coordinator/MapEditCoordinator.swift; sourceTree = "<group>"; };
+		1AC3A2B81EBCBF9B00E80003 /* MapEditController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapEditController.swift; sourceTree = "<group>"; };
+		1AC3A2BA1EBCBFE700E80003 /* EditController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditController.swift; sourceTree = "<group>"; };
 		1ACCA0071E60792C00E539DD /* GameStatisticsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameStatisticsTests.swift; path = ../HexagonalMapBasic/Game/GameStatisticsTests.swift; sourceTree = "<group>"; };
 		1ACCA00B1E6432EB00E539DD /* UIViewController+NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIViewController+NavigationController.swift"; path = "../HexagonalMapBasic/Presentation/Extensions/UIViewController+NavigationController.swift"; sourceTree = "<group>"; };
 		1ADE279E1E48B8EC001F44FF /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuViewController.swift; path = ../HexagonalMapBasic/Presentation/ViewControllers/MenuViewController.swift; sourceTree = "<group>"; };
@@ -326,12 +332,12 @@
 		1ABD0BC01EA7F2540065541C /* HexagonalMapBuilder */ = {
 			isa = PBXGroup;
 			children = (
+				1AC3A2B51EBCBEE200E80003 /* Coordinator */,
 				1AC3A2AB1EBC848900E80003 /* Provider */,
 				1A81D7331EB28079000B7373 /* Scenes */,
 				1A81D7381EB3203B000B7373 /* Resources */,
 				1ABD0BC11EA7F2540065541C /* AppDelegate.swift */,
-				1AC3A2B31EBCAC8D00E80003 /* AppCoordinator.swift */,
-				1ABD0BC31EA7F2540065541C /* ViewController.swift */,
+				1ABD0BC31EA7F2540065541C /* MapEditViewController.swift */,
 				1AC3A2A31EBC59B500E80003 /* MainViewController.swift */,
 				1ABD0BC71EA7F2540065541C /* Main.storyboard */,
 				1ABD0BCA1EA7F2540065541C /* Info.plist */,
@@ -339,6 +345,8 @@
 				1AC3A2A71EBC7E4700E80003 /* HoverView.swift */,
 				1AC3A2A91EBC837400E80003 /* MainController.swift */,
 				1AC3A2B01EBCA0B000E80003 /* MapCollectionViewItem.xib */,
+				1AC3A2B81EBCBF9B00E80003 /* MapEditController.swift */,
+				1AC3A2BA1EBCBFE700E80003 /* EditController.swift */,
 			);
 			path = HexagonalMapBuilder;
 			sourceTree = "<group>";
@@ -368,6 +376,15 @@
 				1AC3A2AE1EBC853600E80003 /* DataProvider.swift */,
 			);
 			name = Provider;
+			sourceTree = "<group>";
+		};
+		1AC3A2B51EBCBEE200E80003 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				1AC3A2B31EBCAC8D00E80003 /* AppCoordinator.swift */,
+				1AC3A2B61EBCBF0200E80003 /* MapEditCoordinator.swift */,
+			);
+			name = Coordinator;
 			sourceTree = "<group>";
 		};
 		1ADE279D1E488D05001F44FF /* Presentation */ = {
@@ -876,13 +893,16 @@
 			files = (
 				1AC3A2B41EBCAC8D00E80003 /* AppCoordinator.swift in Sources */,
 				1A81D7401EB34FE8000B7373 /* EmptyScene.swift in Sources */,
+				1AC3A2B71EBCBF0200E80003 /* MapEditCoordinator.swift in Sources */,
 				1AC3A2A81EBC7E4700E80003 /* HoverView.swift in Sources */,
 				1A81D7371EB31FC4000B7373 /* TerrainSpriteNode.swift in Sources */,
 				1A81D7351EB280D8000B7373 /* GameScene.swift in Sources */,
 				1AC3A2AA1EBC837400E80003 /* MainController.swift in Sources */,
 				1AC3A2AF1EBC853600E80003 /* DataProvider.swift in Sources */,
 				1AC3A2A41EBC59B500E80003 /* MainViewController.swift in Sources */,
-				1ABD0BC41EA7F2540065541C /* ViewController.swift in Sources */,
+				1ABD0BC41EA7F2540065541C /* MapEditViewController.swift in Sources */,
+				1AC3A2BB1EBCBFE700E80003 /* EditController.swift in Sources */,
+				1AC3A2B91EBCBF9B00E80003 /* MapEditController.swift in Sources */,
 				1AC3A2AD1EBC84B000E80003 /* MapDataProvider.swift in Sources */,
 				1AC3A2A61EBC5CC300E80003 /* MapCollectionViewItem.swift in Sources */,
 				1ABD0BC21EA7F2540065541C /* AppDelegate.swift in Sources */,

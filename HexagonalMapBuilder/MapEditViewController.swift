@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MapEditViewController.swift
 //  HexagonalMapBuilder
 //
 //  Created by Michael Rommel on 19.04.17.
@@ -12,10 +12,21 @@ import SceneKit
 import SpriteKit
 import HexagonalMap
 
-class ViewController: NSViewController {
+class MapEditViewController: NSViewController {
 
     @IBOutlet var sceneView: SCNView?
+    @IBOutlet var statusLabel: NSTextField?
     var gameScene: GameScene!
+    
+    var controller: MapEditController? {
+        willSet {
+            controller?.viewDelegate = nil
+        }
+        didSet {
+            controller?.viewDelegate = self
+            refreshDisplay()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,8 +35,6 @@ class ViewController: NSViewController {
         self.sceneView?.backgroundColor = .brown
         
         self.setupScene()
-        
-        //self.menu?.addItem(NSMenuItem(title: "Test", action: nil, keyEquivalent: "t"))
     }
     
     func setupScene() {
@@ -40,6 +49,8 @@ class ViewController: NSViewController {
         
         self.gameScene = GameScene(size: (self.sceneView?.frame.size)!)
         self.sceneView?.overlaySKScene = self.gameScene
+        
+        self.statusLabel?.stringValue = "test"
     }
 
     override var representedObject: Any? {
@@ -48,5 +59,27 @@ class ViewController: NSViewController {
         }
     }
 
+    func refreshDisplay() {
+        
+    }
+}
+
+extension MapEditViewController: MapEditControllerViewDelegate
+{
+    func displayErrorMessage(editController: MapEditController, message: String)
+    {
+        guard let window = view.window else { return}
+        
+        let alert = NSAlert()
+        alert.addButton(withTitle: "OK")
+        alert.messageText = message
+        //alert.alertStyle = NSAlertStyleCritical
+        alert.beginSheetModal(for: window, completionHandler: nil)
+    }
+    
+    
+    func mapDidChange(editController: MapEditController) {
+        refreshDisplay()
+    }
 }
 
