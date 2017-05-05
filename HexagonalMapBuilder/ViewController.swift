@@ -15,8 +15,7 @@ import HexagonalMap
 class ViewController: NSViewController {
 
     @IBOutlet var sceneView: SCNView?
-    //var skScene: SKScene!
-    //var scnScene: GameScene!
+    var gameScene: GameScene!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +24,8 @@ class ViewController: NSViewController {
         self.sceneView?.backgroundColor = .brown
         
         self.setupScene()
+        
+        //self.menu?.addItem(NSMenuItem(title: "Test", action: nil, keyEquivalent: "t"))
     }
     
     func setupScene() {
@@ -35,29 +36,15 @@ class ViewController: NSViewController {
         self.sceneView?.scene = scene
         self.sceneView?.allowsCameraControl = true
         self.sceneView?.showsStatistics = true
-        //		self.sceneView? = [SCNDebugOptions.ShowWireframe]
         self.sceneView?.backgroundColor = NSColor.gray
         
-        self.sceneView?.overlaySKScene = GameScene(size: (self.sceneView?.frame.size)!)
-        
-        /*self.skScene = self.sceneView?.overlaySKScene
-        
-        let scnScene = GameScene(size: CGSize(width: 1024, height: 800))
-        scnScene.onFocusChanged = { focus in
-            if let focus = focus {
-                print("changed")
-            }
-        }
-        
-        let options = GridGeneratorOptions(withSize: .small,zone: .earth, waterPercentage: 0.4, rivers: 5)
-        
-        scnScene.map = Map(withOptions: options)
-        self.skScene.addChild(scnScene)*/
+        self.gameScene = GameScene(size: (self.sceneView?.frame.size)!)
+        self.sceneView?.overlaySKScene = self.gameScene
     }
 
     override var representedObject: Any? {
         didSet {
-        // Update the view, if already loaded.
+            // Update the view, if already loaded.
         }
     }
 

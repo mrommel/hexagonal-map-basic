@@ -20,7 +20,7 @@ class EmptyScene: SCNScene {
         let shapeNode = SCNNode(geometry: shapeForCamera)
         result.addChildNode(shapeNode)
         // Make bottom of cone point along parent's -Z axis:
-        shapeNode.rotation = SCNVector4Make(1, 0, 0, CGFloat(Float(M_PI_2)))
+        shapeNode.rotation = SCNVector4Make(1, 0, 0, CGFloat(Float.pi / 2))
         
         let camera = SCNCamera()
         //        camera.usesOrthographicProjection = true
