@@ -14,6 +14,8 @@ import HexagonalMapKit
 
 class GameSceneView: SCNView {
     
+    var previousPoint = NSPoint(x: 0, y: 0)
+    
     public required init?(coder: NSCoder) {
         super.init(coder: coder)
         
@@ -28,20 +30,25 @@ class GameSceneView: SCNView {
     }
     
     override func mouseDragged(with event: NSEvent) {
-        Swift.print("mouseDragged")
-    }
-    
-    override func mouseMoved(with event: NSEvent) {
-        Swift.print("mouseMoved")       
+        //Swift.print("mouseDragged")
+        
+        let currentPoint = event.locationInWindow
+        
+        let dx = currentPoint.x - self.previousPoint.x
+        let dy = currentPoint.y - self.previousPoint.y
+        
+        //Swift.print("mouseDragged => \(dx), \(dy)")
+        
+        if let scene = self.overlaySKScene as? GameScene? {
+            scene?.moveBy(dx: dx, dy: dy)
+        }
+        
+        self.previousPoint = event.locationInWindow
     }
     
     override func mouseDown(with event: NSEvent) {
-        Swift.print("mouseDown")
         
-        if let s = self.overlaySKScene as? GameScene? {
-            s?.moveBy(dx: 20, dy: 10)
-            //self.needsDisplay = true
-        }
+        self.previousPoint = event.locationInWindow
     }
     
     override var acceptsFirstResponder: Bool { return true }
