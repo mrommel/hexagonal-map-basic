@@ -29,21 +29,21 @@ func / (point: CGPoint, scalar: CGPoint) -> CGPoint {
 typealias FocusChangedBlock = (_ focus: GridPoint?) -> Void
 
 class GameScene: SKScene {
-    
+
     var map: Map?
     var onFocusChanged: FocusChangedBlock?
     var onTileSelected: FocusChangedBlock?
-    
+
     override init(size: CGSize) {
         super.init(size: size)
         scaleMode = .resizeFill
-        
+
         let terrain = TerrainSpriteNode(withPosition: CGPoint(x: 100, y: 200), andTerrain: .grass)
         self.addChild(terrain)
     }
-    
+
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
 }
