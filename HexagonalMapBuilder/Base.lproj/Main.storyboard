@@ -566,7 +566,7 @@
                             <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cLz-T4-wTe">
                                 <rect key="frame" x="0.0" y="0.0" width="450" height="265"/>
                                 <subviews>
-                                    <sceneView translatesAutoresizingMaskIntoConstraints="NO" id="LUT-bw-PdK">
+                                    <sceneView translatesAutoresizingMaskIntoConstraints="NO" id="LUT-bw-PdK" customClass="GameSceneView" customModule="HexagonalMapBuilder" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="25" width="450" height="240"/>
                                     </sceneView>
                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h4R-gh-Ejx">

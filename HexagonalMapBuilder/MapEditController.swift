@@ -7,8 +7,7 @@
 //
 
 import Foundation
-
-import Foundation
+import HexagonalMapKit
 
 protocol MapEditControllerViewDelegate: class {
     
@@ -18,10 +17,8 @@ protocol MapEditControllerViewDelegate: class {
 
 protocol MapEditController: class {
     
-    var viewDelegate: MapEditControllerViewDelegate? {get set}
-    //var noteValues: (title: String, content: NSAttributedString) { get }
+    var viewDelegate: MapEditControllerViewDelegate? { get set }
+    var map: Map? { get }
     
-    //func updateNoteValues(title: String, content: NSAttributedString)
-    //func canSaveNoteValues(title: String, content: NSAttributedString) -> Bool
     func cancel()
 }

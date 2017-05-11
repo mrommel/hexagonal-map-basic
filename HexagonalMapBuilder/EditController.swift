@@ -36,15 +36,6 @@ class EditController: MapEditController {
             loadMap()
         }
     }
-
-    /*var noteValues: (title: String, content: NSAttributedString) {
-        
-        if let map = map {
-            return (note.title, note.content)
-        } else {
-            return ("", NSAttributedString(string: ""))
-        }
-    }*/
     
     public init(id: String) {
         
