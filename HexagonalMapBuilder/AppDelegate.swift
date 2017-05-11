@@ -14,7 +14,7 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     private var appCoordinator: AppCoordinator!
-    
+
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         appCoordinator = AppCoordinator()
         appCoordinator.start()
@@ -23,9 +23,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }
-    
+
     @IBAction func newDocument(sender: NSMenuItem) {
         print("new")
     }
- 
+
 }

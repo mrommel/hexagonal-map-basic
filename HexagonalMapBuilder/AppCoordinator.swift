@@ -10,21 +10,21 @@ import Foundation
 import Cocoa
 
 protocol Coordinator {
-    
+
     var key: String { get }
 }
 
 protocol CoordinatorDelegate: class {
-    
+
     func done(coordinator: Coordinator)
 }
 
 
 class BaseCoordinator: Coordinator {
-    
+
     var key = NSUUID().uuidString
     weak var delegate: CoordinatorDelegate?
-    
+
     func done() {
         delegate?.done(coordinator: self)
     }
@@ -32,30 +32,30 @@ class BaseCoordinator: Coordinator {
 
 /// The AppCoordinator controls the main flow of the application
 class AppCoordinator {
-    
+
     private var mainWindowController: NSWindowController!
-    private var window:  NSWindow!
+    private var window: NSWindow!
     var coordinators = [String: BaseCoordinator]()
-    
+
     func start() {
         setupMainViewControllerStack()
     }
-    
-    
+
+
     private func setupMainViewControllerStack() {
-        
+
         let storyboard = NSStoryboard(name: "Main", bundle: nil)
         mainWindowController = storyboard.instantiateController(withIdentifier: "MainWindowController") as? NSWindowController
         window = mainWindowController.window
-        
+
         guard let mainViewController = window.contentViewController as? MainViewController else {
             fatalError("The Main View Controller Cannot be found");
         }
-        
+
         let mainController = MainController()
         mainController.dataProvider = DataProvider()
         mainController.coordinatorDelegate = self
-        
+
         mainViewController.controller = mainController
         mainWindowController.showWindow(self)
     }
@@ -63,16 +63,16 @@ class AppCoordinator {
 
 
 extension AppCoordinator: MapMainControllerCoordinatorDelegate {
-    
+
     func newMap() {
         print("AppCoordinator.newMap()")
         editMap(id: NSUUID().uuidString)
     }
-    
+
     func editMap(id: String) {
         print("AppCoordinator.editMap(\(id))")
         guard let editCoordinator = coordinators[id] as? MapEditCoordinator else {
-            
+
             let coordinator = MapEditCoordinator()
             coordinator.delegate = self
             coordinator.edit(id: id)
@@ -80,10 +80,10 @@ extension AppCoordinator: MapMainControllerCoordinatorDelegate {
             coordinators[id] = coordinator
             return
         }
-        
+
         editCoordinator.focus()
     }
-    
+
     func previewMap(id: String, position: NSPoint, timeBasedDisplay: Bool = false) {
         print("AppCoordinator.previewMap(\(id))")
         /*let previewCoordinator = PreviewCoordinator()
@@ -95,7 +95,7 @@ extension AppCoordinator: MapMainControllerCoordinatorDelegate {
 
 
 extension AppCoordinator: CoordinatorDelegate {
-    
+
     func done(coordinator: Coordinator) {
         coordinators.removeValue(forKey: coordinator.key)
     }

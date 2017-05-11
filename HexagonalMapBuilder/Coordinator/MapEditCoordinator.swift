@@ -10,11 +10,11 @@ import Foundation
 import Cocoa
 
 class MapEditCoordinator: BaseCoordinator {
-    
+
     var editWindowController: NSWindowController?
-    
+
     func edit(id: String) {
-        
+
         let storyboard = NSStoryboard(name: "Main", bundle: nil)
         editWindowController = storyboard.instantiateController(withIdentifier: "MapEditWindowController") as? NSWindowController
         guard let editWindowController = editWindowController else {
@@ -23,16 +23,16 @@ class MapEditCoordinator: BaseCoordinator {
         guard let editViewController = editWindowController.window?.contentViewController as? MapEditViewController else {
             fatalError("The Edit View Controller Cannot be found");
         }
-        
+
         let mapEditController = EditController(id: id)
         mapEditController.dataProvider = DataProvider()
         mapEditController.coordinatorDelegate = self
-        
+
         editViewController.controller = mapEditController
         editWindowController.showWindow(self)
     }
-    
-    
+
+
     func focus() {
         editWindowController?.window?.makeKeyAndOrderFront(self)
     }
@@ -41,7 +41,7 @@ class MapEditCoordinator: BaseCoordinator {
 
 
 extension MapEditCoordinator: MapEditControllerCoordinatorDelegate {
-    
+
     func mapEditControllerDone(controller: MapEditController) {
         editWindowController?.close()
         editWindowController = nil
