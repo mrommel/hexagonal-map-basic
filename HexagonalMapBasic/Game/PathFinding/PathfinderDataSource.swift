@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import HexagonalMap
+import HexagonalMapKit
 
 protocol PathfinderDataSource: NSObjectProtocol {
     func walkableAdjacentTilesCoordsForTileCoord(tileCoord: GridPoint) -> [GridPoint]

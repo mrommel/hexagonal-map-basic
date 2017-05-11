@@ -7,7 +7,7 @@
 //
 
 import SpriteKit
-import HexagonalMap
+import HexagonalMapKit
 
 class FeatureSpriteNode: SKSpriteNode {
     

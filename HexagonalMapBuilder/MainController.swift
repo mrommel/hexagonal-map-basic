@@ -8,7 +8,7 @@
 
 
 import Cocoa
-import HexagonalMap
+import HexagonalMapKit
 
 protocol MapMainControllerCoordinatorDelegate: class
 {

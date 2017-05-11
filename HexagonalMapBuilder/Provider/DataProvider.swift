@@ -8,7 +8,7 @@
 
 import Foundation
 import Cocoa
-import HexagonalMap
+import HexagonalMapKit
 
 private let kMapChangedNotification = "kMapChangedNotification"
 private let kMapsLoadedNotification = "kMapsLoadedNotification"

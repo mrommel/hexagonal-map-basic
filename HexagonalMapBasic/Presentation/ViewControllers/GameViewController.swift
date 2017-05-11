@@ -9,7 +9,7 @@ import UIKit
 import SpriteKit
 import GameplayKit
 import SCLAlertView
-import HexagonalMap
+import HexagonalMapKit
 
 class GameViewController: UIViewController {
     

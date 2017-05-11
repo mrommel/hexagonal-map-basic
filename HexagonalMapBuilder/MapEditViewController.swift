@@ -10,7 +10,7 @@ import Cocoa
 import Foundation
 import SceneKit
 import SpriteKit
-import HexagonalMap
+import HexagonalMapKit
 
 class MapEditViewController: NSViewController {
 

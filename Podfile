@@ -1,30 +1,35 @@
 inhibit_all_warnings!
 use_frameworks!
 
-abstract_target 'HexagonalMap' do
+target 'HexagonalMapKitiOS' do
     
-    target 'HexagonalMapBasic' do
-        
-        platform :ios, '10.0'
-        
-        pod 'SCLAlertView'
-        pod 'Buckets', '~> 2.0'
-        pod 'HexagonalMap', :git => 'https://github.com/mrommel/hexagonal-map.git', :tag => '0.0.21'
-    end
+    platform :ios, '10.0'
     
-    target 'HexagonalMapBasicTests' do
-        
-        platform :ios, '10.0'
-        
-        pod 'Buckets', '~> 2.0'
-    end
+    pod 'Buckets', '~> 2.0'
+end
+
+target 'HexagonalMapKitOSX' do
     
-    target 'HexagonalMapBuilder' do
-        
-        platform :osx, '10.12'
-        
-        pod 'HexagonalMap', :git => 'https://github.com/mrommel/hexagonal-map.git', :tag => '0.0.21'
-    end
+    platform :osx, '10.12'
+    
+    pod 'Buckets', '~> 2.0'
+end
+
+target 'HexagonalMapBasic' do
+    
+    platform :ios, '10.0'
+    
+    pod 'SCLAlertView'
+end
+
+target 'HexagonalMapBasicTests' do
+    
+    platform :ios, '10.0'
+end
+
+target 'HexagonalMapBuilder' do
+    
+    platform :osx, '10.12'
 end
 
 

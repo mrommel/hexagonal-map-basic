@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import HexagonalMap
+import HexagonalMapKit
 
 class RiverTransitionManager {
     

@@ -8,7 +8,7 @@
 
 import Foundation
 import Cocoa
-import HexagonalMap
+import HexagonalMapKit
 
 protocol MapCollectionViewItemDelegate: class {
     
