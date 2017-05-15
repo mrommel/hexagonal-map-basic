@@ -26,18 +26,19 @@ func / (point: CGPoint, scalar: CGPoint) -> CGPoint {
     return CGPoint(x: point.x / scalar.x, y: point.y / scalar.y)
 }
 
-typealias FocusChangedBlock = (_ focus: GridPoint?) -> Void
-
 class GameScene: SKScene {
-
-    var onFocusChanged: FocusChangedBlock?
-    var onTileSelected: FocusChangedBlock?
     
     var base: SKNode
+    var cursorNode: SKSpriteNode
 
     override init(size: CGSize) {
         
         self.base = SKNode()
+        
+        self.cursorNode = SKSpriteNode(imageNamed: "Selection")
+        self.cursorNode.zPosition = 40.0
+        self.cursorNode.anchorPoint = CGPoint(x: 0, y: 0)
+        self.base.addChild(self.cursorNode)
         
         super.init(size: size)
         scaleMode = .resizeFill
@@ -59,9 +60,15 @@ class GameScene: SKScene {
 
 extension GameScene {
     
-    public func moveBy(dx: CGFloat, dy: CGFloat) {
-        self.base.position.x += dx
-        self.base.position.y += dy
+    func moveFocus(to gridpoint: GridPoint) {
+        
+        let screenPoint = (self.map?.grid?.screenPoint(from: gridpoint))!
+        self.cursorNode.position = screenPoint
+    }
+    
+    public func offsetTo(x: CGFloat, y: CGFloat) {
+        self.base.position.x = x
+        self.base.position.y = y
     }
     
     func placeAllTiles2D() {

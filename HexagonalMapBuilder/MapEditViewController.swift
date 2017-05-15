@@ -12,54 +12,12 @@ import SceneKit
 import SpriteKit
 import HexagonalMapKit
 
-class GameSceneView: SCNView {
-    
-    var previousPoint = NSPoint(x: 0, y: 0)
-    
-    public required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        
-        // create a new scene
-        let scene = EmptyScene()
-        self.scene = scene
-        self.allowsCameraControl = true
-        self.showsStatistics = true
-        self.backgroundColor = NSColor.black
-        
-        self.isPlaying = true
-    }
-    
-    override func mouseDragged(with event: NSEvent) {
-        //Swift.print("mouseDragged")
-        
-        let currentPoint = event.locationInWindow
-        
-        let dx = currentPoint.x - self.previousPoint.x
-        let dy = currentPoint.y - self.previousPoint.y
-        
-        //Swift.print("mouseDragged => \(dx), \(dy)")
-        
-        if let scene = self.overlaySKScene as? GameScene? {
-            scene?.moveBy(dx: dx, dy: dy)
-        }
-        
-        self.previousPoint = event.locationInWindow
-    }
-    
-    override func mouseDown(with event: NSEvent) {
-        
-        self.previousPoint = event.locationInWindow
-    }
-    
-    override var acceptsFirstResponder: Bool { return true }
-    
-}
 
 class MapEditViewController: NSViewController {
 
     @IBOutlet var sceneView: GameSceneView?
     @IBOutlet var statusLabel: NSTextField?
-    var gameScene: GameScene!
+    
 
     var controller: MapEditController? {
         willSet {
@@ -77,21 +35,19 @@ class MapEditViewController: NSViewController {
         // Do any additional setup after loading the view.
         self.sceneView?.backgroundColor = .brown
 
-        self.setupScene()
-    }
-
-    func setupScene() {
-
-        self.gameScene = GameScene(size: (self.sceneView?.frame.size)!)
-        self.sceneView?.overlaySKScene = self.gameScene
-
         if let map = self.controller?.map {
             self.statusLabel?.stringValue = "Loaded: \(map.title)"
+        }
+        
+        self.sceneView?.onFocusChanged = { focus in
+            if let focus = focus {
+                self.statusLabel?.stringValue = "New focus: \(focus.x), \(focus.y)"
+            }
         }
     }
 
     func refreshDisplay() {
-        self.gameScene.map = self.controller?.map
+        self.sceneView?.map = self.controller?.map
     }
 }
 

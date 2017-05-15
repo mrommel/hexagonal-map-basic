@@ -102,6 +102,7 @@
 		1A27699A1E6F6811006122BC /* Terrain.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A27698C1E6F6811006122BC /* Terrain.xcassets */; };
 		1A27699B1E6F6811006122BC /* Tiles.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A27698D1E6F6811006122BC /* Tiles.xcassets */; };
 		1A27699C1E6F6811006122BC /* victory.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A27698E1E6F6811006122BC /* victory.png */; };
+		1A2C91341EC9C0E500F417E1 /* GameSceneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2C91331EC9C0E500F417E1 /* GameSceneView.swift */; };
 		1A322EA11E68BD9E00008773 /* FeatureTransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A322EA01E68BD9D00008773 /* FeatureTransitionManager.swift */; };
 		1A355B2D1E546B00006469B3 /* GridSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A355B2C1E546B00006469B3 /* GridSpriteNode.swift */; };
 		1A355B301E55DBD7006469B3 /* TerrainTransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A355B2F1E55DBD7006469B3 /* TerrainTransitionManager.swift */; };
@@ -300,6 +301,7 @@
 		1A27698D1E6F6811006122BC /* Tiles.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Tiles.xcassets; path = HexagonalMapBasic/Resources/Tiles.xcassets; sourceTree = SOURCE_ROOT; };
 		1A27698E1E6F6811006122BC /* victory.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = victory.png; path = HexagonalMapBasic/Resources/victory.png; sourceTree = SOURCE_ROOT; };
 		1A27699F1E6F6B81006122BC /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = HexagonalMapBasicTests/Info.plist; sourceTree = SOURCE_ROOT; };
+		1A2C91331EC9C0E500F417E1 /* GameSceneView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameSceneView.swift; path = Scenes/GameSceneView.swift; sourceTree = "<group>"; };
 		1A322EA01E68BD9D00008773 /* FeatureTransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeatureTransitionManager.swift; path = ../HexagonalMapBasic/Game/Templating/FeatureTransitionManager.swift; sourceTree = "<group>"; };
 		1A355B2C1E546B00006469B3 /* GridSpriteNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GridSpriteNode.swift; path = ../HexagonalMapBasic/Presentation/Scenes/GridSpriteNode.swift; sourceTree = "<group>"; };
 		1A355B2F1E55DBD7006469B3 /* TerrainTransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TerrainTransitionManager.swift; path = ../HexagonalMapBasic/Game/Templating/TerrainTransitionManager.swift; sourceTree = "<group>"; };
@@ -619,8 +621,9 @@
 			isa = PBXGroup;
 			children = (
 				1A81D7341EB280D8000B7373 /* GameScene.swift */,
-				1A81D7361EB31FC4000B7373 /* TerrainSpriteNode.swift */,
 				1A81D73F1EB34FE8000B7373 /* EmptyScene.swift */,
+				1A81D7361EB31FC4000B7373 /* TerrainSpriteNode.swift */,
+				1A2C91331EC9C0E500F417E1 /* GameSceneView.swift */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -1540,6 +1543,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1AC3A2B41EBCAC8D00E80003 /* AppCoordinator.swift in Sources */,
+				1A2C91341EC9C0E500F417E1 /* GameSceneView.swift in Sources */,
 				1A81D7401EB34FE8000B7373 /* EmptyScene.swift in Sources */,
 				1AC3A2B71EBCBF0200E80003 /* MapEditCoordinator.swift in Sources */,
 				1AC3A2A81EBC7E4700E80003 /* HoverView.swift in Sources */,
