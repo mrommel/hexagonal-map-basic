@@ -10,6 +10,15 @@ import Cocoa
 import Foundation
 import HexagonalMapKit
 
+/// Used to make identifiying MenuItems a little easier to read in code.
+/// Menu Items should have their Tag value set to the corresponding value
+enum MenuTag: Int {
+    case NewMenu = 100
+    case OpenMenu = 110
+    case SaveMenu = 120
+    case ShowFonts = 300
+}
+
 protocol MapMainControllerViewDelegate: class {
 
     func mapsDidChange(controller: MapMainController)
@@ -54,13 +63,29 @@ extension MainViewController {
         setUpCollectionView()
     }
     
+    override func viewDidAppear() {
+        self.view.window?.delegate = self
+    }
+}
+
+extension MainViewController: NSWindowDelegate {
+    
+    private func windowShouldClose(_ sender: Any) {
+        
+        // TODO prevent closing main window when there are child windows
+        
+        NSApplication.shared().terminate(self)
+    }
+}
+
+extension MainViewController {
     
     func refreshDisplay() {
         collectionView.reloadData()
     }
     
     
-    private func setUpCollectionView() {
+    func setUpCollectionView() {
         collectionView.dataSource = self
         collectionView.delegate = self
         
@@ -111,10 +136,10 @@ extension MainViewController {
     override func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
         
         switch (menuItem.tag) {
-        /*case MenuTag.NewMenu.rawValue:
+        case MenuTag.NewMenu.rawValue:
             return true
         case MenuTag.OpenMenu.rawValue:
-            return collectionView.selectionIndexes.count > 0*/
+            return collectionView.selectionIndexes.count > 0
         default:
             return false
         }
