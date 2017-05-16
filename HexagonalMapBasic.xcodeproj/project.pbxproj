@@ -87,7 +87,6 @@
 		1A14B1011EC349D700CFDADC /* GridTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A14B0731EC3427F00CFDADC /* GridTests.swift */; };
 		1A14B1021EC349D700CFDADC /* TileImprovementTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A14B0741EC3427F00CFDADC /* TileImprovementTypeTests.swift */; };
 		1A14B1031EC349D700CFDADC /* ContinentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A14B0751EC3427F00CFDADC /* ContinentTests.swift */; };
-		1A14B1071EC44F1500CFDADC /* HexagonalMapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A14B03B1EC3421900CFDADC /* HexagonalMapKit.framework */; };
 		1A153D9D1E56E39300F11812 /* TransitionSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A153D9C1E56E39300F11812 /* TransitionSpriteNode.swift */; };
 		1A27698F1E6F6811006122BC /* Animations.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A2769811E6F6811006122BC /* Animations.xcassets */; };
 		1A2769901E6F6811006122BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A2769821E6F6811006122BC /* Assets.xcassets */; };
@@ -109,6 +108,9 @@
 		1A355B341E55E860006469B3 /* TerrainSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A355B331E55E860006469B3 /* TerrainSpriteNode.swift */; };
 		1A355B361E55F04F006469B3 /* FeatureSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A355B351E55F04F006469B3 /* FeatureSpriteNode.swift */; };
 		1A4B38901E4BBAD400FA7457 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4B388F1E4BBAD400FA7457 /* GameScene.swift */; };
+		1A4D08E31ECB4C95004791BC /* HexagonalMapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A14B03B1EC3421900CFDADC /* HexagonalMapKit.framework */; };
+		1A4D08E41ECB4C95004791BC /* HexagonalMapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1A14B03B1EC3421900CFDADC /* HexagonalMapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1A4D08EB1ECB4CBF004791BC /* Pods_HexagonalMapBuilder.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4C9D369B02A37856189646F7 /* Pods_HexagonalMapBuilder.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1A57CA921E5D8E0400348FDD /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A57CA911E5D8E0400348FDD /* Game.swift */; };
 		1A6603F01E6FD26E002C8FED /* Maps in Resources */ = {isa = PBXBuildFile; fileRef = 1A6603EF1E6FD26E002C8FED /* Maps */; };
 		1A81D7351EB280D8000B7373 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A81D7341EB280D8000B7373 /* GameScene.swift */; };
@@ -147,12 +149,12 @@
 		1AFE3C2F1E70394E008AD2B7 /* RiverTransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFE3C2E1E70394E008AD2B7 /* RiverTransitionManager.swift */; };
 		1AFE3C321E719D90008AD2B7 /* Rivers.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AFE3C311E719D90008AD2B7 /* Rivers.xcassets */; };
 		1AFE3C361E72B056008AD2B7 /* RiverTransitionManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFE3C351E72B056008AD2B7 /* RiverTransitionManagerTests.swift */; };
+		2A027B8F3F7EBC9136BB1D36 /* Pods_HexagonalMapBuilder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C9D369B02A37856189646F7 /* Pods_HexagonalMapBuilder.framework */; };
 		4D15C2891D442302007A5EE2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D15C2881D442302007A5EE2 /* AppDelegate.swift */; };
 		4D15C2911D442302007A5EE2 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D15C2901D442302007A5EE2 /* GameViewController.swift */; };
 		4D15C2941D442302007A5EE2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D15C2921D442302007A5EE2 /* Main.storyboard */; };
 		4D15C2991D442302007A5EE2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D15C2971D442302007A5EE2 /* LaunchScreen.storyboard */; };
 		4F946AC1B1582660553124CB /* Pods_HexagonalMapKitiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BCCFEFC94AC42C0B45E9749 /* Pods_HexagonalMapKitiOS.framework */; };
-		6C401B179A04A9967D89529B /* Pods_HexagonalMapBuilder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C9D369B02A37856189646F7 /* Pods_HexagonalMapBuilder.framework */; };
 		B627A8483ADC47ED4C543646 /* Pods_HexagonalMapBasicTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97D5E67FFF0289FA0AFF4DD4 /* Pods_HexagonalMapBasicTests.framework */; };
 		F85ED7F610BD5569123098D9 /* Pods_HexagonalMapKitOSX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9CA6E15D746B269138B64CEA /* Pods_HexagonalMapKitOSX.framework */; };
 /* End PBXBuildFile section */
@@ -200,6 +202,13 @@
 			remoteGlobalIDString = 4D15C2841D442302007A5EE2;
 			remoteInfo = HexagonalMapBasic;
 		};
+		1A4D08E51ECB4C95004791BC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D15C27D1D442302007A5EE2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1A14B03A1EC3421900CFDADC;
+			remoteInfo = HexagonalMapKitOSX;
+		};
 		1ABD0BD01EA7F2540065541C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 4D15C27D1D442302007A5EE2 /* Project object */;
@@ -225,6 +234,18 @@
 			files = (
 				1A14B0511EC3421900CFDADC /* HexagonalMapKit.framework in Embed Frameworks */,
 				1A14B0D81EC3497400CFDADC /* HexagonalMapKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1A4D08E91ECB4C96004791BC /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				1A4D08E41ECB4C95004791BC /* HexagonalMapKit.framework in Embed Frameworks */,
+				1A4D08EB1ECB4CBF004791BC /* Pods_HexagonalMapBuilder.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -431,8 +452,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A14B1071EC44F1500CFDADC /* HexagonalMapKit.framework in Frameworks */,
-				6C401B179A04A9967D89529B /* Pods_HexagonalMapBuilder.framework in Frameworks */,
+				1A4D08E31ECB4C95004791BC /* HexagonalMapKit.framework in Frameworks */,
+				2A027B8F3F7EBC9136BB1D36 /* Pods_HexagonalMapBuilder.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -965,10 +986,12 @@
 				1ABD0BBD1EA7F2540065541C /* Resources */,
 				690C88513AF58682C02AB35B /* [CP] Embed Pods Frameworks */,
 				3E93527544847B2F4530ADA3 /* [CP] Copy Pods Resources */,
+				1A4D08E91ECB4C96004791BC /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				1A4D08E61ECB4C95004791BC /* PBXTargetDependency */,
 			);
 			name = HexagonalMapBuilder;
 			productName = HexagonalMapBuilder;
@@ -1284,7 +1307,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		50FA2F81A17B12408B32F9A8 /* [CP] Check Pods Manifest.lock */ = {
@@ -1299,7 +1322,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		6455808188C891D3A9F5230D /* [CP] Check Pods Manifest.lock */ = {
@@ -1314,7 +1337,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		690C88513AF58682C02AB35B /* [CP] Embed Pods Frameworks */ = {
@@ -1359,7 +1382,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		AAC1CD810A9ABA9C6B914925 /* [CP] Copy Pods Resources */ = {
@@ -1389,7 +1412,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		E8859BA9C35B069E1AFF322F /* [CP] Copy Pods Resources */ = {
@@ -1635,6 +1658,11 @@
 			target = 4D15C2841D442302007A5EE2 /* HexagonalMapBasic */;
 			targetProxy = 1A4B38A11E4C7A5600FA7457 /* PBXContainerItemProxy */;
 		};
+		1A4D08E61ECB4C95004791BC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1A14B03A1EC3421900CFDADC /* HexagonalMapKitOSX */;
+			targetProxy = 1A4D08E51ECB4C95004791BC /* PBXContainerItemProxy */;
+		};
 		1ABD0BD11EA7F2540065541C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 1ABD0BBE1EA7F2540065541C /* HexagonalMapBuilder */;
@@ -1691,7 +1719,7 @@
 			buildSettings = {
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "-";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = CMUQ7NPWU8;
@@ -1723,7 +1751,7 @@
 			buildSettings = {
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "-";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = CMUQ7NPWU8;
@@ -1904,6 +1932,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 072ACDACFFEF5702B355C059 /* Pods-HexagonalMapBuilder.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "-";
@@ -1923,6 +1952,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9CFBFF276406C3E525C669EB /* Pods-HexagonalMapBuilder.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "-";
