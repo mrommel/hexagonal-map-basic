@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "terrain.png",
+      "filename" : "PointIcon.png",
       "scale" : "1x"
     },
     {

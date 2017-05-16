@@ -50,6 +50,9 @@ class MapEditViewController: NSViewController {
                 }
             }
         }
+        
+        self.propertyTable?.target = self
+        self.propertyTable?.doubleAction = #selector(tableViewDoubleClick(_:))
     }
     
     func showPropertiesFor(tile: Tile?) {
@@ -82,10 +85,35 @@ extension MapEditViewController: MapEditControllerViewDelegate {
     }
 }
 
+extension MapEditViewController {
+    
+    public func tableViewDoubleClick(_ sender:AnyObject) {
+        
+        guard let row = self.propertyTable?.selectedRow else {
+            return
+        }
+        
+        guard row >= 0, let tile = self.tile else {
+            return
+        }
+        
+        print("tableViewDoubleClick: \(tile) + \(row)")
+        
+        /*if item.isFolder {
+            // 2
+            self.representedObject = item.url as Any
+        }*/
+    }
+    
+    @IBAction func endEditingText(_ sender: AnyObject) {
+        print("edit: \(sender)")
+    }
+}
+
 extension MapEditViewController: NSTableViewDataSource {
     
     func numberOfRows(in tableView: NSTableView) -> Int {
-        return 2
+        return 3
     }
     
 }
@@ -103,31 +131,49 @@ extension MapEditViewController: NSTableViewDelegate {
         var text: String = ""
         var cellIdentifier: String = ""
         
-        // 1
         guard let tile = self.tile else {
             return nil
         }
         
-        // 2
-        if tableColumn == tableView.tableColumns[0] {
-            image = NSImage(named: "TerrainIcon")
-            text = ""
-            cellIdentifier = CellIdentifiers.IconCell
-        } else if tableColumn == tableView.tableColumns[1] {
-            if let terrainName = tile.terrain?.name {
-                text = "\(terrainName)"
-            } else {
-                text = "no name"
+        switch(row) {
+        case 0:
+            if tableColumn == tableView.tableColumns[0] {
+                image = NSImage(named: "PointIcon")
+                cellIdentifier = CellIdentifiers.IconCell
+            } else if tableColumn == tableView.tableColumns[1] {
+                text = "\(tile.point.x), \(tile.point.y)"
+                cellIdentifier = CellIdentifiers.NameCell
             }
-            cellIdentifier = CellIdentifiers.NameCell
+            break
+        case 1:
+            if tableColumn == tableView.tableColumns[0] {
+                image = NSImage(named: "TerrainIcon")
+                cellIdentifier = CellIdentifiers.IconCell
+            } else if tableColumn == tableView.tableColumns[1] {
+                text = tile.terrain?.name ?? "no name"
+                cellIdentifier = CellIdentifiers.NameCell
+            }
+            break
+        case 2:
+            if tableColumn == tableView.tableColumns[0] {
+                image = NSImage(named: "ContinentIcon")
+                cellIdentifier = CellIdentifiers.IconCell
+            } else if tableColumn == tableView.tableColumns[1] {
+                text = tile.continent?.name ?? "no continent"
+                cellIdentifier = CellIdentifiers.NameCell
+            }
+            break
+        default:
+            break
         }
         
-        // 3
+        
         if let cell = tableView.make(withIdentifier: cellIdentifier, owner: nil) as? NSTableCellView {
             cell.textField?.stringValue = text
             cell.imageView?.image = image ?? nil
             return cell
         }
+        
         return nil
     }
     

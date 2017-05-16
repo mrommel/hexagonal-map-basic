@@ -10,7 +10,7 @@ import Foundation
 
 public class Continent: Area {
     
-    let name: String
+    public let name: String
     
     public init(withIdentifier identifier: Int, andName name: String, andBoundaries boundary: AreaBoundary, on map: Map) {
         self.name = name
