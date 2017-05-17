@@ -75,14 +75,15 @@ class GameSceneView: SCNView {
             
             let gridPoint = self.map?.grid?.gridPoint(from: screenPointWithoutOffset)
             
-            if gridPoint != focusPoint {
-                self.focusPoint = gridPoint!
+            if let gridPoint = gridPoint {
+                if gridPoint != focusPoint {
+                    self.focusPoint = gridPoint
                 
-                self.onFocusChanged!(gridPoint)
+                    self.onFocusChanged!(gridPoint)
                 
-                scene?.moveFocus(to: self.focusPoint)
+                    scene?.moveFocus(to: self.focusPoint)
+                }
             }
-
             
         }
     }

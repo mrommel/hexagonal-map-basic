@@ -65,7 +65,7 @@
                                     <items>
                                         <menuItem title="New" tag="100" keyEquivalent="n" id="Was-JA-tGl">
                                             <connections>
-                                                <action selector="newDocument:" target="Ady-hI-5gd" id="4Si-XN-c54"/>
+                                                <action selector="newMapSelected:" target="Ady-hI-5gd" id="u4a-9L-720"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem title="Edit" tag="110" keyEquivalent="o" id="IAo-SY-fd9">
@@ -76,7 +76,7 @@
                                         <menuItem isSeparatorItem="YES" id="m54-Is-iLE"/>
                                         <menuItem title="Save…" tag="120" keyEquivalent="s" id="pxx-59-PXV">
                                             <connections>
-                                                <action selector="saveDocument:" target="Ady-hI-5gd" id="teZ-XB-qJY"/>
+                                                <action selector="saveMapSelected:" target="Ady-hI-5gd" id="W3n-Lh-Ykl"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem title="Revert to Saved" id="KaW-ft-85H">
@@ -307,6 +307,19 @@
                                     </items>
                                 </menu>
                             </menuItem>
+                            <menuItem title="Generate" id="OUJ-40-Tae" userLabel="Generate">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Generate" id="ewG-bt-cUA">
+                                    <items>
+                                        <menuItem title="Random" id="gBe-J8-o0u">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="generateRandomMapSelected:" target="Ady-hI-5gd" id="pPQ-Ge-1AW"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
                             <menuItem title="View" id="H8h-7b-M4v">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="View" id="HyV-fh-RgO">
@@ -369,7 +382,13 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="HexagonalMapBuilder" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="HexagonalMapBuilder" customModuleProvider="target">
+                    <connections>
+                        <outlet property="generateRandomMapMenuItem" destination="gBe-J8-o0u" id="YwO-08-oiG"/>
+                        <outlet property="newMapMenuItem" destination="Was-JA-tGl" id="Dgw-h4-Ygp"/>
+                        <outlet property="saveMapMenuItem" destination="pxx-59-PXV" id="Cdq-hY-uoU"/>
+                    </connections>
+                </customObject>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="52" y="-580"/>

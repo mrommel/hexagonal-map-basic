@@ -14,6 +14,10 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     private var appCoordinator: AppCoordinator!
+    
+    @IBOutlet weak var newMapMenuItem: NSMenuItem!
+    @IBOutlet weak var saveMapMenuItem: NSMenuItem!
+    @IBOutlet weak var generateRandomMapMenuItem: NSMenuItem!
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         appCoordinator = AppCoordinator()
@@ -24,8 +28,20 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Insert code here to tear down your application
     }
 
-    @IBAction func newDocument(sender: NSMenuItem) {
-        print("new")
+    /// MARK: file menu
+    
+    func enable(newMapMenu enabled: Bool) {
+        self.newMapMenuItem.isEnabled = enabled
+    }
+    
+    func enable(saveMenu enabled: Bool) {
+        self.saveMapMenuItem.isEnabled = enabled
+    }
+
+    /// MARK_ generate menu
+    
+    func enable(generateRandomMenu enabled: Bool) {
+        self.generateRandomMapMenuItem.isEnabled = enabled
     }
 
 }

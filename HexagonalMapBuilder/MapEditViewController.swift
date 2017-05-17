@@ -65,6 +65,17 @@ class MapEditViewController: NSViewController {
     func refreshDisplay() {
         self.sceneView?.map = self.controller?.map
     }
+    
+    @IBAction func saveMapSelected(_ sender: Any) {
+        print("save")
+    }
+    
+    @IBAction func generateRandomMapSelected(_ sender: Any) {
+        
+        let options = GridGeneratorOptions(withSize: .small, zone: .earth, waterPercentage: 0.3, rivers: 5)
+        self.controller?.generateMap(withOptions: options)
+        self.refreshDisplay()
+    }
 }
 
 extension MapEditViewController: MapEditControllerViewDelegate {

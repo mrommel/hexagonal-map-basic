@@ -4,7 +4,9 @@ A demonstration of using the SpriteKit TilemapNode with an Hexagonal Map
 #### Prerequisites
 [Xcode 8](https://developer.apple.com)
 
-
+#### Links
+to extract some code to a framework and to use in ios *and* macosx
+* http://basememara.com/creating-cross-platform-swift-frameworks-ios-watchos-tvos-via-carthage-cocoapods/
 
 #### Asset processing
 

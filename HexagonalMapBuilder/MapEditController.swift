@@ -20,5 +20,7 @@ protocol MapEditController: class {
     var viewDelegate: MapEditControllerViewDelegate? { get set }
     var map: Map? { get }
     
+    func generateMap(withOptions options: GridGeneratorOptions)
+    
     func cancel()
 }

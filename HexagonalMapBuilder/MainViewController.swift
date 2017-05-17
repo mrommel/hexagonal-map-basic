@@ -53,6 +53,11 @@ class MainViewController: NSViewController {
             refreshDisplay()
         }
     }
+    
+    @IBAction func newMapSelected(_ sender: Any) {
+        print("new")
+        self.newDocument(sender: sender as AnyObject)
+    }
 }
 
 ///Methods
@@ -115,7 +120,6 @@ extension MainViewController {
 }
 
 
-
 /// Menu Methods
 extension MainViewController {
     
@@ -147,7 +151,6 @@ extension MainViewController {
 }
 
 
-
 /// Handle methods delegated from the controller
 extension MainViewController: MapMainControllerViewDelegate {
     
@@ -155,7 +158,6 @@ extension MainViewController: MapMainControllerViewDelegate {
         refreshDisplay()
     }
 }
-
 
 
 extension MainViewController: NSCollectionViewDataSource {

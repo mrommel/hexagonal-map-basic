@@ -49,6 +49,12 @@ class EditController: MapEditController {
             }
         }
     }
+    
+    func generateMap(withOptions options: GridGeneratorOptions) {
+        self.map = Map(withOptions: options)
+        self.map?.id = self.id
+        self.map?.title = "Generated"
+    }
 }
 
 
