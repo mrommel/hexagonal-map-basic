@@ -8,6 +8,6 @@
 
 import Foundation
 
-class Unit: MapItem {
+public class Unit: MapItem {
     
 }

@@ -51,9 +51,27 @@ class EditController: MapEditController {
     }
     
     func generateMap(withOptions options: GridGeneratorOptions) {
-        self.map = Map(withOptions: options)
-        self.map?.id = self.id
-        self.map?.title = "Generated"
+        
+        let tmp = Map(withOptions: options, completionHandler: { progress in
+            print("generateMap => \(progress)")
+        })
+        
+        tmp.id = self.id
+        tmp.title = "Generated \(options.mapSize.width)x\(options.mapSize.height)"
+        tmp.teaser = "Climate: \(options.climateZoneOption), Water: \(options.waterPercentage*100)%"
+        
+        self.map = tmp
+        
+    }
+
+    func saveMap() {
+        dataProvider?.save(map: self.map!, completionHandler: { (error) in
+            if let error = error {
+                print("saved with error: \(error)")
+            } else {
+                print("saved with success")
+            }
+        })
     }
 }
 

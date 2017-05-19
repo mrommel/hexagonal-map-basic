@@ -46,6 +46,7 @@ public enum ClimateZoneOption {
 
 public enum MapSize {
     
+    case test // 5x5
     case duel // 40x24
     case tiny // 56x36
     case small // 66x42
@@ -53,8 +54,10 @@ public enum MapSize {
     case large // 104x64
     case huge // 128x80
     
-    var width: Int {
+    public var width: Int {
         switch self {
+        case .test:
+            return 5
         case .duel:
             return 40
         case .tiny:
@@ -70,8 +73,10 @@ public enum MapSize {
         }
     }
     
-    var height: Int {
+    public var height: Int {
         switch self {
+        case .test:
+            return 5
         case .duel:
             return 24
         case .tiny:
@@ -90,9 +95,9 @@ public enum MapSize {
 
 public class GridGeneratorOptions {
 
-    let mapSize: MapSize
-    let climateZoneOption: ClimateZoneOption
-    let waterPercentage: Float
+    public let mapSize: MapSize
+    public let climateZoneOption: ClimateZoneOption
+    public let waterPercentage: Float
     let rivers: Int
     
     required public init(withSize size: MapSize, zone: ClimateZoneOption, waterPercentage: Float, rivers: Int) {
@@ -104,7 +109,7 @@ public class GridGeneratorOptions {
     }
 }
 
-typealias CompletionHandler = (Float) -> (Void)
+public typealias CompletionHandler = (Float) -> (Void)
 
 class GridGenerator {
     

@@ -9,11 +9,12 @@
 // swiftlint:disable cyclomatic_complexity
 
 import Foundation
+import EVReflection
 
 // taken from here: https://en.wikipedia.org/wiki/List_of_rivers_by_length
 let riverNames = ["Amazon", "Nile", "Yangtze", "Mississippi", "Yenisei", "Huang He", "Ob", "Río de la Plata", "Congo", "Amur", "Lena", "Mekong", "Mackenzie", "Niger", "Murray", "Tocantins", "Volga", "Euphrates", "Madeira", "Purús", "Yukon", "Indus", "São Francisco", "Syr Darya", "Salween", "Saint Lawrence", "Rio Grande", "Lower Tunguska", "Brahmaputra", "Donau"]
 
-public class RiverPoint {
+public class RiverPoint: EVObject {
     
     public let point: GridPoint
     public let flowDirection: FlowDirection
@@ -23,18 +24,32 @@ public class RiverPoint {
         self.point = point
         self.flowDirection = flowDirection
     }
+    
+    required convenience public init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    required public init() {
+        fatalError("init() has not been implemented")
+    }
 }
 
-public class River {
+public class River: EVObject {
     
-    public let name: String
-    public var points: [RiverPoint]
+    public var name: String = ""
+    public var points: [RiverPoint] = []
     
     public init(with name: String, and points: [GridPointWithCorner]) {
+        
+        super.init()
         
         self.name = name
         self.points = []
         self.translate(points: points)
+    }
+    
+    required public init() {
+        //fatalError("init() has not been implemented")
     }
     
     /**

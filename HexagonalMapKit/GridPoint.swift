@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreGraphics
+import EVReflection
 
 /**
  A GridPoint is a structure that represents a location of a hexagon in the grid.
@@ -23,7 +24,7 @@ import CoreGraphics
  +--+--+--+
  ```
  */
-public class GridPoint : Hashable {
+public class GridPoint: EVObject {
     
     public var x: Int = 0
     public var y: Int = 0
@@ -40,11 +41,12 @@ public class GridPoint : Hashable {
         self.y = y
     }
     
-    /**
-        Returns a unique number that represents this location.
-     */
-    public var hashValue: Int {
-        return x ^ (y << 32)
+    required convenience public init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    required public init() {
+        fatalError("init() has not been implemented")
     }
 }
 
@@ -213,23 +215,4 @@ extension GridPoint {
 // are the same, and false if they aren't)
 public func == (first : GridPoint, second : GridPoint) -> Bool {
     return first.x == second.x && first.y == second.y
-}
-
-extension GridPoint : CustomDebugStringConvertible {
-    
-    /// A textual representation of this instance, suitable for debugging.
-    public var debugDescription: String {
-        return "GridPoint(\(self.x),\(self.y))"
-    }
-}
-
-extension GridPoint : CustomStringConvertible {
-    
-    /// A textual representation of this instance, suitable for debugging.
-    public var description: String {
-        return "GridPoint(\(self.x),\(self.y))"
-    }
-}
-
-extension GridPoint : Equatable {
 }

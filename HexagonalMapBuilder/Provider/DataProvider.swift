@@ -191,19 +191,9 @@ extension DataProvider {
 
         DispatchQueue.global(qos: .background).async {
 
-            //convert the RTF to base64 - just makes less issues when storing the content as JSON
-            //let base64String = data.base64EncodedStringWithOptions(NSDataBase64EncodingOptions(rawValue: 0))
-
-            // Create a dictionary from the note that can then be converted to JSON
-            var dictionary = [String: String]()
-            dictionary["id"] = map.id
-            dictionary["title"] = map.title
-            dictionary["teaser"] = map.teaser
-            dictionary["text"] = map.text
-
             // Turn the dictionary into JSON data then a JSON String.
             do {
-                let jsonData = try JSONSerialization.data(withJSONObject: dictionary, options: JSONSerialization.WritingOptions())
+                let jsonData = try JSONSerialization.data(withJSONObject: map.toDictionary(), options: JSONSerialization.WritingOptions())
                 let jsonString = String(data: jsonData, encoding: String.Encoding.utf8)
                 let filePath = documentPath + map.id + DataProvider.fileExtension
                 try jsonString?.write(toFile: filePath, atomically: true, encoding: String.Encoding.utf8)

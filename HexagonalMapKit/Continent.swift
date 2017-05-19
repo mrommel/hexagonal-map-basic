@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import EVReflection
 
 public class Continent: Area {
     
@@ -21,21 +22,26 @@ public class Continent: Area {
         self.name = name
         super.init(withIdentifier: identifier, andPoints: points, on: map)
     }
-}
-
-extension Continent : CustomDebugStringConvertible {
     
-    /// A textual representation of this instance, suitable for debugging.
-    public var debugDescription: String {
-        return "Continent(\(self.identifier),\(self.name))"
+    required public init() {
+        fatalError("init() has not been implemented")
     }
-}
-
-extension Continent : CustomStringConvertible {
     
-    /// A textual representation of this instance, suitable for debugging.
-    public var description: String {
-        return "Continent(\(self.identifier),\(self.name))"
+    required convenience public init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override public func skipPropertyValue(_ value: Any, key: String) -> Bool {
+        
+        if key == "map" {
+            return true
+        }
+        
+        if key == "statistics" {
+            return true
+        }
+        
+        return false
     }
 }
 

@@ -34,7 +34,7 @@ class MapEditViewController: NSViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.sceneView?.backgroundColor = .brown
+        self.sceneView?.backgroundColor = .black
 
         if let map = self.controller?.map {
             self.statusLabel?.stringValue = "Loaded: \(map.title)"
@@ -67,12 +67,12 @@ class MapEditViewController: NSViewController {
     }
     
     @IBAction func saveMapSelected(_ sender: Any) {
-        print("save")
+        self.controller?.saveMap()
     }
     
     @IBAction func generateRandomMapSelected(_ sender: Any) {
         
-        let options = GridGeneratorOptions(withSize: .small, zone: .earth, waterPercentage: 0.3, rivers: 5)
+        let options = GridGeneratorOptions(withSize: .test, zone: .earth, waterPercentage: 0.3, rivers: 5)
         self.controller?.generateMap(withOptions: options)
         self.refreshDisplay()
     }

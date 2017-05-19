@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreGraphics
+import EVReflection
 
 /**
     Matrix of `Tile`s
@@ -15,12 +16,12 @@ import CoreGraphics
     This class provides functions to manipulate the tiles (add/remove features, set terrain, etc)
     Used by `Map`to hold all the references to the `Tile`s
  */
-public class Grid {
+public class Grid: EVObject {
     
-    public var tiles: Array2D<Tile>
-    public var width: Int
-    public var height: Int
-    public var rivers: [River?]
+    public var tiles: Array2D<Tile> = Array2D<Tile>(columns: 1, rows: 1)
+    public var width: Int = 0
+    public var height: Int = 0
+    public var rivers: [River?] = []
     
     public static let kHexagonWidth: Double = 72.0
     public static let kHexagonHeight: Double = 62.0 // height = sqrt(3)/2 * width
@@ -47,6 +48,10 @@ public class Grid {
                 self.tiles[x, y] = Tile(at: GridPoint(x: x, y: y), withTerrain: Terrain.ocean)
             }
         }
+    }
+    
+    required public init() {
+        fatalError("init() has not been implemented")
     }
     
     /**
@@ -321,6 +326,16 @@ extension Grid {
                 print("something weird happend")
             }
         }
-        
+    }
+}
+
+extension Grid: EVArrayConvertable {
+    
+    /**
+     For implementing a function for converting a generic array to a specific array.
+     */
+    public func convertArray(_ key: String, array: Any) -> NSArray {
+        print("convertArray \(key), \(array)")
+        return NSArray()
     }
 }

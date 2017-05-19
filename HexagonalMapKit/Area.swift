@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import EVReflection
 
 /**
     class that holds a rectangle for `Area`
@@ -58,7 +59,7 @@ public class AreaBoundary {
     }
 }
 
-public struct AreaStatistics {
+public class AreaStatistics: EVObject {
     
     var coastTiles: Int = 0
 }
@@ -74,7 +75,7 @@ public struct AreaStatistics {
     }
     ```
  */
-public class AreaIterator : IteratorProtocol {
+public class AreaIterator: IteratorProtocol {
     
     var iterationsCount = 0
     var points: [GridPoint]?
@@ -108,12 +109,12 @@ public class AreaIterator : IteratorProtocol {
  
     can be constructed out of a list of points or a rectangle (`AreaBoundary`)
  */
-public class Area: Sequence, Equatable {
+public class Area: EVObject, Sequence {
     
-    let identifier: Int
-    var points: [GridPoint]?
-    var statistics: AreaStatistics
-    let map: Map?
+    public let identifier: Int
+    public var points: [GridPoint]?
+    public var statistics: AreaStatistics
+    private let map: Map?
     
     /**
         creates a new Area
@@ -154,6 +155,10 @@ public class Area: Sequence, Equatable {
         self.points = points
         self.map = map
         self.statistics = AreaStatistics()
+    }
+    
+    required public init() {
+        fatalError("init() has not been implemented")
     }
     
     /**
@@ -216,7 +221,15 @@ public class Area: Sequence, Equatable {
                 self.statistics.coastTiles += 1
             }
         }
+    }
+    
+    override public func skipPropertyValue(_ value: Any, key: String) -> Bool {
         
+        if key == "map" {
+            return false
+        }
+        
+        return false
     }
 }
 

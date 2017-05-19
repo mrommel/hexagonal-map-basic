@@ -26,6 +26,14 @@ class HeightMap: Array2D<Float> {
         self.normalize()
     }
     
+    required public init() {
+        fatalError("init() has not been implemented")
+    }
+    
+    required convenience public init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     /**
      generates the heightmap based on the input parameters
      

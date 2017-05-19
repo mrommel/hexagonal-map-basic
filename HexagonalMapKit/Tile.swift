@@ -8,6 +8,7 @@
 
 import Foundation
 import Buckets
+import EVReflection
 
 public enum FlowDirection: String {
     
@@ -38,7 +39,7 @@ func == (lhs: FlowDirectionError, rhs: FlowDirectionError) -> Bool {
     }
 }
 
-public class Tile: NSObject {
+public class Tile: EVObject {
     
     public let point: GridPoint
     public var terrain: Terrain? = Terrain.ocean
@@ -57,6 +58,10 @@ public class Tile: NSObject {
         
         self.point = point
         self.terrain = terrain
+    }
+    
+    required public init() {
+        fatalError("init() has not been implemented")
     }
     
     public var possibleImprovements: [TileImprovementType] {
@@ -80,9 +85,26 @@ public class Tile: NSObject {
         
         return []
     }
+    
+    override public func propertyConverters() -> [(key: String, decodeConverter: ((Any?)->()), encodeConverter: (() -> Any?))] {
+        return [
+            (   // We want a custom converter for the field continent
+                key: "continent"
+                , decodeConverter: { _ in self.continent = nil } // this is not good
+                , encodeConverter: { return self.continent?.identifier ?? "" })
+        ]
+    }
 }
 
-// MARK: feature handling
+/// MARK: property mapping
+
+extension Tile {
+    
+
+    
+}
+
+/// MARK: feature handling
 
 extension Tile {
     

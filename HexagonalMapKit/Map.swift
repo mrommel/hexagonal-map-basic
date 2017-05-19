@@ -8,6 +8,7 @@
 
 import Foundation
 //import Buckets
+import EVReflection
 
 /**
     Map class that contains the actual grid, a list of cities, units and improvements
@@ -22,24 +23,26 @@ import Foundation
     - a list of `TileImprovement`s
     - a list of `Continent`s
  */
-public class Map {
+public class Map: EVObject {
 
-    public var id: String
-    public var title: String
-    public var teaser: String
-    public var text: String
+    public var id: String = ""
+    public var title: String = ""
+    public var teaser: String = ""
+    public var text: String = ""
     
-    public var grid: Grid?
-    var cities: [City]? = []
-    var units: [Unit]? = []
-    var improvements: [TileImprovement]? = []
-    var continents: [Continent]? = []
+    public var grid: Grid? = nil
+    public var cities: [City]? = []
+    public var units: [Unit]? = []
+    public var improvements: [TileImprovement]? = []
+    public var continents: [Continent]? = []
 
     /**
         builds a `Map` with `width`x`height` dimension
      */
     public required init(width: Int, height: Int) {
 
+        super.init()
+        
         self.id = UUID.init().uuidString
         self.title = "Map \(width)x\(height)"
         self.teaser = "Teaser for manual created"
@@ -50,6 +53,8 @@ public class Map {
     
     public required init(withOptions options: GridGeneratorOptions) {
         
+        super.init()
+        
         self.id = UUID.init().uuidString
         self.title = "Map \(options.mapSize.width)x\(options.mapSize.height)"
         self.teaser = "Teaser for generated"
@@ -57,6 +62,23 @@ public class Map {
         
         self.grid = Grid(width: options.mapSize.width, height: options.mapSize.height)
         self.generate(withOptions: options)
+    }
+    
+    public required init(withOptions options: GridGeneratorOptions, completionHandler: CompletionHandler?) {
+        
+        super.init()
+        
+        self.id = UUID.init().uuidString
+        self.title = "Map \(options.mapSize.width)x\(options.mapSize.height)"
+        self.teaser = "Teaser for generated"
+        self.text = "Full text"
+        
+        self.grid = Grid(width: options.mapSize.width, height: options.mapSize.height)
+        self.generate(withOptions: options, completionHandler: completionHandler)
+    }
+    
+    required public init() {
+        fatalError("init() has not been implemented")
     }
     
     public var width: Int {
@@ -76,6 +98,15 @@ extension Map {
         
         let generator = GridGenerator(width: self.width, height: self.height)
         generator.completionHandler = { progress in print("progress: \(progress)%") }
+        self.grid = generator.generateGrid(with: options)
+        
+        self.findContinents()
+    }
+    
+    public func generate(withOptions options: GridGeneratorOptions, completionHandler: CompletionHandler?) {
+        
+        let generator = GridGenerator(width: self.width, height: self.height)
+        generator.completionHandler = completionHandler
         self.grid = generator.generateGrid(with: options)
         
         self.findContinents()
