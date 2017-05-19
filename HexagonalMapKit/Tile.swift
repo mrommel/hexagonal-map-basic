@@ -86,13 +86,17 @@ public class Tile: EVObject {
         return []
     }
     
-    override public func propertyConverters() -> [(key: String, decodeConverter: ((Any?)->()), encodeConverter: (() -> Any?))] {
-        return [
-            (   // We want a custom converter for the field continent
-                key: "continent"
-                , decodeConverter: { _ in self.continent = nil } // this is not good
-                , encodeConverter: { return self.continent?.identifier ?? "" })
-        ]
+    override public func skipPropertyValue(_ value: Any, key: String) -> Bool {
+        
+        if key == "continent" {
+            return true
+        }
+        
+        if key == "river" {
+            return true
+        }
+        
+        return false
     }
 }
 

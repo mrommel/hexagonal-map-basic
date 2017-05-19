@@ -335,7 +335,16 @@ extension Grid: EVArrayConvertable {
      For implementing a function for converting a generic array to a specific array.
      */
     public func convertArray(_ key: String, array: Any) -> NSArray {
-        print("convertArray \(key), \(array)")
-        return NSArray()
+        assert(key == "rivers", "convertArray for key \(key) should be handled.")
+        
+        let returnArray = NSMutableArray()
+        if key == "rivers" {
+            for item in (array as? Array<River?>) ?? Array<River?>() {
+                if let item = item {
+                    returnArray.add(item)
+                }
+            }
+        }
+        return returnArray
     }
 }
