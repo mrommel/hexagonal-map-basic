@@ -51,7 +51,28 @@ public class Grid: EVObject {
     }
     
     required public init() {
-        fatalError("init() has not been implemented")
+    }
+    
+    override public func setValue(_ value: Any!, forUndefinedKey key: String) {
+        
+        if key == "tiles" {
+            if let dict = value as? NSDictionary {
+                self.tiles = Array2D<Tile>(dictionary: dict)
+            }
+            return
+        }
+        
+        if key == "rivers" {
+            if let list = value as? NSArray {
+                self.rivers = []
+                for item in list {
+                    self.rivers.append(item as? River)
+                }
+            }
+            return
+        }
+        
+        print("---> Grid.setValue for key '\(key)' should be handled.")
     }
     
     /**

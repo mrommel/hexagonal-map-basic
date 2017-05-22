@@ -29,6 +29,31 @@ public enum Feature: String {
     case matchesAny = "*"
     case matchesNoHill = "nh"
     
+    public static func enumFrom(string: String) -> Feature? {
+        switch string {
+        case "island":
+            return .island
+        case "forest":
+            return .forest
+        case "taiga":
+            return .taiga
+        case "rainforest":
+            return .rainforest
+        case "swamp":
+            return .swamp
+        case "hill":
+            return .hill
+        case "mountain":
+            return .mountain
+        case "oasis":
+            return .oasis
+            
+        default:
+            print("--> Feature.enumFrom \(string) not handled")
+            return .none
+        }
+    }
+    
     public var image: String {
         switch self {
         case .island:

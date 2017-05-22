@@ -17,7 +17,7 @@ let riverNames = ["Amazon", "Nile", "Yangtze", "Mississippi", "Yenisei", "Huang 
 public class RiverPoint: EVObject {
     
     public let point: GridPoint
-    public let flowDirection: FlowDirection
+    public var flowDirection: FlowDirection
     
     public init(with point: GridPoint, and flowDirection: FlowDirection) {
         
@@ -25,12 +25,30 @@ public class RiverPoint: EVObject {
         self.flowDirection = flowDirection
     }
     
-    required convenience public init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    //required convenience public init?(coder: NSCoder) {
+    //}
     
     required public init() {
-        fatalError("init() has not been implemented")
+        self.point = GridPoint()
+        self.flowDirection = .none
+    }
+    
+    override public func setValue(_ value: Any!, forUndefinedKey key: String) {
+        switch key {
+        //case "nullableType":
+        //    nullableType = value as? Int
+            // break
+        case "flowDirection":
+            if let rawValue = value as? String {
+                if let status =  FlowDirection(rawValue: rawValue) {
+                    self.flowDirection = status
+                }
+            }
+            break
+        default:
+            break
+        }
+        
     }
 }
 

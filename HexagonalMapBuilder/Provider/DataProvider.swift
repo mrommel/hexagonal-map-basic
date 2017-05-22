@@ -207,21 +207,21 @@ extension DataProvider {
 
     private func makeMapFromJSON(object: [String: AnyObject]) -> Map? {
 
-        guard let id = object["id"] as? String,
-            let title = object["title"] as? String,
-            let teaser = object["teaser"] as? String,
-            let text = object["text"] as? String
-            else {
-            return nil
+        let map = Map(dictionary: object as NSDictionary)
+
+        // set continents from list to tiles
+        if let continents = map.continents {
+            for continent in continents {
+                if let points = continent.points {
+                    for point in points {
+                        map.grid?.tiles[point]?.continent = continent
+                    }
+                }
+            }
         }
-
-        let map = Map(width: 12, height: 12)
-
-        map.id = id
-        map.title = title
-        map.teaser = teaser
-        map.text = text
-
+        
+        // set rivers
+        
         return map
     }
 }

@@ -41,7 +41,7 @@ func == (lhs: FlowDirectionError, rhs: FlowDirectionError) -> Bool {
 
 public class Tile: EVObject {
     
-    public let point: GridPoint
+    public var point: GridPoint
     public var terrain: Terrain? = Terrain.ocean
     public var features: [Feature] = []
     public var discovered: BitArray = [false, false, false, false, false, false, false, false]
@@ -61,7 +61,8 @@ public class Tile: EVObject {
     }
     
     required public init() {
-        fatalError("init() has not been implemented")
+        
+        self.point = GridPoint()
     }
     
     public var possibleImprovements: [TileImprovementType] {
@@ -98,14 +99,71 @@ public class Tile: EVObject {
         
         return false
     }
-}
-
-/// MARK: property mapping
-
-extension Tile {
     
+    override public func setValue(_ value: Any!, forUndefinedKey key: String) {
+        
+        /*if key == "point" {
+            if let dict = value as? NSDictionary {
+                self.point = GridPoint(x: 1, y: 1)
+            }
+            return
+        }*/
+        
+        if key == "terrain" {
+            if let rawValue = value as? String {
+                if let terrainValue = Terrain.enumFrom(string: rawValue) {
+                    self.terrain = terrainValue
+                    print("have set terrain: \(terrainValue)")
+                }
+            }
+            return
+        }
+        
+        if key == "features" {
+            if let enumList = value as? NSArray {
+                self.features = []
+                for item in enumList {
+                    if let rawValue = item as? String, let featureType = Feature.enumFrom(string: rawValue) {
+                        self.features.append(featureType)
+                    }
+                }
+            }
+            return
+        }
+        
+        if key == "riverFlowNorthEast" {
+            if let rawValue = value as? String {
+                if let flowValue = FlowDirection(rawValue: rawValue) {
+                    self.riverFlowNorthEast = flowValue
+                }
+            }
+            return
+        }
+        
+        if key == "riverFlowSouthEast" {
+            if let rawValue = value as? String {
+                if let flowValue = FlowDirection(rawValue: rawValue) {
+                    self.riverFlowSouthEast = flowValue
+                }
+            }
+            return
+        }
+        
+        if key == "riverFlowNorth" {
+            if let rawValue = value as? String {
+                if let flowValue = FlowDirection(rawValue: rawValue) {
+                    self.riverFlowNorth = flowValue
+                }
+            }
+            return
+        }
+        
+        if key == "discovered" {
+            return
+        }
 
-    
+        print("---> Tile.setValue for key '\(key)' should be handled.")
+    }
 }
 
 /// MARK: feature handling

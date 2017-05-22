@@ -48,6 +48,7 @@ class GameScene: SKScene {
     
     var map: Map? {
         didSet {
+            self.clearBaseNode()
             self.placeAllTiles2D()
         }
     }
@@ -69,6 +70,10 @@ extension GameScene {
     public func offsetTo(x: CGFloat, y: CGFloat) {
         self.base.position.x = x
         self.base.position.y = y
+    }
+    
+    func clearBaseNode() {
+        self.base.removeAllChildren()
     }
     
     func placeAllTiles2D() {

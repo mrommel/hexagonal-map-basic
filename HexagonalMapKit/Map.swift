@@ -78,7 +78,7 @@ public class Map: EVObject {
     }
     
     required public init() {
-        fatalError("init() has not been implemented")
+        
     }
     
     public var width: Int {
@@ -87,6 +87,30 @@ public class Map: EVObject {
     
     public var height: Int {
         return (self.grid?.height)!
+    }
+    
+    override public func setValue(_ value: Any!, forUndefinedKey key: String) {
+        
+        if key == "grid" {
+            if let gridDict = value as? NSDictionary {
+                self.grid = Grid(dictionary: gridDict)
+            }
+            return
+        }
+        
+        if key == "cities" {
+            return
+        }
+        
+        if key == "units" {
+            return
+        }
+        
+        if key == "improvements" {
+            return
+        }
+
+        print("---> Map.setValue for key '\(key)' should be handled.")
     }
 }
 

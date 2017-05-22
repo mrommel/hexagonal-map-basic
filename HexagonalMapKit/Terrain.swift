@@ -33,6 +33,29 @@ public enum Terrain: String {
     case matchesGround = "-"
     case matchesWater = "~"
     
+    public static func enumFrom(string: String) -> Terrain? {
+        switch string {
+        case "ocean":
+            return .ocean
+        case "shore":
+            return .shore
+        case "grass":
+            return .grass
+        case "plains":
+            return .plains
+        case "desert":
+            return .desert
+        case "tundra":
+            return .tundra
+        case "snow":
+            return .snow
+
+        default:
+            print("--> Terrain.enumFromString \(string) not handled")
+            return .outside
+        }
+    }
+    
     public var image: String {
         switch self {
         case .outside:

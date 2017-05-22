@@ -111,10 +111,10 @@ public class AreaIterator: IteratorProtocol {
  */
 public class Area: EVObject, Sequence {
     
-    public let identifier: Int
-    public var points: [GridPoint]?
-    public var statistics: AreaStatistics
-    private let map: Map?
+    public var identifier: Int = -1
+    public var points: [GridPoint]? = []
+    public var statistics: AreaStatistics = AreaStatistics()
+    private var map: Map? = nil
     
     /**
         creates a new Area
@@ -130,6 +130,8 @@ public class Area: EVObject, Sequence {
         ```
      */
     public init(withIdentifier identifier: Int, andBoundaries boundary: AreaBoundary, on map: Map) {
+        
+        super.init()
         
         self.identifier = identifier
         self.points = boundary.allPoints()
@@ -158,7 +160,6 @@ public class Area: EVObject, Sequence {
     }
     
     required public init() {
-        fatalError("init() has not been implemented")
     }
     
     /**

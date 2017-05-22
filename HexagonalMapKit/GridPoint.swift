@@ -46,7 +46,7 @@ public class GridPoint: EVObject {
     }
     
     required public init() {
-        fatalError("init() has not been implemented")
+
     }
 }
 

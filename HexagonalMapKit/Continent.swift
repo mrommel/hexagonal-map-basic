@@ -11,7 +11,7 @@ import EVReflection
 
 public class Continent: Area {
     
-    public let name: String
+    public var name: String
     
     public init(withIdentifier identifier: Int, andName name: String, andBoundaries boundary: AreaBoundary, on map: Map) {
         self.name = name
@@ -24,11 +24,25 @@ public class Continent: Area {
     }
     
     required public init() {
-        fatalError("init() has not been implemented")
+        self.name = ""
+        super.init()
     }
     
     required convenience public init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        self.init()
+    }
+    
+    override public func setValue(_ value: Any!, forUndefinedKey key: String) {
+        
+        if key == "name" {
+            if let stringValue = value as? String {
+                self.name = stringValue
+            }
+            return
+        }
+        
+        super.setValue(value, forUndefinedKey: key)
+
     }
     
     override public func skipPropertyValue(_ value: Any, key: String) -> Bool {

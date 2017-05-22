@@ -11,23 +11,18 @@ import EVReflection
 
 public class Array2D <T: Equatable>: EVObject {
     
-    fileprivate var columns: Int = 1
-    fileprivate var rows: Int = 1
+    fileprivate var columns: Int = 0
+    fileprivate var rows: Int = 0
     fileprivate var array: Array<T?> = Array<T?>()
     
     public init(columns: Int, rows: Int) {
         self.columns = columns
         self.rows = rows
         
-        array = Array<T?>(repeating: nil, count: rows * columns)
-    }
-    
-    required convenience public init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        self.array = Array<T?>(repeating: nil, count: rows * columns)
     }
     
     required public init() {
-        fatalError("init() has not been implemented")
     }
     
     public subscript(column: Int, row: Int) -> T? {
@@ -46,22 +41,27 @@ public class Array2D <T: Equatable>: EVObject {
     public func rowCount() -> Int {
         return rows
     }
-}
-
-public func == <T>(lhs: Array2D<T>, rhs: Array2D<T>) -> Bool {
-    if lhs.array.count != rhs.array.count {
-        return false
-    }
     
-    for x in 0..<lhs.columnCount() {
-        for y in 0..<lhs.rowCount() {
-            if lhs[x, y] != rhs[x, y] {
-                return false
+    override public func setValue(_ value: Any!, forUndefinedKey key: String) {
+        switch key {
+        case "rows":
+            self.rows = value as! Int
+            break
+        case "columns":
+            self.columns = value as! Int
+            break
+        case "array":
+            if let arrayList = value as? NSArray {
+                self.array = []
+                for item in arrayList {
+                    self.array.append(item as? T)
+                }
             }
+            break
+        default:
+            break
         }
     }
-    
-    return true
 }
 
 // MARK: grid method
@@ -110,4 +110,22 @@ extension Array2D: EVArrayConvertable {
         }
         return returnArray
     }
+}
+
+/// MARK: Equatable
+
+public func == <T>(lhs: Array2D<T>, rhs: Array2D<T>) -> Bool {
+    if lhs.array.count != rhs.array.count {
+        return false
+    }
+    
+    for x in 0..<lhs.columnCount() {
+        for y in 0..<lhs.rowCount() {
+            if lhs[x, y] != rhs[x, y] {
+                return false
+            }
+        }
+    }
+    
+    return true
 }
