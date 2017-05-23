@@ -102,13 +102,6 @@ public class Tile: EVObject {
     
     override public func setValue(_ value: Any!, forUndefinedKey key: String) {
         
-        /*if key == "point" {
-            if let dict = value as? NSDictionary {
-                self.point = GridPoint(x: 1, y: 1)
-            }
-            return
-        }*/
-        
         if key == "terrain" {
             if let rawValue = value as? String {
                 if let terrainValue = Terrain.enumFrom(string: rawValue) {
@@ -159,6 +152,8 @@ public class Tile: EVObject {
         }
         
         if key == "discovered" {
+            print("value: \(value)")
+            // TODO
             return
         }
 

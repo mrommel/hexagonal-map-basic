@@ -246,7 +246,7 @@ extension Map {
     }
 }
 
-// MARK: continent handling
+/// MARK: continent handling
 
 extension Map {
     
@@ -274,3 +274,4 @@ extension Map {
         self.grid?.tile(at: point).continent = continent
     }
 }
+

@@ -20,6 +20,7 @@ class MapCollectionViewItem: NSCollectionViewItem {
     
     @IBOutlet weak var titleField: NSTextField!
     @IBOutlet weak var contentField: NSTextField!
+    @IBOutlet weak var imageField: NSImageView!
     
     weak var delegate: MapCollectionViewItemDelegate?
     
@@ -50,12 +51,29 @@ extension MapCollectionViewItem {
     func refreshDisplay() {
         setColors()
         if let map = self.map {
-            titleField.stringValue = map.title
-            contentField.stringValue = map.teaser
+            self.titleField.stringValue = map.title
+            self.contentField.stringValue = map.teaser
+            self.imageField.image = self.imageOf(map: map)
         } else {
-            titleField.stringValue = "title"
-            contentField.stringValue = "abc"
+            self.titleField.stringValue = "title"
+            self.contentField.stringValue = "abc"
+            self.imageField.image = nil
         }
+    }
+    
+    private func imageOf(map: Map) -> NSImage {
+        
+        let image = NSImage(size: NSSize(width: 125, height: 125))
+        
+        image.lockFocus()
+        
+        NSColor.red.set()
+        NSRectFill(NSMakeRect(0, 0, 125, 125))
+        //image.draw(at: <#T##NSPoint#>, from: <#T##NSRect#>, operation: <#T##NSCompositingOperation#>, fraction: <#T##CGFloat#>)
+        
+        image.unlockFocus()
+        
+        return image
     }
     
     

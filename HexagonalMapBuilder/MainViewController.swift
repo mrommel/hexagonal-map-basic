@@ -95,7 +95,7 @@ extension MainViewController {
         collectionView.delegate = self
         
         let flowLayout = NSCollectionViewFlowLayout()
-        flowLayout.itemSize = NSSize(width: 350.0, height: 220.0)
+        flowLayout.itemSize = NSSize(width: 420.0, height: 120.0)
         flowLayout.sectionInset = EdgeInsets(top: 10.0, left: 20.0, bottom: 10.0, right: 20.0)
         flowLayout.minimumInteritemSpacing = 5.0
         flowLayout.minimumLineSpacing = 10.0
