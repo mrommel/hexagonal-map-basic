@@ -19,22 +19,6 @@ enum MenuTag: Int {
     case ShowFonts = 300
 }
 
-protocol MapListInteractorOutput: class {
-
-    func mapsDidChange(interactor: MapListInteractorInput)
-}
-
-protocol MapListInteractorInput: class {
-    
-    var presenter: MapListInteractorOutput? {get set}
-    var numberOfMaps: Int { get }
-    
-    func map(index: Int) -> Map?
-    func editMap(index: Int)
-    func previewMap(index: Int, position: NSPoint)
-    func newMap()
-}
-
 class MapListViewController: NSViewController {
     
     static let collectionCellIdentifier = "MapItemCell"
@@ -44,31 +28,25 @@ class MapListViewController: NSViewController {
     
     var lastPreviewIndex: Int = -1
     
-    var interactor: MapListInteractorInput? {
-        willSet {
-            interactor?.presenter = nil
-        }
-        didSet {
-            interactor?.presenter = self
-            refreshDisplay()
-        }
-    }
+    var interactor: MapListInteractorInput?
+    var presenter: MapListPresenterInput?
     
-    @IBAction func newMapSelected(_ sender: Any) {
-        print("new")
-        self.newDocument(sender: sender as AnyObject)
-    }
+    var viewModel: MapListViewModel?
 }
 
-///Methods
+/// Methods
+
 extension MapListViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpCollectionView()
     }
     
     override func viewDidAppear() {
+        
+        super.viewDidAppear()
+        
+        self.presenter?.setupUI()
         self.view.window?.delegate = self
     }
 }
@@ -78,17 +56,28 @@ extension MapListViewController: NSWindowDelegate {
     private func windowShouldClose(_ sender: Any) {
         
         // TODO prevent closing main window when there are child windows
-        
+        // TODO regain delegate when child is closed
         NSApplication.shared().terminate(self)
     }
 }
 
-extension MapListViewController {
+extension MapListViewController: MapListPresenterOutput {
     
-    func refreshDisplay() {
-        collectionView.reloadData()
+    func setupUI(_ data: MapListViewModel) {
+        
+        self.viewModel = data
+        
+        self.title = viewModel?.title!
+        setUpCollectionView()
     }
     
+    func refreshUI() {
+        collectionView.reloadData()
+    }
+
+}
+
+extension MapListViewController {
     
     func setUpCollectionView() {
         collectionView.dataSource = self
@@ -153,9 +142,10 @@ extension MapListViewController {
 
 /// Handle methods delegated from the controller
 extension MapListViewController: MapListInteractorOutput {
-    
-    func mapsDidChange(interactor: MapListInteractorInput) {
-        refreshDisplay()
+
+    func onMapsLoaded() {
+        
+        refreshUI()
     }
 }
 
@@ -168,21 +158,24 @@ extension MapListViewController: NSCollectionViewDataSource {
     
     func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        guard let interactor = self.interactor else { return 0 }
+        guard let viewModel = self.viewModel else { return 0 }
+        guard let maps = viewModel.maps else { return 0 }
         
-        return interactor.numberOfMaps
+        return maps.count
     }
     
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
         
         let item = collectionView.makeItem(withIdentifier: "MapCollectionViewItem", for: indexPath)
         
+        guard let viewModel = self.viewModel else { return item }
+        guard let maps = viewModel.maps else { return item }
+        
         if let item = item as? MapCollectionViewItem {
-            if let data = self.interactor?.map(index: indexPath.item) {
-                item.index = indexPath.item
-                item.delegate = self
-                item.map = data
-            }
+            let map = maps[indexPath.item]
+            item.index = indexPath.item
+            //item.delegate = self
+            item.map = map
         }
         
         return item
@@ -210,7 +203,7 @@ extension MapListViewController: MapCollectionViewItemDelegate {
         guard lastPreviewIndex != index else { return }
         lastPreviewIndex = index
         
-        self.interactor?.previewMap(index: collectionItem.index, position: position)
+        //self.interactor?.previewMap(index: collectionItem.index, position: position)
     }
     
     

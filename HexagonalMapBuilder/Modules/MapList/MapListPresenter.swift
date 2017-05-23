@@ -7,3 +7,31 @@
 //
 
 import Foundation
+
+protocol MapListPresenterInput: class {
+    
+    func setupUI()
+}
+
+protocol MapListPresenterOutput: class {
+    
+    func setupUI(_ data: MapListViewModel)
+    func refreshUI()
+}
+
+class MapListPresenter {
+    
+    weak var userInterface: MapListPresenterOutput?
+    var interactor: MapListInteractorInput?
+    
+}
+
+extension MapListPresenter: MapListPresenterInput {
+    
+    func setupUI() {
+        let model = MapListViewModel(title: "Loading", loaded: false, maps: nil)
+        self.userInterface?.setupUI(model)
+        
+        self.interactor?.loadMaps()
+    }
+}

@@ -9,60 +9,66 @@
 import Foundation
 import Cocoa
 
-protocol Coordinator {
-
-    var key: String { get }
-}
-
-protocol CoordinatorDelegate: class {
-
-    func done(coordinator: Coordinator)
+protocol AppCoordinatorInput: class {
+    
+    func showMapList()
+    func showMapEditForNew()
+    func showMapEditFor(identifier: String)
 }
 
 
-class BaseCoordinator: Coordinator {
-
-    var key = NSUUID().uuidString
-    weak var delegate: CoordinatorDelegate?
-
-    func done() {
-        delegate?.done(coordinator: self)
-    }
-}
-
-/// The AppCoordinator controls the main flow of the application
+/**
+ The AppCoordinator controls the main flow of the application
+ */
 class AppCoordinator {
 
-    private var mainWindowController: NSWindowController!
-    private var window: NSWindow!
-    var coordinators = [String: BaseCoordinator]()
-
+    fileprivate var mapListWindowController: NSWindowController!
+    fileprivate var window: NSWindow!
+    
     func start() {
-        setupMainViewControllerStack()
+        showMapList()
     }
+}
 
+extension AppCoordinator: AppCoordinatorInput {
 
-    private func setupMainViewControllerStack() {
+    func showMapList() {
 
         let storyboard = NSStoryboard(name: "Main", bundle: nil)
-        mainWindowController = storyboard.instantiateController(withIdentifier: "MainWindowController") as? NSWindowController
-        window = mainWindowController.window
+        self.mapListWindowController = storyboard.instantiateController(withIdentifier: "MapListWindowController") as? NSWindowController
+        self.window = mapListWindowController.window
 
-        guard let mainViewController = window.contentViewController as? MapListViewController else {
-            fatalError("The Main View Controller Cannot be found");
+        guard let mapListViewController = self.window.contentViewController as? MapListViewController else {
+            fatalError("The Map List View Controller Cannot be found");
         }
 
-        let mainInteractor = MapListInteractor()
-        mainInteractor.dataProvider = DataProvider()
-        mainInteractor.coordinatorDelegate = self
+        let mapListPresenter = MapListPresenter()
+        let mapListInteractor = MapListInteractor()
+        
+        mapListPresenter.userInterface = mapListViewController
+        mapListPresenter.interactor = mapListInteractor
+        
+        mapListInteractor.presenter = mapListPresenter
+        mapListInteractor.datasource = MapListDatasource()
+        mapListInteractor.coordinator = self
 
-        mainViewController.interactor = mainInteractor
-        mainWindowController.showWindow(self)
+        mapListViewController.presenter = mapListPresenter
+        mapListViewController.interactor = mapListInteractor
+        
+        self.mapListWindowController.showWindow(self)
+    }
+    
+    func showMapEditForNew() {
+        print("showMapEditForNew")
+    }
+    
+    func showMapEditFor(identifier: String) {
+        print("showMapEditFor")
     }
 }
 
 
-extension AppCoordinator: MapListControllerCoordinatorDelegate {
+/*extension AppCoordinator {
 
     func newMap() {
         print("AppCoordinator.newMap()")
@@ -71,17 +77,12 @@ extension AppCoordinator: MapListControllerCoordinatorDelegate {
 
     func editMap(id: String) {
         print("AppCoordinator.editMap(\(id))")
-        guard let editCoordinator = coordinators[id] as? MapEditCoordinator else {
 
-            let coordinator = MapEditCoordinator()
-            coordinator.delegate = self
-            coordinator.edit(id: id)
-            coordinator.key = id
-            coordinators[id] = coordinator
-            return
-        }
-
-        editCoordinator.focus()
+        let coordinator = MapEditCoordinator()
+        coordinator.delegate = self
+        coordinator.edit(id: id)
+        coordinator.key = id
+        coordinator.focus()
     }
 
     func previewMap(id: String, position: NSPoint, timeBasedDisplay: Bool = false) {
@@ -91,12 +92,4 @@ extension AppCoordinator: MapListControllerCoordinatorDelegate {
         previewCoordinator.start(id: id, position: position, timeBasedDisplay: timeBasedDisplay)
         coordinators[previewCoordinator.key] = previewCoordinator*/
     }
-}
-
-
-extension AppCoordinator: CoordinatorDelegate {
-
-    func done(coordinator: Coordinator) {
-        coordinators.removeValue(forKey: coordinator.key)
-    }
-}
+}*/

@@ -10,77 +10,66 @@
 import Cocoa
 import HexagonalMapKit
 
-protocol MapListControllerCoordinatorDelegate: class {
+protocol MapListInteractorOutput: class {
     
-    func newMap()
-    func editMap(id: String)
-    func previewMap(id: String, position: NSPoint, timeBasedDisplay: Bool)
+    func onMapsLoaded()
 }
 
+protocol MapListInteractorInput: class {
+    
+    func loadMaps()
+
+    func newMap()
+    func editMap(index: Int)
+}
+
+/**
+ 
+ */
 class MapListInteractor {
     
-    weak var presenter: MapListInteractorOutput?
-    weak var coordinatorDelegate: MapListControllerCoordinatorDelegate?
+    var presenter: MapListPresenterInput?
+    var datasource: MapListDatasourceProtocol?
+    var coordinator: AppCoordinatorInput?
     
-    var dataProvider: MapDataProvider? {
-        
-        willSet {
-            dataProvider?.delegate = nil
-        }
-        didSet {
-            dataProvider?.delegate = self
-            loadMaps()
-        }
+    func map(index: Int) -> Map? {
+        return self.datasource?.mapAt(row: index)
     }
-    
-    var maps: [Map] = [Map]() {
-        didSet {
-            presenter?.mapsDidChange(interactor: self)
-        }
-    }
-    
-    var numberOfMaps: Int {
-        return maps.count
-    }
-    
 }
 
 
 /// MapMainController Methods
 extension MapListInteractor: MapListInteractorInput {
     
-    func map(index: Int) -> Map? {
-        
-        guard index >= 0 && index < maps.count else {return nil}
-        return maps[index]
+    func loadMaps() {
+        if let datasource = self.datasource {
+            datasource.loadMaps()
+        } else {
+            print("sdkjgdfg")
+        }
     }
     
+    func onMapsLoaded() {
+        print("loaded maps")
+        //self.presenter.mapsDidChange()
+    }
     
     func editMap(index: Int) {
         
         if let map = map(index: index) {
-            coordinatorDelegate?.editMap(id: map.id)
-        }
-    }
-    
-    
-    func previewMap(index: Int, position: NSPoint) {
-        
-        if let map = map(index: index) {
-            coordinatorDelegate?.previewMap(id: map.id, position: position, timeBasedDisplay: false)
+            self.coordinator?.showMapEditFor(identifier: map.id)
         }
     }
     
     func newMap() {
-        
-        coordinatorDelegate?.newMap()
+
+        self.coordinator?.showMapEditForNew()
     }
 }
 
 
-
 /// NoteDataProviderDelegate Methods
-extension MapListInteractor: MapDataProviderDelegate {
+/*extension MapListInteractor: MapDataProviderDelegate {
     
     func mapChanged(id: String) {
         
@@ -96,16 +85,5 @@ extension MapListInteractor: MapDataProviderDelegate {
         }
     }
     
-    func loadMaps() {
-        
-        if let dataProvider = dataProvider {
-            dataProvider.maps(completionHandler: { (maps) in
-                DispatchQueue.main.async() {
-                    self.maps = maps
-                }
-            })
-        } else {
-            self.maps = [Map]()
-        }
-    }
-}
+    
+}*/

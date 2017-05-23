@@ -9,7 +9,7 @@
 import Foundation
 import Cocoa
 
-class MapEditCoordinator: BaseCoordinator {
+class MapEditCoordinator {
 
     var editWindowController: NSWindowController?
 
@@ -45,6 +45,6 @@ extension MapEditCoordinator: MapEditControllerCoordinatorDelegate {
     func mapEditControllerDone(controller: MapEditController) {
         editWindowController?.close()
         editWindowController = nil
-        done()
+        //done()
     }
 }
