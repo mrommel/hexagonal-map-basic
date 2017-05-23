@@ -10,17 +10,17 @@
 import Cocoa
 import HexagonalMapKit
 
-protocol MapMainControllerCoordinatorDelegate: class
-{
+protocol MapListControllerCoordinatorDelegate: class {
+    
     func newMap()
     func editMap(id: String)
     func previewMap(id: String, position: NSPoint, timeBasedDisplay: Bool)
 }
 
-class MainController {
+class MapListInteractor {
     
-    weak var viewDelegate: MapMainControllerViewDelegate?
-    weak var coordinatorDelegate: MapMainControllerCoordinatorDelegate?
+    weak var presenter: MapListInteractorOutput?
+    weak var coordinatorDelegate: MapListControllerCoordinatorDelegate?
     
     var dataProvider: MapDataProvider? {
         
@@ -35,7 +35,7 @@ class MainController {
     
     var maps: [Map] = [Map]() {
         didSet {
-            viewDelegate?.mapsDidChange(controller: self)
+            presenter?.mapsDidChange(interactor: self)
         }
     }
     
@@ -47,7 +47,7 @@ class MainController {
 
 
 /// MapMainController Methods
-extension MainController: MapMainController {
+extension MapListInteractor: MapListInteractorInput {
     
     func map(index: Int) -> Map? {
         
@@ -80,7 +80,7 @@ extension MainController: MapMainController {
 
 
 /// NoteDataProviderDelegate Methods
-extension MainController: MapDataProviderDelegate {
+extension MapListInteractor: MapDataProviderDelegate {
     
     func mapChanged(id: String) {
         

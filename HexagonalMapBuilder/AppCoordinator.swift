@@ -48,21 +48,21 @@ class AppCoordinator {
         mainWindowController = storyboard.instantiateController(withIdentifier: "MainWindowController") as? NSWindowController
         window = mainWindowController.window
 
-        guard let mainViewController = window.contentViewController as? MainViewController else {
+        guard let mainViewController = window.contentViewController as? MapListViewController else {
             fatalError("The Main View Controller Cannot be found");
         }
 
-        let mainController = MainController()
-        mainController.dataProvider = DataProvider()
-        mainController.coordinatorDelegate = self
+        let mainInteractor = MapListInteractor()
+        mainInteractor.dataProvider = DataProvider()
+        mainInteractor.coordinatorDelegate = self
 
-        mainViewController.controller = mainController
+        mainViewController.interactor = mainInteractor
         mainWindowController.showWindow(self)
     }
 }
 
 
-extension AppCoordinator: MapMainControllerCoordinatorDelegate {
+extension AppCoordinator: MapListControllerCoordinatorDelegate {
 
     func newMap() {
         print("AppCoordinator.newMap()")

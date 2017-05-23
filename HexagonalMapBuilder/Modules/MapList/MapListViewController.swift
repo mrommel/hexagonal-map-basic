@@ -19,14 +19,14 @@ enum MenuTag: Int {
     case ShowFonts = 300
 }
 
-protocol MapMainControllerViewDelegate: class {
+protocol MapListInteractorOutput: class {
 
-    func mapsDidChange(controller: MapMainController)
+    func mapsDidChange(interactor: MapListInteractorInput)
 }
 
-protocol MapMainController: class {
+protocol MapListInteractorInput: class {
     
-    var viewDelegate: MapMainControllerViewDelegate? {get set}
+    var presenter: MapListInteractorOutput? {get set}
     var numberOfMaps: Int { get }
     
     func map(index: Int) -> Map?
@@ -35,7 +35,7 @@ protocol MapMainController: class {
     func newMap()
 }
 
-class MainViewController: NSViewController {
+class MapListViewController: NSViewController {
     
     static let collectionCellIdentifier = "MapItemCell"
     
@@ -44,12 +44,12 @@ class MainViewController: NSViewController {
     
     var lastPreviewIndex: Int = -1
     
-    var controller: MapMainController? {
+    var interactor: MapListInteractorInput? {
         willSet {
-            controller?.viewDelegate = nil
+            interactor?.presenter = nil
         }
         didSet {
-            controller?.viewDelegate = self
+            interactor?.presenter = self
             refreshDisplay()
         }
     }
@@ -61,7 +61,7 @@ class MainViewController: NSViewController {
 }
 
 ///Methods
-extension MainViewController {
+extension MapListViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,7 +73,7 @@ extension MainViewController {
     }
 }
 
-extension MainViewController: NSWindowDelegate {
+extension MapListViewController: NSWindowDelegate {
     
     private func windowShouldClose(_ sender: Any) {
         
@@ -83,7 +83,7 @@ extension MainViewController: NSWindowDelegate {
     }
 }
 
-extension MainViewController {
+extension MapListViewController {
     
     func refreshDisplay() {
         collectionView.reloadData()
@@ -113,20 +113,20 @@ extension MainViewController {
     }
     
     func editMap(index: Int) {
-        guard let controller = controller else { return }
+        guard let interactor = self.interactor else { return }
         lastPreviewIndex = index
-        controller.editMap(index: index)
+        interactor.editMap(index: index)
     }
 }
 
 
 /// Menu Methods
-extension MainViewController {
+extension MapListViewController {
     
     // Handles the + button and the "New" Menu Item
     @IBAction func newDocument(sender: AnyObject) {
         
-        controller?.newMap()
+        self.interactor?.newMap()
     }
     
     @IBAction func openDocument(sender: AnyObject) {
@@ -152,24 +152,25 @@ extension MainViewController {
 
 
 /// Handle methods delegated from the controller
-extension MainViewController: MapMainControllerViewDelegate {
+extension MapListViewController: MapListInteractorOutput {
     
-    func mapsDidChange(controller: MapMainController) {
+    func mapsDidChange(interactor: MapListInteractorInput) {
         refreshDisplay()
     }
 }
 
 
-extension MainViewController: NSCollectionViewDataSource {
+extension MapListViewController: NSCollectionViewDataSource {
     
     func numberOfSectionsInCollectionView(collectionView: NSCollectionView) -> Int {
         return 1
     }
     
     func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let controller = controller else { return 0 }
         
-        return controller.numberOfMaps
+        guard let interactor = self.interactor else { return 0 }
+        
+        return interactor.numberOfMaps
     }
     
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
@@ -177,7 +178,7 @@ extension MainViewController: NSCollectionViewDataSource {
         let item = collectionView.makeItem(withIdentifier: "MapCollectionViewItem", for: indexPath)
         
         if let item = item as? MapCollectionViewItem {
-            if let data = controller?.map(index: indexPath.item) {
+            if let data = self.interactor?.map(index: indexPath.item) {
                 item.index = indexPath.item
                 item.delegate = self
                 item.map = data
@@ -189,7 +190,7 @@ extension MainViewController: NSCollectionViewDataSource {
 }
 
 
-extension MainViewController: NSCollectionViewDelegate {
+extension MapListViewController: NSCollectionViewDelegate {
     
     func collectionView(_ collectionView: NSCollectionView, didSelectItemsAt indexPaths: Set<IndexPath>) {
         updateSelection(indexPaths: indexPaths)
@@ -201,7 +202,7 @@ extension MainViewController: NSCollectionViewDelegate {
 }
 
 
-extension MainViewController: MapCollectionViewItemDelegate {
+extension MapListViewController: MapCollectionViewItemDelegate {
     
     func hover(collectionItem: MapCollectionViewItem, position: NSPoint) {
         
@@ -209,7 +210,7 @@ extension MainViewController: MapCollectionViewItemDelegate {
         guard lastPreviewIndex != index else { return }
         lastPreviewIndex = index
         
-        controller?.previewMap(index: collectionItem.index, position: position)
+        self.interactor?.previewMap(index: collectionItem.index, position: position)
     }
     
     
