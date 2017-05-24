@@ -31,7 +31,7 @@ protocol MapListInteractorInput: class {
 class MapListInteractor {
     
     var presenter: MapListPresenterInput?
-    var datasource: MapListDatasourceProtocol?
+    var datasource: MapListDatasourceInput?
     var coordinator: AppCoordinatorInput?
     
     func map(index: Int) -> Map? {
@@ -50,8 +50,17 @@ extension MapListInteractor: MapListInteractorInput {
     }
     
     func onMapsLoaded() {
-        print("loaded maps")
-        //self.presenter.mapsDidChange()
+        
+        var maps: [Map] = []
+        
+        let maxMaps: Int = (self.datasource?.numberOfItemsInList())!
+        for index in 0..<maxMaps {
+            if let map = self.datasource?.mapAt(row: index) {
+                maps.append(map)
+            }
+        }
+        
+        self.presenter?.updateWith(maps: maps)
     }
     
     func editMap(index: Int) {

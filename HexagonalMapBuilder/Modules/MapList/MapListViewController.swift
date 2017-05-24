@@ -71,7 +71,9 @@ extension MapListViewController: MapListPresenterOutput {
         setUpCollectionView()
     }
     
-    func refreshUI() {
+    func refreshUI(_ data: MapListViewModel) {
+        
+        self.viewModel = data
         collectionView.reloadData()
     }
 
@@ -144,8 +146,8 @@ extension MapListViewController {
 extension MapListViewController: MapListInteractorOutput {
 
     func onMapsLoaded() {
-        
-        refreshUI()
+        print("MapListViewController.onMapsLoaded")
+        //refreshUI()
     }
 }
 

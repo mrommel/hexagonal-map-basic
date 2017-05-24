@@ -7,16 +7,18 @@
 //
 
 import Foundation
+import HexagonalMapKit
 
 protocol MapListPresenterInput: class {
     
     func setupUI()
+    func updateWith(maps: [Map])
 }
 
 protocol MapListPresenterOutput: class {
     
     func setupUI(_ data: MapListViewModel)
-    func refreshUI()
+    func refreshUI(_ data: MapListViewModel)
 }
 
 class MapListPresenter {
@@ -33,5 +35,11 @@ extension MapListPresenter: MapListPresenterInput {
         self.userInterface?.setupUI(model)
         
         self.interactor?.loadMaps()
+    }
+    
+    func updateWith(maps: [Map]) {
+        print("--> MapListPresenter.updateWith")
+        let model = MapListViewModel(title: "Loaded", loaded: true, maps: maps)
+        self.userInterface?.refreshUI(model)
     }
 }

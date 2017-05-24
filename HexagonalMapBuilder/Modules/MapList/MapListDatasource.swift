@@ -9,9 +9,7 @@
 import Foundation
 import HexagonalMapKit
 
-typealias ContentChangeBlock = ((Void) -> Void)?
-
-protocol MapListDatasourceProtocol: class {
+protocol MapListDatasourceInput: class {
     
     func reloadData ()
     func numberOfItemsInList() -> Int
@@ -38,7 +36,7 @@ class MapListDatasource {
 }
 
 
-extension MapListDatasource: MapListDatasourceProtocol {
+extension MapListDatasource: MapListDatasourceInput {
     
     func mapAt(row: Int) -> Map? {
         
