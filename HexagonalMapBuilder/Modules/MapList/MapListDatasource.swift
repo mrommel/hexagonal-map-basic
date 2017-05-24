@@ -22,11 +22,12 @@ protocol MapListDatasourceProtocol: class {
 
 class MapListDatasource {
     
-    var interactor: MapListInteractorOutput?
+    var interactor: MapListInteractorInput?
     var dataProvider: MapDataProvider?
     
     required init() {
         self.dataProvider = DataProvider()
+        self.dataProvider?.delegate = self
     }
     
     var maps: [Map] = [Map]() {
@@ -34,9 +35,8 @@ class MapListDatasource {
             self.interactor?.onMapsLoaded()
         }
     }
-    
-    
 }
+
 
 extension MapListDatasource: MapListDatasourceProtocol {
     
@@ -59,6 +59,23 @@ extension MapListDatasource: MapListDatasourceProtocol {
 
     func loadMaps() {
         
+        if let dataProvider = self.dataProvider {
+            DispatchQueue.main.async() {
+                dataProvider.loadMaps()
+            }
+        }
+    }
+    
+}
+
+extension MapListDatasource: MapDataProviderDelegate {
+    
+    func mapChanged(id: String) {
+        print("changed")
+    }
+    
+    func mapsLoaded() {
+        
         if let dataProvider = dataProvider {
             dataProvider.maps(completionHandler: { (maps) in
                 DispatchQueue.main.async() {
@@ -69,5 +86,4 @@ extension MapListDatasource: MapListDatasourceProtocol {
             self.maps = [Map]()
         }
     }
-    
 }

@@ -44,13 +44,16 @@ extension AppCoordinator: AppCoordinatorInput {
 
         let mapListPresenter = MapListPresenter()
         let mapListInteractor = MapListInteractor()
+        let mapListDatasource = MapListDatasource()
         
         mapListPresenter.userInterface = mapListViewController
         mapListPresenter.interactor = mapListInteractor
         
         mapListInteractor.presenter = mapListPresenter
-        mapListInteractor.datasource = MapListDatasource()
+        mapListInteractor.datasource = mapListDatasource
         mapListInteractor.coordinator = self
+        
+        mapListDatasource.interactor = mapListInteractor
 
         mapListViewController.presenter = mapListPresenter
         mapListViewController.interactor = mapListInteractor

@@ -12,7 +12,7 @@ import HexagonalMapKit
 
 protocol MapListInteractorOutput: class {
     
-    func onMapsLoaded()
+    
 }
 
 protocol MapListInteractorInput: class {
@@ -21,6 +21,8 @@ protocol MapListInteractorInput: class {
 
     func newMap()
     func editMap(index: Int)
+    
+    func onMapsLoaded()
 }
 
 /**
@@ -44,8 +46,6 @@ extension MapListInteractor: MapListInteractorInput {
     func loadMaps() {
         if let datasource = self.datasource {
             datasource.loadMaps()
-        } else {
-            print("sdkjgdfg")
         }
     }
     
@@ -66,24 +66,3 @@ extension MapListInteractor: MapListInteractorInput {
         self.coordinator?.showMapEditForNew()
     }
 }
-
-
-/// NoteDataProviderDelegate Methods
-/*extension MapListInteractor: MapDataProviderDelegate {
-    
-    func mapChanged(id: String) {
-        
-        DispatchQueue.main.async() {
-            self.loadMaps()
-        }
-    }
-    
-    func mapsLoaded() {
-        
-        DispatchQueue.main.async() {
-            self.loadMaps()
-        }
-    }
-    
-    
-}*/

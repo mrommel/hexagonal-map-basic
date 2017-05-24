@@ -34,4 +34,5 @@ protocol MapDataProvider {
     func map(id: String, completionHandler: @escaping MapCompletionBlock)
     func save(map: Map, completionHandler: @escaping ErrorCompletionBlock)
 
+    func loadMaps()
 }

@@ -106,7 +106,6 @@ public class Tile: EVObject {
             if let rawValue = value as? String {
                 if let terrainValue = Terrain.enumFrom(string: rawValue) {
                     self.terrain = terrainValue
-                    print("have set terrain: \(terrainValue)")
                 }
             }
             return
@@ -152,7 +151,7 @@ public class Tile: EVObject {
         }
         
         if key == "discovered" {
-            print("value: \(value)")
+            //print("value: \(value)")
             // TODO
             return
         }

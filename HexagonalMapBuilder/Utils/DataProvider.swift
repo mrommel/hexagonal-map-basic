@@ -37,7 +37,6 @@ class DataProvider: MapDataProvider {
     init() {
         NotificationCenter.default.addObserver(self, selector: #selector(DataProvider.mapChangedNotificationReceived(notificiation:)), name: NSNotification.Name(rawValue: kMapChangedNotification), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(DataProvider.mapsLoadedNotificationReceived(notificiation:)), name: NSNotification.Name(rawValue: kMapsLoadedNotification), object: nil)
-        loadMaps()
     }
 
     deinit {
@@ -118,17 +117,17 @@ extension DataProvider {
         // Ensure we have exclusive access to the Notes Dictionary
         loadMapFiles { (maps) in
 
-        var mapsDictionary = [String: Map]()
-        for map in maps {
-            mapsDictionary[map.id] = map
-        }
+            var mapsDictionary = [String: Map]()
+            for map in maps {
+                mapsDictionary[map.id] = map
+            }
 
-        _ = DataProvider.mapsLock.wait(timeout: DataProvider.timeout)
-        DataProvider.maps = mapsDictionary
-        DataProvider.mapsLock.signal()
-        DataProvider.mapsLoading = false
-        DataProvider.mapsLoaded = true
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: kMapsLoadedNotification), object: self)
+            _ = DataProvider.mapsLock.wait(timeout: DataProvider.timeout)
+            DataProvider.maps = mapsDictionary
+            DataProvider.mapsLock.signal()
+            DataProvider.mapsLoading = false
+            DataProvider.mapsLoaded = true
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: kMapsLoadedNotification), object: self)
         }
     }
 
