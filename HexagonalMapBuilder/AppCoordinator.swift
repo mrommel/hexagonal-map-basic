@@ -23,6 +23,7 @@ protocol AppCoordinatorInput: class {
 class AppCoordinator {
 
     fileprivate var mapListWindowController: NSWindowController!
+    fileprivate var mapEditWindowController: NSWindowController!
     fileprivate var window: NSWindow!
     
     func start() {
@@ -66,7 +67,23 @@ extension AppCoordinator: AppCoordinatorInput {
     }
     
     func showMapEditFor(identifier: String) {
-        print("showMapEditFor")
+    
+        let storyboard = NSStoryboard(name: "Main", bundle: nil)
+        self.mapEditWindowController = storyboard.instantiateController(withIdentifier: "MapEditWindowController") as? NSWindowController
+        guard let editWindowController = self.mapEditWindowController else {
+            fatalError("The Edit Window Controller Cannot be found");
+        }
+        guard let editViewController = self.mapEditWindowController.window?.contentViewController as? MapEditViewController else {
+            fatalError("The Edit View Controller Cannot be found");
+        }
+        
+        /*let mapEditController = EditController(id: id)
+        mapEditController.dataProvider = DataProvider()
+        mapEditController.coordinatorDelegate = self
+        
+        editViewController.controller = mapEditController
+        */
+        self.mapEditWindowController.showWindow(self)
     }
 }
 

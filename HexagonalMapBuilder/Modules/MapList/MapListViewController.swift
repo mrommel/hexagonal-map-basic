@@ -176,7 +176,7 @@ extension MapListViewController: NSCollectionViewDataSource {
         if let item = item as? MapCollectionViewItem {
             let map = maps[indexPath.item]
             item.index = indexPath.item
-            //item.delegate = self
+            item.delegate = self
             item.map = map
         }
         
