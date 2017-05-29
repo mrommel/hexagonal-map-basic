@@ -597,7 +597,7 @@
                                                     <rect key="frame" x="1" y="0.0" width="178" height="239"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
-                                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="YId-yz-9et" viewBased="YES" id="gIV-nB-Hq5">
+                                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="YId-yz-9et" viewBased="YES" id="gIV-nB-Hq5" customClass="TilePropertyTableview" customModule="HexagonalMapBuilder" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="0.0" width="178" height="216"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <size key="intercellSpacing" width="3" height="2"/>
@@ -677,10 +677,6 @@
                                                                     </prototypeCellViews>
                                                                 </tableColumn>
                                                             </tableColumns>
-                                                            <connections>
-                                                                <outlet property="dataSource" destination="csE-rg-hNn" id="0wW-yM-K7i"/>
-                                                                <outlet property="delegate" destination="csE-rg-hNn" id="8oC-cM-wiz"/>
-                                                            </connections>
                                                         </tableView>
                                                     </subviews>
                                                 </clipView>

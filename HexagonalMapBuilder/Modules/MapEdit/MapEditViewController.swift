@@ -17,14 +17,12 @@ class MapEditViewController: NSViewController {
 
     @IBOutlet var sceneView: GameSceneView?
     @IBOutlet var statusLabel: NSTextField?
-    @IBOutlet var propertyTable: NSTableView?
+    @IBOutlet var propertyTable: TilePropertyTableview?
     
     var interactor: MapEditInteractorInput?
     var presenter: MapEditPresenterInput?
     
     var viewModel: MapEditViewModel?
-    
-    //var tile: Tile?
 }
 
 
@@ -73,34 +71,17 @@ extension MapEditViewController: MapEditPresenterOutput {
             }
         }
         
-        self.propertyTable?.target = self
-        self.propertyTable?.doubleAction = #selector(tableViewDoubleClick(_:))
+        self.propertyTable?.setup()
     }
     
     func refreshUI(_ data: MapEditViewModel) {
-        print("refreshUI")
         
         self.viewModel = data
-        
         self.sceneView?.map = self.viewModel?.map
     }
 }
 
 extension MapEditViewController {
-    
-    public func tableViewDoubleClick(_ sender:AnyObject) {
-        
-        guard let row = self.propertyTable?.selectedRow else {
-            return
-        }
-        
-        /*guard row >= 0, let tile = self.tile else {
-            return
-        }
-        
-        print("tableViewDoubleClick: \(tile) + \(row)")
-        */
-    }
     
     @IBAction func endEditingText(_ sender: AnyObject) {
         print("edit: \(sender)")
@@ -108,81 +89,11 @@ extension MapEditViewController {
     
     func showPropertiesFor(tile: Tile?) {
         
-        //self.tile = tile
+        self.propertyTable?.tileValue = tile
         
         self.propertyTable?.reloadData()
     }
 }
-
-extension MapEditViewController: NSTableViewDataSource {
-    
-    func numberOfRows(in tableView: NSTableView) -> Int {
-        return 3
-    }
-    
-}
-
-extension MapEditViewController: NSTableViewDelegate {
-    
-    fileprivate enum CellIdentifiers {
-        static let IconCell = "IconCellID"
-        static let NameCell = "NameCellID"
-    }
-    
-    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        
-        var image: NSImage?
-        var text: String = ""
-        var cellIdentifier: String = ""
-        
-        /*guard let tile = self.tile else {
-            return nil
-        }
-        
-        switch(row) {
-        case 0:
-            if tableColumn == tableView.tableColumns[0] {
-                image = NSImage(named: "PointIcon")
-                cellIdentifier = CellIdentifiers.IconCell
-            } else if tableColumn == tableView.tableColumns[1] {
-                text = "\(tile.point.x), \(tile.point.y)"
-                cellIdentifier = CellIdentifiers.NameCell
-            }
-            break
-        case 1:
-            if tableColumn == tableView.tableColumns[0] {
-                image = NSImage(named: "TerrainIcon")
-                cellIdentifier = CellIdentifiers.IconCell
-            } else if tableColumn == tableView.tableColumns[1] {
-                text = tile.terrain?.name ?? "no name"
-                cellIdentifier = CellIdentifiers.NameCell
-            }
-            break
-        case 2:
-            if tableColumn == tableView.tableColumns[0] {
-                image = NSImage(named: "ContinentIcon")
-                cellIdentifier = CellIdentifiers.IconCell
-            } else if tableColumn == tableView.tableColumns[1] {
-                text = tile.continent?.name ?? "no continent"
-                cellIdentifier = CellIdentifiers.NameCell
-            }
-            break
-        default:
-            break
-        }*/
-        
-        
-        if let cell = tableView.make(withIdentifier: cellIdentifier, owner: nil) as? NSTableCellView {
-            cell.textField?.stringValue = text
-            cell.imageView?.image = image ?? nil
-            return cell
-        }
-        
-        return nil
-    }
-    
-}
-
 
 /*
 

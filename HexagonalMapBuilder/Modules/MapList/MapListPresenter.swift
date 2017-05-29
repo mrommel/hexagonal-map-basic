@@ -38,7 +38,6 @@ extension MapListPresenter: MapListPresenterInput {
     }
     
     func updateWith(maps: [Map]) {
-        print("--> MapListPresenter.updateWith")
         let model = MapListViewModel(title: "Loaded", loaded: true, maps: maps)
         self.userInterface?.refreshUI(model)
     }

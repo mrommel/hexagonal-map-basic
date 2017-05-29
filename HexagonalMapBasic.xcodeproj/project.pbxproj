@@ -117,6 +117,7 @@
 		1A7598E01EDB6A7900CC591C /* MapEditPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7598DF1EDB6A7900CC591C /* MapEditPresenter.swift */; };
 		1A7598E21EDB6AB300CC591C /* MapEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7598E11EDB6AB300CC591C /* MapEditViewModel.swift */; };
 		1A7598E41EDC1EED00CC591C /* MapEditDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7598E31EDC1EED00CC591C /* MapEditDatasource.swift */; };
+		1A7598E71EDC37FC00CC591C /* TilePropertyTableview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7598E61EDC37FC00CC591C /* TilePropertyTableview.swift */; };
 		1A81D7351EB280D8000B7373 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A81D7341EB280D8000B7373 /* GameScene.swift */; };
 		1A81D7371EB31FC4000B7373 /* TerrainSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A81D7361EB31FC4000B7373 /* TerrainSpriteNode.swift */; };
 		1A81D73C1EB321DC000B7373 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A81D7391EB321DC000B7373 /* Assets.xcassets */; };
@@ -341,6 +342,7 @@
 		1A7598DF1EDB6A7900CC591C /* MapEditPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapEditPresenter.swift; path = Modules/MapEdit/MapEditPresenter.swift; sourceTree = "<group>"; };
 		1A7598E11EDB6AB300CC591C /* MapEditViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapEditViewModel.swift; path = Modules/MapEdit/MapEditViewModel.swift; sourceTree = "<group>"; };
 		1A7598E31EDC1EED00CC591C /* MapEditDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapEditDatasource.swift; path = Modules/MapEdit/MapEditDatasource.swift; sourceTree = "<group>"; };
+		1A7598E61EDC37FC00CC591C /* TilePropertyTableview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TilePropertyTableview.swift; path = Modules/MapEdit/Views/TilePropertyTableview.swift; sourceTree = "<group>"; };
 		1A81D7311EB12F70000B7373 /* HexagonalMap.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HexagonalMap.framework; path = "../../Library/Developer/Xcode/DerivedData/HexagonalMapBasic-fudfqntspjqtapctfkuhrhwgqtnu/Build/Products/Debug/HexagonalMap-OSX/HexagonalMap.framework"; sourceTree = "<group>"; };
 		1A81D7341EB280D8000B7373 /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameScene.swift; path = Modules/MapEdit/Scenes/GameScene.swift; sourceTree = "<group>"; };
 		1A81D7361EB31FC4000B7373 /* TerrainSpriteNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TerrainSpriteNode.swift; path = Modules/MapEdit/Scenes/TerrainSpriteNode.swift; sourceTree = "<group>"; };
@@ -648,6 +650,14 @@
 			name = Game;
 			sourceTree = "<group>";
 		};
+		1A7598E51EDC37BD00CC591C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1A7598E61EDC37FC00CC591C /* TilePropertyTableview.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		1A81D7331EB28079000B7373 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
@@ -773,6 +783,7 @@
 		1AFB34171ED42C6D00236CBE /* MapEdit */ = {
 			isa = PBXGroup;
 			children = (
+				1A7598E51EDC37BD00CC591C /* Views */,
 				1A81D7331EB28079000B7373 /* Scenes */,
 				1ABD0BC31EA7F2540065541C /* MapEditViewController.swift */,
 				1A7598DD1EDB6A3B00CC591C /* MapEditInteractor.swift */,
@@ -1612,6 +1623,7 @@
 				1AFB341A1ED437E200236CBE /* MapListPresenter.swift in Sources */,
 				1A7598E21EDB6AB300CC591C /* MapEditViewModel.swift in Sources */,
 				1AC3A2A81EBC7E4700E80003 /* HoverView.swift in Sources */,
+				1A7598E71EDC37FC00CC591C /* TilePropertyTableview.swift in Sources */,
 				1A7598E41EDC1EED00CC591C /* MapEditDatasource.swift in Sources */,
 				1A81D7371EB31FC4000B7373 /* TerrainSpriteNode.swift in Sources */,
 				1A81D7351EB280D8000B7373 /* GameScene.swift in Sources */,
