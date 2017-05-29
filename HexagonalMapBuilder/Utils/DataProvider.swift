@@ -110,7 +110,14 @@ extension DataProvider {
 
     func loadMaps() {
 
-        guard !DataProvider.mapsLoaded && !DataProvider.mapsLoading else { return }
+        guard !DataProvider.mapsLoaded && !DataProvider.mapsLoading else {
+        
+            if DataProvider.mapsLoaded {
+                delegate?.mapsAlreadyLoaded()
+            }
+            
+            return
+        }
 
         DataProvider.mapsLoading = true
 

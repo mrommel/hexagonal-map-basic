@@ -10,11 +10,6 @@
 import Cocoa
 import HexagonalMapKit
 
-protocol MapListInteractorOutput: class {
-    
-    
-}
-
 protocol MapListInteractorInput: class {
     
     func loadMaps()
@@ -23,6 +18,10 @@ protocol MapListInteractorInput: class {
     func editMap(index: Int)
     
     func onMapsLoaded()
+}
+
+protocol MapListInteractorOutput: class {
+    
 }
 
 /**
@@ -40,27 +39,13 @@ class MapListInteractor {
 }
 
 
-/// MapMainController Methods
+/// Methods
 extension MapListInteractor: MapListInteractorInput {
     
     func loadMaps() {
         if let datasource = self.datasource {
             datasource.loadMaps()
         }
-    }
-    
-    func onMapsLoaded() {
-        
-        var maps: [Map] = []
-        
-        let maxMaps: Int = (self.datasource?.numberOfItemsInList())!
-        for index in 0..<maxMaps {
-            if let map = self.datasource?.mapAt(row: index) {
-                maps.append(map)
-            }
-        }
-        
-        self.presenter?.updateWith(maps: maps)
     }
     
     func editMap(index: Int) {
@@ -73,5 +58,19 @@ extension MapListInteractor: MapListInteractorInput {
     func newMap() {
 
         self.coordinator?.showMapEditForNew()
+    }
+
+    func onMapsLoaded() {
+        
+        var maps: [Map] = []
+        
+        let maxMaps: Int = (self.datasource?.numberOfItemsInList())!
+        for index in 0..<maxMaps {
+            if let map = self.datasource?.mapAt(row: index) {
+                maps.append(map)
+            }
+        }
+        
+        self.presenter?.updateWith(maps: maps)
     }
 }

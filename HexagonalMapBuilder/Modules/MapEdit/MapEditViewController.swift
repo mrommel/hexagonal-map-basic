@@ -18,35 +18,57 @@ class MapEditViewController: NSViewController {
     @IBOutlet var sceneView: GameSceneView?
     @IBOutlet var statusLabel: NSTextField?
     @IBOutlet var propertyTable: NSTableView?
-    var tile: Tile?
+    
+    var interactor: MapEditInteractorInput?
+    var presenter: MapEditPresenterInput?
+    
+    var viewModel: MapEditViewModel?
+    
+    //var tile: Tile?
+}
 
-    var controller: MapEditController? {
-        willSet {
-            controller?.viewDelegate = nil
-        }
-        didSet {
-            controller?.viewDelegate = self
-            refreshDisplay()
-        }
-    }
 
+/// Methods
+
+extension MapEditViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewDidAppear() {
+        
+        super.viewDidAppear()
+        
+        self.presenter?.setupUI()
+        self.view.window?.delegate = self
+    }
+}
 
-        // Do any additional setup after loading the view.
+extension MapEditViewController: NSWindowDelegate {
+    
+    private func windowShouldClose(_ sender: Any) {
+        
+        // TODO let map list know that we are going to close
+        print("debug -> let map list know, we are going to close")
+    }
+}
+
+extension MapEditViewController: MapEditPresenterOutput {
+    
+    func setupUI(_ data: MapEditViewModel) {
+        
         self.sceneView?.backgroundColor = .black
-
-        if let map = self.controller?.map {
-            self.statusLabel?.stringValue = "Loaded: \(map.title)"
-        }
         
         self.sceneView?.onFocusChanged = { focus in
             if let focus = focus {
                 self.statusLabel?.stringValue = "New focus: \(focus.x), \(focus.y)"
                 
-                if let map = self.controller?.map {
-                    let focusTile = map.grid?.tile(at: focus)
-                    self.showPropertiesFor(tile: focusTile)
+                if let model = self.viewModel {
+                    if let map = model.map {
+                        let focusTile = map.grid?.tile(at: focus)
+                        self.showPropertiesFor(tile: focusTile)
+                    }
                 }
             }
         }
@@ -55,44 +77,12 @@ class MapEditViewController: NSViewController {
         self.propertyTable?.doubleAction = #selector(tableViewDoubleClick(_:))
     }
     
-    func showPropertiesFor(tile: Tile?) {
+    func refreshUI(_ data: MapEditViewModel) {
+        print("refreshUI")
         
-        self.tile = tile
+        self.viewModel = data
         
-        self.propertyTable?.reloadData()
-    }
-
-    func refreshDisplay() {
-        self.sceneView?.map = self.controller?.map
-    }
-    
-    @IBAction func saveMapSelected(_ sender: Any) {
-        self.controller?.saveMap()
-    }
-    
-    @IBAction func generateRandomMapSelected(_ sender: Any) {
-        
-        let options = GridGeneratorOptions(withSize: .test, zone: .earth, waterPercentage: 0.3, rivers: 5)
-        self.controller?.generateMap(withOptions: options)
-        self.refreshDisplay()
-    }
-}
-
-extension MapEditViewController: MapEditControllerViewDelegate {
-    
-    func displayErrorMessage(editController: MapEditController, message: String) {
-        
-        guard let window = view.window else { return }
-
-        let alert = NSAlert()
-        alert.addButton(withTitle: "OK")
-        alert.messageText = message
-        alert.beginSheetModal(for: window, completionHandler: nil)
-    }
-
-
-    func mapDidChange(editController: MapEditController) {
-        self.refreshDisplay()
+        self.sceneView?.map = self.viewModel?.map
     }
 }
 
@@ -104,20 +94,23 @@ extension MapEditViewController {
             return
         }
         
-        guard row >= 0, let tile = self.tile else {
+        /*guard row >= 0, let tile = self.tile else {
             return
         }
         
         print("tableViewDoubleClick: \(tile) + \(row)")
-        
-        /*if item.isFolder {
-            // 2
-            self.representedObject = item.url as Any
-        }*/
+        */
     }
     
     @IBAction func endEditingText(_ sender: AnyObject) {
         print("edit: \(sender)")
+    }
+    
+    func showPropertiesFor(tile: Tile?) {
+        
+        //self.tile = tile
+        
+        self.propertyTable?.reloadData()
     }
 }
 
@@ -142,7 +135,7 @@ extension MapEditViewController: NSTableViewDelegate {
         var text: String = ""
         var cellIdentifier: String = ""
         
-        guard let tile = self.tile else {
+        /*guard let tile = self.tile else {
             return nil
         }
         
@@ -176,7 +169,7 @@ extension MapEditViewController: NSTableViewDelegate {
             break
         default:
             break
-        }
+        }*/
         
         
         if let cell = tableView.make(withIdentifier: cellIdentifier, owner: nil) as? NSTableCellView {
@@ -189,3 +182,33 @@ extension MapEditViewController: NSTableViewDelegate {
     }
     
 }
+
+
+/*
+
+    @IBAction func saveMapSelected(_ sender: Any) {
+        self.controller?.saveMap()
+    }
+    
+    @IBAction func generateRandomMapSelected(_ sender: Any) {
+        
+        let options = GridGeneratorOptions(withSize: .test, zone: .earth, waterPercentage: 0.3, rivers: 5)
+        self.controller?.generateMap(withOptions: options)
+        self.refreshDisplay()
+    }
+}
+
+extension MapEditViewController: MapEditControllerViewDelegate {
+    
+    func displayErrorMessage(editController: MapEditController, message: String) {
+        
+        guard let window = view.window else { return }
+
+        let alert = NSAlert()
+        alert.addButton(withTitle: "OK")
+        alert.messageText = message
+        alert.beginSheetModal(for: window, completionHandler: nil)
+    }
+}
+
+*/

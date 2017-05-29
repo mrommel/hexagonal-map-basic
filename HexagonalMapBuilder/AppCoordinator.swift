@@ -70,19 +70,30 @@ extension AppCoordinator: AppCoordinatorInput {
     
         let storyboard = NSStoryboard(name: "Main", bundle: nil)
         self.mapEditWindowController = storyboard.instantiateController(withIdentifier: "MapEditWindowController") as? NSWindowController
-        guard let editWindowController = self.mapEditWindowController else {
+        guard (self.mapEditWindowController) != nil else {
             fatalError("The Edit Window Controller Cannot be found");
         }
         guard let editViewController = self.mapEditWindowController.window?.contentViewController as? MapEditViewController else {
             fatalError("The Edit View Controller Cannot be found");
         }
         
-        /*let mapEditController = EditController(id: id)
-        mapEditController.dataProvider = DataProvider()
-        mapEditController.coordinatorDelegate = self
+        let mapEditPresenter = MapEditPresenter()
+        let mapEditInteractor = MapEditInteractor()
+        let mapEditDatasource = MapEditDatasource()
         
-        editViewController.controller = mapEditController
-        */
+        mapEditPresenter.userInterface = editViewController
+        mapEditPresenter.interactor = mapEditInteractor
+        
+        mapEditInteractor.presenter = mapEditPresenter
+        mapEditInteractor.coordinator = self
+        mapEditInteractor.mapIdentifier = identifier
+        mapEditInteractor.datasource = mapEditDatasource
+        
+        mapEditDatasource.interactor = mapEditInteractor
+        
+        editViewController.presenter = mapEditPresenter
+        editViewController.interactor = mapEditInteractor
+        
         self.mapEditWindowController.showWindow(self)
     }
 }

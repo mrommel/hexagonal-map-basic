@@ -13,12 +13,17 @@ protocol MapDataProviderDelegate: class {
 
     func mapChanged(id: String)
     func mapsLoaded()
+    func mapsAlreadyLoaded()
 }
 
 extension MapDataProviderDelegate {
 
     //? Dummy implementation to make the method sort of optional
     func mapsLoaded() {
+    }
+    
+    func mapsAlreadyLoaded() {
+        
     }
 }
 

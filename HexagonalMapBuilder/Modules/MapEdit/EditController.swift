@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import HexagonalMapKit
+/*import HexagonalMapKit
 
 protocol MapEditControllerCoordinatorDelegate: class {
     
@@ -83,4 +83,4 @@ extension EditController {
     func cancel() {
         coordinatorDelegate?.mapEditControllerDone(controller: self)
     }
-}
+}*/
