@@ -10,7 +10,14 @@ import Foundation
 import Cocoa
 import HexagonalMapKit
 
+protocol TilePropertyTableviewOutput: class {
+    
+    func tileChanged()
+}
+
 class TilePropertyTableview: NSTableView {
+    
+    var tilePropertyDelegate: TilePropertyTableviewOutput?
     
     var tileValue: Tile? {
         didSet {
@@ -33,8 +40,60 @@ class TilePropertyTableview: NSTableView {
         guard row >= 0, let tile = self.tileValue else {
             return
         }
+        
+        // only some value can be changed
+        guard row == 1 else {
+            Swift.print("It is not allowed to change row: \(row)")
+            return
+        }
          
-        Swift.print("tableViewDoubleClick: \(tile) + \(row)")
+        //Swift.print("tableViewDoubleClick: \(tile), row: \(row)")
+        
+        let alert = NSAlert()
+        alert.messageText = "Please enter a value"
+        alert.addButton(withTitle: "Save")
+        alert.addButton(withTitle: "Cancel")
+        
+        let inputComboBox = NSComboBox(frame: NSRect(x: 0, y: 0, width: 300, height: 24))
+        
+        switch(row) {
+        case 1: // terrain            
+            inputComboBox.addItem(withObjectValue: "ocean")
+            inputComboBox.addItem(withObjectValue: "shore")
+            inputComboBox.addItem(withObjectValue: "grass")
+            inputComboBox.addItem(withObjectValue: "plains")
+            inputComboBox.addItem(withObjectValue: "desert")
+            inputComboBox.addItem(withObjectValue: "tundra")
+            inputComboBox.addItem(withObjectValue: "snow")
+            inputComboBox.selectItem(withObjectValue: tile.terrain?.stringValue)
+            alert.accessoryView = inputComboBox
+            break
+        default:
+            break
+        }
+        
+        alert.layout()
+
+        alert.beginSheetModal(for: self.window!, completionHandler: { (modalResponse) -> Void in
+            if modalResponse == NSAlertFirstButtonReturn {
+                if let selection = inputComboBox.objectValueOfSelectedItem {
+                    //Swift.print("selected value = \"\(selection)\"")
+                    
+                    switch(row) {
+                    case 1: // terrain
+                        tile.terrain = Terrain.enumFrom(string: selection as! String)
+                        break
+                    default:
+                        break
+                    }
+
+                    // let parent know and redraw the map
+                    if let tilePropertyDelegate = self.tilePropertyDelegate {
+                        tilePropertyDelegate.tileChanged()
+                    }
+                }
+            }
+        })
     }
 }
 

@@ -72,6 +72,7 @@ extension MapEditViewController: MapEditPresenterOutput {
         }
         
         self.propertyTable?.setup()
+        self.propertyTable?.tilePropertyDelegate = self
     }
     
     func refreshUI(_ data: MapEditViewModel) {
@@ -92,6 +93,13 @@ extension MapEditViewController {
         self.propertyTable?.tileValue = tile
         
         self.propertyTable?.reloadData()
+    }
+}
+
+extension MapEditViewController: TilePropertyTableviewOutput {
+    
+    func tileChanged() {
+        self.sceneView?.map = self.viewModel?.map
     }
 }
 

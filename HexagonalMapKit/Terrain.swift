@@ -56,6 +56,30 @@ public enum Terrain: String {
         }
     }
     
+    public var stringValue: String {
+        switch self {
+        case .outside:
+            return "outside"
+        case .ocean:
+            return "ocean"
+        case .shore:
+            return "shore"
+        case .grass:
+            return "grassland"
+        case .plains:
+            return "plains"
+        case .desert:
+            return "desert"
+        case .tundra:
+            return "tundra"
+        case .snow:
+            return "sSnow"
+        default:
+            print("no string for terrain: \(self)")
+            return "---"
+        }
+    }
+    
     public var image: String {
         switch self {
         case .outside:
