@@ -54,6 +54,26 @@ public enum Feature: String {
         }
     }
     
+    public var name: String {
+        switch self {
+        case .island:
+            return "Island"
+        case .forest:
+            return "Forest"
+        case .hill:
+            return "Hill"
+        case .mountain:
+            return "Mountain"
+        case .rainforest:
+            return "Rainforest"
+        case .taiga:
+            return "Taiga"
+        default:
+            print("no name for feature: \(self)")
+            return "---"
+        }
+    }
+    
     public var image: String {
         switch self {
         case .island:

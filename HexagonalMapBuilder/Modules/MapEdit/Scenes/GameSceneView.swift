@@ -71,7 +71,8 @@ class GameSceneView: SCNView {
         
         if let scene = self.overlaySKScene as? GameScene? {
             
-            let screenPointWithoutOffset = screenPoint - self.offset
+            var screenPointWithoutOffset = screenPoint - self.offset
+            //screenPointWithoutOffset.y = 300 - screenPointWithoutOffset.y
             
             let gridPoint = self.map?.grid?.gridPoint(from: screenPointWithoutOffset)
             
@@ -84,7 +85,6 @@ class GameSceneView: SCNView {
                     scene?.moveFocus(to: self.focusPoint)
                 }
             }
-            
         }
     }
     

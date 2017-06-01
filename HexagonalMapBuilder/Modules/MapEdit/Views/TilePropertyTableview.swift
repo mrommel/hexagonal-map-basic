@@ -100,7 +100,7 @@ class TilePropertyTableview: NSTableView {
 extension TilePropertyTableview: NSTableViewDataSource {
     
     func numberOfRows(in tableView: NSTableView) -> Int {
-        return 3
+        return 6
     }
     
 }
@@ -147,6 +147,33 @@ extension TilePropertyTableview: NSTableViewDelegate {
                 cellIdentifier = CellIdentifiers.IconCell
             } else if tableColumn == tableView.tableColumns[1] {
                 text = tile.continent?.name ?? "no continent"
+                cellIdentifier = CellIdentifiers.NameCell
+            }
+            break
+        case 3:
+            if tableColumn == tableView.tableColumns[0] {
+                image = NSImage(named: "FeatureIcon")
+                cellIdentifier = CellIdentifiers.IconCell
+            } else if tableColumn == tableView.tableColumns[1] {
+                text = tile.features.count > 0 ? tile.features[0].name : "no feature"
+                cellIdentifier = CellIdentifiers.NameCell
+            }
+            break
+        case 4:
+            if tableColumn == tableView.tableColumns[0] {
+                image = NSImage(named: "FeatureIcon")
+                cellIdentifier = CellIdentifiers.IconCell
+            } else if tableColumn == tableView.tableColumns[1] {
+                text = tile.features.count > 1 ? tile.features[1].name : "no feature"
+                cellIdentifier = CellIdentifiers.NameCell
+            }
+            break
+        case 5:
+            if tableColumn == tableView.tableColumns[0] {
+                image = NSImage(named: "FeatureIcon")
+                cellIdentifier = CellIdentifiers.IconCell
+            } else if tableColumn == tableView.tableColumns[1] {
+                text = tile.features.count > 2 ? tile.features[2].name : "no feature"
                 cellIdentifier = CellIdentifiers.NameCell
             }
             break
