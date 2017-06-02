@@ -13,12 +13,17 @@ protocol MapEditPresenterInput: class {
     
     func setupUI()
     func updateWith(map: Map?)
+    func showError(error: Error)
+    func showAlertWith(title: String, message: String)
 }
 
 protocol MapEditPresenterOutput: class {
     
     func setupUI(_ data: MapEditViewModel)
     func refreshUI(_ data: MapEditViewModel)
+    
+    func display(error: Error)
+    func display(title: String, message: String)
 }
 
 class MapEditPresenter {
@@ -43,4 +48,13 @@ extension MapEditPresenter: MapEditPresenterInput {
         self.userInterface?.refreshUI(model)
     }
     
+    func showError(error: Error) {
+        
+        self.userInterface?.display(error: error)
+    }
+    
+    func showAlertWith(title: String, message: String) {
+        
+        self.userInterface?.display(title: title, message: message)
+    }
 }

@@ -54,6 +54,27 @@ extension MapEditViewController: NSWindowDelegate {
 
 extension MapEditViewController: MapEditPresenterOutput {
     
+    func display(error: Error) {
+        
+        guard let window = view.window else { return }
+        
+        let alert = NSAlert()
+        alert.addButton(withTitle: "Okay")
+        alert.messageText = error.localizedDescription
+        alert.beginSheetModal(for: window, completionHandler: nil)
+    }
+    
+    func display(title: String, message: String) {
+        
+        guard let window = view.window else { return }
+        
+        let alert = NSAlert()
+        alert.addButton(withTitle: "Okay")
+        alert.messageText = title
+        alert.informativeText = message
+        alert.beginSheetModal(for: window, completionHandler: nil)
+    }
+    
     func setupUI(_ data: MapEditViewModel) {
         
         self.sceneView?.backgroundColor = .black
@@ -103,31 +124,44 @@ extension MapEditViewController: TilePropertyTableviewOutput {
     }
 }
 
-/*
-
+extension MapEditViewController {
+    
     @IBAction func saveMapSelected(_ sender: Any) {
-        self.controller?.saveMap()
+        
+        self.interactor?.save(map: self.viewModel?.map)
+    }
+    
+    @IBAction func closeMapSelected(_ sender: Any) {
+        
+        guard let window = view.window else { return }
+        
+        let alert = NSAlert()
+        alert.addButton(withTitle: "Continue")
+        alert.addButton(withTitle: "Save")
+        alert.messageText = "Do you want to save?"
+        alert.beginSheetModal(for: window, completionHandler: { response in
+            if response == 1001 {
+                self.interactor?.save(map: self.viewModel?.map)
+            } else {
+                self.interactor?.closeWindow()
+            }
+        })
     }
     
     @IBAction func generateRandomMapSelected(_ sender: Any) {
         
-        let options = GridGeneratorOptions(withSize: .test, zone: .earth, waterPercentage: 0.3, rivers: 5)
-        self.controller?.generateMap(withOptions: options)
-        self.refreshDisplay()
-    }
-}
-
-extension MapEditViewController: MapEditControllerViewDelegate {
-    
-    func displayErrorMessage(editController: MapEditController, message: String) {
+        self.interactor?.showGenerateDialog()
         
-        guard let window = view.window else { return }
-
-        let alert = NSAlert()
-        alert.addButton(withTitle: "OK")
-        alert.messageText = message
-        alert.beginSheetModal(for: window, completionHandler: nil)
+        /*let options = GridGeneratorOptions(withSize: .test, zone: .earth, waterPercentage: 0.3, rivers: 5)
+        self.controller?.generateMap(withOptions: options)
+        let tmp = Map(withOptions: options, completionHandler: { progress in
+            print("generateMap => \(progress)")
+        })
+        
+        tmp.id = self.id
+        tmp.title = "Generated \(options.mapSize.width)x\(options.mapSize.height)"
+        tmp.teaser = "Climate: \(options.climateZoneOption), Water: \(options.waterPercentage*100)%"
+        
+        self.map = tmp*/
     }
 }
-
-*/

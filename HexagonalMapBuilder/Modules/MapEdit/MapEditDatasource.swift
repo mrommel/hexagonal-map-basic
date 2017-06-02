@@ -9,14 +9,21 @@
 import Foundation
 import HexagonalMapKit
 
+enum MapError: Error {
+    
+    case noDatasource
+}
+
 protocol MapEditDatasourceInput {
     
     func loadMapWith(identifier: String)
+    
+    func save(map: Map?)
 }
 
 class MapEditDatasource {
     
-    var interactor: MapEditInteractorInput?
+    var interactor: MapEditInteractorOutput?
     var dataProvider: MapDataProvider?
     var identifier: String?
     
@@ -52,6 +59,20 @@ extension MapEditDatasource: MapEditDatasourceInput {
         }
     }
     
+    func save(map: Map?) {
+        
+        if let dataProvider = self.dataProvider {
+            dataProvider.save(map: map!, completionHandler: { (error) in
+                if let error = error {
+                    print("saved with error: \(error)")
+                    self.interactor?.onFailedSavingMapWith(error: error)
+                } else {
+                    print("saved with success")
+                    self.interactor?.onSaved()
+                }
+            })
+        }
+    }
 }
 
 extension MapEditDatasource: MapDataProviderDelegate {

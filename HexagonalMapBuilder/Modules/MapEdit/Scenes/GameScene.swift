@@ -135,8 +135,6 @@ extension GameScene {
         
         // units
         
-        /*let terrain = TerrainSpriteNode(withPosition: position, andTerrain: tile.terrain!)
-        self.base.addChild(terrain)*/
     }
     
     func addGridSprite(at position: CGPoint) {

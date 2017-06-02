@@ -117,6 +117,10 @@
 		1A32A84E1EE1489500A5DF47 /* TransitionSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A32A84D1EE1489500A5DF47 /* TransitionSpriteNode.swift */; };
 		1A32A8501EE149FB00A5DF47 /* Features.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A32A84F1EE149FB00A5DF47 /* Features.xcassets */; };
 		1A32A8521EE14A0700A5DF47 /* Rivers.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A32A8511EE14A0700A5DF47 /* Rivers.xcassets */; };
+		1A32A8551EE18FF600A5DF47 /* MapGenerateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A32A8541EE18FF600A5DF47 /* MapGenerateViewController.swift */; };
+		1A32A8571EE1979700A5DF47 /* MapGenerateInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A32A8561EE1979700A5DF47 /* MapGenerateInteractor.swift */; };
+		1A32A8591EE199F000A5DF47 /* MapGeneratePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A32A8581EE199F000A5DF47 /* MapGeneratePresenter.swift */; };
+		1A32A85B1EE19A6800A5DF47 /* MapGenerateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A32A85A1EE19A6800A5DF47 /* MapGenerateViewModel.swift */; };
 		1A355B2D1E546B00006469B3 /* GridSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A355B2C1E546B00006469B3 /* GridSpriteNode.swift */; };
 		1A355B341E55E860006469B3 /* TerrainSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A355B331E55E860006469B3 /* TerrainSpriteNode.swift */; };
 		1A355B361E55F04F006469B3 /* FeatureSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A355B351E55F04F006469B3 /* FeatureSpriteNode.swift */; };
@@ -156,7 +160,6 @@
 		1AC3A2AF1EBC853600E80003 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC3A2AE1EBC853600E80003 /* DataProvider.swift */; };
 		1AC3A2B21EBCA0B000E80003 /* MapCollectionViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AC3A2B01EBCA0B000E80003 /* MapCollectionViewItem.xib */; };
 		1AC3A2B41EBCAC8D00E80003 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC3A2B31EBCAC8D00E80003 /* AppCoordinator.swift */; };
-		1AC3A2BB1EBCBFE700E80003 /* EditController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC3A2BA1EBCBFE700E80003 /* EditController.swift */; };
 		1ACCA0081E60792C00E539DD /* GameStatisticsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACCA0071E60792C00E539DD /* GameStatisticsTests.swift */; };
 		1ACCA00C1E6432EB00E539DD /* UIViewController+NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ACCA00B1E6432EB00E539DD /* UIViewController+NavigationController.swift */; };
 		1ADE279F1E48B8EC001F44FF /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ADE279E1E48B8EC001F44FF /* MenuViewController.swift */; };
@@ -349,6 +352,10 @@
 		1A32A84D1EE1489500A5DF47 /* TransitionSpriteNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TransitionSpriteNode.swift; path = Modules/MapEdit/Scenes/TransitionSpriteNode.swift; sourceTree = "<group>"; };
 		1A32A84F1EE149FB00A5DF47 /* Features.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Features.xcassets; path = Resources/Features.xcassets; sourceTree = "<group>"; };
 		1A32A8511EE14A0700A5DF47 /* Rivers.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Rivers.xcassets; path = Resources/Rivers.xcassets; sourceTree = "<group>"; };
+		1A32A8541EE18FF600A5DF47 /* MapGenerateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapGenerateViewController.swift; path = Modules/MapGenerate/MapGenerateViewController.swift; sourceTree = "<group>"; };
+		1A32A8561EE1979700A5DF47 /* MapGenerateInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapGenerateInteractor.swift; path = Modules/MapGenerate/MapGenerateInteractor.swift; sourceTree = "<group>"; };
+		1A32A8581EE199F000A5DF47 /* MapGeneratePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapGeneratePresenter.swift; path = Modules/MapGenerate/MapGeneratePresenter.swift; sourceTree = "<group>"; };
+		1A32A85A1EE19A6800A5DF47 /* MapGenerateViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapGenerateViewModel.swift; path = Modules/MapGenerate/MapGenerateViewModel.swift; sourceTree = "<group>"; };
 		1A355B2C1E546B00006469B3 /* GridSpriteNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GridSpriteNode.swift; path = ../HexagonalMapBasic/Presentation/Scenes/GridSpriteNode.swift; sourceTree = "<group>"; };
 		1A355B331E55E860006469B3 /* TerrainSpriteNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TerrainSpriteNode.swift; path = ../HexagonalMapBasic/Presentation/Scenes/TerrainSpriteNode.swift; sourceTree = "<group>"; };
 		1A355B351E55F04F006469B3 /* FeatureSpriteNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeatureSpriteNode.swift; path = ../HexagonalMapBasic/Presentation/Scenes/FeatureSpriteNode.swift; sourceTree = "<group>"; };
@@ -394,7 +401,6 @@
 		1AC3A2AE1EBC853600E80003 /* DataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataProvider.swift; path = Utils/DataProvider.swift; sourceTree = "<group>"; };
 		1AC3A2B11EBCA0B000E80003 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MapCollectionViewItem.xib; sourceTree = "<group>"; };
 		1AC3A2B31EBCAC8D00E80003 /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
-		1AC3A2BA1EBCBFE700E80003 /* EditController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditController.swift; path = Modules/MapEdit/EditController.swift; sourceTree = "<group>"; };
 		1ACCA0071E60792C00E539DD /* GameStatisticsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameStatisticsTests.swift; path = ../HexagonalMapBasic/Game/GameStatisticsTests.swift; sourceTree = "<group>"; };
 		1ACCA00B1E6432EB00E539DD /* UIViewController+NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIViewController+NavigationController.swift"; path = "../HexagonalMapBasic/Presentation/Extensions/UIViewController+NavigationController.swift"; sourceTree = "<group>"; };
 		1ADE279E1E48B8EC001F44FF /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuViewController.swift; path = ../HexagonalMapBasic/Presentation/ViewControllers/MenuViewController.swift; sourceTree = "<group>"; };
@@ -654,6 +660,17 @@
 			name = Templating;
 			sourceTree = "<group>";
 		};
+		1A32A8531EE18D9C00A5DF47 /* MapGenerate */ = {
+			isa = PBXGroup;
+			children = (
+				1A32A8541EE18FF600A5DF47 /* MapGenerateViewController.swift */,
+				1A32A8561EE1979700A5DF47 /* MapGenerateInteractor.swift */,
+				1A32A8581EE199F000A5DF47 /* MapGeneratePresenter.swift */,
+				1A32A85A1EE19A6800A5DF47 /* MapGenerateViewModel.swift */,
+			);
+			name = MapGenerate;
+			sourceTree = "<group>";
+		};
 		1A4B38931E4C672A00FA7457 /* Game */ = {
 			isa = PBXGroup;
 			children = (
@@ -796,6 +813,7 @@
 			children = (
 				1AFB34151ED42C4600236CBE /* MapList */,
 				1AFB34171ED42C6D00236CBE /* MapEdit */,
+				1A32A8531EE18D9C00A5DF47 /* MapGenerate */,
 			);
 			name = Modules;
 			sourceTree = "<group>";
@@ -810,7 +828,6 @@
 				1A7598DF1EDB6A7900CC591C /* MapEditPresenter.swift */,
 				1A7598E31EDC1EED00CC591C /* MapEditDatasource.swift */,
 				1A7598E11EDB6AB300CC591C /* MapEditViewModel.swift */,
-				1AC3A2BA1EBCBFE700E80003 /* EditController.swift */,
 			);
 			name = MapEdit;
 			sourceTree = "<group>";
@@ -1649,6 +1666,7 @@
 				1AC3A2B41EBCAC8D00E80003 /* AppCoordinator.swift in Sources */,
 				1A2C91341EC9C0E500F417E1 /* GameSceneView.swift in Sources */,
 				1A81D7401EB34FE8000B7373 /* EmptyScene.swift in Sources */,
+				1A32A85B1EE19A6800A5DF47 /* MapGenerateViewModel.swift in Sources */,
 				1AFB341E1ED4570500236CBE /* MapListViewModel.swift in Sources */,
 				1A7598DE1EDB6A3B00CC591C /* MapEditInteractor.swift in Sources */,
 				1AFB341A1ED437E200236CBE /* MapListPresenter.swift in Sources */,
@@ -1658,17 +1676,19 @@
 				1A7598E41EDC1EED00CC591C /* MapEditDatasource.swift in Sources */,
 				1A81D7371EB31FC4000B7373 /* TerrainSpriteNode.swift in Sources */,
 				1A81D7351EB280D8000B7373 /* GameScene.swift in Sources */,
+				1A32A8571EE1979700A5DF47 /* MapGenerateInteractor.swift in Sources */,
 				1AC3A2AA1EBC837400E80003 /* MapListInteractor.swift in Sources */,
 				1AFB341C1ED4395F00236CBE /* MapListDatasource.swift in Sources */,
 				1AC3A2AF1EBC853600E80003 /* DataProvider.swift in Sources */,
 				1AC3A2A41EBC59B500E80003 /* MapListViewController.swift in Sources */,
 				1ABD0BC41EA7F2540065541C /* MapEditViewController.swift in Sources */,
-				1AC3A2BB1EBCBFE700E80003 /* EditController.swift in Sources */,
+				1A32A8551EE18FF600A5DF47 /* MapGenerateViewController.swift in Sources */,
 				1A32A8351EE145B600A5DF47 /* GridSpriteNode.swift in Sources */,
 				1AC3A2AD1EBC84B000E80003 /* MapDataProvider.swift in Sources */,
 				1AC3A2A61EBC5CC300E80003 /* MapCollectionViewItem.swift in Sources */,
 				1ABD0BC21EA7F2540065541C /* AppDelegate.swift in Sources */,
 				1A32A8331EE1452A00A5DF47 /* FeatureSpriteNode.swift in Sources */,
+				1A32A8591EE199F000A5DF47 /* MapGeneratePresenter.swift in Sources */,
 				1A7598E01EDB6A7900CC591C /* MapEditPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

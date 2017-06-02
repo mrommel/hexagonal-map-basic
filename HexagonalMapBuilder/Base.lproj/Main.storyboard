@@ -6,7 +6,6 @@
         <plugIn identifier="com.apple.SceneKitIBPlugin" version="12120"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
         <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
-        <capability name="system font weights other than Regular or Bold" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -83,6 +82,11 @@
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="revertDocumentToSaved:" target="Ady-hI-5gd" id="iJ3-Pv-kwq"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Close" keyEquivalent="w" id="DNd-k7-tiT">
+                                            <connections>
+                                                <action selector="closeMapSelected:" target="Ady-hI-5gd" id="i9o-Ux-z6u"/>
                                             </connections>
                                         </menuItem>
                                     </items>
@@ -490,22 +494,6 @@
             <point key="canvasLocation" x="70" y="529"/>
         </scene>
         <!--Window Controller-->
-        <scene sceneID="xvT-Da-02i">
-            <objects>
-                <windowController storyboardIdentifier="PreviewWindowController" id="DAi-82-cu5" customClass="PreviewWindowController" customModule="HexagonalMapBuilder" customModuleProvider="target" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="40H-4z-5gi" customClass="PreviewWindow" customModule="HexagonalMapBuilder" customModuleProvider="target">
-                        <rect key="contentRect" x="425" y="461" width="400" height="400"/>
-                        <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
-                    </window>
-                    <connections>
-                        <segue destination="r2F-TY-lS1" kind="relationship" relationship="window.shadowedContentViewController" id="JbZ-xS-5Gn"/>
-                    </connections>
-                </windowController>
-                <customObject id="RYm-4r-TFu" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="562" y="-321"/>
-        </scene>
-        <!--Window Controller-->
         <scene sceneID="gTq-nG-oxa">
             <objects>
                 <windowController storyboardIdentifier="MapEditWindowController" id="uNp-Aq-Njp" sceneMemberID="viewController">
@@ -523,56 +511,117 @@
             </objects>
             <point key="canvasLocation" x="1046" y="-445"/>
         </scene>
-        <!--Preview View Controller-->
-        <scene sceneID="4dl-Sn-iNp">
+        <!--Window Controller-->
+        <scene sceneID="xyl-mB-4w7">
             <objects>
-                <viewController id="r2F-TY-lS1" customClass="PreviewViewController" customModule="HexagonalMapBuilder" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="531-iB-oVJ">
-                        <rect key="frame" x="0.0" y="0.0" width="400" height="91"/>
+                <windowController storyboardIdentifier="MapGenerateWindowController" id="e2o-3I-Vpd" sceneMemberID="viewController">
+                    <window key="window" title="Generate" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="SMT-DE-xSA">
+                        <windowStyleMask key="styleMask" titled="YES" miniaturizable="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="1705" y="773" width="480" height="270"/>
+                        <rect key="screenRect" x="1280" y="312" width="2560" height="1417"/>
+                    </window>
+                    <connections>
+                        <segue destination="9Uh-PN-5Pd" kind="relationship" relationship="window.shadowedContentViewController" id="uW0-iv-g7Q"/>
+                    </connections>
+                </windowController>
+                <customObject id="dYo-pQ-u2i" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1702" y="-445"/>
+        </scene>
+        <!--Map Generate View Controller-->
+        <scene sceneID="Oqg-0D-4n7">
+            <objects>
+                <viewController showSeguePresentationStyle="single" id="9Uh-PN-5Pd" customClass="MapGenerateViewController" customModule="HexagonalMapBuilder" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="AZV-sw-xv7">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="140"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ikU-c9-Nh2">
-                                <rect key="frame" x="18" y="63" width="364" height="20"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="KPx-Cp-Ije"/>
-                                    <constraint firstAttribute="width" constant="360" id="uwH-77-IK3"/>
-                                </constraints>
-                                <textFieldCell key="cell" controlSize="mini" truncatesLastVisibleLine="YES" sendsActionOnEndEditing="YES" title="Title" id="GfO-eP-k9U">
-                                    <font key="font" metaFont="systemSemibold" size="13"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j9X-nh-c2g">
-                                <rect key="frame" x="18" y="35" width="364" height="20"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="360" id="a0S-ST-spL"/>
-                                    <constraint firstAttribute="height" constant="20" id="twh-Hx-beC"/>
-                                </constraints>
-                                <textFieldCell key="cell" controlSize="mini" truncatesLastVisibleLine="YES" sendsActionOnEndEditing="YES" alignment="justified" title="content" allowsEditingTextAttributes="YES" id="Oly-ak-Z1F">
+                            <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iTA-Jy-xMK">
+                                <rect key="frame" x="10" y="32" width="460" height="98"/>
+                                <subviews>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mGa-3u-90b">
+                                        <rect key="frame" x="-2" y="81" width="30" height="17"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Size" id="ZHy-Or-MY4">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <comboBox verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ys-Uf-hfa">
+                                        <rect key="frame" x="0.0" y="49" width="244" height="26"/>
+                                        <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="67d-EX-NUJ">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <objectValues>
+                                                <string>Item 1</string>
+                                                <string>Item 2</string>
+                                                <string>Item 3</string>
+                                            </objectValues>
+                                        </comboBoxCell>
+                                    </comboBox>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bgQ-Oo-feb">
+                                        <rect key="frame" x="-2" y="28" width="50" height="17"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Climate" id="Hbv-Hk-x7a">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <comboBox verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AoF-dA-JTS">
+                                        <rect key="frame" x="0.0" y="-4" width="243" height="26"/>
+                                        <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="Kue-X9-Nvp">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <objectValues>
+                                                <string>Item 1</string>
+                                                <string>Item 2</string>
+                                                <string>Item 3</string>
+                                            </objectValues>
+                                        </comboBoxCell>
+                                    </comboBox>
+                                </subviews>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bwf-eR-CaK">
+                                <rect key="frame" x="4" y="3" width="472" height="23"/>
+                                <buttonCell key="cell" type="push" title="Generate" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="CuX-gm-xaX">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="generateSelected:" target="9Uh-PN-5Pd" id="zDd-k7-Pc5"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="j9X-nh-c2g" firstAttribute="top" secondItem="ikU-c9-Nh2" secondAttribute="bottom" constant="8" id="4h8-DD-M7b"/>
-                            <constraint firstItem="ikU-c9-Nh2" firstAttribute="leading" secondItem="531-iB-oVJ" secondAttribute="leading" constant="20" id="GPv-Pd-Nvt"/>
-                            <constraint firstItem="ikU-c9-Nh2" firstAttribute="top" secondItem="531-iB-oVJ" secondAttribute="top" constant="8" id="TiD-v5-nKs"/>
-                            <constraint firstItem="j9X-nh-c2g" firstAttribute="leading" secondItem="531-iB-oVJ" secondAttribute="leading" constant="20" id="fPM-Ax-5LY"/>
+                            <constraint firstItem="bwf-eR-CaK" firstAttribute="top" secondItem="iTA-Jy-xMK" secondAttribute="bottom" constant="10" id="4VR-bC-ErB"/>
+                            <constraint firstItem="iTA-Jy-xMK" firstAttribute="leading" secondItem="AZV-sw-xv7" secondAttribute="leading" constant="10" id="DSW-U2-xGo"/>
+                            <constraint firstItem="bwf-eR-CaK" firstAttribute="leading" secondItem="AZV-sw-xv7" secondAttribute="leading" constant="10" id="kan-lH-bQI"/>
+                            <constraint firstAttribute="bottom" secondItem="iTA-Jy-xMK" secondAttribute="bottom" constant="32" id="lqu-lH-Oyr"/>
+                            <constraint firstItem="iTA-Jy-xMK" firstAttribute="top" secondItem="AZV-sw-xv7" secondAttribute="top" constant="10" id="mym-YO-o72"/>
+                            <constraint firstAttribute="bottom" secondItem="bwf-eR-CaK" secondAttribute="bottom" constant="10" id="oiJ-Ky-hlp"/>
+                            <constraint firstAttribute="trailing" secondItem="iTA-Jy-xMK" secondAttribute="trailing" constant="10" id="pay-K9-tSf"/>
+                            <constraint firstAttribute="trailing" secondItem="bwf-eR-CaK" secondAttribute="trailing" constant="10" id="xvp-g3-eGf"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="contentField" destination="j9X-nh-c2g" id="8E5-sH-moG"/>
-                        <outlet property="contentHeightConstraint" destination="twh-Hx-beC" id="AQq-7F-jNi"/>
-                        <outlet property="titleField" destination="ikU-c9-Nh2" id="zkY-9p-iDi"/>
-                        <outlet property="titleHeightConstraint" destination="KPx-Cp-Ije" id="tmx-1d-eZ1"/>
-                    </connections>
                 </viewController>
-                <customObject id="qhT-rS-5Lb" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <customObject id="csk-2O-Ie3" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="562" y="195.5"/>
+            <point key="canvasLocation" x="1799" y="-4"/>
         </scene>
         <!--Map Edit View Controller-->
         <scene sceneID="YCw-BU-jyg">

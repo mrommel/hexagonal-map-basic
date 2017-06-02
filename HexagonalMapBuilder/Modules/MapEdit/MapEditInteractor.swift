@@ -13,12 +13,20 @@ protocol MapEditInteractorInput: class {
     
     func loadMap()
     
-    func onLoaded(map: Map?)
-    func onFailedLoadingMap()
+    func save(map: Map?)
+    
+    func showGenerateDialog()
+    
+    func closeWindow()
 }
 
 protocol MapEditInteractorOutput: class {
     
+    func onLoaded(map: Map?)
+    func onFailedLoadingMap()
+    
+    func onSaved()
+    func onFailedSavingMapWith(error: Error)
 }
 
 class MapEditInteractor {
@@ -31,13 +39,32 @@ class MapEditInteractor {
 }
 
 extension MapEditInteractor: MapEditInteractorInput {
-    
+ 
     func loadMap() {
         if let datasource = self.datasource, let mapIdentifier = self.mapIdentifier {
             datasource.loadMapWith(identifier: mapIdentifier)
         } else {
             self.onFailedLoadingMap()
         }
+    }
+    
+    func save(map: Map?) {
+        
+        if let datasource = self.datasource {
+            datasource.save(map: map)
+        } else {
+            self.onFailedSavingMapWith(error: MapError.noDatasource)
+        }
+    }
+    
+    func showGenerateDialog() {
+        
+        self.coordinator?.showMapGenerateDialog()
+    }
+    
+    func closeWindow() {
+        
+        self.coordinator?.closeMapEditWindow()
     }
 }
 
@@ -50,6 +77,16 @@ extension MapEditInteractor: MapEditInteractorOutput {
     func onLoaded(map: Map?) {
         self.presenter?.updateWith(map: map)
     }
-
     
+    func onSaved() {
+        DispatchQueue.main.async {
+            self.presenter?.showAlertWith(title: "Success", message: "Map got saved")
+        }
+    }
+    
+    func onFailedSavingMapWith(error: Error) {
+        DispatchQueue.main.async {
+            self.presenter?.showError(error: error)
+        }
+    }
 }

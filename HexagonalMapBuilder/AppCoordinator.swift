@@ -12,8 +12,13 @@ import Cocoa
 protocol AppCoordinatorInput: class {
     
     func showMapList()
+    
     func showMapEditForNew()
     func showMapEditFor(identifier: String)
+    func closeMapEditWindow()
+    
+    func showMapGenerateDialog()
+    func closeGeneratorWindow()
 }
 
 
@@ -24,6 +29,7 @@ class AppCoordinator {
 
     fileprivate var mapListWindowController: NSWindowController!
     fileprivate var mapEditWindowController: NSWindowController!
+    fileprivate var mapGenerateWindowController: NSWindowController!
     fileprivate var window: NSWindow!
     
     func start() {
@@ -96,31 +102,38 @@ extension AppCoordinator: AppCoordinatorInput {
         
         self.mapEditWindowController.showWindow(self)
     }
+    
+    func closeMapEditWindow() {
+        
+        self.mapEditWindowController.close()
+    }
+    
+    func showMapGenerateDialog() {
+        
+        let storyboard = NSStoryboard(name: "Main", bundle: nil)
+        self.mapGenerateWindowController = storyboard.instantiateController(withIdentifier: "MapGenerateWindowController") as? NSWindowController
+        guard (self.mapGenerateWindowController) != nil else {
+            fatalError("The Generate Window Controller Cannot be found");
+        }
+        guard let generateViewController = self.mapGenerateWindowController.window?.contentViewController as? MapGenerateViewController else {
+            fatalError("The Edit View Controller Cannot be found");
+        }
+        
+        let mapGeneratePresenter = MapGeneratePresenter()
+        let mapGenerateInteractor = MapGenerateInteractor()
+
+        mapGeneratePresenter.userInterface = generateViewController
+        mapGeneratePresenter.interactor = mapGenerateInteractor
+        
+        mapGenerateInteractor.coordinator = self
+        
+        generateViewController.interactor = mapGenerateInteractor
+        
+        self.mapGenerateWindowController.showWindow(self)
+    }
+    
+    func closeGeneratorWindow() {
+        
+        self.mapGenerateWindowController.close()
+    }
 }
-
-
-/*extension AppCoordinator {
-
-    func newMap() {
-        print("AppCoordinator.newMap()")
-        editMap(id: NSUUID().uuidString)
-    }
-
-    func editMap(id: String) {
-        print("AppCoordinator.editMap(\(id))")
-
-        let coordinator = MapEditCoordinator()
-        coordinator.delegate = self
-        coordinator.edit(id: id)
-        coordinator.key = id
-        coordinator.focus()
-    }
-
-    func previewMap(id: String, position: NSPoint, timeBasedDisplay: Bool = false) {
-        print("AppCoordinator.previewMap(\(id))")
-        /*let previewCoordinator = PreviewCoordinator()
-        previewCoordinator.delegate = self
-        previewCoordinator.start(id: id, position: position, timeBasedDisplay: timeBasedDisplay)
-        coordinators[previewCoordinator.key] = previewCoordinator*/
-    }
-}*/
