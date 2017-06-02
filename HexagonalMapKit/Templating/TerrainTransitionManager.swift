@@ -7,11 +7,10 @@
 //
 
 import Foundation
-import HexagonalMapKit
 
-class TerrainTransitionManager {
+public class TerrainTransitionManager {
     
-    class TerrainTransitionRule {
+    public class TerrainTransitionRule {
         
         let tileRule: Terrain?
         
@@ -22,10 +21,10 @@ class TerrainTransitionManager {
         let remoteNW: Terrain?
         let remoteN: Terrain?
         
-        let image: String
-        let zLevel: Int
+        public let image: String
+        public let zLevel: Int
         
-        required init(tileRule: Terrain?, remoteRule: String, image: String, zLevel: Int) {
+        public required init(tileRule: Terrain?, remoteRule: String, image: String, zLevel: Int) {
             
             self.tileRule = tileRule
             
@@ -121,7 +120,7 @@ class TerrainTransitionManager {
     
     var transitions: [TerrainTransitionRule]
     
-    required init() {
+    required public init() {
         self.transitions = []
         
         // beach
@@ -178,7 +177,7 @@ class TerrainTransitionManager {
         
     }
     
-    func bestTransitions(forCenter tileTerrain: Terrain, remotePattern: String) -> [TerrainTransitionRule]? {
+    public func bestTransitions(forCenter tileTerrain: Terrain, remotePattern: String) -> [TerrainTransitionRule]? {
         
         let patterns = remotePattern.characters.split {$0 == ","}.map(String.init)
         
@@ -192,7 +191,7 @@ class TerrainTransitionManager {
         return self.bestTransitions(forCenter: tileTerrain, remoteNE: remNE!, remoteSE: remSE!, remoteS: remS!, remoteSW: remSW!, remoteNW: remNW!, remoteN: remN!)
     }
     
-    func bestTransitions(forCenter tileTerrain: Terrain, remoteNE: Terrain, remoteSE: Terrain, remoteS: Terrain, remoteSW: Terrain, remoteNW: Terrain, remoteN: Terrain) -> [TerrainTransitionRule]? {
+    public func bestTransitions(forCenter tileTerrain: Terrain, remoteNE: Terrain, remoteSE: Terrain, remoteS: Terrain, remoteSW: Terrain, remoteNW: Terrain, remoteN: Terrain) -> [TerrainTransitionRule]? {
         
         var transitionImages: [TerrainTransitionRule]? = []
         

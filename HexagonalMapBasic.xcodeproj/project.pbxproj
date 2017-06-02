@@ -102,9 +102,22 @@
 		1A27699B1E6F6811006122BC /* Tiles.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A27698D1E6F6811006122BC /* Tiles.xcassets */; };
 		1A27699C1E6F6811006122BC /* victory.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A27698E1E6F6811006122BC /* victory.png */; };
 		1A2C91341EC9C0E500F417E1 /* GameSceneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2C91331EC9C0E500F417E1 /* GameSceneView.swift */; };
-		1A322EA11E68BD9E00008773 /* FeatureTransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A322EA01E68BD9D00008773 /* FeatureTransitionManager.swift */; };
+		1A32A8331EE1452A00A5DF47 /* FeatureSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A32A8321EE1452A00A5DF47 /* FeatureSpriteNode.swift */; };
+		1A32A8351EE145B600A5DF47 /* GridSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A32A8341EE145B600A5DF47 /* GridSpriteNode.swift */; };
+		1A32A8431EE146A600A5DF47 /* RiverTransitionManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A32A83B1EE1468900A5DF47 /* RiverTransitionManagerTests.swift */; };
+		1A32A8441EE146A700A5DF47 /* RiverTransitionManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A32A83B1EE1468900A5DF47 /* RiverTransitionManagerTests.swift */; };
+		1A32A8451EE146AB00A5DF47 /* FeatureTransitionManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A32A83C1EE1468900A5DF47 /* FeatureTransitionManagerTests.swift */; };
+		1A32A8461EE146AB00A5DF47 /* FeatureTransitionManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A32A83C1EE1468900A5DF47 /* FeatureTransitionManagerTests.swift */; };
+		1A32A8471EE146B100A5DF47 /* TerrainTransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A32A83A1EE1468900A5DF47 /* TerrainTransitionManager.swift */; };
+		1A32A8481EE146B100A5DF47 /* TerrainTransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A32A83A1EE1468900A5DF47 /* TerrainTransitionManager.swift */; };
+		1A32A8491EE146B400A5DF47 /* RiverTransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A32A8391EE1468900A5DF47 /* RiverTransitionManager.swift */; };
+		1A32A84A1EE146B400A5DF47 /* RiverTransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A32A8391EE1468900A5DF47 /* RiverTransitionManager.swift */; };
+		1A32A84B1EE146B700A5DF47 /* FeatureTransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A32A8381EE1468900A5DF47 /* FeatureTransitionManager.swift */; };
+		1A32A84C1EE146B800A5DF47 /* FeatureTransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A32A8381EE1468900A5DF47 /* FeatureTransitionManager.swift */; };
+		1A32A84E1EE1489500A5DF47 /* TransitionSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A32A84D1EE1489500A5DF47 /* TransitionSpriteNode.swift */; };
+		1A32A8501EE149FB00A5DF47 /* Features.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A32A84F1EE149FB00A5DF47 /* Features.xcassets */; };
+		1A32A8521EE14A0700A5DF47 /* Rivers.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A32A8511EE14A0700A5DF47 /* Rivers.xcassets */; };
 		1A355B2D1E546B00006469B3 /* GridSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A355B2C1E546B00006469B3 /* GridSpriteNode.swift */; };
-		1A355B301E55DBD7006469B3 /* TerrainTransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A355B2F1E55DBD7006469B3 /* TerrainTransitionManager.swift */; };
 		1A355B341E55E860006469B3 /* TerrainSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A355B331E55E860006469B3 /* TerrainSpriteNode.swift */; };
 		1A355B361E55F04F006469B3 /* FeatureSpriteNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A355B351E55F04F006469B3 /* FeatureSpriteNode.swift */; };
 		1A4B38901E4BBAD400FA7457 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4B388F1E4BBAD400FA7457 /* GameScene.swift */; };
@@ -151,10 +164,7 @@
 		1AFB341A1ED437E200236CBE /* MapListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFB34191ED437E200236CBE /* MapListPresenter.swift */; };
 		1AFB341C1ED4395F00236CBE /* MapListDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFB341B1ED4395F00236CBE /* MapListDatasource.swift */; };
 		1AFB341E1ED4570500236CBE /* MapListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFB341D1ED4570500236CBE /* MapListViewModel.swift */; };
-		1AFE3C2D1E7027D6008AD2B7 /* FeatureTransitionManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFE3C2C1E7027D6008AD2B7 /* FeatureTransitionManagerTests.swift */; };
-		1AFE3C2F1E70394E008AD2B7 /* RiverTransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFE3C2E1E70394E008AD2B7 /* RiverTransitionManager.swift */; };
 		1AFE3C321E719D90008AD2B7 /* Rivers.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AFE3C311E719D90008AD2B7 /* Rivers.xcassets */; };
-		1AFE3C361E72B056008AD2B7 /* RiverTransitionManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AFE3C351E72B056008AD2B7 /* RiverTransitionManagerTests.swift */; };
 		2A027B8F3F7EBC9136BB1D36 /* Pods_HexagonalMapBuilder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C9D369B02A37856189646F7 /* Pods_HexagonalMapBuilder.framework */; };
 		4D15C2891D442302007A5EE2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D15C2881D442302007A5EE2 /* AppDelegate.swift */; };
 		4D15C2911D442302007A5EE2 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D15C2901D442302007A5EE2 /* GameViewController.swift */; };
@@ -329,9 +339,17 @@
 		1A27698E1E6F6811006122BC /* victory.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = victory.png; path = HexagonalMapBasic/Resources/victory.png; sourceTree = SOURCE_ROOT; };
 		1A27699F1E6F6B81006122BC /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = HexagonalMapBasicTests/Info.plist; sourceTree = SOURCE_ROOT; };
 		1A2C91331EC9C0E500F417E1 /* GameSceneView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameSceneView.swift; path = Modules/MapEdit/Scenes/GameSceneView.swift; sourceTree = "<group>"; };
-		1A322EA01E68BD9D00008773 /* FeatureTransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeatureTransitionManager.swift; path = ../HexagonalMapBasic/Game/Templating/FeatureTransitionManager.swift; sourceTree = "<group>"; };
+		1A32A8321EE1452A00A5DF47 /* FeatureSpriteNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeatureSpriteNode.swift; path = Modules/MapEdit/Scenes/FeatureSpriteNode.swift; sourceTree = "<group>"; };
+		1A32A8341EE145B600A5DF47 /* GridSpriteNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GridSpriteNode.swift; path = Modules/MapEdit/Scenes/GridSpriteNode.swift; sourceTree = "<group>"; };
+		1A32A8381EE1468900A5DF47 /* FeatureTransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeatureTransitionManager.swift; path = Templating/FeatureTransitionManager.swift; sourceTree = "<group>"; };
+		1A32A8391EE1468900A5DF47 /* RiverTransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RiverTransitionManager.swift; path = Templating/RiverTransitionManager.swift; sourceTree = "<group>"; };
+		1A32A83A1EE1468900A5DF47 /* TerrainTransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TerrainTransitionManager.swift; path = Templating/TerrainTransitionManager.swift; sourceTree = "<group>"; };
+		1A32A83B1EE1468900A5DF47 /* RiverTransitionManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RiverTransitionManagerTests.swift; path = Templating/RiverTransitionManagerTests.swift; sourceTree = "<group>"; };
+		1A32A83C1EE1468900A5DF47 /* FeatureTransitionManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeatureTransitionManagerTests.swift; path = Templating/FeatureTransitionManagerTests.swift; sourceTree = "<group>"; };
+		1A32A84D1EE1489500A5DF47 /* TransitionSpriteNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TransitionSpriteNode.swift; path = Modules/MapEdit/Scenes/TransitionSpriteNode.swift; sourceTree = "<group>"; };
+		1A32A84F1EE149FB00A5DF47 /* Features.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Features.xcassets; path = Resources/Features.xcassets; sourceTree = "<group>"; };
+		1A32A8511EE14A0700A5DF47 /* Rivers.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Rivers.xcassets; path = Resources/Rivers.xcassets; sourceTree = "<group>"; };
 		1A355B2C1E546B00006469B3 /* GridSpriteNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GridSpriteNode.swift; path = ../HexagonalMapBasic/Presentation/Scenes/GridSpriteNode.swift; sourceTree = "<group>"; };
-		1A355B2F1E55DBD7006469B3 /* TerrainTransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TerrainTransitionManager.swift; path = ../HexagonalMapBasic/Game/Templating/TerrainTransitionManager.swift; sourceTree = "<group>"; };
 		1A355B331E55E860006469B3 /* TerrainSpriteNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TerrainSpriteNode.swift; path = ../HexagonalMapBasic/Presentation/Scenes/TerrainSpriteNode.swift; sourceTree = "<group>"; };
 		1A355B351E55F04F006469B3 /* FeatureSpriteNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeatureSpriteNode.swift; path = ../HexagonalMapBasic/Presentation/Scenes/FeatureSpriteNode.swift; sourceTree = "<group>"; };
 		1A4B388F1E4BBAD400FA7457 /* GameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameScene.swift; path = ../HexagonalMapBasic/Presentation/Scenes/GameScene.swift; sourceTree = "<group>"; };
@@ -384,10 +402,7 @@
 		1AFB34191ED437E200236CBE /* MapListPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapListPresenter.swift; path = Modules/MapList/MapListPresenter.swift; sourceTree = "<group>"; };
 		1AFB341B1ED4395F00236CBE /* MapListDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapListDatasource.swift; path = Modules/MapList/MapListDatasource.swift; sourceTree = "<group>"; };
 		1AFB341D1ED4570500236CBE /* MapListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapListViewModel.swift; path = Modules/MapList/MapListViewModel.swift; sourceTree = "<group>"; };
-		1AFE3C2C1E7027D6008AD2B7 /* FeatureTransitionManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeatureTransitionManagerTests.swift; path = Game/Templating/FeatureTransitionManagerTests.swift; sourceTree = "<group>"; };
-		1AFE3C2E1E70394E008AD2B7 /* RiverTransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RiverTransitionManager.swift; path = Game/Templating/RiverTransitionManager.swift; sourceTree = "<group>"; };
 		1AFE3C311E719D90008AD2B7 /* Rivers.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Rivers.xcassets; path = Resources/Rivers.xcassets; sourceTree = "<group>"; };
-		1AFE3C351E72B056008AD2B7 /* RiverTransitionManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RiverTransitionManagerTests.swift; path = Game/Templating/RiverTransitionManagerTests.swift; sourceTree = "<group>"; };
 		1B4609BDE024C57B32BBB4D2 /* Pods_HexagonalMap_HexagonalMapBasicTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HexagonalMap_HexagonalMapBasicTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BC548A2A6970476942F4AF6 /* Pods-HexagonalMapKitiOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HexagonalMapKitiOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HexagonalMapKitiOS/Pods-HexagonalMapKitiOS.debug.xcconfig"; sourceTree = "<group>"; };
 		1D751E370B119B0EC679F375 /* Pods-HexagonalMapKitOSX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HexagonalMapKitOSX.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HexagonalMapKitOSX/Pods-HexagonalMapKitOSX.debug.xcconfig"; sourceTree = "<group>"; };
@@ -524,6 +539,7 @@
 		1A14B03C1EC3421900CFDADC /* HexagonalMapKit */ = {
 			isa = PBXGroup;
 			children = (
+				1A32A8421EE1468C00A5DF47 /* Templating */,
 				1A14B0A41EC3441900CFDADC /* GridGenerator */,
 				1A14B0A31EC3440A00CFDADC /* Utils */,
 				1A14B0591EC3427F00CFDADC /* Map.swift */,
@@ -626,14 +642,14 @@
 			path = src;
 			sourceTree = "<group>";
 		};
-		1A355B2E1E55DBAC006469B3 /* Templating */ = {
+		1A32A8421EE1468C00A5DF47 /* Templating */ = {
 			isa = PBXGroup;
 			children = (
-				1A355B2F1E55DBD7006469B3 /* TerrainTransitionManager.swift */,
-				1A322EA01E68BD9D00008773 /* FeatureTransitionManager.swift */,
-				1AFE3C2C1E7027D6008AD2B7 /* FeatureTransitionManagerTests.swift */,
-				1AFE3C2E1E70394E008AD2B7 /* RiverTransitionManager.swift */,
-				1AFE3C351E72B056008AD2B7 /* RiverTransitionManagerTests.swift */,
+				1A32A8381EE1468900A5DF47 /* FeatureTransitionManager.swift */,
+				1A32A8391EE1468900A5DF47 /* RiverTransitionManager.swift */,
+				1A32A83A1EE1468900A5DF47 /* TerrainTransitionManager.swift */,
+				1A32A83B1EE1468900A5DF47 /* RiverTransitionManagerTests.swift */,
+				1A32A83C1EE1468900A5DF47 /* FeatureTransitionManagerTests.swift */,
 			);
 			name = Templating;
 			sourceTree = "<group>";
@@ -642,7 +658,6 @@
 			isa = PBXGroup;
 			children = (
 				1AE645FF1E65A9EE0063F3CB /* AI */,
-				1A355B2E1E55DBAC006469B3 /* Templating */,
 				1AA7B3781E4DF66800104C91 /* PathFinding */,
 				1A57CA911E5D8E0400348FDD /* Game.swift */,
 				1ACCA0071E60792C00E539DD /* GameStatisticsTests.swift */,
@@ -663,8 +678,11 @@
 			children = (
 				1A81D7341EB280D8000B7373 /* GameScene.swift */,
 				1A81D73F1EB34FE8000B7373 /* EmptyScene.swift */,
-				1A81D7361EB31FC4000B7373 /* TerrainSpriteNode.swift */,
 				1A2C91331EC9C0E500F417E1 /* GameSceneView.swift */,
+				1A81D7361EB31FC4000B7373 /* TerrainSpriteNode.swift */,
+				1A32A8321EE1452A00A5DF47 /* FeatureSpriteNode.swift */,
+				1A32A8341EE145B600A5DF47 /* GridSpriteNode.swift */,
+				1A32A84D1EE1489500A5DF47 /* TransitionSpriteNode.swift */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -672,6 +690,8 @@
 		1A81D7381EB3203B000B7373 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1A32A8511EE14A0700A5DF47 /* Rivers.xcassets */,
+				1A32A84F1EE149FB00A5DF47 /* Features.xcassets */,
 				1A81D7391EB321DC000B7373 /* Assets.xcassets */,
 				1A81D73A1EB321DC000B7373 /* Tiles.xcassets */,
 				1A81D73B1EB321DC000B7373 /* Terrain.xcassets */,
@@ -1243,6 +1263,8 @@
 				1A81D73D1EB321DC000B7373 /* Tiles.xcassets in Resources */,
 				1AC3A2B21EBCA0B000E80003 /* MapCollectionViewItem.xib in Resources */,
 				1ABD0BC91EA7F2540065541C /* Main.storyboard in Resources */,
+				1A32A8521EE14A0700A5DF47 /* Rivers.xcassets in Resources */,
+				1A32A8501EE149FB00A5DF47 /* Features.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1506,6 +1528,7 @@
 				1A14B0941EC3427F00CFDADC /* Unit.swift in Sources */,
 				1A14B0831EC3427F00CFDADC /* City.swift in Sources */,
 				1A14B0791EC3427F00CFDADC /* Feature.swift in Sources */,
+				1A32A8471EE146B100A5DF47 /* TerrainTransitionManager.swift in Sources */,
 				1A14B0771EC3427F00CFDADC /* Map.swift in Sources */,
 				1A14B07C1EC3427F00CFDADC /* GridPoint.swift in Sources */,
 				1A14B0B81EC3442F00CFDADC /* PerlinGenerator.swift in Sources */,
@@ -1515,6 +1538,7 @@
 				1A14B07E1EC3427F00CFDADC /* Tile.swift in Sources */,
 				1A14B0A21EC343DE00CFDADC /* Grid.swift in Sources */,
 				1A14B0AD1EC3442200CFDADC /* ContinentFinder.swift in Sources */,
+				1A32A8491EE146B400A5DF47 /* RiverTransitionManager.swift in Sources */,
 				1A14B0BC1EC3444700CFDADC /* GridPointCorner.swift in Sources */,
 				1A14B0861EC3427F00CFDADC /* GridPointDirection.swift in Sources */,
 				1A14B0B71EC3442F00CFDADC /* Random.swift in Sources */,
@@ -1523,6 +1547,7 @@
 				1A14B0841EC3427F00CFDADC /* MapItem.swift in Sources */,
 				1A14B07B1EC3427F00CFDADC /* River.swift in Sources */,
 				1A14B07D1EC3427F00CFDADC /* TileImprovement.swift in Sources */,
+				1A32A84B1EE146B700A5DF47 /* FeatureTransitionManager.swift in Sources */,
 				1A14B0811EC3427F00CFDADC /* Player.swift in Sources */,
 				1A14B0B61EC3442F00CFDADC /* ArrayExtension.swift in Sources */,
 			);
@@ -1532,6 +1557,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A32A8451EE146AB00A5DF47 /* FeatureTransitionManagerTests.swift in Sources */,
 				1A14B09D1EC343AE00CFDADC /* AreaTests.swift in Sources */,
 				1A14B0951EC3433000CFDADC /* GridPointDirectionTests.swift in Sources */,
 				1A14B0981EC3435700CFDADC /* MapTests.swift in Sources */,
@@ -1539,6 +1565,7 @@
 				1A14B0BB1EC3443200CFDADC /* Array2DTests.swift in Sources */,
 				1A14B09A1EC3437C00CFDADC /* ContinentTests.swift in Sources */,
 				1A14B0971EC3433900CFDADC /* TileImprovementTypeTests.swift in Sources */,
+				1A32A8431EE146A600A5DF47 /* RiverTransitionManagerTests.swift in Sources */,
 				1A14B09F1EC343C100CFDADC /* GridTests.swift in Sources */,
 				1A14B09E1EC343B700CFDADC /* FeatureTests.swift in Sources */,
 				1A14B0AF1EC3442400CFDADC /* GridGeneratorTests.swift in Sources */,
@@ -1558,6 +1585,7 @@
 				1A14B0E21EC3499A00CFDADC /* ContinentFinder.swift in Sources */,
 				1A14B0F31EC349C800CFDADC /* City.swift in Sources */,
 				1A14B0E91EC349C800CFDADC /* Map.swift in Sources */,
+				1A32A8481EE146B100A5DF47 /* TerrainTransitionManager.swift in Sources */,
 				1A14B0EF1EC349C800CFDADC /* Tile.swift in Sources */,
 				1A14B0F11EC349C800CFDADC /* Player.swift in Sources */,
 				1A14B0EC1EC349C800CFDADC /* River.swift in Sources */,
@@ -1567,6 +1595,7 @@
 				1A14B0F21EC349C800CFDADC /* GridPointCorner.swift in Sources */,
 				1A14B0ED1EC349C800CFDADC /* GridPoint.swift in Sources */,
 				1A14B0E51EC349A300CFDADC /* Random.swift in Sources */,
+				1A32A84A1EE146B400A5DF47 /* RiverTransitionManager.swift in Sources */,
 				1A14B0E61EC349A500CFDADC /* PerlinGenerator.swift in Sources */,
 				1A14B0F91EC349C800CFDADC /* Unit.swift in Sources */,
 				1A14B0EE1EC349C800CFDADC /* TileImprovement.swift in Sources */,
@@ -1575,6 +1604,7 @@
 				1A14B0F61EC349C800CFDADC /* GridPointDirection.swift in Sources */,
 				1A14B0F51EC349C800CFDADC /* Terrain.swift in Sources */,
 				1A14B0E11EC3499800CFDADC /* HeightMap.swift in Sources */,
+				1A32A84C1EE146B800A5DF47 /* FeatureTransitionManager.swift in Sources */,
 				1A14B0F81EC349C800CFDADC /* Area.swift in Sources */,
 				1A14B0E41EC349A100CFDADC /* ArrayExtension.swift in Sources */,
 			);
@@ -1591,12 +1621,14 @@
 				1A14B0E31EC3499D00CFDADC /* ContinentFinderTests.swift in Sources */,
 				1A14B0FC1EC349D700CFDADC /* MapTests.swift in Sources */,
 				1A14B1011EC349D700CFDADC /* GridTests.swift in Sources */,
+				1A32A8461EE146AB00A5DF47 /* FeatureTransitionManagerTests.swift in Sources */,
 				1A14B0FA1EC349D700CFDADC /* GridPointDirectionTests.swift in Sources */,
 				1A14B1021EC349D700CFDADC /* TileImprovementTypeTests.swift in Sources */,
 				1A14B1031EC349D700CFDADC /* ContinentTests.swift in Sources */,
 				1A14B0E01EC3499500CFDADC /* GridGeneratorTests.swift in Sources */,
 				1A14B1001EC349D700CFDADC /* AreaTests.swift in Sources */,
 				1A14B0FE1EC349D700CFDADC /* TerrainTests.swift in Sources */,
+				1A32A8441EE146A700A5DF47 /* RiverTransitionManagerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1606,8 +1638,6 @@
 			files = (
 				1AA7B37E1E4DFF7000104C91 /* AStarPathfinderTests.swift in Sources */,
 				1ACCA0081E60792C00E539DD /* GameStatisticsTests.swift in Sources */,
-				1AFE3C361E72B056008AD2B7 /* RiverTransitionManagerTests.swift in Sources */,
-				1AFE3C2D1E7027D6008AD2B7 /* FeatureTransitionManagerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1615,6 +1645,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A32A84E1EE1489500A5DF47 /* TransitionSpriteNode.swift in Sources */,
 				1AC3A2B41EBCAC8D00E80003 /* AppCoordinator.swift in Sources */,
 				1A2C91341EC9C0E500F417E1 /* GameSceneView.swift in Sources */,
 				1A81D7401EB34FE8000B7373 /* EmptyScene.swift in Sources */,
@@ -1633,9 +1664,11 @@
 				1AC3A2A41EBC59B500E80003 /* MapListViewController.swift in Sources */,
 				1ABD0BC41EA7F2540065541C /* MapEditViewController.swift in Sources */,
 				1AC3A2BB1EBCBFE700E80003 /* EditController.swift in Sources */,
+				1A32A8351EE145B600A5DF47 /* GridSpriteNode.swift in Sources */,
 				1AC3A2AD1EBC84B000E80003 /* MapDataProvider.swift in Sources */,
 				1AC3A2A61EBC5CC300E80003 /* MapCollectionViewItem.swift in Sources */,
 				1ABD0BC21EA7F2540065541C /* AppDelegate.swift in Sources */,
+				1A32A8331EE1452A00A5DF47 /* FeatureSpriteNode.swift in Sources */,
 				1A7598E01EDB6A7900CC591C /* MapEditPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1661,11 +1694,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1ACCA00C1E6432EB00E539DD /* UIViewController+NavigationController.swift in Sources */,
-				1AFE3C2F1E70394E008AD2B7 /* RiverTransitionManager.swift in Sources */,
-				1A355B301E55DBD7006469B3 /* TerrainTransitionManager.swift in Sources */,
 				4D15C2911D442302007A5EE2 /* GameViewController.swift in Sources */,
 				1A153D9D1E56E39300F11812 /* TransitionSpriteNode.swift in Sources */,
-				1A322EA11E68BD9E00008773 /* FeatureTransitionManager.swift in Sources */,
 				1ADE27A21E48BAB3001F44FF /* UIViewController+Storyboard.swift in Sources */,
 				1A4B38901E4BBAD400FA7457 /* GameScene.swift in Sources */,
 				1ADE279F1E48B8EC001F44FF /* MenuViewController.swift in Sources */,

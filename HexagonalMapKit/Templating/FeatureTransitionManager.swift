@@ -7,11 +7,10 @@
 //
 
 import Foundation
-import HexagonalMapKit
 
-class FeatureTransitionManager {
+public class FeatureTransitionManager {
     
-    class FeatureTransitionRule {
+    public class FeatureTransitionRule {
         
         let tileRule: Feature?
         
@@ -22,10 +21,10 @@ class FeatureTransitionManager {
         let remoteNW: Feature?
         let remoteN: Feature?
         
-        let image: String
-        let zLevel: Int
+        public let image: String
+        public let zLevel: Int
         
-        required init(tileRule: Feature?, remoteRule: String, image: String, zLevel: Int) {
+        public required init(tileRule: Feature?, remoteRule: String, image: String, zLevel: Int) {
             
             self.tileRule = tileRule
             
@@ -127,7 +126,7 @@ class FeatureTransitionManager {
     
     var transitions: [FeatureTransitionRule]
     
-    required init() {
+    required public init() {
         self.transitions = []
         
         // hill
@@ -144,7 +143,7 @@ class FeatureTransitionManager {
         self.transitions.append(FeatureTransitionRule(tileRule: .matchesNoHill, remoteRule: "*,*,*,*,h,h", image: "Hill-s-sw", zLevel: 24))
     }
     
-    func bestTransitions(forCenter tileFeatures: [Feature], remotesNE: [Feature], remotesSE: [Feature], remotesS: [Feature], remotesSW: [Feature], remotesNW: [Feature], remotesN: [Feature]) -> [FeatureTransitionRule]? {
+    public func bestTransitions(forCenter tileFeatures: [Feature], remotesNE: [Feature], remotesSE: [Feature], remotesS: [Feature], remotesSW: [Feature], remotesNW: [Feature], remotesN: [Feature]) -> [FeatureTransitionRule]? {
         
         var transitionImages: [FeatureTransitionRule]? = []
         

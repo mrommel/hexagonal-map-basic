@@ -7,9 +7,8 @@
 //
 
 import Foundation
-import HexagonalMapKit
 
-class RiverTransitionManager {
+public class RiverTransitionManager {
     
     class RiverTransitionCondition {
         
@@ -46,18 +45,18 @@ class RiverTransitionManager {
        \   | / /
         +--|--+
      */
-    class RiverTransitionRule {
+    public class RiverTransitionRule {
         
         let tileCondition: RiverTransitionCondition?
         let remoteCondition: RiverTransitionCondition?
 
-        let image: String //
+        public let image: String //
         
         /**
             - Parameter tileRule: string representation of FlowDirection
             - Parameter remoteCondition: e.g. "GridPointDirection,FlowDirection"
          */
-        required init(tileRule: String, remoteCondition: String, image: String) {
+        public required init(tileRule: String, remoteCondition: String, image: String) {
             
             // current tile
             let tileFlow = FlowDirection(rawValue: tileRule)
@@ -109,7 +108,7 @@ class RiverTransitionManager {
     
     var transitions: [RiverTransitionRule]
     
-    required init() {
+    required public init() {
         self.transitions = []
         
         // River-1
@@ -173,7 +172,7 @@ class RiverTransitionManager {
         self.transitions.append(RiverTransitionRule(tileRule: "ne", remoteCondition: "s,nw", image: "River-10"))
     }
     
-    func bestTransitions(forCenter tileFlows: [FlowDirection], remotesNE: [FlowDirection], remotesSE: [FlowDirection], remotesS: [FlowDirection], remotesSW: [FlowDirection], remotesNW: [FlowDirection], remotesN: [FlowDirection]) -> [RiverTransitionRule]? {
+    public func bestTransitions(forCenter tileFlows: [FlowDirection], remotesNE: [FlowDirection], remotesSE: [FlowDirection], remotesS: [FlowDirection], remotesSW: [FlowDirection], remotesNW: [FlowDirection], remotesN: [FlowDirection]) -> [RiverTransitionRule]? {
         
         var transitionRules: [RiverTransitionRule]? = []
         
