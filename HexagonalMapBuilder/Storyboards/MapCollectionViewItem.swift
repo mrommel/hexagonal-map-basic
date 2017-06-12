@@ -67,9 +67,37 @@ extension MapCollectionViewItem {
         
         image.lockFocus()
         
-        NSColor.red.set()
+        NSColor.black.set()
         NSRectFill(NSMakeRect(0, 0, 125, 125))
-        //image.draw(at: <#T##NSPoint#>, from: <#T##NSRect#>, operation: <#T##NSCompositingOperation#>, fraction: <#T##CGFloat#>)
+        
+        image.unlockFocus()
+        
+        image.lockFocus()
+        
+        if let width = map.grid?.width, let height = map.grid?.height {
+        
+            for x in 0..<125 {
+                for y in 0..<125 {
+                    
+                    let px = CGFloat(x) / 125.0 * CGFloat(width)
+                    let py = CGFloat(y) / 125.0 * CGFloat(height)
+                    
+                    let terrain = map.grid?.tileAt(x: Int(px), y: Int(py)).terrain
+                    
+                    if let isWater = terrain?.isWater {
+                        if isWater {
+                            NSColor.blue.set()
+                        } else {
+                            NSColor.green.set()
+                        }
+                    } else {
+                        NSColor.green.set()
+                    }
+                    NSRectFill(NSMakeRect(CGFloat(x), CGFloat(y), 1, 1))
+                        
+                }
+            }
+        }
         
         image.unlockFocus()
         

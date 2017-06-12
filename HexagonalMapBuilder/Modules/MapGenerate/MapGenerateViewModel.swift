@@ -11,19 +11,12 @@ import HexagonalMapKit
 
 class MapGenerateViewModel {
     
-    var title: String? = ""
+    var title: String? = ""    
+    var options: GridGeneratorOptions?
     
-    var size: MapSize = .small
-    var climate: ClimateZoneOption = .earth
-    var waterPercentage: Float = 0.5
-    var rivers: Int = 3
-    
-    init(title: String?, size: MapSize, climate: ClimateZoneOption, waterPercentage: Float, rivers: Int) {
+    init(title: String?, options: GridGeneratorOptions?) {
         
         self.title = title
-        self.size = size
-        self.climate = climate
-        self.waterPercentage = waterPercentage
-        self.rivers = rivers
+        self.options = options
     }
 }

@@ -53,7 +53,7 @@ extension MapListViewController {
 
 extension MapListViewController: NSWindowDelegate {
     
-    private func windowShouldClose(_ sender: Any) {
+    public func windowWillClose(_ notification: Notification) {
         
         // TODO prevent closing main window when there are child windows
         // TODO regain delegate when child is closed

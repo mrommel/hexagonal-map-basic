@@ -45,17 +45,17 @@ extension MapGenerateViewController {
 
 extension MapGenerateViewController: NSWindowDelegate {
     
-    private func windowShouldClose(_ sender: Any) {
-        
+    //private func windowShouldClose(_ sender: Any) {
+    public func windowWillClose(_ notification: Notification) {
+    
         // TODO let map list know that we are going to close
-        print("debug -> let map list know, we are going to close")
+        print("debug -> let map edit know, we are going to close")
     }
 }
 
 extension MapGenerateViewController: MapGeneratePresenterOutput {
     
     func setupUI(_ data: MapGenerateViewModel) {
-        Swift.print("=> setupUI")
         self.viewModel = data
     }
     

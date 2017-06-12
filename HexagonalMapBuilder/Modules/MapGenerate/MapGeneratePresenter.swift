@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import HexagonalMapKit
 
 protocol MapGeneratePresenterInput: class {
     
@@ -29,7 +30,9 @@ extension MapGeneratePresenter: MapGeneratePresenterInput {
     
     func setupUI() {
         
-        let model = MapGenerateViewModel(title: "Loading", size: .small, climate: .earth, waterPercentage: 0.5, rivers: 3)
+        let options = GridGeneratorOptions(withSize: .small, zone: .earth, waterPercentage: 0.5, rivers: 3)
+        
+        let model = MapGenerateViewModel(title: "Loading", options: options)
         self.userInterface?.setupUI(model)
     }
     
