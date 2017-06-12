@@ -549,7 +549,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <comboBox verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ys-Uf-hfa">
-                                        <rect key="frame" x="0.0" y="49" width="244" height="26"/>
+                                        <rect key="frame" x="0.0" y="49" width="463" height="26"/>
                                         <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="67d-EX-NUJ">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -570,7 +570,7 @@
                                         </textFieldCell>
                                     </textField>
                                     <comboBox verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AoF-dA-JTS">
-                                        <rect key="frame" x="0.0" y="-4" width="243" height="26"/>
+                                        <rect key="frame" x="0.0" y="-4" width="463" height="26"/>
                                         <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="Kue-X9-Nvp">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -618,6 +618,10 @@
                             <constraint firstAttribute="trailing" secondItem="bwf-eR-CaK" secondAttribute="trailing" constant="10" id="xvp-g3-eGf"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="climateCombo" destination="AoF-dA-JTS" id="hAj-1G-XvG"/>
+                        <outlet property="sizeCombo" destination="6ys-Uf-hfa" id="pNe-Gg-cmd"/>
+                    </connections>
                 </viewController>
                 <customObject id="csk-2O-Ie3" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -131,6 +131,7 @@ extension GameScene {
         // cities
         if let city = self.map?.city(at: gridPoint) {
             //self.terrainView.addChild(CitySpriteNode(withPosition: position, andCity: city))
+            print("\(city)")
         }
         
         // units

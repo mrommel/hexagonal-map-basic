@@ -125,9 +125,12 @@ extension AppCoordinator: AppCoordinatorInput {
         mapGeneratePresenter.userInterface = generateViewController
         mapGeneratePresenter.interactor = mapGenerateInteractor
         
+        //mapGenerateInteractor.
         mapGenerateInteractor.coordinator = self
         
+        
         generateViewController.interactor = mapGenerateInteractor
+        generateViewController.presenter = mapGeneratePresenter
         
         self.mapGenerateWindowController.showWindow(self)
     }
