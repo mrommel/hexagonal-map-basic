@@ -64,23 +64,30 @@ extension DataProvider {
         DataProvider.mapsLock.signal()
         completionHandler(map)
     }
+    
+    func delete(id: String, completionHandler: @escaping VoidCompletionBlock) {
+        
+        if self.deleteFile(id + DataProvider.fileExtension) {
+            completionHandler()
+        }
+    }
 
     func save(map: Map, completionHandler: @escaping ErrorCompletionBlock) {
 
         saveMapToFile(map: map) { (error) in
 
-        if error == nil {
-            _ = DataProvider.mapsLock.wait(timeout: DataProvider.timeout)
-            DataProvider.maps[map.id] = map
-            DataProvider.mapsLock.signal()
-        }
-
-        // Allow the completion handler to fire before letting all the other DataProviders know the data has changed
-        completionHandler(error)
-
-        if error == nil {
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: kMapChangedNotification), object: self, userInfo: ["id": map.id])
-        }
+            if error == nil {
+                _ = DataProvider.mapsLock.wait(timeout: DataProvider.timeout)
+                DataProvider.maps[map.id] = map
+                DataProvider.mapsLock.signal()
+            }
+            
+            // Allow the completion handler to fire before letting all the other DataProviders know the data has changed
+            completionHandler(error)
+            
+            if error == nil {
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: kMapChangedNotification), object: self, userInfo: ["id": map.id])
+            }
 
         }
     }
@@ -170,6 +177,24 @@ extension DataProvider {
         }
     }
 
+    func deleteFile(_ fileName: String) -> Bool {
+    
+        guard let documentPath = self.documentPath else {
+            return false
+        }
+        
+        let filePath = documentPath + fileName
+        
+        let fs: FileManager = FileManager.default
+        do {
+            try fs.removeItem(atPath: filePath)
+        } catch let error as NSError {
+            NSLog("Error deleting map file: \(fileName) => \(error)")
+            return false
+        }
+        
+        return true
+    }
 
     func loadMapFromFile(_ fileName: String) throws -> Map? {
 

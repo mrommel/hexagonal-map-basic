@@ -12,7 +12,8 @@ import Cocoa
 protocol HoverViewDelegate: class {
     
     func hover(view: HoverView, position: NSPoint)
-    func doubleClick(view: HoverView)
+    func doubleClick(view: HoverView, position: NSPoint)
+    func rightClick(view: HoverView, position: NSPoint)
 }
 
 class HoverView: NSView {
@@ -68,11 +69,16 @@ extension HoverView {
         hovering = false
     }
     
+    override func rightMouseDown(with event: NSEvent) {
+        if event.buttonNumber == 1 {
+            delegate?.rightClick(view: self, position: event.locationInWindow)
+        }
+    }
     
     override func mouseDown(with event: NSEvent) {
         let count = event.clickCount
         if (count == 2) {
-            delegate?.doubleClick(view: self)
+            delegate?.doubleClick(view: self, position: event.locationInWindow)
         } else {
             super.mouseDown(with: event)
         }

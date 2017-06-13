@@ -77,6 +77,10 @@ extension MapEditDatasource: MapEditDatasourceInput {
 
 extension MapEditDatasource: MapDataProviderDelegate {
     
+    func mapDeleted(identifier id: String) {
+        print("--> MapEditDatasource mapDeleted(id: \(id))")
+    }
+    
     func mapChanged(id: String) {
         print("--> MapEditDatasource mapChanged(id: \(id))")
     }

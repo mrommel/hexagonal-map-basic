@@ -14,6 +14,7 @@ protocol MapDataProviderDelegate: class {
     func mapChanged(id: String)
     func mapsLoaded()
     func mapsAlreadyLoaded()
+    func mapDeleted(identifier: String)
 }
 
 extension MapDataProviderDelegate {
@@ -23,7 +24,6 @@ extension MapDataProviderDelegate {
     }
     
     func mapsAlreadyLoaded() {
-        
     }
 }
 
@@ -31,13 +31,16 @@ extension MapDataProviderDelegate {
 typealias MapCompletionBlock = (_ map: Map?) -> Void
 typealias MapsCompletionBlock = (_ maps: [Map]) -> Void
 typealias ErrorCompletionBlock = (_ error: Error?) -> Void
+typealias VoidCompletionBlock = (Void) -> Void
 
 protocol MapDataProvider {
 
     var delegate: MapDataProviderDelegate? { get set }
+    
     func maps(completionHandler: @escaping MapsCompletionBlock)
     func map(id: String, completionHandler: @escaping MapCompletionBlock)
     func save(map: Map, completionHandler: @escaping ErrorCompletionBlock)
-
+    func delete(id: String, completionHandler: @escaping VoidCompletionBlock)
+    
     func loadMaps()
 }

@@ -199,6 +199,14 @@ extension MapListViewController: NSCollectionViewDelegate {
 
 extension MapListViewController: MapCollectionViewItemDelegate {
     
+    func deleted(collectionItem: MapCollectionViewItem) {
+        
+        if let mapIdentifier = collectionItem.map?.id {
+            Swift.print("delete \(mapIdentifier)")
+            self.interactor?.deleteMapWith(identifier: mapIdentifier)
+        }
+    }
+
     func hover(collectionItem: MapCollectionViewItem, position: NSPoint) {
         
         let index = collectionItem.index

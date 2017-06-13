@@ -17,7 +17,10 @@ protocol MapListInteractorInput: class {
     func newMap()
     func editMap(index: Int)
     
+    func deleteMapWith(identifier: String)
+    
     func onMapsLoaded()
+    func onMapDeleted()
 }
 
 protocol MapListInteractorOutput: class {
@@ -59,9 +62,30 @@ extension MapListInteractor: MapListInteractorInput {
 
         self.coordinator?.showMapEditForNew()
     }
+    
+    func deleteMapWith(identifier: String) {
+        
+        self.datasource?.deleteMapWith(identifier: identifier)
+        
+        
+        //self.presenter?.updateWith(maps: maps)
+    }
 
     func onMapsLoaded() {
         
+        var maps: [Map] = []
+        
+        let maxMaps: Int = (self.datasource?.numberOfItemsInList())!
+        for index in 0..<maxMaps {
+            if let map = self.datasource?.mapAt(row: index) {
+                maps.append(map)
+            }
+        }
+        
+        self.presenter?.updateWith(maps: maps)
+    }
+    
+    func onMapDeleted() {
         var maps: [Map] = []
         
         let maxMaps: Int = (self.datasource?.numberOfItemsInList())!
