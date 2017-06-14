@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import EVReflection
+import JSONCodable
 
 public class Continent: Area {
     
@@ -23,39 +23,12 @@ public class Continent: Area {
         super.init(withIdentifier: identifier, andPoints: points, on: map)
     }
     
-    required public init() {
-        self.name = ""
-        super.init()
-    }
-    
-    required convenience public init?(coder: NSCoder) {
-        self.init()
-    }
-    
-    override public func setValue(_ value: Any!, forUndefinedKey key: String) {
+    public required init(object: JSONObject) throws {
+        let decoder = JSONDecoder(object: object)
         
-        if key == "name" {
-            if let stringValue = value as? String {
-                self.name = stringValue
-            }
-            return
-        }
+        self.name = try decoder.decode("name")
         
-        super.setValue(value, forUndefinedKey: key)
-
-    }
-    
-    override public func skipPropertyValue(_ value: Any, key: String) -> Bool {
-        
-        if key == "map" {
-            return true
-        }
-        
-        if key == "statistics" {
-            return true
-        }
-        
-        return false
+        try super.init(object: object)
     }
 }
 

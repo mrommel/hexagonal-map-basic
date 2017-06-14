@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import JSONCodable
 
 public enum CityError: Error, Equatable {
     case MapNotSet
@@ -39,6 +40,18 @@ public class City: MapItem {
         self.inhabitants = 50
         
         super.init(at: point)
+    }
+    
+    required public init() {
+        
+        self.name = ""
+        self.inhabitants = 50
+        
+        super.init(at: GridPoint(x: 0, y: 0))
+    }
+    
+    public required init(object: JSONObject) throws {
+        fatalError("init(object:) has not been implemented")
     }
     
     public func terrain() throws -> Terrain {

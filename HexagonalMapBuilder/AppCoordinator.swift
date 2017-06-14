@@ -8,6 +8,7 @@
 
 import Foundation
 import Cocoa
+import HexagonalMapKit
 
 protocol AppCoordinatorInput: class {
     
@@ -70,6 +71,23 @@ extension AppCoordinator: AppCoordinatorInput {
     
     func showMapEditForNew() {
         print("showMapEditForNew")
+        
+        let options = GridGeneratorOptions(withSize: .duel, zone: .earth, waterPercentage: 0.3, rivers: 4)
+        let map = Map(withOptions: options, completionHandler: { progress in
+            
+            if progress == 1.0 {
+                print("Map created")
+            }
+        })
+        
+        let dataProvider = DataProvider()
+        dataProvider.save(map: map, completionHandler: { error in
+            if let error = error {
+                print("Map saved with error: \(error)")
+            } else {
+                print("Map saved without errors")
+            }
+        })
     }
     
     func showMapEditFor(identifier: String) {

@@ -7,9 +7,10 @@
 //
 
 import Foundation
+import JSONCodable
 
 public enum Terrain: String {
-    
+
     // misc
     case outside = "out"
     

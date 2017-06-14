@@ -171,18 +171,18 @@ extension GameScene {
         let terrain = tile.terrain
         
         // terrain sprite
-        self.base.addChild(TerrainSpriteNode(withPosition: position, andTerrain: terrain!))
+        self.base.addChild(TerrainSpriteNode(withPosition: position, andTerrain: terrain))
         
         // terrain transitions
-        let remoteNE = self.map?.grid?.tile(at: gridPoint.neighbor(in: .northEast)).terrain!
-        let remoteSE = self.map?.grid?.tile(at: gridPoint.neighbor(in: .southEast)).terrain!
-        let remoteS = self.map?.grid?.tile(at: gridPoint.neighbor(in: .south)).terrain!
-        let remoteSW = self.map?.grid?.tile(at: gridPoint.neighbor(in: .southWest)).terrain!
-        let remoteNW = self.map?.grid?.tile(at: gridPoint.neighbor(in: .northWest)).terrain!
-        let remoteN = self.map?.grid?.tile(at: gridPoint.neighbor(in: .north)).terrain!
+        let remoteNE = self.map?.grid?.tile(at: gridPoint.neighbor(in: .northEast)).terrain
+        let remoteSE = self.map?.grid?.tile(at: gridPoint.neighbor(in: .southEast)).terrain
+        let remoteS = self.map?.grid?.tile(at: gridPoint.neighbor(in: .south)).terrain
+        let remoteSW = self.map?.grid?.tile(at: gridPoint.neighbor(in: .southWest)).terrain
+        let remoteNW = self.map?.grid?.tile(at: gridPoint.neighbor(in: .northWest)).terrain
+        let remoteN = self.map?.grid?.tile(at: gridPoint.neighbor(in: .north)).terrain
         let remotePattern = "\((remoteNE?.rawValue)!),\((remoteSE?.rawValue)!),\((remoteS?.rawValue)!),\((remoteSW?.rawValue)!),\((remoteNW?.rawValue)!),\((remoteN?.rawValue)!)"
         
-        if let transitions = self.terrainTransitionManager.bestTransitions(forCenter: terrain!, remotePattern: remotePattern) {
+        if let transitions = self.terrainTransitionManager.bestTransitions(forCenter: terrain, remotePattern: remotePattern) {
             
             for transition in transitions {
                 

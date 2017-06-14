@@ -8,7 +8,7 @@
 
 import Foundation
 import CoreGraphics
-import EVReflection
+import JSONCodable
 
 /**
  A GridPoint is a structure that represents a location of a hexagon in the grid.
@@ -24,7 +24,7 @@ import EVReflection
  +--+--+--+
  ```
  */
-public class GridPoint: EVObject {
+public class GridPoint: Hashable, JSONCodable {
     
     public var x: Int = 0
     public var y: Int = 0
@@ -41,12 +41,18 @@ public class GridPoint: EVObject {
         self.y = y
     }
     
-    required convenience public init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    required public init(object: JSONObject) throws {
+        let decoder = JSONDecoder(object: object)
+        
+        self.x = try decoder.decode("x")
+        self.y = try decoder.decode("y")
     }
     
-    required public init() {
-
+    /**
+     Returns a unique number that represents this location.
+     */
+    public var hashValue: Int {
+        return self.x << 8 + self.y + 31
     }
 }
 

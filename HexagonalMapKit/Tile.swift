@@ -8,7 +8,7 @@
 
 import Foundation
 import Buckets
-import EVReflection
+import JSONCodable
 
 public enum FlowDirection: String {
     
@@ -26,6 +26,29 @@ public enum FlowDirection: String {
     // flow of river on se edge
     case northEast = "ne"
     case southWest = "sw"
+    
+    public static func enumFrom(string: String) -> FlowDirection {
+        switch string {
+        case "west":
+            return .west
+        case "east":
+            return .east
+        case "northWest":
+            return .northWest
+        case "southEast":
+            return .southEast
+        case "northEast":
+            return .northEast
+        case "southWest":
+            return .southWest
+        case "none":
+            return .none
+            
+        default:
+            print("--> FlowDirection.enumFromString \(string) not handled")
+            return .none
+        }
+    }
 }
 
 enum FlowDirectionError: Error, Equatable {
@@ -39,10 +62,10 @@ func == (lhs: FlowDirectionError, rhs: FlowDirectionError) -> Bool {
     }
 }
 
-public class Tile: EVObject {
+public class Tile: Equatable, JSONCodable {
     
     public var point: GridPoint
-    public var terrain: Terrain? = Terrain.ocean
+    public var terrain: Terrain = Terrain.ocean
     public var features: [Feature] = []
     public var discovered: BitArray = [false, false, false, false, false, false, false, false]
     public var road: Bool = false
@@ -54,111 +77,47 @@ public class Tile: EVObject {
     public var riverFlowNorthEast: FlowDirection = .none
     public var riverFlowSouthEast: FlowDirection = .none
     
-    required public init(at point: GridPoint, withTerrain terrain: Terrain) {
+    public required init(at point: GridPoint, withTerrain terrain: Terrain) {
         
         self.point = point
         self.terrain = terrain
     }
     
-    required public init() {
+    public required init(object: JSONObject) throws {
+        let decoder = JSONDecoder(object: object)
         
-        self.point = GridPoint()
+        self.point = try decoder.decode("point")
+        self.terrain = Terrain.enumFrom(string: object["terrain"] as! String)!
+        self.features = try decoder.decode("features")
+        //self.discovered = try decoder.decode("discovered")
+        self.road = try decoder.decode("road")
+        self.continent = try decoder.decode("continent")
+        
+        self.river = try decoder.decode("river")
+        self.riverFlowNorth = FlowDirection.enumFrom(string: object["riverFlowNorth"] as! String)
+        self.riverFlowNorthEast = FlowDirection.enumFrom(string: object["riverFlowNorthEast"] as! String)
+        self.riverFlowSouthEast = FlowDirection.enumFrom(string: object["riverFlowSouthEast"] as! String)
     }
     
     public var possibleImprovements: [TileImprovementType] {
         
-        if let terrain = self.terrain {
-            switch terrain {
-            case .shore:
-                return [.fishing]
-            case .grass:
-                if self.has(feature: .forest) {
-                    return [.lumbermill]
-                } else if self.has(feature: .hill) {
-                    return [.pasture]
-                } else {
-                    return [.farm, .pasture]
-                }
-            default:
-                return []
+        switch self.terrain {
+        case .shore:
+            return [.fishing]
+        case .grass:
+            if self.has(feature: .forest) {
+                return [.lumbermill]
+            } else if self.has(feature: .hill) {
+                return [.pasture]
+            } else {
+                return [.farm, .pasture]
             }
+        default:
+            return []
         }
-        
-        return []
-    }
-    
-    override public func skipPropertyValue(_ value: Any, key: String) -> Bool {
-        
-        if key == "continent" {
-            return true
-        }
-        
-        if key == "river" {
-            return true
-        }
-        
-        return false
-    }
-    
-    override public func setValue(_ value: Any!, forUndefinedKey key: String) {
-        
-        if key == "terrain" {
-            if let rawValue = value as? String {
-                if let terrainValue = Terrain.enumFrom(string: rawValue) {
-                    self.terrain = terrainValue
-                }
-            }
-            return
-        }
-        
-        if key == "features" {
-            if let enumList = value as? NSArray {
-                self.features = []
-                for item in enumList {
-                    if let rawValue = item as? String, let featureType = Feature.enumFrom(string: rawValue) {
-                        self.features.append(featureType)
-                    }
-                }
-            }
-            return
-        }
-        
-        if key == "riverFlowNorthEast" {
-            if let rawValue = value as? String {
-                if let flowValue = FlowDirection(rawValue: rawValue) {
-                    self.riverFlowNorthEast = flowValue
-                }
-            }
-            return
-        }
-        
-        if key == "riverFlowSouthEast" {
-            if let rawValue = value as? String {
-                if let flowValue = FlowDirection(rawValue: rawValue) {
-                    self.riverFlowSouthEast = flowValue
-                }
-            }
-            return
-        }
-        
-        if key == "riverFlowNorth" {
-            if let rawValue = value as? String {
-                if let flowValue = FlowDirection(rawValue: rawValue) {
-                    self.riverFlowNorth = flowValue
-                }
-            }
-            return
-        }
-        
-        if key == "discovered" {
-            //print("value: \(value)")
-            // TODO
-            return
-        }
-
-        print("---> Tile.setValue for key '\(key)' should be handled.")
     }
 }
+
 
 /// MARK: feature handling
 
@@ -346,4 +305,8 @@ extension Tile {
     public func discover(by player: PlayerType) {
         self.discovered[player.rawValue] = true
     }
+}
+
+public func == (lhs: Tile, rhs: Tile) -> Bool {
+    return lhs.point == rhs.point
 }

@@ -7,7 +7,8 @@
 //
 
 import Foundation
-import EVReflection
+import JSONCodable
+
 
 /**
     class that holds a rectangle for `Area`
@@ -59,9 +60,18 @@ public class AreaBoundary {
     }
 }
 
-public class AreaStatistics: EVObject {
+public class AreaStatistics: JSONCodable {
     
     var coastTiles: Int = 0
+    
+    public init() {
+    }
+    
+    public required init(object: JSONObject) throws {
+        let decoder = JSONDecoder(object: object)
+        
+        self.coastTiles = try decoder.decode("coastTiles")
+    }
 }
 
 /**
@@ -109,7 +119,7 @@ public class AreaIterator: IteratorProtocol {
  
     can be constructed out of a list of points or a rectangle (`AreaBoundary`)
  */
-public class Area: EVObject, Sequence {
+public class Area: Sequence, JSONCodable {
     
     public var identifier: Int = -1
     public var points: [GridPoint]? = []
@@ -130,8 +140,6 @@ public class Area: EVObject, Sequence {
         ```
      */
     public init(withIdentifier identifier: Int, andBoundaries boundary: AreaBoundary, on map: Map) {
-        
-        super.init()
         
         self.identifier = identifier
         self.points = boundary.allPoints()
@@ -159,7 +167,12 @@ public class Area: EVObject, Sequence {
         self.statistics = AreaStatistics()
     }
     
-    required public init() {
+    required public init(object: JSONObject) throws {
+        let decoder = JSONDecoder(object: object)
+        
+        self.identifier = try decoder.decode("identifier")
+        self.points = try decoder.decode("points")
+        self.statistics = try decoder.decode("statistics")
     }
     
     /**
@@ -223,16 +236,8 @@ public class Area: EVObject, Sequence {
             }
         }
     }
-    
-    override public func skipPropertyValue(_ value: Any, key: String) -> Bool {
-        
-        if key == "map" {
-            return false
-        }
-        
-        return false
-    }
 }
+
 
 /**
     two areas are identical when their identifiers, their size and all their points are identical

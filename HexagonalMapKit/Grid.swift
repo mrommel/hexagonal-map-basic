@@ -8,7 +8,7 @@
 
 import Foundation
 import CoreGraphics
-import EVReflection
+import JSONCodable
 
 /**
     Matrix of `Tile`s
@@ -16,9 +16,9 @@ import EVReflection
     This class provides functions to manipulate the tiles (add/remove features, set terrain, etc)
     Used by `Map`to hold all the references to the `Tile`s
  */
-public class Grid: EVObject {
+public class Grid: JSONCodable {
     
-    public var tiles: Array2D<Tile> = Array2D<Tile>(columns: 1, rows: 1)
+    public var tiles: TileArray = TileArray(columns: 1, rows: 1)
     public var width: Int = 0
     public var height: Int = 0
     public var rivers: [River?] = []
@@ -36,9 +36,9 @@ public class Grid: EVObject {
         - Parameter width: width of the map
         - Parameter height: height of the map
      */
-    required public init?(width: Int, height: Int) {
+    public required init?(width: Int, height: Int) {
         
-        self.tiles = Array2D<Tile>(columns: width, rows: height)
+        self.tiles = TileArray(columns: width, rows: height)
         self.width = width
         self.height = height
         self.rivers = []
@@ -50,29 +50,15 @@ public class Grid: EVObject {
         }
     }
     
-    required public init() {
-    }
-    
-    override public func setValue(_ value: Any!, forUndefinedKey key: String) {
+    public required init(object: JSONObject) throws {
+        let decoder = JSONDecoder(object: object)
         
-        if key == "tiles" {
-            if let dict = value as? NSDictionary {
-                self.tiles = Array2D<Tile>(dictionary: dict)
-            }
-            return
-        }
+        self.tiles = try decoder.decode("tiles")
+        self.width = try decoder.decode("width")
+        self.height = try decoder.decode("height")
+        //self.rivers = try decoder.decode("rivers")
         
-        if key == "rivers" {
-            if let list = value as? NSArray {
-                self.rivers = []
-                for item in list {
-                    self.rivers.append(item as? River)
-                }
-            }
-            return
-        }
-        
-        print("---> Grid.setValue for key '\(key)' should be handled.")
+        print("decoded Grid")
     }
     
     /**
@@ -117,7 +103,7 @@ public class Grid: EVObject {
         
         // If we have a terrain, return it
         if let tile = self.tiles[position] {
-            return tile.terrain!
+            return tile.terrain
         } else {
             return Terrain.outside
         }
@@ -132,7 +118,7 @@ public class Grid: EVObject {
         
         // If we have a terrain, return it
         if let tile = self.tiles[x, y] {
-            return tile.terrain!
+            return tile.terrain
         } else {
             return Terrain.outside
         }
@@ -309,7 +295,7 @@ extension Grid {
     }
 }
 
-// MARK: river related methods
+/// MARK: river related methods
 
 extension Grid {
     
@@ -347,25 +333,5 @@ extension Grid {
                 print("something weird happend")
             }
         }
-    }
-}
-
-extension Grid: EVArrayConvertable {
-    
-    /**
-     For implementing a function for converting a generic array to a specific array.
-     */
-    public func convertArray(_ key: String, array: Any) -> NSArray {
-        assert(key == "rivers", "convertArray for key \(key) should be handled.")
-        
-        let returnArray = NSMutableArray()
-        if key == "rivers" {
-            for item in (array as? Array<River?>) ?? Array<River?>() {
-                if let item = item {
-                    returnArray.add(item)
-                }
-            }
-        }
-        return returnArray
     }
 }

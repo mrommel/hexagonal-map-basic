@@ -7,8 +7,7 @@
 //
 
 import Foundation
-//import Buckets
-import EVReflection
+import JSONCodable
 
 /**
     Map class that contains the actual grid, a list of cities, units and improvements
@@ -23,7 +22,7 @@ import EVReflection
     - a list of `TileImprovement`s
     - a list of `Continent`s
  */
-public class Map: EVObject {
+public class Map: JSONCodable {
 
     public var id: String = ""
     public var title: String = ""
@@ -39,9 +38,7 @@ public class Map: EVObject {
     /**
         builds a `Map` with `width`x`height` dimension
      */
-    public required init(width: Int, height: Int) {
-
-        super.init()
+    public init(width: Int, height: Int) {
         
         self.id = UUID.init().uuidString
         self.title = "Map \(width)x\(height)"
@@ -51,9 +48,7 @@ public class Map: EVObject {
         self.grid = Grid(width: width, height: height)
     }
     
-    public required init(withOptions options: GridGeneratorOptions) {
-        
-        super.init()
+    public init(withOptions options: GridGeneratorOptions) {
         
         self.id = UUID.init().uuidString
         self.title = "Map \(options.mapSize.width)x\(options.mapSize.height)"
@@ -64,9 +59,7 @@ public class Map: EVObject {
         self.generate(withOptions: options)
     }
     
-    public required init(withOptions options: GridGeneratorOptions, completionHandler: CompletionHandler?) {
-        
-        super.init()
+    public init(withOptions options: GridGeneratorOptions, completionHandler: CompletionHandler?) {
         
         self.id = UUID.init().uuidString
         self.title = "Map \(options.mapSize.width)x\(options.mapSize.height)"
@@ -77,8 +70,19 @@ public class Map: EVObject {
         self.generate(withOptions: options, completionHandler: completionHandler)
     }
     
-    required public init() {
+    public required init(object: JSONObject) throws {
+        let decoder = JSONDecoder(object: object)
         
+        self.id = try decoder.decode("id")
+        self.title = try decoder.decode("title")
+        self.teaser = try decoder.decode("teaser")
+        self.text = try decoder.decode("text")
+
+        self.grid = try decoder.decode("grid")
+        /*self.cities = try decoder.decode("cities")
+        self.units = try decoder.decode("units")
+        self.improvements = try decoder.decode("improvements")
+        self.continents = try decoder.decode("continents")*/
     }
     
     public var width: Int {
@@ -87,30 +91,6 @@ public class Map: EVObject {
     
     public var height: Int {
         return (self.grid?.height)!
-    }
-    
-    override public func setValue(_ value: Any!, forUndefinedKey key: String) {
-        
-        if key == "grid" {
-            if let gridDict = value as? NSDictionary {
-                self.grid = Grid(dictionary: gridDict)
-            }
-            return
-        }
-        
-        if key == "cities" {
-            return
-        }
-        
-        if key == "units" {
-            return
-        }
-        
-        if key == "improvements" {
-            return
-        }
-
-        print("---> Map.setValue for key '\(key)' should be handled.")
     }
 }
 
@@ -274,4 +254,3 @@ extension Map {
         self.grid?.tile(at: point).continent = continent
     }
 }
-

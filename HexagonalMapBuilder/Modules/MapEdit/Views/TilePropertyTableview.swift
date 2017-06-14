@@ -65,7 +65,7 @@ class TilePropertyTableview: NSTableView {
             inputComboBox.addItem(withObjectValue: "desert")
             inputComboBox.addItem(withObjectValue: "tundra")
             inputComboBox.addItem(withObjectValue: "snow")
-            inputComboBox.selectItem(withObjectValue: tile.terrain?.stringValue)
+            inputComboBox.selectItem(withObjectValue: tile.terrain.stringValue)
             alert.accessoryView = inputComboBox
             break
         default:
@@ -81,7 +81,7 @@ class TilePropertyTableview: NSTableView {
                     
                     switch(row) {
                     case 1: // terrain
-                        tile.terrain = Terrain.enumFrom(string: selection as! String)
+                        tile.terrain = Terrain.enumFrom(string: selection as! String)!
                         break
                     default:
                         break
@@ -137,7 +137,7 @@ extension TilePropertyTableview: NSTableViewDelegate {
                 image = NSImage(named: "TerrainIcon")
                 cellIdentifier = CellIdentifiers.IconCell
             } else if tableColumn == tableView.tableColumns[1] {
-                text = tile.terrain?.name ?? "no name"
+                text = tile.terrain.name
                 cellIdentifier = CellIdentifiers.NameCell
             }
             break

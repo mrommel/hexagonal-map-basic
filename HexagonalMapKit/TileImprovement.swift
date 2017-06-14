@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import JSONCodable
 
 public enum TileImprovementType {
     
@@ -69,5 +70,14 @@ public class TileImprovement: MapItem {
         self.type = .none
         
         super.init(at: point)
+    }
+    
+    convenience public init() {
+        
+        self.init(at: GridPoint(x: 0, y: 0))
+    }
+    
+    public required init(object: JSONObject) throws {
+        fatalError("init(object:) has not been implemented")
     }
 }

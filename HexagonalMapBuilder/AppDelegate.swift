@@ -9,7 +9,6 @@
 // https://github.com/macdevnet/macOS-Notes-Demo
 
 import Cocoa
-import EVReflection
 import HexagonalMapKit
 
 @NSApplicationMain
@@ -22,9 +21,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @IBOutlet weak var generateRandomMapMenuItem: NSMenuItem!
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        
-        // register
-        EVReflection.setBundleIdentifier(Grid.self)
         
         appCoordinator = AppCoordinator()
         appCoordinator.start()

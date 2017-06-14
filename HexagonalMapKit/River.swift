@@ -9,14 +9,14 @@
 // swiftlint:disable cyclomatic_complexity
 
 import Foundation
-import EVReflection
+import JSONCodable
 
 // taken from here: https://en.wikipedia.org/wiki/List_of_rivers_by_length
 let riverNames = ["Amazon", "Nile", "Yangtze", "Mississippi", "Yenisei", "Huang He", "Ob", "Río de la Plata", "Congo", "Amur", "Lena", "Mekong", "Mackenzie", "Niger", "Murray", "Tocantins", "Volga", "Euphrates", "Madeira", "Purús", "Yukon", "Indus", "São Francisco", "Syr Darya", "Salween", "Saint Lawrence", "Rio Grande", "Lower Tunguska", "Brahmaputra", "Donau"]
 
-public class RiverPoint: EVObject {
+public class RiverPoint: JSONCodable {
     
-    public let point: GridPoint
+    public var point: GridPoint
     public var flowDirection: FlowDirection
     
     public init(with point: GridPoint, and flowDirection: FlowDirection) {
@@ -25,49 +25,33 @@ public class RiverPoint: EVObject {
         self.flowDirection = flowDirection
     }
     
-    //required convenience public init?(coder: NSCoder) {
-    //}
-    
-    required public init() {
-        self.point = GridPoint()
-        self.flowDirection = .none
-    }
-    
-    override public func setValue(_ value: Any!, forUndefinedKey key: String) {
-        switch key {
-        //case "nullableType":
-        //    nullableType = value as? Int
-            // break
-        case "flowDirection":
-            if let rawValue = value as? String {
-                if let status =  FlowDirection(rawValue: rawValue) {
-                    self.flowDirection = status
-                }
-            }
-            break
-        default:
-            break
-        }
+    public required init(object: JSONObject) throws {
+        let decoder = JSONDecoder(object: object)
         
+        self.point = try decoder.decode("point")
+        self.flowDirection = try decoder.decode("flowDirection")
     }
 }
 
-public class River: EVObject {
+public class River: JSONCodable {
     
     public var name: String = ""
     public var points: [RiverPoint] = []
     
     public init(with name: String, and points: [GridPointWithCorner]) {
         
-        super.init()
-        
         self.name = name
         self.points = []
         self.translate(points: points)
     }
-    
-    required public init() {
-        //fatalError("init() has not been implemented")
+
+    public required init(object: JSONObject) throws {
+        let decoder = JSONDecoder(object: object)
+        
+        self.name = try decoder.decode("name")
+        self.points = try decoder.decode("points")
+        
+        print("decoded River")
     }
     
     /**
@@ -179,4 +163,3 @@ public class River: EVObject {
         assert(false, "Condition from: \(from), to: \(to) not handled")
     }
 }
-

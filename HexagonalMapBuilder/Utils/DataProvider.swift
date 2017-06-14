@@ -224,10 +224,9 @@ extension DataProvider {
 
             // Turn the dictionary into JSON data then a JSON String.
             do {
-                let jsonData = try JSONSerialization.data(withJSONObject: map.toDictionary(), options: JSONSerialization.WritingOptions())
-                let jsonString = String(data: jsonData, encoding: String.Encoding.utf8)
+                let jsonString = try map.toJSONString()
                 let filePath = documentPath + map.id + DataProvider.fileExtension
-                try jsonString?.write(toFile: filePath, atomically: true, encoding: String.Encoding.utf8)
+                try jsonString.write(toFile: filePath, atomically: true, encoding: String.Encoding.utf8)
                 completionHandler(nil)
             } catch let error as NSError {
                 completionHandler(error)
@@ -238,21 +237,30 @@ extension DataProvider {
 
     private func makeMapFromJSON(object: [String: AnyObject]) -> Map? {
 
-        let map = Map(dictionary: object as NSDictionary)
+        do {
+            let map = try Map(object: object)
 
-        // set continents from list to tiles
-        if let continents = map.continents {
-            for continent in continents {
-                if let points = continent.points {
-                    for point in points {
-                        map.grid?.tiles[point]?.continent = continent
+            // set continents from list to tiles
+            if let continents = map.continents {
+                for continent in continents {
+                    if let points = continent.points {
+                        for point in points {
+                            map.grid?.tiles[point]?.continent = continent
+                        }
                     }
                 }
             }
+            
+            // set rivers
+            
+            return map
+            
+        } catch let error as NSError {
+            //completionHandler(error)
+            print("error during parsing map: \(error)")
+            return nil
         }
         
-        // set rivers
         
-        return map
     }
 }

@@ -6,7 +6,8 @@ target 'HexagonalMapKitiOS' do
     platform :ios, '10.0'
     
     pod 'Buckets', '~> 2.0'
-    pod 'EVReflection'
+    #pod 'EVReflection'
+    pod 'JSONCodable', '~> 3.0.1'
 end
 
 target 'HexagonalMapKitOSX' do
@@ -14,7 +15,8 @@ target 'HexagonalMapKitOSX' do
     platform :osx, '10.12'
     
     pod 'Buckets', '~> 2.0'
-    pod 'EVReflection'
+    #pod 'EVReflection'
+    pod 'JSONCodable', '~> 3.0.1'
 end
 
 target 'HexagonalMapBasic' do

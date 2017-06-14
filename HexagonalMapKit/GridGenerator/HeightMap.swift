@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import JSONCodable
 
 class HeightMap: Array2D<Float> {
     
@@ -26,12 +27,8 @@ class HeightMap: Array2D<Float> {
         self.normalize()
     }
     
-    required public init() {
-        fatalError("init() has not been implemented")
-    }
-    
-    required convenience public init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    public required init(object: JSONObject) throws {
+        fatalError("init(object:) has not been implemented")
     }
     
     /**
