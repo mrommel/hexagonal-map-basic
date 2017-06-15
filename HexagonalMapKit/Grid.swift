@@ -56,7 +56,7 @@ public class Grid: JSONCodable {
         self.tiles = try decoder.decode("tiles")
         self.width = try decoder.decode("width")
         self.height = try decoder.decode("height")
-        //self.rivers = try decoder.decode("rivers")
+        self.rivers = try decoder.decode("rivers")
         
         print("decoded Grid")
     }

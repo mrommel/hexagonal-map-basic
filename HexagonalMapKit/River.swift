@@ -29,7 +29,7 @@ public class RiverPoint: JSONCodable {
         let decoder = JSONDecoder(object: object)
         
         self.point = try decoder.decode("point")
-        self.flowDirection = try decoder.decode("flowDirection")
+        self.flowDirection = FlowDirection.enumFrom(string: object["flowDirection"] as! String)
     }
 }
 
@@ -50,8 +50,6 @@ public class River: JSONCodable {
         
         self.name = try decoder.decode("name")
         self.points = try decoder.decode("points")
-        
-        print("decoded River")
     }
     
     /**
