@@ -49,6 +49,17 @@ public class TileArray: Array2D<Tile>, JSONCodable {
             }
         }
     }
+    
+    public func toJSON() throws -> Any {
+        return try JSONEncoder.create({ (encoder) -> Void in
+            try encoder.encode(self.rows, key: "rows")
+            try encoder.encode(self.columns, key: "columns")
+            
+            let arrayValues: [Tile] = self.array.map({ $0! })
+            
+            try encoder.encode(arrayValues, key: "array")
+        })
+    }
 }
 
 public class Array2D <T: Equatable> {

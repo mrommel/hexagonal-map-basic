@@ -28,7 +28,21 @@ public class Continent: Area {
         
         self.name = try decoder.decode("name")
         
-        try super.init(object: object)
+        // Area fields
+        self.identifier = try decoder.decode("identifier")
+        self.points = try decoder.decode("points")
+        self.statistics = try decoder.decode("statistics")
+    }
+    
+    public func toJSON() throws -> Any {
+        return try JSONEncoder.create({ (encoder) -> Void in
+            try encoder.encode(self.name, key: "name")
+            
+            // Area fields
+            try encoder.encode(self.identifier, key: "identifier")
+            try encoder.encode(self.points, key: "points")
+            try encoder.encode(self.statistics, key: "statistics")           
+        })
     }
 }
 

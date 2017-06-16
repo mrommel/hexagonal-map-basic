@@ -42,6 +42,8 @@ public enum Terrain: String {
             return .shore
         case "grass":
             return .grass
+        case "grassland":
+            return .grass
         case "plains":
             return .plains
         case "desert":
@@ -66,7 +68,7 @@ public enum Terrain: String {
         case .shore:
             return "shore"
         case .grass:
-            return "grassland"
+            return "grass"
         case .plains:
             return "plains"
         case .desert:
@@ -74,7 +76,7 @@ public enum Terrain: String {
         case .tundra:
             return "tundra"
         case .snow:
-            return "sSnow"
+            return "snow"
         default:
             print("no string for terrain: \(self)")
             return "---"

@@ -130,6 +130,8 @@
 		1A4D08EB1ECB4CBF004791BC /* Pods_HexagonalMapBuilder.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4C9D369B02A37856189646F7 /* Pods_HexagonalMapBuilder.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1A57CA921E5D8E0400348FDD /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A57CA911E5D8E0400348FDD /* Game.swift */; };
 		1A6603F01E6FD26E002C8FED /* Maps in Resources */ = {isa = PBXBuildFile; fileRef = 1A6603EF1E6FD26E002C8FED /* Maps */; };
+		1A697F6F1EF3DCF800F17A14 /* RiverPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A697F6E1EF3DCF800F17A14 /* RiverPoint.swift */; };
+		1A697F701EF3DCF800F17A14 /* RiverPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A697F6E1EF3DCF800F17A14 /* RiverPoint.swift */; };
 		1A7598DE1EDB6A3B00CC591C /* MapEditInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7598DD1EDB6A3B00CC591C /* MapEditInteractor.swift */; };
 		1A7598E01EDB6A7900CC591C /* MapEditPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7598DF1EDB6A7900CC591C /* MapEditPresenter.swift */; };
 		1A7598E21EDB6AB300CC591C /* MapEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A7598E11EDB6AB300CC591C /* MapEditViewModel.swift */; };
@@ -363,6 +365,7 @@
 		1A4B389C1E4C7A5600FA7457 /* HexagonalMapBasicTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HexagonalMapBasicTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A57CA911E5D8E0400348FDD /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Game.swift; path = ../HexagonalMapBasic/Game/Game.swift; sourceTree = "<group>"; };
 		1A6603EF1E6FD26E002C8FED /* Maps */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Maps; path = Resources/Maps; sourceTree = "<group>"; };
+		1A697F6E1EF3DCF800F17A14 /* RiverPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RiverPoint.swift; sourceTree = "<group>"; };
 		1A7598DD1EDB6A3B00CC591C /* MapEditInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapEditInteractor.swift; path = Modules/MapEdit/MapEditInteractor.swift; sourceTree = "<group>"; };
 		1A7598DF1EDB6A7900CC591C /* MapEditPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapEditPresenter.swift; path = Modules/MapEdit/MapEditPresenter.swift; sourceTree = "<group>"; };
 		1A7598E11EDB6AB300CC591C /* MapEditViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapEditViewModel.swift; path = Modules/MapEdit/MapEditViewModel.swift; sourceTree = "<group>"; };
@@ -552,6 +555,7 @@
 				1A14B05B1EC3427F00CFDADC /* Feature.swift */,
 				1A14B05C1EC3427F00CFDADC /* Grid.swift */,
 				1A14B05D1EC3427F00CFDADC /* River.swift */,
+				1A697F6E1EF3DCF800F17A14 /* RiverPoint.swift */,
 				1A14B05E1EC3427F00CFDADC /* GridPoint.swift */,
 				1A14B05F1EC3427F00CFDADC /* TileImprovement.swift */,
 				1A14B0601EC3427F00CFDADC /* Tile.swift */,
@@ -1565,6 +1569,7 @@
 				1A14B07B1EC3427F00CFDADC /* River.swift in Sources */,
 				1A14B07D1EC3427F00CFDADC /* TileImprovement.swift in Sources */,
 				1A32A84B1EE146B700A5DF47 /* FeatureTransitionManager.swift in Sources */,
+				1A697F6F1EF3DCF800F17A14 /* RiverPoint.swift in Sources */,
 				1A14B0811EC3427F00CFDADC /* Player.swift in Sources */,
 				1A14B0B61EC3442F00CFDADC /* ArrayExtension.swift in Sources */,
 			);
@@ -1622,6 +1627,7 @@
 				1A14B0F51EC349C800CFDADC /* Terrain.swift in Sources */,
 				1A14B0E11EC3499800CFDADC /* HeightMap.swift in Sources */,
 				1A32A84C1EE146B800A5DF47 /* FeatureTransitionManager.swift in Sources */,
+				1A697F701EF3DCF800F17A14 /* RiverPoint.swift in Sources */,
 				1A14B0F81EC349C800CFDADC /* Area.swift in Sources */,
 				1A14B0E41EC349A100CFDADC /* ArrayExtension.swift in Sources */,
 			);

@@ -49,6 +49,28 @@ public enum FlowDirection: String {
             return .none
         }
     }
+    
+    public var stringValue: String {
+        switch self {
+        case .west:
+            return "west"
+        case .east:
+            return "east"
+        case .northWest:
+            return "northWest"
+        case .southEast:
+            return "southEast"
+        case .northEast:
+            return "northEast"
+        case .southWest:
+            return "southWest"
+        case .none:
+            return "none"
+        default:
+            print("no string for FlowDirection: \(self)")
+            return "---"
+        }
+    }
 }
 
 enum FlowDirectionError: Error, Equatable {
@@ -91,12 +113,28 @@ public class Tile: Equatable, JSONCodable {
         self.features = try decoder.decode("features")
         //self.discovered = try decoder.decode("discovered")
         self.road = try decoder.decode("road")
-        self.continent = try decoder.decode("continent")
+        //self.continent = try decoder.decode("continent")
         
         self.river = try decoder.decode("river")
         self.riverFlowNorth = FlowDirection.enumFrom(string: object["riverFlowNorth"] as! String)
         self.riverFlowNorthEast = FlowDirection.enumFrom(string: object["riverFlowNorthEast"] as! String)
         self.riverFlowSouthEast = FlowDirection.enumFrom(string: object["riverFlowSouthEast"] as! String)
+    }
+    
+    public func toJSON() throws -> Any {
+        return try JSONEncoder.create({ (encoder) -> Void in
+            try encoder.encode(self.point, key: "point")
+            try encoder.encode(self.terrain.stringValue, key: "terrain")
+            try encoder.encode(self.features, key: "features")
+            
+            try encoder.encode(self.road, key: "road")
+            //try encoder.encode(self.continent?.identifier, key: "continent")
+            
+            try encoder.encode(self.river, key: "river")
+            try encoder.encode(self.riverFlowNorth.stringValue, key: "riverFlowNorth")
+            try encoder.encode(self.riverFlowNorthEast.stringValue, key: "riverFlowNorthEast")
+            try encoder.encode(self.riverFlowSouthEast.stringValue, key: "riverFlowSouthEast")
+        })
     }
     
     public var possibleImprovements: [TileImprovementType] {

@@ -14,25 +14,6 @@ import JSONCodable
 // taken from here: https://en.wikipedia.org/wiki/List_of_rivers_by_length
 let riverNames = ["Amazon", "Nile", "Yangtze", "Mississippi", "Yenisei", "Huang He", "Ob", "Río de la Plata", "Congo", "Amur", "Lena", "Mekong", "Mackenzie", "Niger", "Murray", "Tocantins", "Volga", "Euphrates", "Madeira", "Purús", "Yukon", "Indus", "São Francisco", "Syr Darya", "Salween", "Saint Lawrence", "Rio Grande", "Lower Tunguska", "Brahmaputra", "Donau"]
 
-public class RiverPoint: JSONCodable {
-    
-    public var point: GridPoint
-    public var flowDirection: FlowDirection
-    
-    public init(with point: GridPoint, and flowDirection: FlowDirection) {
-        
-        self.point = point
-        self.flowDirection = flowDirection
-    }
-    
-    public required init(object: JSONObject) throws {
-        let decoder = JSONDecoder(object: object)
-        
-        self.point = try decoder.decode("point")
-        self.flowDirection = FlowDirection.enumFrom(string: object["flowDirection"] as! String)
-    }
-}
-
 public class River: JSONCodable {
     
     public var name: String = ""
@@ -64,7 +45,6 @@ public class River: JSONCodable {
             
             prev = point
         }
-        
     }
     
     public func riverPoint(from: GridPointWithCorner, to: GridPointWithCorner) -> RiverPoint {

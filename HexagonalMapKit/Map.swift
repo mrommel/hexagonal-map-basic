@@ -81,8 +81,20 @@ public class Map: JSONCodable {
         self.grid = try decoder.decode("grid")
         /*self.cities = try decoder.decode("cities")
         self.units = try decoder.decode("units")
-        self.improvements = try decoder.decode("improvements")
-        self.continents = try decoder.decode("continents")*/
+        self.improvements = try decoder.decode("improvements")*/
+        self.continents = try decoder.decode("continents")
+    }
+    
+    public func toJSON() throws -> Any {
+        return try JSONEncoder.create({ (encoder) -> Void in
+            try encoder.encode(self.id, key: "id")
+            try encoder.encode(self.title, key: "title")
+            try encoder.encode(self.teaser, key: "teaser")
+
+            try encoder.encode(self.grid, key: "grid")
+            
+            try encoder.encode(self.continents, key: "continents")
+        })
     }
     
     public var width: Int {
