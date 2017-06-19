@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12120"/>
-        <plugIn identifier="com.apple.SceneKitIBPlugin" version="12120"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12121"/>
+        <plugIn identifier="com.apple.SceneKitIBPlugin" version="12121"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
         <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
     </dependencies>
@@ -311,14 +311,20 @@
                                     </items>
                                 </menu>
                             </menuItem>
-                            <menuItem title="Generate" id="OUJ-40-Tae" userLabel="Generate">
+                            <menuItem title="Map" id="OUJ-40-Tae" userLabel="Generate">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Generate" id="ewG-bt-cUA">
+                                <menu key="submenu" title="Map" id="ewG-bt-cUA">
                                     <items>
-                                        <menuItem title="Random" id="gBe-J8-o0u">
+                                        <menuItem title="Generate" id="gBe-J8-o0u">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="generateRandomMapSelected:" target="Ady-hI-5gd" id="pPQ-Ge-1AW"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Rebuild" id="oQM-rY-7AB" userLabel="Rebuild Continents">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="refreshContinentsSelected:" target="Ady-hI-5gd" id="RSL-60-pHt"/>
                                             </connections>
                                         </menuItem>
                                     </items>

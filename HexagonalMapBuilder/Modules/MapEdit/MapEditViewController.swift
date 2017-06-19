@@ -164,4 +164,9 @@ extension MapEditViewController {
         
         self.map = tmp*/
     }
+    
+    @IBAction func refreshContinentsSelected(_ sender: Any) {
+        print("refresh")
+        //self.interactor?.
+    }
 }

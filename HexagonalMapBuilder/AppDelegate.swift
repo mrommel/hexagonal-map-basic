@@ -40,7 +40,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         self.saveMapMenuItem.isEnabled = enabled
     }
 
-    /// MARK_ generate menu
+    /// MARK: generate menu
     
     func enable(generateRandomMenu enabled: Bool) {
         self.generateRandomMapMenuItem.isEnabled = enabled

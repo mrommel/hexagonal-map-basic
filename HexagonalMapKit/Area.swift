@@ -119,7 +119,7 @@ public class AreaIterator: IteratorProtocol {
  
     can be constructed out of a list of points or a rectangle (`AreaBoundary`)
  */
-public class Area: Sequence, JSONCodable {
+public class Area: Sequence {
     
     public var identifier: Int = -1
     public var points: [GridPoint]? = []
@@ -139,7 +139,7 @@ public class Area: Sequence, JSONCodable {
         let area = Area(withIdentifier: 2, andBoundaries: boundary, on: map)
         ```
      */
-    public init(withIdentifier identifier: Int, andBoundaries boundary: AreaBoundary, on map: Map) {
+    public init(withIdentifier identifier: Int, andBoundaries boundary: AreaBoundary, on map: Map?) {
         
         self.identifier = identifier
         self.points = boundary.allPoints()
@@ -159,20 +159,12 @@ public class Area: Sequence, JSONCodable {
         let area = Area(withIdentifier: 2, andBoundaries: [GridPoint(x: 1, y: 2)], on: map)
         ```
      */
-    public init(withIdentifier identifier: Int, andPoints points: [GridPoint]?, on map: Map) {
+    public init(withIdentifier identifier: Int, andPoints points: [GridPoint]?, on map: Map?) {
         
         self.identifier = identifier
         self.points = points
         self.map = map
         self.statistics = AreaStatistics()
-    }
-    
-    required public init(object: JSONObject) throws {
-        let decoder = JSONDecoder(object: object)
-        
-        self.identifier = try decoder.decode("identifier")
-        self.points = try decoder.decode("points")
-        self.statistics = try decoder.decode("statistics")
     }
     
     /**

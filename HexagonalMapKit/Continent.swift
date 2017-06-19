@@ -9,16 +9,16 @@
 import Foundation
 import JSONCodable
 
-public class Continent: Area {
+public class Continent: Area, JSONCodable {
     
     public var name: String
     
-    public init(withIdentifier identifier: Int, andName name: String, andBoundaries boundary: AreaBoundary, on map: Map) {
+    public init(withIdentifier identifier: Int, andName name: String, andBoundaries boundary: AreaBoundary, on map: Map?) {
         self.name = name
         super.init(withIdentifier: identifier, andBoundaries: boundary, on: map)
     }
     
-    public init(withIdentifier identifier: Int, andName name: String, andPoints points: [GridPoint]?, on map: Map) {
+    public init(withIdentifier identifier: Int, andName name: String, andPoints points: [GridPoint]?, on map: Map?) {
         self.name = name
         super.init(withIdentifier: identifier, andPoints: points, on: map)
     }
@@ -29,9 +29,9 @@ public class Continent: Area {
         self.name = try decoder.decode("name")
         
         // Area fields
-        self.identifier = try decoder.decode("identifier")
-        self.points = try decoder.decode("points")
-        self.statistics = try decoder.decode("statistics")
+        let id: Int = try decoder.decode("identifier")
+        let pts: [GridPoint] = try decoder.decode("points")
+        super.init(withIdentifier: id, andPoints: pts, on: nil)
     }
     
     public func toJSON() throws -> Any {
@@ -41,7 +41,7 @@ public class Continent: Area {
             // Area fields
             try encoder.encode(self.identifier, key: "identifier")
             try encoder.encode(self.points, key: "points")
-            try encoder.encode(self.statistics, key: "statistics")           
+            print("endode continent: \(self.name)")
         })
     }
 }

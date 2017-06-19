@@ -9,6 +9,17 @@
 import Foundation
 import JSONCodable
 
+extension JSONTransformers {
+    
+    /*static let JSONObjectType = JSONTransformer<JSONObject, JSONObject>(
+        decoding: { $0 },
+        encoding: { $0 })*/
+    
+    static let continentArray = JSONTransformer<[Continent], [Continent]>(
+        decoding: { $0 },
+        encoding: { $0 })
+}
+
 /**
     Map class that contains the actual grid, a list of cities, units and improvements
  
@@ -90,10 +101,19 @@ public class Map: JSONCodable {
             try encoder.encode(self.id, key: "id")
             try encoder.encode(self.title, key: "title")
             try encoder.encode(self.teaser, key: "teaser")
+            try encoder.encode(self.text, key: "text")
 
             try encoder.encode(self.grid, key: "grid")
+            /*self.cities = try decoder.decode("cities")
+             self.units = try decoder.decode("units")
+             self.improvements = try decoder.decode("improvements")*/
             
-            try encoder.encode(self.continents, key: "continents")
+            if let continents = self.continents {
+                try encoder.encode(continents, key: "continents")
+            } else {
+                let emptyContinents = [Continent]()
+                try encoder.encode(emptyContinents, key: "continents")
+            }
         })
     }
     
